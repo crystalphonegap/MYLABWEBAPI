@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace CustomerPortalWebApi.Interface
+{
+    public interface ILogger
+    {
+        void Log(Exception exception);
+        void LogToDB(string log);
+    }
+}
