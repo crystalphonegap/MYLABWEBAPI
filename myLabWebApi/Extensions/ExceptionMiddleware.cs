@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using CustomerPortalWebApi.Interface;
-using CustomerPortalWebApi.Models;
+using myLabWebApi.Interface;
+using myLabWebApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 //using Microsoft.Extensions.Logging;
 using NLog;
 
-namespace CustomerPortalWebApi.Extensions
+namespace myLabWebApi.Extensions
 {
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class ExceptionMiddleware

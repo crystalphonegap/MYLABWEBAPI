@@ -1,10 +1,10 @@
 using System;
 using System.Text;
-using CustomerPortalWebApi.Context;
-using CustomerPortalWebApi.Interface;
-using CustomerPortalWebApi.Helper;
-using CustomerPortalWebApi.Security;
-using CustomerPortalWebApi.Services;
+using myLabWebApi.Context;
+using myLabWebApi.Interface;
+using myLabWebApi.Helper;
+using myLabWebApi.Security;
+using myLabWebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -42,28 +42,28 @@ namespace myLabWebApi
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;
             });
-            JwtSettings settings = GetJwtSettings();
-            services.AddSingleton<JwtSettings>(settings);
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = "JwtBearer";
-                options.DefaultChallengeScheme = "JwtBearer";
+            //JwtSettings settings = GetJwtSettings();
+            //services.AddSingleton<JwtSettings>(settings);
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = "JwtBearer";
+            //    options.DefaultChallengeScheme = "JwtBearer";
 
-            }).AddJwtBearer("JwtBearer", jwtOptions =>
-            {
-                jwtOptions.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.Key)),
-                    ValidateIssuer = true,
-                    ValidIssuer = settings.Issuer,
-                    ValidateAudience = true,
-                    ValidAudience = settings.Audience,
-                    ValidateLifetime = true,
-                    ClockSkew = TimeSpan.FromMinutes(settings.MinToExpiration)
-                };
+            //}).AddJwtBearer("JwtBearer", jwtOptions =>
+            //{
+            //    jwtOptions.TokenValidationParameters = new TokenValidationParameters()
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.Key)),
+            //        ValidateIssuer = true,
+            //        ValidIssuer = settings.Issuer,
+            //        ValidateAudience = true,
+            //        ValidAudience = settings.Audience,
+            //        ValidateLifetime = true,
+            //        ClockSkew = TimeSpan.FromMinutes(settings.MinToExpiration)
+            //    };
 
-            });
+            //});
 
 
             services.AddControllers();
@@ -88,7 +88,7 @@ namespace myLabWebApi
              {
                  options.UseMemberCasing();
              });
-            services.AddScoped<IUserMasterService, UserMasterService>();
+            //services.AddScoped<IUserMasterService, UserMasterService>();
            
 
         }

@@ -8,15 +8,15 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using ClosedXML.Excel;
-using CustomerPortalWebApi.Entities;
-using CustomerPortalWebApi.Interface;
-using CustomerPortalWebApi.Models;
-using CustomerPortalWebApi.Security;
+using myLabWebApi.Entities;
+using myLabWebApi.Interface;
+using myLabWebApi.Models;
+using  myLabWebApi.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CustomerPortalWebApi.Controllers
+namespace  myLabWebApi.Controllers
 {
     [Authorize]
     [Route("[controller]")]

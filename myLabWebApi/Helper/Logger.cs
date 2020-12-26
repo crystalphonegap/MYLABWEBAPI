@@ -1,4 +1,4 @@
-﻿using CustomerPortalWebApi.Interface;
+﻿using myLabWebApi.Interface;
 using Dapper;
 using System;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 
 using Microsoft.Extensions.Configuration;
-namespace CustomerPortalWebApi.Helper
+namespace myLabWebApi.Helper
 {
     public class Logger : ILogger
     {

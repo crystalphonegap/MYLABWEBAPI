@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace myLabWebApi.Models.DB
+{
+    public partial class Docdet
+    {
+        public int DocdetLHeaderId { get; set; }
+        public int DocdetLFieldNo { get; set; }
+        public string DocdetTFieldValue { get; set; }
+        public int? DocdetLTestCatId { get; set; }
+        public string DocdetTFieldValue1 { get; set; }
+        public bool? IsResRec { get; set; }
+        public bool? Rerun { get; set; }
+    }
+}

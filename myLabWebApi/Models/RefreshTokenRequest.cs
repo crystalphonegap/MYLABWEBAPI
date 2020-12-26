@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CustomerPortalWebApi.Models
+namespace  myLabWebApi.Models
 {
     public class RefreshTokenRequest
     {

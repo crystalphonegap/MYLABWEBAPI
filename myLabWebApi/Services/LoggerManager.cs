@@ -1,7 +1,7 @@
 ﻿using NLog;
-using CustomerPortalWebApi.Interface;
+using  myLabWebApi.Interface;
 
-namespace CustomerPortalWebApi.Services
+namespace  myLabWebApi.Services
 {
     public class LoggerManager : ILoggerManager
     {

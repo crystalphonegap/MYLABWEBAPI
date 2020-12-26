@@ -1,4 +1,4 @@
-﻿using CustomerPortalWebApi.Interface;
+﻿using myLabWebApi.Interface;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CustomerPortalWebApi.Helper
+namespace myLabWebApi.Helper
 {
     public class CustomerPortalHelper : ICustomerPortalHelper
     {

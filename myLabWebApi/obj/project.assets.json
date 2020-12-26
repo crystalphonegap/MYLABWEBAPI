@@ -8342,11 +8342,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASPIRE\\source\\repos\\myLabWebApi\\myLabWebApi\\myLabWebApi.csproj",
+      "projectUniqueName": "E:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "projectName": "myLabWebApi",
-      "projectPath": "C:\\Users\\ASPIRE\\source\\repos\\myLabWebApi\\myLabWebApi\\myLabWebApi.csproj",
+      "projectPath": "E:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "packagesPath": "C:\\Users\\ASPIRE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASPIRE\\source\\repos\\myLabWebApi\\myLabWebApi\\obj\\",
+      "outputPath": "E:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

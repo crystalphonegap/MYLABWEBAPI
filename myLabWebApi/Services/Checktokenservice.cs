@@ -1,5 +1,5 @@
-﻿using CustomerPortalWebApi.Interface;
-using CustomerPortalWebApi.Security;
+﻿using  myLabWebApi.Interface;
+using  myLabWebApi.Security;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerPortalWebApi.Services
+namespace  myLabWebApi.Services
 {
     public class Checktokenservice : IChecktokenservice
     {

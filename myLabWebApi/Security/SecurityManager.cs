@@ -1,6 +1,6 @@
-﻿using CustomerPortalWebApi.Entities;
-using CustomerPortalWebApi.Interface;
-using CustomerPortalWebApi.Models;
+﻿using  myLabWebApi.Entities;
+using  myLabWebApi.Interface;
+using  myLabWebApi.Models;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerPortalWebApi.Security
+namespace  myLabWebApi.Security
 {
     public class SecurityManager
     {
@@ -28,39 +28,39 @@ namespace CustomerPortalWebApi.Security
             UserAuthenticationObject obj = new UserAuthenticationObject();
 
             var UserDetails = _userMasterService.Login(UserCode, Password);
-            obj = BuildUserAuthObject(UserDetails);
+            //obj = BuildUserAuthObject(UserDetails);
 
             return obj;
         }
 
-        private UserAuthenticationObject BuildUserAuthObject(UserMaster userMaster)
-        {
-            UserAuthenticationObject obj = new UserAuthenticationObject();
-            if (userMaster != null && userMaster.UserCodetxt != null && userMaster.UserCodetxt != "")
-            {
-                obj.IDbint = userMaster.Idbint;
-                obj.UserCodetxt = userMaster.UserCodetxt;
-                obj.UserTypetxt = userMaster.UserTypetxt;
-                obj.Divisionvtxt = userMaster.Divisionvtxt;
-                obj.UserNametxt = userMaster.UserNametxt;
-                obj.IsAuthenticated = true;
-                obj.BearerToken = BuildJwtToken(obj);
-                obj.Flag = userMaster.Flag;
-            }
-            else
-            {
-                obj.IDbint = userMaster.Idbint;
-                obj.UserCodetxt = userMaster.UserCodetxt;
-                obj.UserTypetxt = userMaster.UserTypetxt;
-                obj.Divisionvtxt = userMaster.Divisionvtxt;
-                obj.UserNametxt = userMaster.UserNametxt;
-                obj.IsAuthenticated = true;
-                obj.BearerToken = "";//BuildJwtToken(obj);
-                obj.Flag = userMaster.Flag;
-            }
+        //private UserAuthenticationObject BuildUserAuthObject(UserMaster userMaster)
+        //{
+        //    UserAuthenticationObject obj = new UserAuthenticationObject();
+        //    if (userMaster != null && userMaster.UserCodetxt != null && userMaster.UserCodetxt != "")
+        //    {
+        //        obj.IDbint = userMaster.Idbint;
+        //        obj.UserCodetxt = userMaster.UserCodetxt;
+        //        obj.UserTypetxt = userMaster.UserTypetxt;
+        //        obj.Divisionvtxt = userMaster.Divisionvtxt;
+        //        obj.UserNametxt = userMaster.UserNametxt;
+        //        obj.IsAuthenticated = true;
+        //        obj.BearerToken = BuildJwtToken(obj);
+        //        obj.Flag = userMaster.Flag;
+        //    }
+        //    else
+        //    {
+        //        obj.IDbint = userMaster.Idbint;
+        //        obj.UserCodetxt = userMaster.UserCodetxt;
+        //        obj.UserTypetxt = userMaster.UserTypetxt;
+        //        obj.Divisionvtxt = userMaster.Divisionvtxt;
+        //        obj.UserNametxt = userMaster.UserNametxt;
+        //        obj.IsAuthenticated = true;
+        //        obj.BearerToken = "";//BuildJwtToken(obj);
+        //        obj.Flag = userMaster.Flag;
+        //    }
 
-            return obj;
-        }
+        //    return obj;
+        //}
 
 
         private String BuildJwtToken(UserAuthenticationObject authObj)

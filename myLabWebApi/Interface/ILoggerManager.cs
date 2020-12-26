@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CustomerPortalWebApi.Interface
+namespace  myLabWebApi.Interface
 {
    public interface ILoggerManager
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace CustomerPortalWebApi.Models
+namespace  myLabWebApi.Models
 {
     public class ErrorDetailsModel
     {

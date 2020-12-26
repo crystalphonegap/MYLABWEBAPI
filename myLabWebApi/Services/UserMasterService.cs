@@ -1,6 +1,5 @@
-﻿using CustomerPortalWebApi.Entities;
-using CustomerPortalWebApi.Interface;
-using CustomerPortalWebApi.Models;
+﻿using  myLabWebApi.Interface;
+using  myLabWebApi.Models;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 
-namespace CustomerPortalWebApi.Services
+namespace  myLabWebApi.Services
 {
     public class UserMasterService : IUserMasterService
     {
