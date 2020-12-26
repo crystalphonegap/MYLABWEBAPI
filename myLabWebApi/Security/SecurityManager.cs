@@ -77,7 +77,7 @@ namespace  myLabWebApi.Security
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 
             var jwt = new JwtSecurityToken(issuer: "http://localhost:44335",
-                audience: "CustomerPortalUsers",
+                audience: "MyLabUsers",
                 claims: jwtClaim, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //... 
                 notBefore: DateTime.UtcNow,
                 expires: DateTime.UtcNow.AddMinutes(15),

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace  myLabWebApi.Interface
 {
-   public interface ICustomerPortalHelper : IDisposable
+   public interface IMyLabHelper : IDisposable
     {
         DbConnection GetConnection();
         T Get<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure);

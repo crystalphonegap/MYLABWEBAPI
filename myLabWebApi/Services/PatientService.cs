@@ -15,7 +15,7 @@ namespace myLabWebApi.Services
     public class PatientService :IPatientService
     {
         private readonly IConfiguration _config;
-        private readonly ICustomerPortalHelper _customerPortalHelper;
+        private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
 
 
@@ -70,7 +70,7 @@ namespace myLabWebApi.Services
             dbPara.Add("Result", Patient.Result, DbType.String);
 
             #region using dapper  
-            var data = _customerPortalHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;

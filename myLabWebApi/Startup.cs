@@ -88,8 +88,11 @@ namespace myLabWebApi
              {
                  options.UseMemberCasing();
              });
-            //services.AddScoped<IUserMasterService, UserMasterService>();
-           
+            services.AddScoped<IMyLabHelper, MyLabHelper>();
+            services.AddScoped<ILogger, Logger>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IPatientService, PatientService>();
+
 
         }
 
@@ -173,11 +176,6 @@ namespace myLabWebApi
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
-                RequestPath = new PathString("/Uploads")
-            });
 
 
             app.UseRouting();
@@ -193,16 +191,11 @@ namespace myLabWebApi
 
             app.UseAuthorization();
 
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
-                RequestPath = new PathString("/Uploads")
-            });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapFallbackToController("Index", "Fallback");
+                //endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
 

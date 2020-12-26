@@ -10,11 +10,11 @@ namespace myLabWebApi.Helper
 {
     public class Logger : ILogger
     {
-        private readonly ICustomerPortalHelper _customerPortalHelper;
+        private readonly IMyLabHelper _MyLabHelper;
         public IConfiguration Configuration { get; }
-        public Logger(ICustomerPortalHelper customerPortalHelper , IConfiguration configuration)
+        public Logger(IMyLabHelper MyLabHelper , IConfiguration configuration)
         {
-            _customerPortalHelper = customerPortalHelper;
+            _MyLabHelper = MyLabHelper;
 
             Configuration = configuration;
         }
@@ -49,7 +49,7 @@ namespace myLabWebApi.Helper
             var dbPara = new DynamicParameters();
             dbPara.Add("ExceptionMessage", log, DbType.String);
             #region using dapper  
-            var data = _customerPortalHelper.Insert<int>("[dbo].[spInsertLog]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[spInsertLog]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
            

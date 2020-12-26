@@ -17,13 +17,13 @@ namespace  myLabWebApi.Services
 
 
         private readonly IConfiguration _config;
-        private readonly ICustomerPortalHelper _customerPortalHelper;
+        private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
-        public UserMasterService(ICustomerPortalHelper customerPortalHelper, ILogger ILoggerservice, IConfiguration config)
+        public UserMasterService(IMyLabHelper MyLabHelper, ILogger ILoggerservice, IConfiguration config)
         {
             _config = config;
             _ILogger = ILoggerservice;
-            _customerPortalHelper = customerPortalHelper;
+            _MyLabHelper = MyLabHelper;
         }
 
         public List<ErrorModel> GetError(string fromdate, string todate, int pageNo, int pageSize, string KeyWord, string Type)
@@ -44,7 +44,7 @@ namespace  myLabWebApi.Services
                 dbPara.Add("KeyWord", KeyWord, DbType.String);
             }
             dbPara.Add("Type", Type, DbType.String);
-            var data = _customerPortalHelper.GetAll<ErrorModel>("[dbo].[uspviewError]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<ErrorModel>("[dbo].[uspviewError]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
@@ -66,7 +66,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("ModifyDatedatetime", DateTime.Now, DbType.DateTime);
 
             #region using dapper  
-            var data = _customerPortalHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -77,7 +77,7 @@ namespace  myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("IDbint", id, DbType.Int64);
-            var data = _customerPortalHelper.Execute("[dbo].[uspDeleteUserMaster]", dbPara,
+            var data = _MyLabHelper.Execute("[dbo].[uspDeleteUserMaster]", dbPara,
                    commandType: CommandType.StoredProcedure);
             return data;
         }
@@ -87,7 +87,7 @@ namespace  myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("IDbint", id, DbType.Int64);
             #region using dapper  
-            var data = _customerPortalHelper.Get<UserMasterModel>("[dbo].[uspviewUserMasterById]", dbPara,
+            var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewUserMasterById]", dbPara,
                     commandType: CommandType.StoredProcedure);
             UserMasterModel users = data;
 
@@ -129,7 +129,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("ModifyDatedatetime", DateTime.Now, DbType.DateTime);
 
 
-            var data = _customerPortalHelper.Update<string>("[dbo].[uspUpdateUserMaster]",
+            var data = _MyLabHelper.Update<string>("[dbo].[uspUpdateUserMaster]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -142,7 +142,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("Passwordvtxt", UserMaster.Passwordvtxt, DbType.String);
             dbPara.Add("NewPassword", UserMaster.NewPassword, DbType.String);
 
-            var data = _customerPortalHelper.Update<string>("[dbo].[uspUpdateUserPassword]",
+            var data = _MyLabHelper.Update<string>("[dbo].[uspUpdateUserPassword]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -156,7 +156,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("UserNametxt", UserMaster.UserNametxt, DbType.String);
             dbPara.Add("Mobilevtxt", UserMaster.Mobilevtxt, DbType.String);
 
-            var data = _customerPortalHelper.Update<string>("[dbo].[uspUpdateUserProfile]",
+            var data = _MyLabHelper.Update<string>("[dbo].[uspUpdateUserProfile]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -168,7 +168,7 @@ namespace  myLabWebApi.Services
                 var dbPara = new DynamicParameters();
                 dbPara.Add("usercode", usercode, DbType.String);
                 dbPara.Add("password", password, DbType.String);
-                var data = _customerPortalHelper.Get<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
+                var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
                 return data;
            
            
@@ -183,7 +183,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("UserType", UserType, DbType.String);
             dbPara.Add("BrowserName", BrowserName, DbType.String);
             dbPara.Add("IpAddress", IpAddress, DbType.String);
-            var data = _customerPortalHelper.Get<UserMasterModel>("[dbo].[uspInsertLoginLogs]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspInsertLoginLogs]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
 
 
@@ -195,7 +195,7 @@ namespace  myLabWebApi.Services
             var dbPara = new DynamicParameters();
             DateTime tempDelDate = DateTime.ParseExact(DelDate, "dd-MM-yyyy", null);
             dbPara.Add("DeleteDate", Convert.ToDateTime(tempDelDate).ToString("yyyy-MM-dd"), DbType.String);
-            var data = _customerPortalHelper.GetAll<Count>("[dbo].[uspDeleteErrorLog]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<Count>("[dbo].[uspDeleteErrorLog]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0].ListCount;
         }
 
@@ -206,7 +206,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("Tokentxt", reftoken, DbType.String);
             dbPara.Add("ExpiryDatedatetime", DateTime.Now.AddDays(1), DbType.DateTime);
             #region using dapper  
-            var data = _customerPortalHelper.Insert<int>("[dbo].[uspInsertRefreshToken]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertRefreshToken]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -218,7 +218,7 @@ namespace  myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("usercode", usercode, DbType.String);
             dbPara.Add("Tokentxt", reftoken, DbType.String);
-            var data = _customerPortalHelper.GetAll<RefreshToken>("[dbo].[uspviewgettokenbyUsercode]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<RefreshToken>("[dbo].[uspviewgettokenbyUsercode]", dbPara, commandType: CommandType.StoredProcedure);
             return Convert.ToString(data[0].Tokentxt);
         }
 
@@ -227,7 +227,7 @@ namespace  myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("usercode", usercode, DbType.String);
             dbPara.Add("token", token, DbType.String);
-            var data = _customerPortalHelper.Insert<int>("[dbo].[uspdeletetokenbyUsercode]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[uspdeletetokenbyUsercode]",
                            dbPara,
                            commandType: CommandType.StoredProcedure);
             return data;
@@ -418,7 +418,7 @@ namespace  myLabWebApi.Services
             dbPara.Add("NewPassword", UserMaster.NewPassword, DbType.String);
             dbPara.Add("ResetToken", UserMaster.ResetTokenvtxt, DbType.String);
 
-            var data = _customerPortalHelper.Update<string>("[dbo].[uspResetUserPassword]",
+            var data = _MyLabHelper.Update<string>("[dbo].[uspResetUserPassword]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -473,5 +473,7 @@ namespace  myLabWebApi.Services
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace myLabWebApi.Helper
 {
-    public class CustomerPortalHelper : ICustomerPortalHelper
+    public class MyLabHelper : IMyLabHelper
     {
         private readonly IConfiguration _config;
-        public CustomerPortalHelper(IConfiguration config)
+        public MyLabHelper(IConfiguration config)
         {
             _config = config;
         }
