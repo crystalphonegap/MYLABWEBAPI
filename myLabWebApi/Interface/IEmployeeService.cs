@@ -11,5 +11,7 @@ namespace myLabWebApi.Interface
         List<EmployeeModel> GetAllEmployeeDetails();
 
         List<DoctorModel> GetAllDoctorDetails();
+
+        long InsertUpdateDoctor(DoctorModel orderHeaderdetails);
     }
 }
