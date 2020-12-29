@@ -8336,19 +8336,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\ASPIRE\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MY_LAB_PROJECT\\New folder\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "projectUniqueName": "E:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "projectName": "myLabWebApi",
-      "projectPath": "D:\\MY_LAB_PROJECT\\New folder\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\MY_LAB_PROJECT\\New folder\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+      "projectPath": "E:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "packagesPath": "C:\\Users\\ASPIRE\\.nuget\\packages\\",
+      "outputPath": "E:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASPIRE\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8360,6 +8364,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -8371,6 +8376,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "ClosedXML": {
             "target": "Package",
@@ -8469,7 +8475,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
