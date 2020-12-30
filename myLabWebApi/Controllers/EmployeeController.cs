@@ -55,5 +55,33 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("InsertDoctor")]
+        public IActionResult InsertDoctor(DoctorModel doctormodels)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.InsertUpdateDoctor(doctormodels));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut("UpdateDoctor")]
+        public IActionResult UpdateDoctor(DoctorModel doctormodels)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.InsertUpdateDoctor(doctormodels));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
     }
 }

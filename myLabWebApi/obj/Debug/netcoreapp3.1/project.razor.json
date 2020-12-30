@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "FilePath": "e:\\AHMED\\MYLAB Project\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+=======
+  "FilePath": "d:\\MY_LAB_PROJECT\\New folder\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+>>>>>>> 7f2eb3c0f74ab5ba730c1f749288a7ae861ac3e1
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
