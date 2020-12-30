@@ -83,5 +83,35 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+
+        [HttpGet("GetDoctorSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetDoctorSearch(PageNo,PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetDoctorSearchCount/{KeyWord}")]
+        public IActionResult GetDoctorSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetDoctorSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
     }
 }

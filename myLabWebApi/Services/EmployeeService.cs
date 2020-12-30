@@ -39,14 +39,48 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
+        public List<DoctorModel> GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetDoctorSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", 0, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+        }
+
         public long InsertUpdateDoctor(DoctorModel orderHeaderdetails)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("RefNovtxt", orderHeaderdetails.DOCTOR_id, DbType.String);
+            dbPara.Add("DOCTOR_id", orderHeaderdetails.DOCTOR_id, DbType.Int16);
             dbPara.Add("DOCTOR_Name", orderHeaderdetails.DOCTOR_Name, DbType.String);
             dbPara.Add("DOCTOR_Address1", orderHeaderdetails.DOCTOR_Address1, DbType.String);
             dbPara.Add("DOCTOR_Address2", orderHeaderdetails.DOCTOR_Address2, DbType.String);
-            dbPara.Add("DOCTOR_City", orderHeaderdetails.DOCTOR_City, DbType.Int64);
+            dbPara.Add("DOCTOR_City", orderHeaderdetails.DOCTOR_City, DbType.String);
             dbPara.Add("DOCTOR_State", orderHeaderdetails.DOCTOR_State, DbType.String);
             dbPara.Add("DOCTOR_Region", orderHeaderdetails.DOCTOR_Region, DbType.String);
             dbPara.Add("DOCTOR_Country", orderHeaderdetails.DOCTOR_Country, DbType.String);
@@ -66,7 +100,15 @@ namespace myLabWebApi.Services
             dbPara.Add("OFFICE_url", orderHeaderdetails.OFFICE_url, DbType.String);
             dbPara.Add("DOCTOR_Commission", orderHeaderdetails.DOCTOR_Commission, DbType.Decimal);
             dbPara.Add("DOCTOR_Companyid", orderHeaderdetails.DOCTOR_Companyid, DbType.Int16);
-            dbPara.Add("DOCTOR_Permanent", orderHeaderdetails.DOCTOR_Permanent, DbType.String);
+            //dbPara.Add("DOCTOR_Permanent", orderHeaderdetails.DOCTOR_Permanent, DbType.String);
+            if (orderHeaderdetails.DOCTOR_Permanent == "true")
+            {
+                dbPara.Add("DOCTOR_Permanent", "Y", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("DOCTOR_Permanent", "N", DbType.String);
+            }
             dbPara.Add("DOCTOR_XCommission", orderHeaderdetails.DOCTOR_XCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_SCommission", orderHeaderdetails.DOCTOR_SCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_RCommission", orderHeaderdetails.DOCTOR_RCommission, DbType.Decimal);
@@ -81,7 +123,8 @@ namespace myLabWebApi.Services
             dbPara.Add("DOCTOR_UserName", orderHeaderdetails.DOCTOR_UserName, DbType.String);
             dbPara.Add("DOCTOR_Password", orderHeaderdetails.DOCTOR_Password, DbType.String);
             dbPara.Add("Password", orderHeaderdetails.Password, DbType.String);
-            dbPara.Add("DOB", orderHeaderdetails.DOB, DbType.DateTime);
+            //DateTime dobdt = DateTime.ParseExact(orderHeaderdetails.DOB.ToString(), "dd-MM-yyyy", null);
+            //dbPara.Add("DOB", Convert.ToDateTime(dobdt).ToString("yyyy-MM-dd"), DbType.String);
             dbPara.Add("doctor_Code", orderHeaderdetails.doctor_Code, DbType.String);
             #region using dapper  
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
