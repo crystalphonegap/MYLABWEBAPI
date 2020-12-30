@@ -13,5 +13,9 @@ namespace myLabWebApi.Interface
         List<DoctorModel> GetAllDoctorDetails();
 
         long InsertUpdateDoctor(DoctorModel orderHeaderdetails);
+
+        List<DoctorModel> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
+
+        long GetDoctorSearchCount(string KeyWord);
     }
 }
