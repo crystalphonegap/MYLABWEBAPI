@@ -59,7 +59,7 @@ namespace myLabWebApi.Services
         public long GetDoctorSearchCount(string KeyWord)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", 0, DbType.Int32);
+            dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
             if (KeyWord == "NoSearch")
             {
