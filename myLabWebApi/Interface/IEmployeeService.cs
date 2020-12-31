@@ -27,5 +27,11 @@ namespace myLabWebApi.Interface
         List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetCollectionCenterSearchCount(string KeyWord);
+
+        CollectionCenterModel GetCollectionCenterById(int Id);
+
+        long DeleteCollectionCenterById(int Id);
+
+        long InsertUpdateEmployee(EmployeeModel empmodel);
     }
 }

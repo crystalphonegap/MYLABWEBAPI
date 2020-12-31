@@ -214,5 +214,59 @@ namespace myLabWebApi.Services
             return data.ToList().Count;
         }
 
+        public CollectionCenterModel GetCollectionCenterById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Select", DbType.String);
+            var data = _MyLabHelper.GetAll<CollectionCenterModel>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0];
+        }
+
+
+        public long DeleteCollectionCenterById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Delete", DbType.String);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+
+        public long InsertUpdateEmployee(EmployeeModel empmodel)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
+            dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
+            dbPara.Add("EMPLOYEE_Address1", empmodel.EMPLOYEE_Address1, DbType.String);
+            dbPara.Add("EMPLOYEE_Address2", empmodel.EMPLOYEE_Address2, DbType.String);
+            dbPara.Add("EMPLOYEE_City", empmodel.EMPLOYEE_City, DbType.String);
+            dbPara.Add("EMPLOYEE_State", empmodel.EMPLOYEE_State, DbType.String);
+            dbPara.Add("EMPLOYEE_Region", empmodel.EMPLOYEE_Region, DbType.String);
+            dbPara.Add("EMPLOYEE_Country", empmodel.EMPLOYEE_Country, DbType.String);
+            dbPara.Add("EMPLOYEE_Pincode", empmodel.EMPLOYEE_Pincode, DbType.String);
+            dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
+            dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
+            dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
+            dbPara.Add("EMPLOYEE_DateofBirth", empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
+            dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
+            dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.Int16);
+            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.Int16);
+            dbPara.Add("EMPLOYEE_Companyid", empmodel.EMPLOYEE_Companyid, DbType.Int16);
+            dbPara.Add("EMPLOYEE_SalaryType", empmodel.EMPLOYEE_SalaryType, DbType.String);
+            dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
+            dbPara.Add("LabID", empmodel.LabID, DbType.String);
+            dbPara.Add("Password", empmodel.Password, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
     }
 }
