@@ -5,6 +5,7 @@ namespace myLabWebApi.Models.DB
 {
     public partial class Patient
     {
+        //dob not here
         public long PatientId { get; set; }
         public string PatientName { get; set; }
         public string PatientAddress1 { get; set; }
