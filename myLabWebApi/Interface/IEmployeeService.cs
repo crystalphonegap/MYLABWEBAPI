@@ -17,5 +17,15 @@ namespace myLabWebApi.Interface
         List<DoctorModel> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetDoctorSearchCount(string KeyWord);
+
+        DoctorModel GetDoctorById(int Id);
+
+        long DeleteDoctorById(int Id);
+
+        long insertUpdollectionCenter(CollectionCenterModel centermodel);
+
+        List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
+
+        long GetCollectionCenterSearchCount(string KeyWord);
     }
 }
