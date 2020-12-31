@@ -4,6 +4,15 @@
 
 TITLE *****CREATED BY AHMED SHAIKH*****
 
+ECHO Thanks me later
+
+
+ECHO Addeding your changes
+git add .
+git commit -m "Git pull"
+git pull
+
+
 ECHO Git pull running please wait... 
 
 git pull
@@ -11,5 +20,4 @@ git pull
 ECHO Git pull done
 
 
-ECHO Thanks me later
 
