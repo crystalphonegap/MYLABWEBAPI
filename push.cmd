@@ -10,10 +10,8 @@ git add .
 set /p name= Enter your changes info: ? 
 
 echo "Your changes info is as Follows"  
-echo  %name=%
-git commit -m '%name=%'
+echo  %name%
 
-ECHO Commiting please wait... 
-
+git commit -m "%name%"
 git push
 ECHO Push Done
