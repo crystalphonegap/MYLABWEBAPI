@@ -18,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace  myLabWebApi.Controllers
 {
-    [Authorize]
+    //uthorize]
     [Route("[controller]")]
     [ApiController]
     public class UserMasterController : ControllerBase

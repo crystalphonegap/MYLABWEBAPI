@@ -88,7 +88,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("DoctorID", Id, DbType.Int32);
             dbPara.Add("Mode", "Delete", DbType.String);
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
 

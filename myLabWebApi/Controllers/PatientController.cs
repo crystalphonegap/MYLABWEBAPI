@@ -17,39 +17,39 @@ namespace myLabWebApi.Controllers
 
 
 
-        [HttpPost("Create")]
-        public ActionResult Create(UserMasterModel model)
-        {
-            try
-            {
-                var userMaster = new UserMasterModel()
-                {
-                    UserCodetxt = model.UserCodetxt,
-                    UserNametxt = model.UserNametxt,
-                    UserTypetxt = model.UserTypetxt,
-                    Divisionvtxt = model.Divisionvtxt,
-                    Mobilevtxt = model.Mobilevtxt,
-                    ParentCodevtxt = model.ParentCodevtxt,
-                    Emailvtxt = model.Emailvtxt,
-                    IsActivebit = model.IsActivebit,
-                    Passwordvtxt = Encrypttxt(model.Passwordvtxt),
-                    CreatedByint = 1,
-                    CreatedDatedatetime = DateTime.Now,
-                    ModifyByint = 1,
-                    ModifyDatedatetime = DateTime.Now
-                };
+        //[HttpPost("Create")]
+        //public ActionResult Create(UserMasterModel model)
+        //{
+        //    try
+        //    {
+        //        var userMaster = new UserMasterModel()
+        //        {
+        //            UserCodetxt = model.UserCodetxt,
+        //            UserNametxt = model.UserNametxt,
+        //            UserTypetxt = model.UserTypetxt,
+        //            Divisionvtxt = model.Divisionvtxt,
+        //            Mobilevtxt = model.Mobilevtxt,
+        //            ParentCodevtxt = model.ParentCodevtxt,
+        //            Emailvtxt = model.Emailvtxt,
+        //            IsActivebit = model.IsActivebit,
+        //            Passwordvtxt = Encrypttxt(model.Passwordvtxt),
+        //            CreatedByint = 1,
+        //            CreatedDatedatetime = DateTime.Now,
+        //            ModifyByint = 1,
+        //            ModifyDatedatetime = DateTime.Now
+        //        };
 
-                return Ok(_userMasterService.Create(userMaster));
+        //        return Ok(_userMasterService.Create(userMaster));
 
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest();
+        //    }
 
 
-        }
+        //}
 
 
 
