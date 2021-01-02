@@ -22,6 +22,8 @@ namespace myLabWebApi.Interface
 
         long DeleteDoctorById(int Id);
 
+        List<CollectionCenterModel> GetAllCollectionCenterDetails();
+
         long insertUpdollectionCenter(CollectionCenterModel centermodel);
 
         List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
