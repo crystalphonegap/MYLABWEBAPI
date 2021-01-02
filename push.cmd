@@ -7,13 +7,11 @@ TITLE *****CREATED BY AHMED SHAIKH*****
 ECHO Adding File please wait... 
 
 git add .
-echo "Enter your changes info: " 
- 
-read commit   
+set /p name= Enter your changes info: ? 
 
-echo "Your changes info is as  $commit "  
+echo "Your changes info is as "  name
  
-git commit -m commit
+git commit -m name
 
 ECHO Commiting please wait... 
 
