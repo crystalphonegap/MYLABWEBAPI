@@ -92,7 +92,7 @@ namespace myLabWebApi
             services.AddScoped<ILogger, Logger>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IPatientService, PatientService>();
-            services.AddScoped<IMaster, MasterServices>();
+            
 
         }
 

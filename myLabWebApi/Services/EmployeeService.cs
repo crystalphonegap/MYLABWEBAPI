@@ -32,6 +32,42 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
+        public long InsertUpdateEmployee(EmployeeModel empmodel)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
+            dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
+            dbPara.Add("EMPLOYEE_Address1", empmodel.EMPLOYEE_Address1, DbType.String);
+            dbPara.Add("EMPLOYEE_Address2", empmodel.EMPLOYEE_Address2, DbType.String);
+            dbPara.Add("EMPLOYEE_City", empmodel.EMPLOYEE_City, DbType.String);
+            dbPara.Add("EMPLOYEE_State", empmodel.EMPLOYEE_State, DbType.String);
+            dbPara.Add("EMPLOYEE_Region", empmodel.EMPLOYEE_Region, DbType.String);
+            dbPara.Add("EMPLOYEE_Country", empmodel.EMPLOYEE_Country, DbType.String);
+            dbPara.Add("EMPLOYEE_Pincode", empmodel.EMPLOYEE_Pincode, DbType.String);
+            dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
+            dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
+            dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
+            dbPara.Add("EMPLOYEE_DateofBirth", empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
+            dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
+            dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.Int16);
+            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.Int16);
+            dbPara.Add("EMPLOYEE_Companyid", empmodel.EMPLOYEE_Companyid, DbType.Int16);
+            dbPara.Add("EMPLOYEE_SalaryType", empmodel.EMPLOYEE_SalaryType, DbType.String);
+            dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
+            dbPara.Add("LabID", empmodel.LabID, DbType.String);
+            dbPara.Add("Password", empmodel.Password, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+        //-------  doctor  -----------------
+        //*****************************************
         public List<DoctorModel> GetAllDoctorDetails()
         {
             var dbPara = new DynamicParameters();
@@ -77,7 +113,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("DoctorID", Id, DbType.Int32);
-            dbPara.Add("Mode", "Select", DbType.String);
+            
             var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }
@@ -87,7 +123,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("DoctorID", Id, DbType.Int32);
-            dbPara.Add("Mode", "Delete", DbType.String);
+            
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
@@ -153,32 +189,15 @@ namespace myLabWebApi.Services
             #endregion
         }
 
+        //--Collectio Center-----------------------
+        //*****************************************
 
-        public long insertUpdollectionCenter(CollectionCenterModel centermodel)
+        public List<CollectionCenterModel> GetAllCollectionCenterDetails()
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("CENTER_id", centermodel.CENTER_id, DbType.Int64);
-            dbPara.Add("CENTER_Name", centermodel.CENTER_Name, DbType.String);
-            dbPara.Add("CENTER_Address1", centermodel.CENTER_Address1, DbType.String);
-            dbPara.Add("CENTER_Address2", centermodel.CENTER_Address2, DbType.String);
-            dbPara.Add("CENTER_City", centermodel.CENTER_City, DbType.String);
-            dbPara.Add("CENTER_State", centermodel.CENTER_State, DbType.String);
-            dbPara.Add("CENTER_Region", centermodel.CENTER_Region, DbType.String);
-            dbPara.Add("CENTER_Country", centermodel.CENTER_Country, DbType.String);
-            dbPara.Add("CENTER_Pincode", centermodel.CENTER_Pincode, DbType.String);
-            dbPara.Add("CENTER_Telno", centermodel.CENTER_Telno, DbType.String);
-            dbPara.Add("CENTER_Status", centermodel.CENTER_Status, DbType.Int16);
-            dbPara.Add("CENTER_Companyid", centermodel.CENTER_Companyid, DbType.Int32);
-            dbPara.Add("Percentage", centermodel.Percentage, DbType.Decimal);
-            dbPara.Add("OutSourceLab", centermodel.OutSourceLab, DbType.String);
-            #region using dapper  
-            var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateCollectionCenter]",
-                            dbPara,
-                            commandType: CommandType.StoredProcedure);
-            return data;
-            #endregion
+            var data = _MyLabHelper.GetAll<CollectionCenterModel>("[dbo].[SP_GetCollectionCenterDetails]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
         }
-
 
         public List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord)
         {
@@ -218,7 +237,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-            dbPara.Add("Mode", "Select", DbType.String);
+            
             var data = _MyLabHelper.GetAll<CollectionCenterModel>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }
@@ -228,45 +247,37 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-            dbPara.Add("Mode", "Delete", DbType.String);
+            
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
 
-
-        public long InsertUpdateEmployee(EmployeeModel empmodel)
+        public long insertUpdollectionCenter(CollectionCenterModel centermodel)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
-            dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
-            dbPara.Add("EMPLOYEE_Address1", empmodel.EMPLOYEE_Address1, DbType.String);
-            dbPara.Add("EMPLOYEE_Address2", empmodel.EMPLOYEE_Address2, DbType.String);
-            dbPara.Add("EMPLOYEE_City", empmodel.EMPLOYEE_City, DbType.String);
-            dbPara.Add("EMPLOYEE_State", empmodel.EMPLOYEE_State, DbType.String);
-            dbPara.Add("EMPLOYEE_Region", empmodel.EMPLOYEE_Region, DbType.String);
-            dbPara.Add("EMPLOYEE_Country", empmodel.EMPLOYEE_Country, DbType.String);
-            dbPara.Add("EMPLOYEE_Pincode", empmodel.EMPLOYEE_Pincode, DbType.String);
-            dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
-            dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
-            dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
-            dbPara.Add("EMPLOYEE_DateofBirth", empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
-            dbPara.Add("EMPLOYEE_DateofJoining", empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
-            dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
-            dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
-            dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.Int16);
-            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.Int16);
-            dbPara.Add("EMPLOYEE_Companyid", empmodel.EMPLOYEE_Companyid, DbType.Int16);
-            dbPara.Add("EMPLOYEE_SalaryType", empmodel.EMPLOYEE_SalaryType, DbType.String);
-            dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
-            dbPara.Add("LabID", empmodel.LabID, DbType.String);
-            dbPara.Add("Password", empmodel.Password, DbType.String);
+            dbPara.Add("CENTER_id", centermodel.CENTER_id, DbType.Int64);
+            dbPara.Add("CENTER_Name", centermodel.CENTER_Name, DbType.String);
+            dbPara.Add("CENTER_Address1", centermodel.CENTER_Address1, DbType.String);
+            dbPara.Add("CENTER_Address2", centermodel.CENTER_Address2, DbType.String);
+            dbPara.Add("CENTER_City", centermodel.CENTER_City, DbType.String);
+            dbPara.Add("CENTER_State", centermodel.CENTER_State, DbType.String);
+            dbPara.Add("CENTER_Region", centermodel.CENTER_Region, DbType.String);
+            dbPara.Add("CENTER_Country", centermodel.CENTER_Country, DbType.String);
+            dbPara.Add("CENTER_Pincode", centermodel.CENTER_Pincode, DbType.String);
+            dbPara.Add("CENTER_Telno", centermodel.CENTER_Telno, DbType.String);
+            dbPara.Add("CENTER_Status", centermodel.CENTER_Status, DbType.Int16);
+            dbPara.Add("CENTER_Companyid", centermodel.CENTER_Companyid, DbType.Int32);
+            dbPara.Add("Percentage", centermodel.Percentage, DbType.Decimal);
+            dbPara.Add("OutSourceLab", centermodel.OutSourceLab, DbType.String);
             #region using dapper  
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
+            var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateCollectionCenter]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
             #endregion
         }
+
+        
 
     }
 }
