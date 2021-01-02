@@ -9,9 +9,9 @@ ECHO Adding File please wait...
 git add .
 set /p name= Enter your changes info: ? 
 
-echo "Your changes info is as "  '%choice%'
- 
-git commit -m '%choice%'
+echo "Your changes info is as Follows"  
+echo  %name=%
+git commit -m '%name=%'
 
 ECHO Commiting please wait... 
 
