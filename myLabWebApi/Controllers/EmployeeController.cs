@@ -83,5 +83,151 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+
+        [HttpGet("GetDoctorDetailsByID/{ID}")]
+        public IActionResult GetDoctorDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetDoctorById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("DeleteDoctorDetailsByID/{ID}")]
+        public IActionResult DeleteDoctorDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteDoctorById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetDoctorSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetDoctorSearch(PageNo,PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetDoctorSearchCount/{KeyWord}")]
+        public IActionResult GetDoctorSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetDoctorSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("InsertCollectionCenter")]
+        public IActionResult InsertCollectionCenter(CollectionCenterModel centermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertUpdollectionCenter(centermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut("UpdateCollectionCenter")]
+        public IActionResult UpdateCollectionCenter(CollectionCenterModel centermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertUpdollectionCenter(centermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+
+        [HttpGet("GetCollectionCenterSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetCollectionCenterSearch(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetCollectionCenterSearchCount/{KeyWord}")]
+        public IActionResult GetCollectionCenterSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetCollectionCenterSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetCollectionCenterDetailsByID/{ID}")]
+        public IActionResult GetCollectionCenterDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetCollectionCenterById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("DeleteCollectionCenterDetailsByID/{ID}")]
+        public IActionResult DeleteCollectionCenterDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteCollectionCenterById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
     }
 }

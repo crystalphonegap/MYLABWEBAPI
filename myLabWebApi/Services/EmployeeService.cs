@@ -39,50 +39,112 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long InsertUpdateDoctor(DoctorModel orderHeaderdetails)
+        public List<DoctorModel> GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("RefNovtxt", orderHeaderdetails.DOCTOR_id, DbType.String);
-            dbPara.Add("DOCTOR_Name", orderHeaderdetails.DOCTOR_Name, DbType.String);
-            dbPara.Add("DOCTOR_Address1", orderHeaderdetails.DOCTOR_Address1, DbType.String);
-            dbPara.Add("DOCTOR_Address2", orderHeaderdetails.DOCTOR_Address2, DbType.String);
-            dbPara.Add("DOCTOR_City", orderHeaderdetails.DOCTOR_City, DbType.Int64);
-            dbPara.Add("DOCTOR_State", orderHeaderdetails.DOCTOR_State, DbType.String);
-            dbPara.Add("DOCTOR_Region", orderHeaderdetails.DOCTOR_Region, DbType.String);
-            dbPara.Add("DOCTOR_Country", orderHeaderdetails.DOCTOR_Country, DbType.String);
-            dbPara.Add("DOCTOR_Pincode", orderHeaderdetails.DOCTOR_Pincode, DbType.String);
-            dbPara.Add("DOCTOR_Telno", orderHeaderdetails.DOCTOR_Telno, DbType.String);
-            dbPara.Add("DOCTOR_MobileNo", orderHeaderdetails.DOCTOR_MobileNo, DbType.String);
-            dbPara.Add("DOCTOR_Email", orderHeaderdetails.DOCTOR_Email, DbType.String);
-            dbPara.Add("DOCTOR_Qualification", orderHeaderdetails.DOCTOR_Qualification, DbType.String);
-            dbPara.Add("OFFICE_Address1", orderHeaderdetails.OFFICE_Address1, DbType.String);
-            dbPara.Add("OFFICE_Address2", orderHeaderdetails.OFFICE_Address2, DbType.String);
-            dbPara.Add("OFFICE_City", orderHeaderdetails.OFFICE_City, DbType.String);
-            dbPara.Add("OFFICE_State", orderHeaderdetails.OFFICE_State, DbType.String);
-            dbPara.Add("OFFICE_Region", orderHeaderdetails.OFFICE_Region, DbType.String);
-            dbPara.Add("OFFICE_Country", orderHeaderdetails.OFFICE_Country, DbType.String);
-            dbPara.Add("OFFICE_Pincode", orderHeaderdetails.OFFICE_Pincode, DbType.String);
-            dbPara.Add("OFFICE_Telno", orderHeaderdetails.OFFICE_Telno, DbType.String);
-            dbPara.Add("OFFICE_url", orderHeaderdetails.OFFICE_url, DbType.String);
-            dbPara.Add("DOCTOR_Commission", orderHeaderdetails.DOCTOR_Commission, DbType.Decimal);
-            dbPara.Add("DOCTOR_Companyid", orderHeaderdetails.DOCTOR_Companyid, DbType.Int16);
-            dbPara.Add("DOCTOR_Permanent", orderHeaderdetails.DOCTOR_Permanent, DbType.String);
-            dbPara.Add("DOCTOR_XCommission", orderHeaderdetails.DOCTOR_XCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_SCommission", orderHeaderdetails.DOCTOR_SCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_RCommission", orderHeaderdetails.DOCTOR_RCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_PFCommission", orderHeaderdetails.DOCTOR_PFCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_SPCommission", orderHeaderdetails.DOCTOR_SPCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_MCommission", orderHeaderdetails.DOCTOR_MCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_OCommission", orderHeaderdetails.DOCTOR_OCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_HCommission", orderHeaderdetails.DOCTOR_HCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_EXCommission", orderHeaderdetails.DOCTOR_EXCommission, DbType.Decimal);
-            dbPara.Add("DOCTOR_EX1Commission", orderHeaderdetails.DOCTOR_EX1Commission, DbType.Decimal);
-            dbPara.Add("SendSMS", orderHeaderdetails.SendSMS, DbType.Int16);
-            dbPara.Add("DOCTOR_UserName", orderHeaderdetails.DOCTOR_UserName, DbType.String);
-            dbPara.Add("DOCTOR_Password", orderHeaderdetails.DOCTOR_Password, DbType.String);
-            dbPara.Add("Password", orderHeaderdetails.Password, DbType.String);
-            dbPara.Add("DOB", orderHeaderdetails.DOB, DbType.DateTime);
-            dbPara.Add("doctor_Code", orderHeaderdetails.doctor_Code, DbType.String);
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetDoctorSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+        }
+
+        public DoctorModel GetDoctorById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("DoctorID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Select", DbType.String);
+            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0];
+        }
+
+
+        public long DeleteDoctorById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("DoctorID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Delete", DbType.String);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+        public long InsertUpdateDoctor(DoctorModel docmodel)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("DOCTOR_id", docmodel.DOCTOR_id, DbType.Int64);
+            dbPara.Add("DOCTOR_Name", docmodel.DOCTOR_Name, DbType.String);
+            dbPara.Add("DOCTOR_Address1", docmodel.DOCTOR_Address1, DbType.String);
+            dbPara.Add("DOCTOR_Address2", docmodel.DOCTOR_Address2, DbType.String);
+            dbPara.Add("DOCTOR_City", docmodel.DOCTOR_City, DbType.String);
+            dbPara.Add("DOCTOR_State", docmodel.DOCTOR_State, DbType.String);
+            dbPara.Add("DOCTOR_Region", docmodel.DOCTOR_Region, DbType.String);
+            dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Country, DbType.String);
+            dbPara.Add("DOCTOR_Pincode", docmodel.DOCTOR_Pincode, DbType.String);
+            dbPara.Add("DOCTOR_Telno", docmodel.DOCTOR_Telno, DbType.String);
+            dbPara.Add("DOCTOR_MobileNo", docmodel.DOCTOR_MobileNo, DbType.String);
+            dbPara.Add("DOCTOR_Email", docmodel.DOCTOR_Email, DbType.String);
+            dbPara.Add("DOCTOR_Qualification", docmodel.DOCTOR_Qualification, DbType.String);
+            dbPara.Add("OFFICE_Address1", docmodel.OFFICE_Address1, DbType.String);
+            dbPara.Add("OFFICE_Address2", docmodel.OFFICE_Address2, DbType.String);
+            dbPara.Add("OFFICE_City", docmodel.OFFICE_City, DbType.String);
+            dbPara.Add("OFFICE_State", docmodel.OFFICE_State, DbType.String);
+            dbPara.Add("OFFICE_Region", docmodel.OFFICE_Region, DbType.String);
+            dbPara.Add("OFFICE_Country", docmodel.OFFICE_Country, DbType.String);
+            dbPara.Add("OFFICE_Pincode", docmodel.OFFICE_Pincode, DbType.String);
+            dbPara.Add("OFFICE_Telno", docmodel.OFFICE_Telno, DbType.String);
+            dbPara.Add("OFFICE_url", docmodel.OFFICE_url, DbType.String);
+            dbPara.Add("DOCTOR_Commission", docmodel.DOCTOR_Commission, DbType.Decimal);
+            dbPara.Add("DOCTOR_Companyid", docmodel.DOCTOR_Companyid, DbType.Int16);
+            //dbPara.Add("DOCTOR_Permanent", docmodel.DOCTOR_Permanent, DbType.String);
+            if (docmodel.DOCTOR_Permanent == "true")
+            {
+                dbPara.Add("DOCTOR_Permanent", "Y", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("DOCTOR_Permanent", "N", DbType.String);
+            }
+            dbPara.Add("DOCTOR_XCommission", docmodel.DOCTOR_XCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_SCommission", docmodel.DOCTOR_SCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_RCommission", docmodel.DOCTOR_RCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_PFCommission", docmodel.DOCTOR_PFCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_SPCommission", docmodel.DOCTOR_SPCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_MCommission", docmodel.DOCTOR_MCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_OCommission", docmodel.DOCTOR_OCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_HCommission", docmodel.DOCTOR_HCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_EXCommission", docmodel.DOCTOR_EXCommission, DbType.Decimal);
+            dbPara.Add("DOCTOR_EX1Commission", docmodel.DOCTOR_EX1Commission, DbType.Decimal);
+            dbPara.Add("SendSMS", docmodel.SendSMS, DbType.Int16);
+            dbPara.Add("DOCTOR_UserName", docmodel.DOCTOR_UserName, DbType.String);
+            dbPara.Add("DOCTOR_Password", docmodel.DOCTOR_Password, DbType.String);
+            dbPara.Add("Password", docmodel.Password, DbType.String);
+            //DateTime dobdt = DateTime.ParseExact(docmodel.DOB.ToString(), "dd-MM-yyyy", null);
+            //dbPara.Add("DOB", Convert.ToDateTime(dobdt).ToString("yyyy-MM-dd"), DbType.String);
+            dbPara.Add("doctor_Code", docmodel.doctor_Code, DbType.String);
             #region using dapper  
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
                             dbPara,
@@ -90,5 +152,121 @@ namespace myLabWebApi.Services
             return data;
             #endregion
         }
+
+
+        public long insertUpdollectionCenter(CollectionCenterModel centermodel)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("CENTER_id", centermodel.CENTER_id, DbType.Int64);
+            dbPara.Add("CENTER_Name", centermodel.CENTER_Name, DbType.String);
+            dbPara.Add("CENTER_Address1", centermodel.CENTER_Address1, DbType.String);
+            dbPara.Add("CENTER_Address2", centermodel.CENTER_Address2, DbType.String);
+            dbPara.Add("CENTER_City", centermodel.CENTER_City, DbType.String);
+            dbPara.Add("CENTER_State", centermodel.CENTER_State, DbType.String);
+            dbPara.Add("CENTER_Region", centermodel.CENTER_Region, DbType.String);
+            dbPara.Add("CENTER_Country", centermodel.CENTER_Country, DbType.String);
+            dbPara.Add("CENTER_Pincode", centermodel.CENTER_Pincode, DbType.String);
+            dbPara.Add("CENTER_Telno", centermodel.CENTER_Telno, DbType.String);
+            dbPara.Add("CENTER_Status", centermodel.CENTER_Status, DbType.Int16);
+            dbPara.Add("CENTER_Companyid", centermodel.CENTER_Companyid, DbType.Int32);
+            dbPara.Add("Percentage", centermodel.Percentage, DbType.Decimal);
+            dbPara.Add("OutSourceLab", centermodel.OutSourceLab, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateCollectionCenter]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+
+        public List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<CollectionCenterModel>("[dbo].[SP_CollectionCenterList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetCollectionCenterSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<CollectionCenterModel>("[dbo].[SP_CollectionCenterList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+        }
+
+        public CollectionCenterModel GetCollectionCenterById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Select", DbType.String);
+            var data = _MyLabHelper.GetAll<CollectionCenterModel>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0];
+        }
+
+
+        public long DeleteCollectionCenterById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Delete", DbType.String);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+
+        public long InsertUpdateEmployee(EmployeeModel empmodel)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
+            dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
+            dbPara.Add("EMPLOYEE_Address1", empmodel.EMPLOYEE_Address1, DbType.String);
+            dbPara.Add("EMPLOYEE_Address2", empmodel.EMPLOYEE_Address2, DbType.String);
+            dbPara.Add("EMPLOYEE_City", empmodel.EMPLOYEE_City, DbType.String);
+            dbPara.Add("EMPLOYEE_State", empmodel.EMPLOYEE_State, DbType.String);
+            dbPara.Add("EMPLOYEE_Region", empmodel.EMPLOYEE_Region, DbType.String);
+            dbPara.Add("EMPLOYEE_Country", empmodel.EMPLOYEE_Country, DbType.String);
+            dbPara.Add("EMPLOYEE_Pincode", empmodel.EMPLOYEE_Pincode, DbType.String);
+            dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
+            dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
+            dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
+            dbPara.Add("EMPLOYEE_DateofBirth", empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
+            dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
+            dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.Int16);
+            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.Int16);
+            dbPara.Add("EMPLOYEE_Companyid", empmodel.EMPLOYEE_Companyid, DbType.Int16);
+            dbPara.Add("EMPLOYEE_SalaryType", empmodel.EMPLOYEE_SalaryType, DbType.String);
+            dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
+            dbPara.Add("LabID", empmodel.LabID, DbType.String);
+            dbPara.Add("Password", empmodel.Password, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
     }
 }
