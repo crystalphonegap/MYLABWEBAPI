@@ -39,5 +39,6 @@ namespace myLabWebApi.Models.DB
         public double? TestdetDminValue { get; set; }
         public int? TestdetTestTypeId { get; set; }
         public int? TestdetCatTypeId { get; set; }
+        public string ValueForNormal { get; set; }
     }
 }

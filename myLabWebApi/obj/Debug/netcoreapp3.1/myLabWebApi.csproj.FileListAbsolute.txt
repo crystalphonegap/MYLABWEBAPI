@@ -195,7 +195,6 @@ E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\runtim
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csprojAssemblyReference.cache
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.AssemblyInfoInputs.cache
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.AssemblyInfo.cs
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csproj.CoreCompileInputs.cache
@@ -208,3 +207,4 @@ E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabW
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.dll
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.pdb
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.genruntimeconfig.cache
+E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csprojAssemblyReference.cache

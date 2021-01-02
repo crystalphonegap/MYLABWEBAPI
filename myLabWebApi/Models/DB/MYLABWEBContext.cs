@@ -149,7 +149,8 @@ namespace myLabWebApi.Models.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=103.131.93.13;Initial Catalog=MYLABWEB;User Id=MYLAB;Password=MYLAB@123;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source=103.131.93.13;User Id=MYLAB;Password=MYLAB@123;Database=MYLABWEB;");
             }
         }
 
@@ -1121,7 +1122,25 @@ namespace myLabWebApi.Models.DB
                     .HasColumnName("isResRec")
                     .HasDefaultValueSql("(0)");
 
+                entity.Property(e => e.LowHHigh)
+                    .HasColumnName("LowH/High")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NormalValue)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Rerun).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.SUnit)
+                    .HasColumnName("sUnit")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ValueForNormal)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Dochdr>(entity =>
@@ -6929,6 +6948,10 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.TestdetTestTypeId).HasColumnName("TESTDET_TestTypeId");
 
                 entity.Property(e => e.TestdetValidate).HasColumnName("TESTDET_Validate");
+
+                entity.Property(e => e.ValueForNormal)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Testmaster>(entity =>

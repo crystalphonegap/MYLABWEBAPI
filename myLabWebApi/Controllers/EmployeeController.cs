@@ -100,7 +100,7 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpPost("DeleteDoctorDetailsByID/{ID}")]
+        [HttpDelete("DeleteDoctorDetailsByID/{ID}")]
         public IActionResult DeleteDoctorDetailsByID(int ID)
         {
             try
@@ -193,6 +193,35 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IEmployeeService.GetCollectionCenterSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetCollectionCenterDetailsByID/{ID}")]
+        public IActionResult GetCollectionCenterDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetCollectionCenterById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("DeleteCollectionCenterDetailsByID/{ID}")]
+        public IActionResult DeleteCollectionCenterDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteCollectionCenterById(ID));
             }
             catch (Exception ex)
             {
