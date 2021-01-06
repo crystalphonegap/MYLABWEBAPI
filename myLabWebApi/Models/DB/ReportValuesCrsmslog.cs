@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class ReportValuesCrsmslog
+    public partial class ReportValuesCRSMSLOG
     {
         public decimal Autoid { get; set; }
         public long Patientid { get; set; }

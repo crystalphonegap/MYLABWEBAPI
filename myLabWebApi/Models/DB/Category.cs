@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Category
+    public partial class CATEGORY
     {
         public int CatTypeId { get; set; }
         public string CatName { get; set; }

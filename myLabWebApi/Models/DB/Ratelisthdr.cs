@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Ratelisthdr
+    public partial class RATELISTHDR
     {
         public int RateListId { get; set; }
         public string RateListName { get; set; }
@@ -14,7 +14,7 @@ namespace myLabWebApi.Models.DB
         public double? Microbiology { get; set; }
         public double? Outside { get; set; }
         public double? Histo { get; set; }
-        public double? Other { get; set; }
-        public double? Other1 { get; set; }
+        public double? other { get; set; }
+        public double? other1 { get; set; }
     }
 }

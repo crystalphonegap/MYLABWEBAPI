@@ -9,6 +9,6 @@ namespace myLabWebApi.Interface
 {
     public interface IPatientService
     {
-        int Create(Patient Patient);
+        //int Create(Patient Patient);
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Architect
+    public partial class architect
     {
-        public int TestId { get; set; }
-        public string TestName { get; set; }
-        public int MylabTestMstid { get; set; }
-        public int MylabTestFieldnoOne { get; set; }
-        public int? MylabTestFieldnoTwo { get; set; }
+        public int TEST_ID { get; set; }
+        public string TEST_NAME { get; set; }
+        public int MYLAB_TEST_MSTID { get; set; }
+        public int MYLAB_TEST_FIELDNO_ONE { get; set; }
+        public int? MYLAB_TEST_FIELDNO_TWO { get; set; }
         public string Type { get; set; }
-        public long Id { get; set; }
+        public long ID { get; set; }
     }
 }

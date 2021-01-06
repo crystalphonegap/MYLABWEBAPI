@@ -1,38 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Nextgendata
+    public partial class NEXTGENDATA
     {
-        public int? LabNo { get; set; }
-        public DateTime? LabDate { get; set; }
-        public string Wbc { get; set; }
-        public string Rbc { get; set; }
-        public string Hgb { get; set; }
-        public string Hct { get; set; }
-        public string Mcv { get; set; }
-        public string Mch { get; set; }
-        public string Mchc { get; set; }
-        public string RdwCv { get; set; }
-        public string Plt { get; set; }
-        public string Mpv { get; set; }
-        public string Pct { get; set; }
-        public string Pdw { get; set; }
-        public string LymphPer { get; set; }
-        public string MonPer { get; set; }
-        public string NeuPer { get; set; }
-        public string EosPer { get; set; }
-        public string BasPer { get; set; }
-        public string GranPer { get; set; }
-        public string MidPer { get; set; }
-        public string GranNum { get; set; }
-        public string LymphNum { get; set; }
-        public string RdwSd { get; set; }
-        public string MidNum { get; set; }
-        public byte[] WbcHistogram { get; set; }
-        public byte[] RbcHistogram { get; set; }
-        public byte[] PltHistogram { get; set; }
-        public string Status { get; set; }
+        public int? LAB_NO { get; set; }
+        public DateTime? LAB_DATE { get; set; }
+        public string WBC { get; set; }
+        public string RBC { get; set; }
+        public string HGB { get; set; }
+        public string HCT { get; set; }
+        public string MCV { get; set; }
+        public string MCH { get; set; }
+        public string MCHC { get; set; }
+        public string RDW_CV { get; set; }
+        public string PLT { get; set; }
+        public string MPV { get; set; }
+        public string PCT { get; set; }
+        public string PDW { get; set; }
+        public string LYMPH_PER { get; set; }
+        public string MON_PER { get; set; }
+        public string NEU_PER { get; set; }
+        public string EOS_PER { get; set; }
+        public string BAS_PER { get; set; }
+        public string GRAN_PER { get; set; }
+        public string MID_PER { get; set; }
+        public string GRAN_NUM { get; set; }
+        public string LYMPH_NUM { get; set; }
+        public string RDW_SD { get; set; }
+        public string MID_NUM { get; set; }
+        public byte[] WBC_HISTOGRAM { get; set; }
+        public byte[] RBC_HISTOGRAM { get; set; }
+        public byte[] PLT_HISTOGRAM { get; set; }
+        public string STATUS { get; set; }
     }
 }

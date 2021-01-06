@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Labelgroup
+    public partial class LABELGROUP
     {
-        public int Grpid { get; set; }
-        public string Grpname { get; set; }
+        public int GRPID { get; set; }
+        public string GRPNAME { get; set; }
         public string Active { get; set; }
         public int? Companyid { get; set; }
         public string Prefix { get; set; }

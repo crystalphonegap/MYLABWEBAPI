@@ -9,6 +9,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using myLabWebApi.Models.New;
 
 namespace myLabWebApi.Services
 {
@@ -25,14 +26,14 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public List<EmployeeModel> GetAllEmployeeDetails()
+        public List<EMPLOYEE> GetAllEmployeeDetails()
         {
             var dbPara = new DynamicParameters();
-            var data = _MyLabHelper.GetAll<EmployeeModel>("[dbo].[SP_GetEmployeeDetails]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetails]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long InsertUpdateEmployee(EmployeeModel empmodel)
+        public long InsertUpdateEmployee(EMPLOYEE empmodel)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
@@ -68,14 +69,14 @@ namespace myLabWebApi.Services
 
         //-------  doctor  -----------------
         //*****************************************
-        public List<DoctorModel> GetAllDoctorDetails()
+        public List<DOCTOR> GetAllDoctorDetails()
         {
             var dbPara = new DynamicParameters();
-            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_GetDoctorDetails]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_GetDoctorDetails]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public List<DoctorModel> GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
+        public List<DOCTOR> GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", PageNo, DbType.Int32);
@@ -88,7 +89,7 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("Keyword", KeyWord, DbType.String);
             }
-            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
@@ -105,16 +106,16 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("Keyword", KeyWord, DbType.String);
             }
-            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
 
-        public DoctorModel GetDoctorUsingId(int Id)
+        public DOCTOR GetDoctorUsingId(int Id)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("DoctorID", Id, DbType.Int32);
             
-            var data = _MyLabHelper.GetAll<DoctorModel>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }
 
@@ -128,7 +129,7 @@ namespace myLabWebApi.Services
             return data;
         }
 
-        public long InsertUpdateDoctor(DoctorModel docmodel)
+        public long InsertUpdateDoctor(DOCTOR docmodel)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("DOCTOR_id", docmodel.DOCTOR_id, DbType.Int64);
@@ -137,8 +138,9 @@ namespace myLabWebApi.Services
             dbPara.Add("DOCTOR_Address2", docmodel.DOCTOR_Address2, DbType.String);
             dbPara.Add("DOCTOR_City", docmodel.DOCTOR_City, DbType.String);
             dbPara.Add("DOCTOR_State", docmodel.DOCTOR_State, DbType.String);
-            dbPara.Add("DOCTOR_Region", docmodel.DOCTOR_Region, DbType.String);
-            dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Country, DbType.String);
+            dbPara.Add("DOCTOR_Region", docmodel.TDS, DbType.String);
+            dbPara.Add("DOCTOR_Country", docmodel.Collection_Center, DbType.String);
+            dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Bill, DbType.String);
             dbPara.Add("DOCTOR_Pincode", docmodel.DOCTOR_Pincode, DbType.String);
             dbPara.Add("DOCTOR_Telno", docmodel.DOCTOR_Telno, DbType.String);
             dbPara.Add("DOCTOR_MobileNo", docmodel.DOCTOR_MobileNo, DbType.String);

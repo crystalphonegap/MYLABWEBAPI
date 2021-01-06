@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
     public partial class MYLABWEBContext : DbContext
     {
@@ -15,135 +15,135 @@ namespace myLabWebApi.Models.DB
         {
         }
 
-        public virtual DbSet<AbnormalSmslog> AbnormalSmslog { get; set; }
-        public virtual DbSet<AdminHomeVisitAllocated> AdminHomeVisitAllocated { get; set; }
-        public virtual DbSet<AdminLogin> AdminLogin { get; set; }
-        public virtual DbSet<AdminPackkage> AdminPackkage { get; set; }
-        public virtual DbSet<Amountpaid> Amountpaid { get; set; }
+        public virtual DbSet<ADMIN_HOME_VISIT_ALLOCATED> ADMIN_HOME_VISIT_ALLOCATED { get; set; }
+        public virtual DbSet<ADMIN_LOGIN> ADMIN_LOGIN { get; set; }
+        public virtual DbSet<ADMIN_PACKKAGE> ADMIN_PACKKAGE { get; set; }
+        public virtual DbSet<AMOUNTPAID> AMOUNTPAID { get; set; }
+        public virtual DbSet<AbnormalSMSLog> AbnormalSMSLog { get; set; }
         public virtual DbSet<AppointmentImage> AppointmentImage { get; set; }
-        public virtual DbSet<Architect> Architect { get; set; }
+        public virtual DbSet<BOOKHOMEVISIT> BOOKHOMEVISIT { get; set; }
+        public virtual DbSet<BOOK_APPOINTMENT> BOOK_APPOINTMENT { get; set; }
         public virtual DbSet<BillDetail> BillDetail { get; set; }
         public virtual DbSet<BillHeader> BillHeader { get; set; }
         public virtual DbSet<BlackListMobiles> BlackListMobiles { get; set; }
-        public virtual DbSet<BookAppointment> BookAppointment { get; set; }
-        public virtual DbSet<Bookhomevisit> Bookhomevisit { get; set; }
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Cbcworksheet> Cbcworksheet { get; set; }
-        public virtual DbSet<Cbcworksheet28012013> Cbcworksheet28012013 { get; set; }
+        public virtual DbSet<CATEGORY> CATEGORY { get; set; }
+        public virtual DbSet<CBCWorksheet> CBCWorksheet { get; set; }
+        public virtual DbSet<CBCWorksheet28012013> CBCWorksheet28012013 { get; set; }
+        public virtual DbSet<COLLECTIONCENTER> COLLECTIONCENTER { get; set; }
+        public virtual DbSet<COMPANY> COMPANY { get; set; }
         public virtual DbSet<CollectionCenterAmountReceived> CollectionCenterAmountReceived { get; set; }
-        public virtual DbSet<Collectioncenter> Collectioncenter { get; set; }
-        public virtual DbSet<Company> Company { get; set; }
-        public virtual DbSet<Docdet> Docdet { get; set; }
-        public virtual DbSet<Dochdr> Dochdr { get; set; }
-        public virtual DbSet<DochdrHistory> DochdrHistory { get; set; }
-        public virtual DbSet<Doctor> Doctor { get; set; }
-        public virtual DbSet<Doctorbk> Doctorbk { get; set; }
+        public virtual DbSet<DOCDET> DOCDET { get; set; }
+        public virtual DbSet<DOCHDR> DOCHDR { get; set; }
+        public virtual DbSet<DOCHDR_HISTORY> DOCHDR_HISTORY { get; set; }
+        public virtual DbSet<DOCTOR> DOCTOR { get; set; }
+        public virtual DbSet<DOCTORBK> DOCTORBK { get; set; }
+        public virtual DbSet<EMPLOYEE> EMPLOYEE { get; set; }
         public virtual DbSet<EmailLog> EmailLog { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeeWithCollectionCenterMap> EmployeeWithCollectionCenterMap { get; set; }
-        public virtual DbSet<Groupdet> Groupdet { get; set; }
-        public virtual DbSet<Histogram> Histogram { get; set; }
+        public virtual DbSet<GROUPDET> GROUPDET { get; set; }
+        public virtual DbSet<HISTOGRAM> HISTOGRAM { get; set; }
         public virtual DbSet<HomevisitImage> HomevisitImage { get; set; }
-        public virtual DbSet<Intgdet> Intgdet { get; set; }
+        public virtual DbSet<INTGDET> INTGDET { get; set; }
+        public virtual DbSet<LABELGROUP> LABELGROUP { get; set; }
+        public virtual DbSet<LabMST> LabMST { get; set; }
         public virtual DbSet<LabMaster> LabMaster { get; set; }
-        public virtual DbSet<LabMst> LabMst { get; set; }
-        public virtual DbSet<Labelgroup> Labelgroup { get; set; }
         public virtual DbSet<Login> Login { get; set; }
+        public virtual DbSet<MYLAB_TEST_DETAILS> MYLAB_TEST_DETAILS { get; set; }
+        public virtual DbSet<MYLAB_TEST_DETAILS_BA200> MYLAB_TEST_DETAILS_BA200 { get; set; }
         public virtual DbSet<MetroEmailLog> MetroEmailLog { get; set; }
-        public virtual DbSet<MylabTestDetails> MylabTestDetails { get; set; }
-        public virtual DbSet<MylabTestDetailsBa200> MylabTestDetailsBa200 { get; set; }
-        public virtual DbSet<Narrations> Narrations { get; set; }
-        public virtual DbSet<Nextgendata> Nextgendata { get; set; }
+        public virtual DbSet<NARRATIONS> NARRATIONS { get; set; }
+        public virtual DbSet<NEXTGENDATA> NEXTGENDATA { get; set; }
+        public virtual DbSet<PATIENT> PATIENT { get; set; }
+        public virtual DbSet<PATIENT_BILL_DETAILS> PATIENT_BILL_DETAILS { get; set; }
+        public virtual DbSet<PATIENT_MASTER> PATIENT_MASTER { get; set; }
+        public virtual DbSet<PATIENT_history> PATIENT_history { get; set; }
+        public virtual DbSet<PDFLog> PDFLog { get; set; }
+        public virtual DbSet<PHLEBOMIST_COLLECTED_TEST> PHLEBOMIST_COLLECTED_TEST { get; set; }
+        public virtual DbSet<PREDEFVAL> PREDEFVAL { get; set; }
+        public virtual DbSet<PROFDET> PROFDET { get; set; }
         public virtual DbSet<Param> Param { get; set; }
         public virtual DbSet<ParamHelpValues> ParamHelpValues { get; set; }
-        public virtual DbSet<Patient> Patient { get; set; }
-        public virtual DbSet<PatientBillDetails> PatientBillDetails { get; set; }
-        public virtual DbSet<PatientHistory> PatientHistory { get; set; }
-        public virtual DbSet<PatientMaster> PatientMaster { get; set; }
-        public virtual DbSet<PatientPortal> PatientPortal { get; set; }
         public virtual DbSet<PatientProfilePic> PatientProfilePic { get; set; }
+        public virtual DbSet<Patient_Portal> Patient_Portal { get; set; }
         public virtual DbSet<PayRemDetail> PayRemDetail { get; set; }
         public virtual DbSet<PayRemHeader> PayRemHeader { get; set; }
-        public virtual DbSet<Pdflog> Pdflog { get; set; }
-        public virtual DbSet<PhelobotomistHomeVisit> PhelobotomistHomeVisit { get; set; }
-        public virtual DbSet<PhlebomistCollectedTest> PhlebomistCollectedTest { get; set; }
-        public virtual DbSet<Predefval> Predefval { get; set; }
-        public virtual DbSet<Profdet> Profdet { get; set; }
-        public virtual DbSet<QerAmountpaid> QerAmountpaid { get; set; }
-        public virtual DbSet<QerAmountpaidtype> QerAmountpaidtype { get; set; }
-        public virtual DbSet<QerBalamt> QerBalamt { get; set; }
-        public virtual DbSet<QerBidirection> QerBidirection { get; set; }
-        public virtual DbSet<QerBill> QerBill { get; set; }
-        public virtual DbSet<QerCbcWorkSheet> QerCbcWorkSheet { get; set; }
-        public virtual DbSet<QerCollection> QerCollection { get; set; }
+        public virtual DbSet<Phelobotomist_HomeVisit> Phelobotomist_HomeVisit { get; set; }
+        public virtual DbSet<QER_AMOUNTPAID> QER_AMOUNTPAID { get; set; }
+        public virtual DbSet<QER_AMOUNTPAIDType> QER_AMOUNTPAIDType { get; set; }
+        public virtual DbSet<QER_BALAMT> QER_BALAMT { get; set; }
+        public virtual DbSet<QER_BIDIRECTION> QER_BIDIRECTION { get; set; }
+        public virtual DbSet<QER_BILL> QER_BILL { get; set; }
+        public virtual DbSet<QER_CBC_WorkSheet> QER_CBC_WorkSheet { get; set; }
+        public virtual DbSet<QER_COLLECTION> QER_COLLECTION { get; set; }
+        public virtual DbSet<QER_COMPARERATE> QER_COMPARERATE { get; set; }
+        public virtual DbSet<QER_DAILYREGISTER> QER_DAILYREGISTER { get; set; }
+        public virtual DbSet<QER_DAILYREGREFUND> QER_DAILYREGREFUND { get; set; }
+        public virtual DbSet<QER_DISPATCHREGISTER> QER_DISPATCHREGISTER { get; set; }
+        public virtual DbSet<QER_DOCTORLIST> QER_DOCTORLIST { get; set; }
+        public virtual DbSet<QER_DOCTORWISE_COMMISSION> QER_DOCTORWISE_COMMISSION { get; set; }
+        public virtual DbSet<QER_DOCTORWISE_COMMISSION_OLD> QER_DOCTORWISE_COMMISSION_OLD { get; set; }
+        public virtual DbSet<QER_DOCTOR_COMM> QER_DOCTOR_COMM { get; set; }
+        public virtual DbSet<QER_DOCTOR_COMMISSION> QER_DOCTOR_COMMISSION { get; set; }
+        public virtual DbSet<QER_DOCTOR_COMMISSION_OLD> QER_DOCTOR_COMMISSION_OLD { get; set; }
+        public virtual DbSet<QER_FILLDATA> QER_FILLDATA { get; set; }
+        public virtual DbSet<QER_FOR_MYPATHTEST> QER_FOR_MYPATHTEST { get; set; }
+        public virtual DbSet<QER_PATIENT> QER_PATIENT { get; set; }
+        public virtual DbSet<QER_PATIENTREPORT> QER_PATIENTREPORT { get; set; }
+        public virtual DbSet<QER_PATIENTTYPE> QER_PATIENTTYPE { get; set; }
+        public virtual DbSet<QER_PATIENT_HISTORY> QER_PATIENT_HISTORY { get; set; }
+        public virtual DbSet<QER_PAYMENTS> QER_PAYMENTS { get; set; }
+        public virtual DbSet<QER_PAYMENTSTYPE> QER_PAYMENTSTYPE { get; set; }
+        public virtual DbSet<QER_PENDING_TEST> QER_PENDING_TEST { get; set; }
+        public virtual DbSet<QER_PendingTestsNew> QER_PendingTestsNew { get; set; }
+        public virtual DbSet<QER_RATELIST> QER_RATELIST { get; set; }
+        public virtual DbSet<QER_REFUNDAMOUNT> QER_REFUNDAMOUNT { get; set; }
+        public virtual DbSet<QER_RESULTREGISTER> QER_RESULTREGISTER { get; set; }
+        public virtual DbSet<QER_RESULTREGISTER1> QER_RESULTREGISTER1 { get; set; }
+        public virtual DbSet<QER_RESULTREGISTER2> QER_RESULTREGISTER2 { get; set; }
+        public virtual DbSet<QER_RESULTREGISTERREPORT> QER_RESULTREGISTERREPORT { get; set; }
+        public virtual DbSet<QER_RESULTREGISTERREPORT1> QER_RESULTREGISTERREPORT1 { get; set; }
+        public virtual DbSet<QER_RESULTREGISTERREPORTSMS> QER_RESULTREGISTERREPORTSMS { get; set; }
+        public virtual DbSet<QER_RESULTREGISTERREPORTSMSCRITICAL> QER_RESULTREGISTERREPORTSMSCRITICAL { get; set; }
+        public virtual DbSet<QER_RESULTREGISTERSMS> QER_RESULTREGISTERSMS { get; set; }
+        public virtual DbSet<QER_RESULTREGISTERSMSCRITICAL> QER_RESULTREGISTERSMSCRITICAL { get; set; }
+        public virtual DbSet<QER_SPECIALTESTS> QER_SPECIALTESTS { get; set; }
+        public virtual DbSet<QER_TESTCOUNT> QER_TESTCOUNT { get; set; }
+        public virtual DbSet<QER_TESTS> QER_TESTS { get; set; }
+        public virtual DbSet<QER_WORK_SHEET> QER_WORK_SHEET { get; set; }
+        public virtual DbSet<QER_WORK_SHEET_OLD> QER_WORK_SHEET_OLD { get; set; }
         public virtual DbSet<QerCollectionCenterBillDetail> QerCollectionCenterBillDetail { get; set; }
-        public virtual DbSet<QerComparerate> QerComparerate { get; set; }
-        public virtual DbSet<QerDailyregister> QerDailyregister { get; set; }
-        public virtual DbSet<QerDailyregrefund> QerDailyregrefund { get; set; }
-        public virtual DbSet<QerDispatchregister> QerDispatchregister { get; set; }
-        public virtual DbSet<QerDoctorComm> QerDoctorComm { get; set; }
-        public virtual DbSet<QerDoctorCommission> QerDoctorCommission { get; set; }
-        public virtual DbSet<QerDoctorCommissionOld> QerDoctorCommissionOld { get; set; }
-        public virtual DbSet<QerDoctorlist> QerDoctorlist { get; set; }
-        public virtual DbSet<QerDoctorwiseCommission> QerDoctorwiseCommission { get; set; }
-        public virtual DbSet<QerDoctorwiseCommissionOld> QerDoctorwiseCommissionOld { get; set; }
-        public virtual DbSet<QerFilldata> QerFilldata { get; set; }
-        public virtual DbSet<QerForMypathtest> QerForMypathtest { get; set; }
-        public virtual DbSet<QerPaidrefund> QerPaidrefund { get; set; }
-        public virtual DbSet<QerPatient> QerPatient { get; set; }
-        public virtual DbSet<QerPatientHistory> QerPatientHistory { get; set; }
-        public virtual DbSet<QerPatientreport> QerPatientreport { get; set; }
-        public virtual DbSet<QerPatienttype> QerPatienttype { get; set; }
-        public virtual DbSet<QerPayments> QerPayments { get; set; }
-        public virtual DbSet<QerPaymentstype> QerPaymentstype { get; set; }
-        public virtual DbSet<QerPendingTest> QerPendingTest { get; set; }
-        public virtual DbSet<QerPendingTestsNew> QerPendingTestsNew { get; set; }
-        public virtual DbSet<QerRatelist> QerRatelist { get; set; }
-        public virtual DbSet<QerRefundamount> QerRefundamount { get; set; }
-        public virtual DbSet<QerResultregister> QerResultregister { get; set; }
-        public virtual DbSet<QerResultregister1> QerResultregister1 { get; set; }
-        public virtual DbSet<QerResultregister2> QerResultregister2 { get; set; }
-        public virtual DbSet<QerResultregisterreport> QerResultregisterreport { get; set; }
-        public virtual DbSet<QerResultregisterreport1> QerResultregisterreport1 { get; set; }
-        public virtual DbSet<QerResultregisterreportsms> QerResultregisterreportsms { get; set; }
-        public virtual DbSet<QerResultregisterreportsmscritical> QerResultregisterreportsmscritical { get; set; }
-        public virtual DbSet<QerResultregistersms> QerResultregistersms { get; set; }
-        public virtual DbSet<QerResultregistersmscritical> QerResultregistersmscritical { get; set; }
-        public virtual DbSet<QerSpecialtests> QerSpecialtests { get; set; }
-        public virtual DbSet<QerTdscertificate> QerTdscertificate { get; set; }
-        public virtual DbSet<QerTestcount> QerTestcount { get; set; }
-        public virtual DbSet<QerTests> QerTests { get; set; }
-        public virtual DbSet<QerWorkSheet> QerWorkSheet { get; set; }
-        public virtual DbSet<QerWorkSheetOld> QerWorkSheetOld { get; set; }
+        public virtual DbSet<QerTDSCertificate> QerTDSCertificate { get; set; }
         public virtual DbSet<QuantumTestMapp> QuantumTestMapp { get; set; }
+        public virtual DbSet<RATELIST> RATELIST { get; set; }
+        public virtual DbSet<RATELISTHDR> RATELISTHDR { get; set; }
         public virtual DbSet<RateListDiscountRate> RateListDiscountRate { get; set; }
-        public virtual DbSet<Ratelist> Ratelist { get; set; }
-        public virtual DbSet<Ratelisthdr> Ratelisthdr { get; set; }
-        public virtual DbSet<RejectReason> RejectReason { get; set; }
-        public virtual DbSet<ReportReadySmslog> ReportReadySmslog { get; set; }
-        public virtual DbSet<ReportValuesCrsmslog> ReportValuesCrsmslog { get; set; }
-        public virtual DbSet<ReportValuesSmslog> ReportValuesSmslog { get; set; }
+        public virtual DbSet<Reject_Reason> Reject_Reason { get; set; }
+        public virtual DbSet<ReportReadySMSLog> ReportReadySMSLog { get; set; }
+        public virtual DbSet<ReportValuesCRSMSLOG> ReportValuesCRSMSLOG { get; set; }
+        public virtual DbSet<ReportValuesSMSLOG> ReportValuesSMSLOG { get; set; }
+        public virtual DbSet<SMSAPI> SMSAPI { get; set; }
+        public virtual DbSet<SMSTEMPLATEDET> SMSTEMPLATEDET { get; set; }
+        public virtual DbSet<SMSTEMPLATEHDR> SMSTEMPLATEHDR { get; set; }
+        public virtual DbSet<SMSTESTREGISTER> SMSTESTREGISTER { get; set; }
+        public virtual DbSet<SMS_SET> SMS_SET { get; set; }
         public virtual DbSet<Scheduler> Scheduler { get; set; }
-        public virtual DbSet<SmsData> SmsData { get; set; }
-        public virtual DbSet<SmsSet> SmsSet { get; set; }
-        public virtual DbSet<Smsapi> Smsapi { get; set; }
-        public virtual DbSet<Smstemplatedet> Smstemplatedet { get; set; }
-        public virtual DbSet<Smstemplatehdr> Smstemplatehdr { get; set; }
-        public virtual DbSet<Smstestregister> Smstestregister { get; set; }
-        public virtual DbSet<TblAppointmentTrack> TblAppointmentTrack { get; set; }
-        public virtual DbSet<TestFormatDet> TestFormatDet { get; set; }
+        public virtual DbSet<TESTDET> TESTDET { get; set; }
+        public virtual DbSet<TESTMASTER> TESTMASTER { get; set; }
+        public virtual DbSet<TESTMST> TESTMST { get; set; }
+        public virtual DbSet<TESTREGISTER> TESTREGISTER { get; set; }
+        public virtual DbSet<TESTTYPE> TESTTYPE { get; set; }
+        public virtual DbSet<TEST_FORMAT_DET> TEST_FORMAT_DET { get; set; }
         public virtual DbSet<TestValidation> TestValidation { get; set; }
-        public virtual DbSet<Testdet> Testdet { get; set; }
-        public virtual DbSet<Testmaster> Testmaster { get; set; }
-        public virtual DbSet<Testmst> Testmst { get; set; }
-        public virtual DbSet<Testregister> Testregister { get; set; }
-        public virtual DbSet<Testtype> Testtype { get; set; }
         public virtual DbSet<TreeView> TreeView { get; set; }
+        public virtual DbSet<USERRIGHTS> USERRIGHTS { get; set; }
+        public virtual DbSet<USERS> USERS { get; set; }
         public virtual DbSet<UserMaster> UserMaster { get; set; }
-        public virtual DbSet<Userrights> Userrights { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<V1> V1 { get; set; }
-        public virtual DbSet<VwPatientBillDetails> VwPatientBillDetails { get; set; }
+        public virtual DbSet<VW_PATIENT_BILL_DETAILS> VW_PATIENT_BILL_DETAILS { get; set; }
+        public virtual DbSet<architect> architect { get; set; }
+        public virtual DbSet<qer_paidrefund> qer_paidrefund { get; set; }
+        public virtual DbSet<smsData> smsData { get; set; }
+        public virtual DbSet<tblAppointmentTrack> tblAppointmentTrack { get; set; }
+        public virtual DbSet<v1> v1 { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -156,188 +156,79 @@ namespace myLabWebApi.Models.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AbnormalSmslog>(entity =>
-            {
-                entity.HasKey(e => e.LogId);
-
-                entity.ToTable("AbnormalSMSLog");
-
-                entity.HasIndex(e => e.PatientName)
-                    .HasName("IX_AbnormalSMSLog_PatientName");
-
-                entity.Property(e => e.LastSmsdate)
-                    .HasColumnName("LastSMSDate")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Sms)
-                    .HasColumnName("SMS")
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.SysDate).HasColumnType("datetime");
-
-                entity.Property(e => e.SysDateTime)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.SysFlag)
-                    .HasColumnName("sysFlag")
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TemplateName)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<AdminHomeVisitAllocated>(entity =>
+            modelBuilder.Entity<ADMIN_HOME_VISIT_ALLOCATED>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("ADMIN_HOME_VISIT_ALLOCATED");
+                entity.Property(e => e.ALLOT_TIME).HasMaxLength(50);
 
-                entity.Property(e => e.AllotTime)
-                    .HasColumnName("ALLOT_TIME")
-                    .HasMaxLength(50);
+                entity.Property(e => e.BOOKEDHOMEVISIT_ID).HasMaxLength(50);
 
-                entity.Property(e => e.BookedhomevisitId)
-                    .HasColumnName("BOOKEDHOMEVISIT_ID")
-                    .HasMaxLength(50);
+                entity.Property(e => e.FILE_NAME).HasMaxLength(50);
 
-                entity.Property(e => e.BookingDate)
-                    .HasColumnName("bookingDate")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.FILE_PATH).HasMaxLength(250);
 
-                entity.Property(e => e.FileName)
-                    .HasColumnName("FILE_NAME")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.FilePath)
-                    .HasColumnName("FILE_PATH")
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.Flag).HasColumnName("FLAG");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LabName).HasMaxLength(100);
 
-                entity.Property(e => e.PatientAddress)
-                    .HasColumnName("patient_address")
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                entity.Property(e => e.PATIENT_AREA).HasMaxLength(50);
 
-                entity.Property(e => e.PatientArea)
-                    .HasColumnName("PATIENT_AREA")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_CONTACT).HasMaxLength(50);
 
-                entity.Property(e => e.PatientContact)
-                    .HasColumnName("PATIENT_CONTACT")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_NAME).HasMaxLength(50);
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_NAME")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PHLEB_ID).HasMaxLength(50);
 
-                entity.Property(e => e.PhlebId)
-                    .HasColumnName("PHLEB_ID")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PHLEB_NAME).HasMaxLength(50);
 
-                entity.Property(e => e.PhlebName)
-                    .HasColumnName("PHLEB_NAME")
-                    .HasMaxLength(50);
+                entity.Property(e => e.REMARK).HasMaxLength(50);
 
-                entity.Property(e => e.Remark)
-                    .HasColumnName("REMARK")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.SendDatetime)
-                    .HasColumnName("SEND_DATETIME")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.SEND_DATETIME).HasColumnType("datetime");
 
                 entity.Property(e => e.SysDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Userid)
-                    .HasColumnName("USERID")
-                    .HasMaxLength(50);
+                entity.Property(e => e.USERID).HasMaxLength(50);
+
+                entity.Property(e => e.bookingDate).HasColumnType("datetime");
+
+                entity.Property(e => e.patient_address)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
-            modelBuilder.Entity<AdminLogin>(entity =>
+            modelBuilder.Entity<ADMIN_LOGIN>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("ADMIN_LOGIN");
+                entity.Property(e => e.CONTACT).HasMaxLength(50);
 
-                entity.Property(e => e.Contact)
-                    .HasColumnName("CONTACT")
-                    .HasMaxLength(50);
+                entity.Property(e => e.EMAIL).HasMaxLength(50);
 
-                entity.Property(e => e.Email)
-                    .HasColumnName("EMAIL")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.LabId).HasColumnName("LabID");
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LabName).HasMaxLength(50);
 
-                entity.Property(e => e.Password)
-                    .HasColumnName("PASSWORD")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PASSWORD).HasMaxLength(50);
 
-                entity.Property(e => e.SysDate)
-                    .HasColumnName("SYS_DATE")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.SYS_DATE).HasColumnType("datetime");
 
-                entity.Property(e => e.SysDate1)
-                    .HasColumnName("SysDate")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.SysDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Type).HasMaxLength(30);
 
-                entity.Property(e => e.Username)
-                    .HasColumnName("USERNAME")
-                    .HasMaxLength(50);
+                entity.Property(e => e.USERNAME).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<AdminPackkage>(entity =>
+            modelBuilder.Entity<ADMIN_PACKKAGE>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("ADMIN_PACKKAGE");
+                entity.Property(e => e.CONTACT).HasMaxLength(50);
 
-                entity.Property(e => e.Contact)
-                    .HasColumnName("CONTACT")
-                    .HasMaxLength(50);
+                entity.Property(e => e.FROM_DATE).HasMaxLength(50);
 
-                entity.Property(e => e.Flag).HasColumnName("FLAG");
-
-                entity.Property(e => e.FromDate)
-                    .HasColumnName("FROM_DATE")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LabAddress).HasMaxLength(100);
 
@@ -347,40 +238,28 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.LabName).HasMaxLength(50);
 
+                entity.Property(e => e.PACKKAGE_NAME).HasMaxLength(50);
+
+                entity.Property(e => e.PRICE).HasMaxLength(50);
+
                 entity.Property(e => e.PackageCode)
                     .HasMaxLength(20)
                     .IsUnicode(false);
-
-                entity.Property(e => e.PackkageName)
-                    .HasColumnName("PACKKAGE_NAME")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Price)
-                    .HasColumnName("PRICE")
-                    .HasMaxLength(50);
 
                 entity.Property(e => e.Sysdate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.TestName)
-                    .HasColumnName("TEST_NAME")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TEST_NAME).HasMaxLength(50);
 
-                entity.Property(e => e.ToDate)
-                    .HasColumnName("TO_DATE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TO_DATE).HasMaxLength(50);
 
-                entity.Property(e => e.UserId)
-                    .HasColumnName("USER_ID")
-                    .HasMaxLength(50);
+                entity.Property(e => e.USER_ID).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Amountpaid>(entity =>
+            modelBuilder.Entity<AMOUNTPAID>(entity =>
             {
                 entity.HasKey(e => e.Paymentid);
-
-                entity.ToTable("AMOUNTPAID");
 
                 entity.HasIndex(e => e.Patientid)
                     .HasName("IX_AMOUNTPAID_PATIENTID");
@@ -399,9 +278,45 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(1000)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.userid).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<AbnormalSMSLog>(entity =>
+            {
+                entity.HasKey(e => e.LogId);
+
+                entity.HasIndex(e => e.PATIENT_Name)
+                    .HasName("IX_AbnormalSMSLog_PatientName");
+
+                entity.Property(e => e.LastSMSDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("datetime");
+
+                entity.Property(e => e.PATIENT_Name)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PATIENT_Telno)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SMS)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SysDate).HasColumnType("datetime");
+
+                entity.Property(e => e.SysDateTime)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.TemplateName)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.sysFlag)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<AppointmentImage>(entity =>
@@ -413,31 +328,177 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.ImageString).HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<Architect>(entity =>
+            modelBuilder.Entity<BOOKHOMEVISIT>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("architect");
+                entity.Property(e => e.ADDRESS).HasMaxLength(250);
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.AREA).HasMaxLength(50);
 
-                entity.Property(e => e.MylabTestFieldnoOne).HasColumnName("MYLAB_TEST_FIELDNO_ONE");
+                entity.Property(e => e.Age).HasMaxLength(5);
 
-                entity.Property(e => e.MylabTestFieldnoTwo).HasColumnName("MYLAB_TEST_FIELDNO_TWO");
+                entity.Property(e => e.BOOKED_FLAG).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.MylabTestMstid).HasColumnName("MYLAB_TEST_MSTID");
+                entity.Property(e => e.BookedBy).HasMaxLength(100);
 
-                entity.Property(e => e.TestId).HasColumnName("TEST_ID");
-
-                entity.Property(e => e.TestName)
-                    .IsRequired()
-                    .HasColumnName("TEST_NAME")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Type)
+                entity.Property(e => e.CONTACT)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Cancel)
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("(N'NO')");
+
+                entity.Property(e => e.CancleReason)
+                    .HasMaxLength(80)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Current_date)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.DATE).HasColumnType("datetime");
+
+                entity.Property(e => e.FILENAME).HasMaxLength(50);
+
+                entity.Property(e => e.FILEPATH).HasMaxLength(250);
+
+                entity.Property(e => e.Gender)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.HomevisitId)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.LabCode)
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PATIENT_ID)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PREFERED_LAB).HasMaxLength(50);
+
+                entity.Property(e => e.PatientContact)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PatientEmail)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Patient_name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.REMARK).HasMaxLength(250);
+
+                entity.Property(e => e.RowSent).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Status).HasMaxLength(50);
+
+                entity.Property(e => e.Sys_Date)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.TIME)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<BOOK_APPOINTMENT>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.ADDRESS)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.AREA)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.AppointmentID)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.BookedBy).HasMaxLength(100);
+
+                entity.Property(e => e.CONTACT)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Cancel)
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("('NO')");
+
+                entity.Property(e => e.CancleReason)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DATE)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FILENAME)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FILEPATH)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.LabCode)
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PATIENT_ID)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PREFERED_LAB)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PatientContact)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PatientEmail)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.REMARK)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.RowSent).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Status)
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("(N'UPCOMING')");
+
+                entity.Property(e => e.TIME)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.USERNAME_Book)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.age)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.gender)
+                    .HasMaxLength(15)
                     .IsUnicode(false);
             });
 
@@ -445,14 +506,11 @@ namespace myLabWebApi.Models.DB
             {
                 entity.HasKey(e => e.BillDetId);
 
-                entity.Property(e => e.AmtReceived)
-                    .HasColumnName("Amt_received")
-                    .HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Amt_received).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Concession).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("Doctor_Name")
+                entity.Property(e => e.Doctor_Name)
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
@@ -460,21 +518,14 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.OtherCharges).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("Patient_date")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("Patient_id");
-
-                entity.Property(e => e.PatientName)
+                entity.Property(e => e.Patient_Name)
                     .IsRequired()
-                    .HasColumnName("Patient_Name")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ProposalNo)
-                    .HasColumnName("Proposal_No")
-                    .HasMaxLength(255);
+                entity.Property(e => e.Patient_date).HasColumnType("datetime");
+
+                entity.Property(e => e.Proposal_No).HasMaxLength(255);
 
                 entity.Property(e => e.Remark)
                     .HasMaxLength(200)
@@ -482,9 +533,7 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.SpecialTest).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("Test_alias")
-                    .HasMaxLength(1000);
+                entity.Property(e => e.Test_alias).HasMaxLength(1000);
 
                 entity.Property(e => e.TotalAmt).HasColumnType("decimal(18, 2)");
             });
@@ -499,13 +548,10 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.BillDate).HasColumnType("datetime");
 
-                entity.Property(e => e.BillType)
-                    .HasColumnName("Bill_Type")
+                entity.Property(e => e.Bill_Type)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength();
-
-                entity.Property(e => e.CenterId).HasColumnName("Center_Id");
 
                 entity.Property(e => e.Cess).HasColumnType("decimal(18, 2)");
 
@@ -513,9 +559,8 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.EndDate).HasColumnType("datetime");
 
-                entity.Property(e => e.FinYear)
+                entity.Property(e => e.Fin_Year)
                     .IsRequired()
-                    .HasColumnName("Fin_Year")
                     .HasMaxLength(5)
                     .IsUnicode(false);
 
@@ -548,241 +593,16 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SysDate)
-                    .HasColumnName("sysDate")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.sysDate).HasColumnType("datetime");
 
-                entity.Property(e => e.SysUserName)
-                    .HasColumnName("sysUserName")
+                entity.Property(e => e.sysUserName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<BookAppointment>(entity =>
+            modelBuilder.Entity<CATEGORY>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("BOOK_APPOINTMENT");
-
-                entity.Property(e => e.Address)
-                    .HasColumnName("ADDRESS")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Age)
-                    .HasColumnName("age")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.AppointmentId)
-                    .HasColumnName("AppointmentID")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Area)
-                    .HasColumnName("AREA")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.BookedBy).HasMaxLength(100);
-
-                entity.Property(e => e.Cancel)
-                    .HasMaxLength(50)
-                    .HasDefaultValueSql("('NO')");
-
-                entity.Property(e => e.CancleReason)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Contact)
-                    .HasColumnName("CONTACT")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Date)
-                    .HasColumnName("DATE")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Filename)
-                    .HasColumnName("FILENAME")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Filepath)
-                    .HasColumnName("FILEPATH")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Flag).HasColumnName("FLAG");
-
-                entity.Property(e => e.Gender)
-                    .HasColumnName("gender")
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.LabCode)
-                    .HasMaxLength(2)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientContact)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientEmail)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientId)
-                    .HasColumnName("PATIENT_ID")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PreferedLab)
-                    .HasColumnName("PREFERED_LAB")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Remark)
-                    .HasColumnName("REMARK")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.RowSent).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Status)
-                    .HasMaxLength(50)
-                    .HasDefaultValueSql("(N'UPCOMING')");
-
-                entity.Property(e => e.Time)
-                    .HasColumnName("TIME")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.UsernameBook)
-                    .HasColumnName("USERNAME_Book")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Bookhomevisit>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("BOOKHOMEVISIT");
-
-                entity.Property(e => e.Address)
-                    .HasColumnName("ADDRESS")
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.Age).HasMaxLength(5);
-
-                entity.Property(e => e.Area)
-                    .HasColumnName("AREA")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.BookedBy).HasMaxLength(100);
-
-                entity.Property(e => e.BookedFlag)
-                    .HasColumnName("BOOKED_FLAG")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Cancel)
-                    .HasMaxLength(50)
-                    .HasDefaultValueSql("(N'NO')");
-
-                entity.Property(e => e.CancleReason)
-                    .HasMaxLength(80)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Contact)
-                    .HasColumnName("CONTACT")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.CurrentDate)
-                    .HasColumnName("Current_date")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.Date)
-                    .HasColumnName("DATE")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Filename)
-                    .HasColumnName("FILENAME")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Filepath)
-                    .HasColumnName("FILEPATH")
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.Gender)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.HomevisitId)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.LabCode)
-                    .HasMaxLength(2)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientContact)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientEmail)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientId)
-                    .HasColumnName("PATIENT_ID")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("Patient_name")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PreferedLab)
-                    .HasColumnName("PREFERED_LAB")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Remark)
-                    .HasColumnName("REMARK")
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.RowSent).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Status).HasMaxLength(50);
-
-                entity.Property(e => e.SysDate)
-                    .HasColumnName("Sys_Date")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.Time)
-                    .HasColumnName("TIME")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Category>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("CATEGORY");
 
                 entity.Property(e => e.CatDescription).HasMaxLength(150);
 
@@ -793,42 +613,138 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.CatRemark1).HasMaxLength(150);
             });
 
-            modelBuilder.Entity<Cbcworksheet>(entity =>
+            modelBuilder.Entity<CBCWorksheet>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("CBCWorksheet");
+                entity.Property(e => e.Field_name).HasMaxLength(50);
 
-                entity.Property(e => e.FieldName)
-                    .HasColumnName("Field_name")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.FieldNo).HasColumnName("Field_No");
-
-                entity.Property(e => e.TestCatId).HasColumnName("TestCat_ID");
-
-                entity.Property(e => e.TestName)
-                    .HasColumnName("Test_name")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Test_name).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Cbcworksheet28012013>(entity =>
+            modelBuilder.Entity<CBCWorksheet28012013>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("CBCWorksheet28012013");
+                entity.Property(e => e.Field_name).HasMaxLength(50);
 
-                entity.Property(e => e.FieldName)
-                    .HasColumnName("Field_name")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Test_name).HasMaxLength(50);
+            });
 
-                entity.Property(e => e.FieldNo).HasColumnName("Field_No");
+            modelBuilder.Entity<COLLECTIONCENTER>(entity =>
+            {
+                entity.HasKey(e => e.CENTER_id);
 
-                entity.Property(e => e.TestCatId).HasColumnName("TestCat_ID");
+                entity.Property(e => e.CENTER_id).ValueGeneratedNever();
 
-                entity.Property(e => e.TestName)
-                    .HasColumnName("Test_name")
-                    .HasMaxLength(50);
+                entity.Property(e => e.CENTER_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_City).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Country).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Pincode).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_State).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.OutSourceLab)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+            });
+
+            modelBuilder.Entity<COMPANY>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.COMPANY_Abnormal).HasMaxLength(200);
+
+                entity.Property(e => e.COMPANY_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_CardDegree1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_CardDegree2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_CardDegree3).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Cardiologist1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Cardiologist2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Cardiologist3).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_City).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Country).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_DataLoc).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Email).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Faxnumber).HasMaxLength(50);
+
+                entity.Property(e => e.COMPANY_Name).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Password).HasMaxLength(50);
+
+                entity.Property(e => e.COMPANY_PathoDegree1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_PathoDegree2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_PathoDegree3).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Pathologist1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Pathologist2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Pathologist3).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_PhoneNumber).HasMaxLength(50);
+
+                entity.Property(e => e.COMPANY_PostalCode).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_RadDegree1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_RadDegree2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_RadDegree3).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Radiologist1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Radiologist2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Radiologist3).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_ReportLoc).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Series)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength()
+                    .HasDefaultValueSql("('Y')");
+
+                entity.Property(e => e.COMPANY_SonoDegree).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_SonoLogist).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_State).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Url).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_Username).HasMaxLength(50);
+
+                entity.Property(e => e.Remarks).HasMaxLength(255);
             });
 
             modelBuilder.Entity<CollectionCenterAmountReceived>(entity =>
@@ -842,8 +758,6 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.BankName)
                     .HasMaxLength(100)
                     .IsUnicode(false);
-
-                entity.Property(e => e.CenterId).HasColumnName("Center_Id");
 
                 entity.Property(e => e.ChequeDate).HasColumnType("datetime");
 
@@ -862,267 +776,24 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.RecAmount).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.Tds)
-                    .HasColumnName("TDS")
-                    .HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.TDS).HasColumnType("decimal(18, 2)");
             });
 
-            modelBuilder.Entity<Collectioncenter>(entity =>
+            modelBuilder.Entity<DOCDET>(entity =>
             {
-                entity.HasKey(e => e.CenterId);
+                entity.HasKey(e => new { e.DOCDET_lHeaderId, e.DOCDET_lFieldNo });
 
-                entity.ToTable("COLLECTIONCENTER");
-
-                entity.Property(e => e.CenterId)
-                    .HasColumnName("CENTER_id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.CenterAddress1)
-                    .HasColumnName("CENTER_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterAddress2)
-                    .HasColumnName("CENTER_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterCity)
-                    .HasColumnName("CENTER_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterCompanyid).HasColumnName("CENTER_Companyid");
-
-                entity.Property(e => e.CenterCountry)
-                    .HasColumnName("CENTER_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterPincode)
-                    .HasColumnName("CENTER_Pincode")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterState)
-                    .HasColumnName("CENTER_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterStatus).HasColumnName("CENTER_Status");
-
-                entity.Property(e => e.CenterTelno)
-                    .HasColumnName("CENTER_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.OutSourceLab)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-            });
-
-            modelBuilder.Entity<Company>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("COMPANY");
-
-                entity.Property(e => e.CompanyAbnormal)
-                    .HasColumnName("COMPANY_Abnormal")
-                    .HasMaxLength(200);
-
-                entity.Property(e => e.CompanyAddress1)
-                    .HasColumnName("COMPANY_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyAddress2)
-                    .HasColumnName("COMPANY_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyBotMargin).HasColumnName("COMPANY_BotMargin");
-
-                entity.Property(e => e.CompanyCardDegree1)
-                    .HasColumnName("COMPANY_CardDegree1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardDegree2)
-                    .HasColumnName("COMPANY_CardDegree2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardDegree3)
-                    .HasColumnName("COMPANY_CardDegree3")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardiologist1)
-                    .HasColumnName("COMPANY_Cardiologist1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardiologist2)
-                    .HasColumnName("COMPANY_Cardiologist2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardiologist3)
-                    .HasColumnName("COMPANY_Cardiologist3")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCity)
-                    .HasColumnName("COMPANY_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyCountry)
-                    .HasColumnName("COMPANY_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyDataLoc)
-                    .HasColumnName("COMPANY_DataLoc")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyEmail)
-                    .HasColumnName("COMPANY_Email")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyFaxnumber)
-                    .HasColumnName("COMPANY_Faxnumber")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.CompanyName)
-                    .HasColumnName("COMPANY_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyPaperSize).HasColumnName("COMPANY_PaperSize");
-
-                entity.Property(e => e.CompanyPassword)
-                    .HasColumnName("COMPANY_Password")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.CompanyPathoDegree1)
-                    .HasColumnName("COMPANY_PathoDegree1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathoDegree2)
-                    .HasColumnName("COMPANY_PathoDegree2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathoDegree3)
-                    .HasColumnName("COMPANY_PathoDegree3")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathologist1)
-                    .HasColumnName("COMPANY_Pathologist1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathologist2)
-                    .HasColumnName("COMPANY_Pathologist2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathologist3)
-                    .HasColumnName("COMPANY_Pathologist3")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPhoneNumber)
-                    .HasColumnName("COMPANY_PhoneNumber")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.CompanyPostalCode)
-                    .HasColumnName("COMPANY_PostalCode")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyRadDegree1)
-                    .HasColumnName("COMPANY_RadDegree1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadDegree2)
-                    .HasColumnName("COMPANY_RadDegree2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadDegree3)
-                    .HasColumnName("COMPANY_RadDegree3")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadiologist1)
-                    .HasColumnName("COMPANY_Radiologist1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadiologist2)
-                    .HasColumnName("COMPANY_Radiologist2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadiologist3)
-                    .HasColumnName("COMPANY_Radiologist3")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyReportLoc)
-                    .HasColumnName("COMPANY_ReportLoc")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanySeries)
-                    .IsRequired()
-                    .HasColumnName("COMPANY_Series")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength()
-                    .HasDefaultValueSql("('Y')");
-
-                entity.Property(e => e.CompanySetupid).HasColumnName("COMPANY_Setupid");
-
-                entity.Property(e => e.CompanySonoDegree)
-                    .HasColumnName("COMPANY_SonoDegree")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanySonoLogist)
-                    .HasColumnName("COMPANY_SonoLogist")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyState)
-                    .HasColumnName("COMPANY_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyTopMargin).HasColumnName("COMPANY_TopMargin");
-
-                entity.Property(e => e.CompanyUrl)
-                    .HasColumnName("COMPANY_Url")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CompanyUsername)
-                    .HasColumnName("COMPANY_Username")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Remarks).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Docdet>(entity =>
-            {
-                entity.HasKey(e => new { e.DocdetLHeaderId, e.DocdetLFieldNo });
-
-                entity.ToTable("DOCDET");
-
-                entity.HasIndex(e => e.DocdetLHeaderId)
+                entity.HasIndex(e => e.DOCDET_lHeaderId)
                     .HasName("IX_DOCDET");
 
-                entity.HasIndex(e => new { e.DocdetLTestCatId, e.DocdetLFieldNo })
+                entity.HasIndex(e => new { e.DOCDET_lTestCatId, e.DOCDET_lFieldNo })
                     .HasName("IX_DOCDET_1");
 
-                entity.Property(e => e.DocdetLHeaderId).HasColumnName("DOCDET_lHeaderId");
+                entity.Property(e => e.DOCDET_tFieldValue).HasMaxLength(255);
 
-                entity.Property(e => e.DocdetLFieldNo).HasColumnName("DOCDET_lFieldNo");
+                entity.Property(e => e.DOCDET_tFieldValue1).HasColumnType("ntext");
 
-                entity.Property(e => e.DocdetLTestCatId).HasColumnName("DOCDET_lTestCatId");
-
-                entity.Property(e => e.DocdetTFieldValue)
-                    .HasColumnName("DOCDET_tFieldValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DocdetTFieldValue1)
-                    .HasColumnName("DOCDET_tFieldValue1")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.IsResRec)
-                    .HasColumnName("isResRec")
-                    .HasDefaultValueSql("(0)");
-
-                entity.Property(e => e.LowHHigh)
+                entity.Property(e => e.LowH_High)
                     .HasColumnName("LowH/High")
                     .HasMaxLength(100)
                     .IsUnicode(false);
@@ -1133,43 +804,40 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.Rerun).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.SUnit)
-                    .HasColumnName("sUnit")
+                entity.Property(e => e.ValueForNormal)
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ValueForNormal)
+                entity.Property(e => e.isResRec).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.sUnit)
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Dochdr>(entity =>
+            modelBuilder.Entity<DOCHDR>(entity =>
             {
-                entity.HasKey(e => e.DochdrLDocumentId);
+                entity.HasKey(e => e.DOCHDR_lDocumentId);
 
-                entity.ToTable("DOCHDR");
-
-                entity.HasIndex(e => e.DochdrDDate)
-                    .HasName("IX_DOCHDR_Date");
-
-                entity.HasIndex(e => e.DochdrLDoctorId)
-                    .HasName("IX_DOCHDR_DOCTORID");
-
-                entity.HasIndex(e => e.DochdrLPatientId)
-                    .HasName("IX_DOCHDR_PATIENTID");
-
-                entity.HasIndex(e => e.DochdrSample)
+                entity.HasIndex(e => e.DOCHDR_Sample)
                     .HasName("IX_DOCHDR_SAMPLE");
 
-                entity.HasIndex(e => e.DochdrTestCatId)
+                entity.HasIndex(e => e.DOCHDR_TestCatID)
                     .HasName("IX_DOCHDR_TESTCATID");
+
+                entity.HasIndex(e => e.DOCHDR_dDate)
+                    .HasName("IX_DOCHDR_Date");
+
+                entity.HasIndex(e => e.DOCHDR_lDoctorId)
+                    .HasName("IX_DOCHDR_DOCTORID");
+
+                entity.HasIndex(e => e.DOCHDR_lPatientId)
+                    .HasName("IX_DOCHDR_PATIENTID");
 
                 entity.HasIndex(e => e.MarkComplete)
                     .HasName("IX_DOCHDR_markcomplete");
 
-                entity.Property(e => e.DochdrLDocumentId)
-                    .HasColumnName("DOCHDR_lDocumentId")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.DOCHDR_lDocumentId).ValueGeneratedNever();
 
                 entity.Property(e => e.AuntheticateDate).HasColumnType("datetime");
 
@@ -1179,58 +847,32 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
+                entity.Property(e => e.DOCHDR_Age).HasMaxLength(50);
+
+                entity.Property(e => e.DOCHDR_AgeFlag)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.DOCHDR_PID)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.DOCHDR_Sex).HasMaxLength(50);
+
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.DOCHDR_sDescription).HasColumnType("ntext");
+
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
+
                 entity.Property(e => e.DataEntryDate).HasColumnType("datetime");
 
                 entity.Property(e => e.DataEntryUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.DochdrAge)
-                    .HasColumnName("DOCHDR_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrAgeFlag)
-                    .IsRequired()
-                    .HasColumnName("DOCHDR_AgeFlag")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLEmployeeId).HasColumnName("DOCHDR_lEmployeeId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrPid)
-                    .HasColumnName("DOCHDR_PID")
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSDescription)
-                    .HasColumnName("DOCHDR_sDescription")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrSex)
-                    .HasColumnName("DOCHDR_Sex")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
 
                 entity.Property(e => e.EmailDate).HasColumnType("datetime");
 
@@ -1238,44 +880,24 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
                 entity.Property(e => e.IntegrationDate).HasColumnType("datetime");
-
-                entity.Property(e => e.IsAllResRec)
-                    .HasColumnName("isAllResRec")
-                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.IsProfile)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.IssampleReceived)
-                    .HasColumnName("issampleReceived")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Issent)
-                    .HasColumnName("issent")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.LableSample)
-                    .HasColumnName("Lable_Sample")
+                entity.Property(e => e.Lable_Sample)
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
                 entity.Property(e => e.MarkComplete).HasMaxLength(1);
 
-                entity.Property(e => e.Pdfdate)
-                    .HasColumnName("PDFDate")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.PDFDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Pdfuser)
-                    .HasColumnName("PDFUser")
+                entity.Property(e => e.PDFUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -1309,10 +931,6 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
-
                 entity.Property(e => e.SampleReceivedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.SampleReceivedRemark)
@@ -1323,9 +941,7 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.ValidateDate).HasColumnType("datetime");
 
@@ -1334,421 +950,260 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.isAllResRec).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.issampleReceived).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.issent).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<DochdrHistory>(entity =>
+            modelBuilder.Entity<DOCHDR_HISTORY>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("DOCHDR_HISTORY");
-
-                entity.Property(e => e.AutoId)
-                    .HasColumnName("AutoID")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.AutoID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrAge)
-                    .HasColumnName("DOCHDR_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCHDR_Age).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrAgeFlag)
+                entity.Property(e => e.DOCHDR_AgeFlag)
                     .IsRequired()
-                    .HasColumnName("DOCHDR_AgeFlag")
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
-
-                entity.Property(e => e.DochdrLEmployeeId).HasColumnName("DOCHDR_lEmployeeId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrPid)
-                    .HasColumnName("DOCHDR_PID")
+                entity.Property(e => e.DOCHDR_PID)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
+                entity.Property(e => e.DOCHDR_Sex).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrSDescription)
-                    .HasColumnName("DOCHDR_sDescription")
-                    .HasColumnType("ntext");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCHDR_sDescription).HasColumnType("ntext");
 
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrSex)
-                    .HasColumnName("DOCHDR_Sex")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.FlagU)
-                    .HasColumnName("flag_u")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.HistoryId).HasColumnName("HISTORY_ID");
-
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.IsAllResRec)
-                    .HasColumnName("isAllResRec")
-                    .HasDefaultValueSql("(0)");
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
                 entity.Property(e => e.IsProfile)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.IssampleReceived)
-                    .HasColumnName("issampleReceived")
-                    .HasDefaultValueSql("(0)");
-
-                entity.Property(e => e.Issent)
-                    .HasColumnName("issent")
-                    .HasDefaultValueSql("(0)");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
                 entity.Property(e => e.MarkComplete).HasMaxLength(1);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.flag_u)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.isAllResRec).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.issampleReceived).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.issent).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Doctor>(entity =>
+            modelBuilder.Entity<DOCTOR>(entity =>
             {
-                entity.ToTable("DOCTOR");
+                entity.HasKey(e => e.DOCTOR_id);
 
-                entity.HasIndex(e => e.DoctorName)
+                entity.HasIndex(e => e.DOCTOR_Name)
                     .HasName("IX_DOCTOR_Name");
 
-                entity.Property(e => e.DoctorId)
-                    .HasColumnName("DOCTOR_id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.DOCTOR_id).ValueGeneratedNever();
 
-                entity.Property(e => e.CollectionCenter)
-                    .HasColumnName("Collection_Center")
-                    .HasMaxLength(255);
+                entity.Property(e => e.Collection_Center).HasMaxLength(255);
 
-                entity.Property(e => e.Dob)
-                    .HasColumnName("DOB")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.DOB).HasColumnType("datetime");
 
-                entity.Property(e => e.DoctorAddress1)
-                    .HasColumnName("DOCTOR_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorAddress2)
-                    .HasColumnName("DOCTOR_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorBill)
-                    .HasColumnName("DOCTOR_Bill")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Bill).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorCity)
-                    .HasColumnName("DOCTOR_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_City).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorCode)
-                    .HasColumnName("doctor_Code")
-                    .HasMaxLength(8)
-                    .IsUnicode(false);
+                entity.Property(e => e.DOCTOR_EX1Commission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
+                entity.Property(e => e.DOCTOR_EXCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorCompanyid).HasColumnName("DOCTOR_Companyid");
+                entity.Property(e => e.DOCTOR_Email).HasMaxLength(100);
 
-                entity.Property(e => e.DoctorEmail)
-                    .HasColumnName("DOCTOR_Email")
-                    .HasMaxLength(100);
+                entity.Property(e => e.DOCTOR_HCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorEx1commission)
-                    .HasColumnName("DOCTOR_EX1Commission")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.DOCTOR_MCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorExcommission)
-                    .HasColumnName("DOCTOR_EXCommission")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorHcommission)
-                    .HasColumnName("DOCTOR_HCommission")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorMcommission)
-                    .HasColumnName("DOCTOR_MCommission")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.DOCTOR_OCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_PFCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorOcommission)
-                    .HasColumnName("DOCTOR_OCommission")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.DoctorPassword)
-                    .HasColumnName("DOCTOR_Password")
+                entity.Property(e => e.DOCTOR_Password)
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DoctorPermanent).HasColumnName("DOCTOR_Permanent");
+                entity.Property(e => e.DOCTOR_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorPfcommission)
-                    .HasColumnName("DOCTOR_PFCommission")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.DOCTOR_Qualification).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorPincode)
-                    .HasColumnName("DOCTOR_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_RCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorQualification)
-                    .HasColumnName("DOCTOR_Qualification")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_SPCommission).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.DoctorRcommission)
-                    .HasColumnName("DOCTOR_RCommission")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.DOCTOR_State).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
+                entity.Property(e => e.DOCTOR_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorSpcommission)
-                    .HasColumnName("DOCTOR_SPCommission")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.DoctorState)
-                    .HasColumnName("DOCTOR_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorTelno)
-                    .HasColumnName("DOCTOR_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorUserName)
-                    .HasColumnName("DOCTOR_UserName")
+                entity.Property(e => e.DOCTOR_UserName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DoctorXcommission).HasColumnName("DOCTOR_XCommission");
+                entity.Property(e => e.OFFICE_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress1)
-                    .HasColumnName("OFFICE_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress2)
-                    .HasColumnName("OFFICE_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_City).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCity)
-                    .HasColumnName("OFFICE_City")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Country).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCountry)
-                    .HasColumnName("OFFICE_Country")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.OfficePincode)
-                    .HasColumnName("OFFICE_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Region).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeRegion)
-                    .HasColumnName("OFFICE_Region")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_State).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeState)
-                    .HasColumnName("OFFICE_State")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeTelno)
-                    .HasColumnName("OFFICE_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.OfficeUrl)
-                    .HasColumnName("OFFICE_url")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_url).HasMaxLength(50);
 
                 entity.Property(e => e.Password).HasMaxLength(50);
 
-                entity.Property(e => e.SendSms).HasColumnName("SendSMS");
+                entity.Property(e => e.TDS).HasMaxLength(255);
 
-                entity.Property(e => e.Tds)
-                    .HasColumnName("TDS")
-                    .HasMaxLength(255);
+                entity.Property(e => e.doctor_Code)
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Doctorbk>(entity =>
+            modelBuilder.Entity<DOCTORBK>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("DOCTORBK");
+                entity.Property(e => e.DOB).HasColumnType("datetime");
 
-                entity.Property(e => e.Dob)
-                    .HasColumnName("DOB")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.DOCTOR_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorAddress1)
-                    .HasColumnName("DOCTOR_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorAddress2)
-                    .HasColumnName("DOCTOR_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_City).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorCity)
-                    .HasColumnName("DOCTOR_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Country).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorCode)
-                    .HasColumnName("doctor_Code")
-                    .HasMaxLength(8)
-                    .IsUnicode(false);
+                entity.Property(e => e.DOCTOR_Email).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorCompanyid).HasColumnName("DOCTOR_Companyid");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorCountry)
-                    .HasColumnName("DOCTOR_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorEmail)
-                    .HasColumnName("DOCTOR_Email")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorEx1commission).HasColumnName("DOCTOR_EX1Commission");
-
-                entity.Property(e => e.DoctorExcommission).HasColumnName("DOCTOR_EXCommission");
-
-                entity.Property(e => e.DoctorHcommission).HasColumnName("DOCTOR_HCommission");
-
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_id");
-
-                entity.Property(e => e.DoctorMcommission).HasColumnName("DOCTOR_MCommission");
-
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorOcommission).HasColumnName("DOCTOR_OCommission");
-
-                entity.Property(e => e.DoctorPassword)
-                    .HasColumnName("DOCTOR_Password")
+                entity.Property(e => e.DOCTOR_Password)
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DoctorPermanent)
+                entity.Property(e => e.DOCTOR_Permanent)
                     .IsRequired()
-                    .HasColumnName("DOCTOR_Permanent")
                     .HasMaxLength(1);
 
-                entity.Property(e => e.DoctorPfcommission).HasColumnName("DOCTOR_PFCommission");
+                entity.Property(e => e.DOCTOR_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorPincode)
-                    .HasColumnName("DOCTOR_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_Qualification).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorQualification)
-                    .HasColumnName("DOCTOR_Qualification")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Region).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorRcommission).HasColumnName("DOCTOR_RCommission");
+                entity.Property(e => e.DOCTOR_State).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
-
-                entity.Property(e => e.DoctorSpcommission).HasColumnName("DOCTOR_SPCommission");
-
-                entity.Property(e => e.DoctorState)
-                    .HasColumnName("DOCTOR_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorTelno)
-                    .HasColumnName("DOCTOR_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorUserName)
-                    .HasColumnName("DOCTOR_UserName")
+                entity.Property(e => e.DOCTOR_UserName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DoctorXcommission).HasColumnName("DOCTOR_XCommission");
+                entity.Property(e => e.OFFICE_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress1)
-                    .HasColumnName("OFFICE_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress2)
-                    .HasColumnName("OFFICE_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_City).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCity)
-                    .HasColumnName("OFFICE_City")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Country).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCountry)
-                    .HasColumnName("OFFICE_Country")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.OfficePincode)
-                    .HasColumnName("OFFICE_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Region).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeRegion)
-                    .HasColumnName("OFFICE_Region")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_State).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeState)
-                    .HasColumnName("OFFICE_State")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeTelno)
-                    .HasColumnName("OFFICE_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.OfficeUrl)
-                    .HasColumnName("OFFICE_url")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_url).HasMaxLength(50);
 
                 entity.Property(e => e.Password).HasMaxLength(50);
 
-                entity.Property(e => e.SendSms).HasColumnName("SendSMS");
+                entity.Property(e => e.doctor_Code)
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<EMPLOYEE>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.EMPLOYEE_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_City).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_Country).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_DateofBirth).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.EMPLOYEE_DateofJoining).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.EMPLOYEE_Email).HasMaxLength(50);
+
+                entity.Property(e => e.EMPLOYEE_MobileNo).HasMaxLength(50);
+
+                entity.Property(e => e.EMPLOYEE_Name).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_Pincode).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_Qualification).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_Region).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_SalaryType).HasMaxLength(1);
+
+                entity.Property(e => e.EMPLOYEE_State).HasMaxLength(255);
+
+                entity.Property(e => e.EMPLOYEE_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.Password).HasMaxLength(50);
             });
 
             modelBuilder.Entity<EmailLog>(entity =>
@@ -1766,89 +1221,6 @@ namespace myLabWebApi.Models.DB
                     .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Employee>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("EMPLOYEE");
-
-                entity.Property(e => e.CollectionBoyFlag).HasColumnName("CollectionBoy_Flag");
-
-                entity.Property(e => e.EmployeeAddress1)
-                    .HasColumnName("EMPLOYEE_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeAddress2)
-                    .HasColumnName("EMPLOYEE_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeCity)
-                    .HasColumnName("EMPLOYEE_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeCompanyid).HasColumnName("EMPLOYEE_Companyid");
-
-                entity.Property(e => e.EmployeeCountry)
-                    .HasColumnName("EMPLOYEE_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeDateofBirth)
-                    .HasColumnName("EMPLOYEE_DateofBirth")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.EmployeeDateofJoining)
-                    .HasColumnName("EMPLOYEE_DateofJoining")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.EmployeeEmail)
-                    .HasColumnName("EMPLOYEE_Email")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.EmployeeGender).HasColumnName("EMPLOYEE_Gender");
-
-                entity.Property(e => e.EmployeeId).HasColumnName("EMPLOYEE_id");
-
-                entity.Property(e => e.EmployeeMobileNo)
-                    .HasColumnName("EMPLOYEE_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.EmployeeName)
-                    .HasColumnName("EMPLOYEE_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeePincode)
-                    .HasColumnName("EMPLOYEE_Pincode")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeQualification)
-                    .HasColumnName("EMPLOYEE_Qualification")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeRegion)
-                    .HasColumnName("EMPLOYEE_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeSalary).HasColumnName("EMPLOYEE_Salary");
-
-                entity.Property(e => e.EmployeeSalaryType)
-                    .HasColumnName("EMPLOYEE_SalaryType")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.EmployeeState)
-                    .HasColumnName("EMPLOYEE_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmployeeStatus).HasColumnName("EMPLOYEE_Status");
-
-                entity.Property(e => e.EmployeeTelno)
-                    .HasColumnName("EMPLOYEE_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.LabId).HasColumnName("LabID");
-
-                entity.Property(e => e.Password).HasMaxLength(50);
             });
 
             modelBuilder.Entity<EmployeeWithCollectionCenterMap>(entity =>
@@ -1870,59 +1242,35 @@ namespace myLabWebApi.Models.DB
                     .HasDefaultValueSql("(getdate())");
             });
 
-            modelBuilder.Entity<Groupdet>(entity =>
+            modelBuilder.Entity<GROUPDET>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("GROUPDET");
-
-                entity.Property(e => e.AutoId)
+                entity.Property(e => e.Auto_Id)
                     .HasColumnName("Auto Id")
                     .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Grpid).HasColumnName("GRPID");
-
-                entity.Property(e => e.Testid).HasColumnName("TESTID");
             });
 
-            modelBuilder.Entity<Histogram>(entity =>
+            modelBuilder.Entity<HISTOGRAM>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("HISTOGRAM");
+                entity.Property(e => e.LAB_DATE).HasColumnType("datetime");
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentID");
+                entity.Property(e => e.PLT_HISTO).HasColumnType("image");
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
+                entity.Property(e => e.RBC_HISTO).HasColumnType("image");
 
-                entity.Property(e => e.LabDate)
-                    .HasColumnName("LAB_DATE")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.LabNo).HasColumnName("LAB_NO");
-
-                entity.Property(e => e.PltHisto)
-                    .HasColumnName("PLT_HISTO")
-                    .HasColumnType("image");
-
-                entity.Property(e => e.RbcHisto)
-                    .HasColumnName("RBC_HISTO")
-                    .HasColumnType("image");
-
-                entity.Property(e => e.Srno)
-                    .HasColumnName("SRNO")
+                entity.Property(e => e.SRNO)
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Status)
-                    .HasColumnName("STATUS")
+                entity.Property(e => e.STATUS)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.WbcHisto)
-                    .HasColumnName("WBC_HISTO")
-                    .HasColumnType("image");
+                entity.Property(e => e.WBC_HISTO).HasColumnType("image");
             });
 
             modelBuilder.Entity<HomevisitImage>(entity =>
@@ -1939,40 +1287,39 @@ namespace myLabWebApi.Models.DB
                     .HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<Intgdet>(entity =>
+            modelBuilder.Entity<INTGDET>(entity =>
             {
-                entity.ToTable("INTGDET");
-
                 entity.HasIndex(e => e.HeaderId)
                     .HasName("INTGDET_dochdrid");
 
                 entity.Property(e => e.FieldValue).HasMaxLength(255);
 
-                entity.Property(e => e.SysDateTime)
-                    .HasColumnName("sysDateTime")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.sysDateTime).HasColumnType("datetime");
             });
 
-            modelBuilder.Entity<LabMaster>(entity =>
+            modelBuilder.Entity<LABELGROUP>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.LabCode)
-                    .IsRequired()
-                    .HasMaxLength(2)
+                entity.Property(e => e.Active)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
-                    .HasDefaultValueSql("(2)");
+                    .IsFixedLength();
+
+                entity.Property(e => e.GRPNAME)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Prefix)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('N')");
             });
 
-            modelBuilder.Entity<LabMst>(entity =>
+            modelBuilder.Entity<LabMST>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("LabMST");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LabAddress)
                     .HasMaxLength(250)
@@ -1994,35 +1341,22 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-                entity.Property(e => e.LabWebserviceUrl)
-                    .HasColumnName("LabWebserviceURL")
+                entity.Property(e => e.LabWebserviceURL)
                     .HasMaxLength(500)
                     .IsUnicode(false);
+
+                entity.Property(e => e.id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<Labelgroup>(entity =>
+            modelBuilder.Entity<LabMaster>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("LABELGROUP");
-
-                entity.Property(e => e.Active)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.Grpid).HasColumnName("GRPID");
-
-                entity.Property(e => e.Grpname)
-                    .HasColumnName("GRPNAME")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Prefix)
+                entity.Property(e => e.LabCode)
                     .IsRequired()
-                    .HasMaxLength(1)
+                    .HasMaxLength(2)
                     .IsUnicode(false)
-                    .HasDefaultValueSql("('N')");
+                    .HasDefaultValueSql("(2)");
             });
 
             modelBuilder.Entity<Login>(entity =>
@@ -2034,13 +1368,42 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.Userid).HasMaxLength(50);
             });
 
+            modelBuilder.Entity<MYLAB_TEST_DETAILS>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.TEST_NAME)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.TYPE)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<MYLAB_TEST_DETAILS_BA200>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.TEST_NAME)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.TYPE)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<MetroEmailLog>(entity =>
             {
                 entity.HasKey(e => e.Logid)
                     .HasName("PK_MetroEmailLog_1");
 
-                entity.Property(e => e.Pdfname)
-                    .HasColumnName("PDFName")
+                entity.Property(e => e.PDFName)
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
@@ -2052,216 +1415,390 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Vid)
-                    .HasColumnName("VID")
+                entity.Property(e => e.VID)
                     .HasMaxLength(15)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<MylabTestDetails>(entity =>
+            modelBuilder.Entity<NARRATIONS>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("MYLAB_TEST_DETAILS");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.MylabTestFieldnoOne).HasColumnName("MYLAB_TEST_FIELDNO_ONE");
-
-                entity.Property(e => e.MylabTestFieldnoTwo).HasColumnName("MYLAB_TEST_FIELDNO_TWO");
-
-                entity.Property(e => e.MylabTestMstid).HasColumnName("MYLAB_TEST_MSTID");
-
-                entity.Property(e => e.TestId).HasColumnName("TEST_ID");
-
-                entity.Property(e => e.TestName)
-                    .IsRequired()
-                    .HasColumnName("TEST_NAME")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Type)
-                    .HasColumnName("TYPE")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<MylabTestDetailsBa200>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("MYLAB_TEST_DETAILS_BA200");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.MylabTestFieldnoOne).HasColumnName("MYLAB_TEST_FIELDNO_ONE");
-
-                entity.Property(e => e.MylabTestFieldnoTwo).HasColumnName("MYLAB_TEST_FIELDNO_TWO");
-
-                entity.Property(e => e.MylabTestMstid).HasColumnName("MYLAB_TEST_MSTID");
-
-                entity.Property(e => e.TestId).HasColumnName("TEST_ID");
-
-                entity.Property(e => e.TestName)
-                    .IsRequired()
-                    .HasColumnName("TEST_NAME")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Type)
-                    .HasColumnName("TYPE")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Narrations>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("NARRATIONS");
 
                 entity.Property(e => e.NarrationText).HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<Nextgendata>(entity =>
+            modelBuilder.Entity<NEXTGENDATA>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("NEXTGENDATA");
+                entity.Property(e => e.BAS_PER).HasMaxLength(255);
 
-                entity.Property(e => e.BasPer)
-                    .HasColumnName("BAS_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.EOS_PER).HasMaxLength(255);
 
-                entity.Property(e => e.EosPer)
-                    .HasColumnName("EOS_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.GRAN_NUM).HasMaxLength(255);
 
-                entity.Property(e => e.GranNum)
-                    .HasColumnName("GRAN_NUM")
-                    .HasMaxLength(255);
+                entity.Property(e => e.GRAN_PER).HasMaxLength(255);
 
-                entity.Property(e => e.GranPer)
-                    .HasColumnName("GRAN_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.HCT).HasMaxLength(255);
 
-                entity.Property(e => e.Hct)
-                    .HasColumnName("HCT")
-                    .HasMaxLength(255);
+                entity.Property(e => e.HGB).HasMaxLength(255);
 
-                entity.Property(e => e.Hgb)
-                    .HasColumnName("HGB")
-                    .HasMaxLength(255);
+                entity.Property(e => e.LAB_DATE).HasColumnType("datetime");
 
-                entity.Property(e => e.LabDate)
-                    .HasColumnName("LAB_DATE")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.LYMPH_NUM).HasMaxLength(255);
 
-                entity.Property(e => e.LabNo).HasColumnName("LAB_NO");
+                entity.Property(e => e.LYMPH_PER).HasMaxLength(255);
 
-                entity.Property(e => e.LymphNum)
-                    .HasColumnName("LYMPH_NUM")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MCH).HasMaxLength(255);
 
-                entity.Property(e => e.LymphPer)
-                    .HasColumnName("LYMPH_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MCHC).HasMaxLength(255);
 
-                entity.Property(e => e.Mch)
-                    .HasColumnName("MCH")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MCV).HasMaxLength(255);
 
-                entity.Property(e => e.Mchc)
-                    .HasColumnName("MCHC")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MID_NUM).HasMaxLength(255);
 
-                entity.Property(e => e.Mcv)
-                    .HasColumnName("MCV")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MID_PER).HasMaxLength(255);
 
-                entity.Property(e => e.MidNum)
-                    .HasColumnName("MID_NUM")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MON_PER).HasMaxLength(255);
 
-                entity.Property(e => e.MidPer)
-                    .HasColumnName("MID_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.MPV).HasMaxLength(255);
 
-                entity.Property(e => e.MonPer)
-                    .HasColumnName("MON_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.NEU_PER).HasMaxLength(255);
 
-                entity.Property(e => e.Mpv)
-                    .HasColumnName("MPV")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PCT).HasMaxLength(255);
 
-                entity.Property(e => e.NeuPer)
-                    .HasColumnName("NEU_PER")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PDW).HasMaxLength(255);
 
-                entity.Property(e => e.Pct)
-                    .HasColumnName("PCT")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PLT).HasMaxLength(255);
 
-                entity.Property(e => e.Pdw)
-                    .HasColumnName("PDW")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PLT_HISTOGRAM).HasColumnType("image");
 
-                entity.Property(e => e.Plt)
-                    .HasColumnName("PLT")
-                    .HasMaxLength(255);
+                entity.Property(e => e.RBC).HasMaxLength(255);
 
-                entity.Property(e => e.PltHistogram)
-                    .HasColumnName("PLT_HISTOGRAM")
-                    .HasColumnType("image");
+                entity.Property(e => e.RBC_HISTOGRAM).HasColumnType("image");
 
-                entity.Property(e => e.Rbc)
-                    .HasColumnName("RBC")
-                    .HasMaxLength(255);
+                entity.Property(e => e.RDW_CV).HasMaxLength(255);
 
-                entity.Property(e => e.RbcHistogram)
-                    .HasColumnName("RBC_HISTOGRAM")
-                    .HasColumnType("image");
+                entity.Property(e => e.RDW_SD).HasMaxLength(255);
 
-                entity.Property(e => e.RdwCv)
-                    .HasColumnName("RDW_CV")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.RdwSd)
-                    .HasColumnName("RDW_SD")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Status)
-                    .HasColumnName("STATUS")
+                entity.Property(e => e.STATUS)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.Wbc)
-                    .HasColumnName("WBC")
-                    .HasMaxLength(255);
+                entity.Property(e => e.WBC).HasMaxLength(255);
 
-                entity.Property(e => e.WbcHistogram)
-                    .HasColumnName("WBC_HISTOGRAM")
-                    .HasColumnType("image");
+                entity.Property(e => e.WBC_HISTOGRAM).HasColumnType("image");
+            });
+
+            modelBuilder.Entity<PATIENT>(entity =>
+            {
+                entity.HasKey(e => e.PATIENT_id);
+
+                entity.HasIndex(e => e.PATIENT_Date)
+                    .HasName("IX_PATIENT_PATIENT_DATE");
+
+                entity.HasIndex(e => e.PATIENT_Doctorid)
+                    .HasName("IX_PATIENT_PATIENT_DOCTORID");
+
+                entity.HasIndex(e => e.PATIENT_SampleCollected)
+                    .HasName("PATIENT_PATIENT_COLLECTIONCENTER");
+
+                entity.HasIndex(e => e.PATIENT_Telno)
+                    .HasName("IX_PATIENT_Telno");
+
+                entity.HasIndex(e => e.labno);
+
+                entity.Property(e => e.PATIENT_id).ValueGeneratedNever();
+
+                entity.Property(e => e.AppointmentId)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_AgeFlag)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength()
+                    .HasDefaultValueSql("('E')");
+
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_key)
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PrintUrgent).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Remarks).HasMaxLength(50);
+
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
+
+                entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<PATIENT_BILL_DETAILS>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Bill_Category)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.Bill_No).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Bill_date).HasColumnType("datetime");
+
+                entity.Property(e => e.Bill_id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.DoctorName1).HasMaxLength(255);
+
+                entity.Property(e => e.DoctorName2).HasMaxLength(255);
+
+                entity.Property(e => e.NEFTPAID).HasColumnType("decimal(9, 2)");
+
+                entity.Property(e => e.PatientBillDetId)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Patient_Age).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_City).HasMaxLength(255);
+
+                entity.Property(e => e.Patient_Collection_Center).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_Country).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_Date).HasColumnType("datetime");
+
+                entity.Property(e => e.Patient_Name).HasMaxLength(255);
+
+                entity.Property(e => e.Patient_Pincode).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_Region).HasMaxLength(255);
+
+                entity.Property(e => e.Patient_Sex).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_State).HasMaxLength(255);
+
+                entity.Property(e => e.Patient_TelNo).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_address1).HasMaxLength(255);
+
+                entity.Property(e => e.Patient_address2).HasMaxLength(255);
+
+                entity.Property(e => e.TestName).HasMaxLength(255);
+
+                entity.Property(e => e.UPIPaid).HasColumnType("decimal(9, 2)");
+            });
+
+            modelBuilder.Entity<PATIENT_MASTER>(entity =>
+            {
+                entity.HasKey(e => e.PATIENT_id);
+
+                entity.HasIndex(e => e.PATIENT_DateofJoining)
+                    .HasName("IX_PATIENT_MASTER_dateofjoining");
+
+                entity.HasIndex(e => e.PATIENT_MobileNo)
+                    .HasName("IX_PATIENT_MASTER_1");
+
+                entity.HasIndex(e => e.Patient_Code)
+                    .HasName("IX_PATIENT_MASTER_patientcode");
+
+                entity.Property(e => e.PATIENT_id).ValueGeneratedNever();
+
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Country).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_DateofJoining).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Email).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_MobileNo).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Qualification).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_SalaryType).HasMaxLength(1);
+
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_Age).HasMaxLength(50);
+
+                entity.Property(e => e.Patient_Code)
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Patient_DateofBirth).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<PATIENT_history>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
+
+                entity.Property(e => e.History_Date)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.History_Id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_AgeFlag)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Country).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
+
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.Remarks).HasMaxLength(50);
+
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
+
+                entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<PDFLog>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<PHLEBOMIST_COLLECTED_TEST>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.ACCEPTHMVST_ID).HasMaxLength(50);
+
+                entity.Property(e => e.HomeVisitId)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.PATIENT_NAME).HasMaxLength(50);
+
+                entity.Property(e => e.PAtientContact)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PHLEBOTOMIST_ID).HasMaxLength(50);
+
+                entity.Property(e => e.PHLEBOTOMIST_NAME).HasMaxLength(50);
+
+                entity.Property(e => e.SYST_DATE).HasColumnType("datetime");
+
+                entity.Property(e => e.TEST_NAME).HasMaxLength(500);
+
+                entity.Property(e => e.TestID)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TestType).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<PREDEFVAL>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.PREDEFVAL_Value).HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<PROFDET>(entity =>
+            {
+                entity.HasNoKey();
             });
 
             modelBuilder.Entity<Param>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.Dc)
-                    .HasColumnName("DC")
+                entity.Property(e => e.DC)
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Formula)
                     .HasMaxLength(250)
                     .IsUnicode(false);
-
-                entity.Property(e => e.PPrecision).HasColumnName("pPrecision");
 
                 entity.Property(e => e.ParamChild1Def)
                     .HasMaxLength(255)
@@ -2333,8 +1870,7 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Sendsms)
-                    .HasColumnName("SENDSMS")
+                entity.Property(e => e.SENDSMS)
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
@@ -2350,476 +1886,28 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.ParamHelpValue).HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<Patient>(entity =>
+            modelBuilder.Entity<PatientProfilePic>(entity =>
             {
-                entity.ToTable("PATIENT");
+                entity.HasNoKey();
 
-                entity.HasIndex(e => e.Labno);
-
-                entity.HasIndex(e => e.PatientDate)
-                    .HasName("IX_PATIENT_PATIENT_DATE");
-
-                entity.HasIndex(e => e.PatientDoctorid)
-                    .HasName("IX_PATIENT_PATIENT_DOCTORID");
-
-                entity.HasIndex(e => e.PatientSampleCollected)
-                    .HasName("PATIENT_PATIENT_COLLECTIONCENTER");
-
-                entity.HasIndex(e => e.PatientTelno)
-                    .HasName("IX_PATIENT_Telno");
-
-                entity.Property(e => e.PatientId)
-                    .HasColumnName("PATIENT_id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.AppointmentId)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
-
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
-                    .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength()
-                    .HasDefaultValueSql("('E')");
-
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
-
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
-
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
-
-                entity.Property(e => e.PatientEmail)
-                    .HasColumnName("PATIENT_Email")
+                entity.Property(e => e.Contact_Number)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientKey)
-                    .HasColumnName("Patient_key")
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PrintUrgent).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Remarks).HasMaxLength(50);
-
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.WardNo).HasMaxLength(50);
+                entity.Property(e => e.Profile_Pic).HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<PatientBillDetails>(entity =>
+            modelBuilder.Entity<Patient_Portal>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("PATIENT_BILL_DETAILS");
-
-                entity.Property(e => e.BillCategory)
-                    .IsRequired()
-                    .HasColumnName("Bill_Category")
-                    .HasMaxLength(2)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.BillDate)
-                    .HasColumnName("Bill_date")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.BillId)
-                    .HasColumnName("Bill_id")
-                    .HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.BillNo)
-                    .HasColumnName("Bill_No")
-                    .HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.CashPaid).HasColumnName("cashPaid");
-
-                entity.Property(e => e.DoctorName1).HasMaxLength(255);
-
-                entity.Property(e => e.DoctorName2).HasMaxLength(255);
-
-                entity.Property(e => e.EmergencyCharge).HasColumnName("Emergency_Charge");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.Neftpaid)
-                    .HasColumnName("NEFTPAID")
-                    .HasColumnType("decimal(9, 2)");
-
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("Patient_address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("Patient_address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("Patient_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientBillDetId)
-                    .IsRequired()
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("Patient_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientCollectionCenter)
-                    .HasColumnName("Patient_Collection_Center")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientCountry)
-                    .HasColumnName("Patient_Country")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("Patient_Date")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("Patient_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("Patient_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("Patient_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("Patient_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSex)
-                    .HasColumnName("Patient_Sex")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("Patient_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelNo)
-                    .HasColumnName("Patient_TelNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestName).HasMaxLength(255);
-
-                entity.Property(e => e.Upipaid)
-                    .HasColumnName("UPIPaid")
-                    .HasColumnType("decimal(9, 2)");
-            });
-
-            modelBuilder.Entity<PatientHistory>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("PATIENT_history");
-
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
-
-                entity.Property(e => e.HistoryDate)
-                    .HasColumnName("History_Date")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.HistoryId)
-                    .HasColumnName("History_Id")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
-                    .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
-
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
-
-                entity.Property(e => e.PatientCountry)
-                    .HasColumnName("PATIENT_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
-
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Remarks).HasMaxLength(50);
-
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.WardNo).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<PatientMaster>(entity =>
-            {
-                entity.HasKey(e => e.PatientId);
-
-                entity.ToTable("PATIENT_MASTER");
-
-                entity.HasIndex(e => e.PatientCode)
-                    .HasName("IX_PATIENT_MASTER_patientcode");
-
-                entity.HasIndex(e => e.PatientDateofJoining)
-                    .HasName("IX_PATIENT_MASTER_dateofjoining");
-
-                entity.HasIndex(e => e.PatientMobileNo)
-                    .HasName("IX_PATIENT_MASTER_1");
-
-                entity.Property(e => e.PatientId)
-                    .HasColumnName("PATIENT_id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.CenterId).HasColumnName("Center_id");
-
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("Patient_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientCode)
-                    .HasColumnName("Patient_Code")
-                    .HasMaxLength(8)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
-
-                entity.Property(e => e.PatientCountry)
-                    .HasColumnName("PATIENT_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientDateofBirth)
-                    .HasColumnName("Patient_DateofBirth")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.PatientDateofJoining)
-                    .HasColumnName("PATIENT_DateofJoining")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientDoctorId).HasColumnName("PATIENT_DOCTOR_ID");
-
-                entity.Property(e => e.PatientEmail)
-                    .HasColumnName("PATIENT_Email")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientGender).HasColumnName("PATIENT_Gender");
-
-                entity.Property(e => e.PatientMobileNo)
-                    .HasColumnName("PATIENT_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientQualification)
-                    .HasColumnName("PATIENT_Qualification")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSalary).HasColumnName("PATIENT_Salary");
-
-                entity.Property(e => e.PatientSalaryType)
-                    .HasColumnName("PATIENT_SalaryType")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientStatus).HasColumnName("PATIENT_Status");
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<PatientPortal>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("Patient_Portal");
-
-                entity.Property(e => e.Age)
-                    .HasColumnName("age")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.City)
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ContactNo)
-                    .HasColumnName("Contact_no")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Contact_no).HasMaxLength(50);
 
-                entity.Property(e => e.Dob)
-                    .HasColumnName("DOB")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOB).HasMaxLength(50);
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
@@ -2827,13 +1915,9 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.Password).HasMaxLength(50);
 
-                entity.Property(e => e.PatientId)
-                    .HasColumnName("Patient_id")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Patient_id).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("Patient_name")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Patient_name).HasMaxLength(50);
 
                 entity.Property(e => e.Pincode).HasMaxLength(10);
 
@@ -2844,20 +1928,10 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.State).HasMaxLength(50);
-            });
 
-            modelBuilder.Entity<PatientProfilePic>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.Property(e => e.ContactNumber)
-                    .HasColumnName("Contact_Number")
+                entity.Property(e => e.age)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.ProfilePic)
-                    .HasColumnName("Profile_Pic")
-                    .HasColumnType("ntext");
             });
 
             modelBuilder.Entity<PayRemDetail>(entity =>
@@ -2872,9 +1946,8 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.Deduction).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.FinYear)
+                entity.Property(e => e.Fin_year)
                     .IsRequired()
-                    .HasColumnName("Fin_year")
                     .HasMaxLength(5)
                     .IsUnicode(false);
 
@@ -2882,24 +1955,17 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.RecAmount).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.Tds)
-                    .HasColumnName("TDS")
-                    .HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.TDS).HasColumnType("decimal(18, 2)");
             });
 
             modelBuilder.Entity<PayRemHeader>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.BillType)
-                    .HasColumnName("Bill_Type")
+                entity.Property(e => e.Bill_Type)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength();
-
-                entity.Property(e => e.CenterId).HasColumnName("Center_id");
-
-                entity.Property(e => e.PayRemId).HasColumnName("PayRemID");
 
                 entity.Property(e => e.RefDate).HasColumnType("datetime");
 
@@ -2912,42 +1978,25 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Pdflog>(entity =>
+            modelBuilder.Entity<Phelobotomist_HomeVisit>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("PDFLog");
-            });
+                entity.Property(e => e.AREA).HasMaxLength(50);
 
-            modelBuilder.Entity<PhelobotomistHomeVisit>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("Phelobotomist_HomeVisit");
+                entity.Property(e => e.ATTACHMENT).HasMaxLength(50);
 
                 entity.Property(e => e.Age)
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Area)
-                    .HasColumnName("AREA")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Attachment)
-                    .HasColumnName("ATTACHMENT")
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.BookingDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Decision)
-                    .HasColumnName("DECISION")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DECISION).HasMaxLength(50);
 
                 entity.Property(e => e.Discount)
                     .HasMaxLength(150)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Flag).HasColumnName("FLAG");
 
                 entity.Property(e => e.Gender)
                     .HasMaxLength(30)
@@ -2957,30 +2006,23 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.NewPheloId).HasMaxLength(50);
 
                 entity.Property(e => e.NewPheloName).HasMaxLength(100);
 
-                entity.Property(e => e.PatientAdd)
-                    .HasColumnName("patient_add")
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                entity.Property(e => e.PATIENT_CONTACT).HasMaxLength(50);
 
-                entity.Property(e => e.PatientContact)
-                    .HasColumnName("PATIENT_CONTACT")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_NAME).HasMaxLength(50);
+
+                entity.Property(e => e.PHLEBOMIST_CONTACT).HasMaxLength(50);
+
+                entity.Property(e => e.PHLEBOMIST_USERNAME).HasMaxLength(50);
 
                 entity.Property(e => e.PatientEmail)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_NAME")
-                    .HasMaxLength(50);
 
                 entity.Property(e => e.PaybleAmount).HasMaxLength(20);
 
@@ -2988,249 +2030,100 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PhelobotomistId)
-                    .HasColumnName("Phelobotomist_ID")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Phelobotomist_ID).HasMaxLength(50);
 
-                entity.Property(e => e.PhlebomistContact)
-                    .HasColumnName("PHLEBOMIST_CONTACT")
-                    .HasMaxLength(50);
+                entity.Property(e => e.REASON).HasMaxLength(50);
 
-                entity.Property(e => e.PhlebomistUsername)
-                    .HasColumnName("PHLEBOMIST_USERNAME")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Reason)
-                    .HasColumnName("REASON")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.ReferenceDoctor)
-                    .HasColumnName("Reference_Doctor")
+                entity.Property(e => e.Reference_Doctor)
                     .HasMaxLength(150)
                     .IsUnicode(false);
+
+                entity.Property(e => e.SYST_DATE)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.SampleCollected)
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SystDate)
-                    .HasColumnName("SYST_DATE")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.TIME).HasMaxLength(50);
 
-                entity.Property(e => e.Time)
-                    .HasColumnName("TIME")
-                    .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<PhlebomistCollectedTest>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("PHLEBOMIST_COLLECTED_TEST");
-
-                entity.Property(e => e.AccepthmvstId)
-                    .HasColumnName("ACCEPTHMVST_ID")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Flag).HasColumnName("FLAG");
-
-                entity.Property(e => e.HomeVisitId)
-                    .HasMaxLength(20)
+                entity.Property(e => e.patient_add)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.PatientContact)
-                    .HasColumnName("PAtientContact")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_NAME")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PhlebotomistId)
-                    .HasColumnName("PHLEBOTOMIST_ID")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PhlebotomistName)
-                    .HasColumnName("PHLEBOTOMIST_NAME")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.SystDate)
-                    .HasColumnName("SYST_DATE")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.TestId)
-                    .HasColumnName("TestID")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TestName)
-                    .HasColumnName("TEST_NAME")
-                    .HasMaxLength(500);
-
-                entity.Property(e => e.TestType).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Predefval>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("PREDEFVAL");
-
-                entity.Property(e => e.PredefvalFieldid).HasColumnName("PREDEFVAL_Fieldid");
-
-                entity.Property(e => e.PredefvalId).HasColumnName("PREDEFVAL_Id");
-
-                entity.Property(e => e.PredefvalValNo).HasColumnName("PREDEFVAL_ValNo");
-
-                entity.Property(e => e.PredefvalValue)
-                    .HasColumnName("PREDEFVAL_Value")
-                    .HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Profdet>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("PROFDET");
-
-                entity.Property(e => e.TestId).HasColumnName("testId");
-            });
-
-            modelBuilder.Entity<QerAmountpaid>(entity =>
+            modelBuilder.Entity<QER_AMOUNTPAID>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_AMOUNTPAID");
             });
 
-            modelBuilder.Entity<QerAmountpaidtype>(entity =>
+            modelBuilder.Entity<QER_AMOUNTPAIDType>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_AMOUNTPAIDType");
-
-                entity.Property(e => e.CollectedatHospitalPaid).HasColumnName("COLLECTEDAtHospitalPaid");
-
-                entity.Property(e => e.Neftpaid).HasColumnName("NEFTPaid");
-
-                entity.Property(e => e.Upipaid).HasColumnName("UPIPaid");
             });
 
-            modelBuilder.Entity<QerBalamt>(entity =>
+            modelBuilder.Entity<QER_BALAMT>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_BALAMT");
 
-                entity.Property(e => e.CenterId).HasColumnName("CENTER_id");
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
 
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
             });
 
-            modelBuilder.Entity<QerBidirection>(entity =>
+            modelBuilder.Entity<QER_BIDIRECTION>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_BIDIRECTION");
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
                 entity.Property(e => e.MarkComplete).HasMaxLength(1);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
                 entity.Property(e => e.ProfileName).HasMaxLength(255);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerBill>(entity =>
+            modelBuilder.Entity<QER_BILL>(entity =>
             {
                 entity.HasNoKey();
 
@@ -3238,991 +2131,451 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.Active).HasMaxLength(1);
 
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Comments).HasColumnType("ntext");
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name1).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName1)
-                    .HasColumnName("DOCTOR_Name1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.EMPLOYEE_Name).HasMaxLength(255);
 
-                entity.Property(e => e.EmployeeName)
-                    .HasColumnName("EMPLOYEE_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
-                    .HasColumnName("PATIENT_AgeFlag")
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TESTMST_CatType).HasMaxLength(3);
 
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstCompanyid).HasColumnName("TESTMST_Companyid");
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
+                entity.Property(e => e.TESTMST_ReportHeading).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstLumsum).HasColumnName("TESTMST_Lumsum");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPercentage).HasColumnName("TESTMST_Percentage");
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
-
-                entity.Property(e => e.TestmstReportHeading)
-                    .HasColumnName("TESTMST_ReportHeading")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstSample)
-                    .HasColumnName("TESTMST_sample")
+                entity.Property(e => e.TESTMST_sample)
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
-
-                entity.Property(e => e.TestmstTestcost).HasColumnName("TESTMST_Testcost");
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
 
                 entity.Property(e => e.Type).HasMaxLength(1);
 
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerCbcWorkSheet>(entity =>
+            modelBuilder.Entity<QER_CBC_WorkSheet>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_CBC_WorkSheet");
 
-                entity.Property(e => e.DocdetLFieldNo).HasColumnName("DOCDET_lFieldNo");
+                entity.Property(e => e.DOCDET_tFieldValue).HasMaxLength(255);
 
-                entity.Property(e => e.DocdetTFieldValue)
-                    .HasColumnName("DOCDET_tFieldValue")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCHDR_Age).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrAge)
-                    .HasColumnName("DOCHDR_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCHDR_Sex).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrSex)
-                    .HasColumnName("DOCHDR_Sex")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerCollection>(entity =>
+            modelBuilder.Entity<QER_COLLECTION>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_COLLECTION");
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.IsProfile)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerCollectionCenterBillDetail>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("QerCollectionCenterBillDetail");
-
-                entity.Property(e => e.CenterId).HasColumnName("CENTER_id");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_NAME")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.ProposalNo)
-                    .IsRequired()
-                    .HasColumnName("Proposal_No")
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<QerComparerate>(entity =>
+            modelBuilder.Entity<QER_COMPARERATE>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_COMPARERATE");
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
             });
 
-            modelBuilder.Entity<QerDailyregister>(entity =>
+            modelBuilder.Entity<QER_DAILYREGISTER>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_DAILYREGISTER");
 
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerDailyregrefund>(entity =>
+            modelBuilder.Entity<QER_DAILYREGREFUND>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_DAILYREGREFUND");
 
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerDispatchregister>(entity =>
+            modelBuilder.Entity<QER_DISPATCHREGISTER>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_DISPATCHREGISTER");
 
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
 
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name2).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName2)
-                    .HasColumnName("DOCTOR_Name2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Region).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientEmail)
-                    .HasColumnName("PATIENT_Email")
+                entity.Property(e => e.PATIENT_Email)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.TamtPaid).HasColumnName("TAmtPaid");
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
 
-                entity.Property(e => e.TamtRefund).HasColumnName("TAmtRefund");
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerDoctorComm>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("QER_DOCTOR_COMM");
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
-
-                entity.Property(e => e.DoctorEx1commission).HasColumnName("DOCTOR_EX1Commission");
-
-                entity.Property(e => e.DoctorExcommission).HasColumnName("DOCTOR_EXCommission");
-
-                entity.Property(e => e.DoctorHcommission).HasColumnName("DOCTOR_HCommission");
-
-                entity.Property(e => e.DoctorMcommission).HasColumnName("DOCTOR_MCommission");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorOcommission).HasColumnName("DOCTOR_OCommission");
-
-                entity.Property(e => e.DoctorPfcommission).HasColumnName("DOCTOR_PFCommission");
-
-                entity.Property(e => e.DoctorRcommission).HasColumnName("DOCTOR_RCommission");
-
-                entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
-
-                entity.Property(e => e.DoctorSpcommission).HasColumnName("DOCTOR_SPCommission");
-
-                entity.Property(e => e.DoctorXcommission).HasColumnName("DOCTOR_XCommission");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Type).HasMaxLength(1);
-
-                entity.Property(e => e.WardNo).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<QerDoctorCommission>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("QER_DOCTOR_COMMISSION");
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorAddress1)
-                    .HasColumnName("DOCTOR_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorCity)
-                    .HasColumnName("DOCTOR_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorState)
-                    .HasColumnName("DOCTOR_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDiscount).HasColumnName("Patient_Discount");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.SpecialTest).HasMaxLength(1);
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.WardNo).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<QerDoctorCommissionOld>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("QER_DOCTOR_COMMISSION_OLD");
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDiscount).HasColumnName("Patient_Discount");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.SpecialTest).HasMaxLength(1);
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.WardNo).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<QerDoctorlist>(entity =>
+            modelBuilder.Entity<QER_DOCTORLIST>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_DOCTORLIST");
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorEmail)
-                    .HasColumnName("DOCTOR_Email")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_Email).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerDoctorwiseCommission>(entity =>
+            modelBuilder.Entity<QER_DOCTORWISE_COMMISSION>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_DOCTORWISE_COMMISSION");
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Ex1Comm).HasColumnName("EX1_COMM");
-
-                entity.Property(e => e.ExComm).HasColumnName("EX_COMM");
-
-                entity.Property(e => e.HcComm).HasColumnName("HC_COMM");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.MComm).HasColumnName("M_COMM");
-
-                entity.Property(e => e.OComm).HasColumnName("O_COMM");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PfComm).HasColumnName("PF_COMM");
-
-                entity.Property(e => e.RComm).HasColumnName("R_COMM");
-
-                entity.Property(e => e.SComm).HasColumnName("S_Comm");
-
-                entity.Property(e => e.SpComm).HasColumnName("SP_COMM");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
                 entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3);
+                entity.Property(e => e.TESTMST_CatType).HasMaxLength(3);
 
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
-
-                entity.Property(e => e.XComm).HasColumnName("X_Comm");
             });
 
-            modelBuilder.Entity<QerDoctorwiseCommissionOld>(entity =>
+            modelBuilder.Entity<QER_DOCTORWISE_COMMISSION_OLD>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_DOCTORWISE_COMMISSION_OLD");
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_SAMPLE");
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Ex1Comm).HasColumnName("EX1_COMM");
-
-                entity.Property(e => e.ExComm).HasColumnName("EX_COMM");
-
-                entity.Property(e => e.HcComm).HasColumnName("HC_COMM");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.MComm).HasColumnName("M_COMM");
-
-                entity.Property(e => e.OComm).HasColumnName("O_COMM");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PfComm).HasColumnName("PF_COMM");
-
-                entity.Property(e => e.RComm).HasColumnName("R_COMM");
-
-                entity.Property(e => e.SComm).HasColumnName("S_Comm");
-
-                entity.Property(e => e.SpComm).HasColumnName("SP_COMM");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
                 entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.TestmstCattype)
-                    .HasColumnName("TESTMST_CATTYPE")
-                    .HasMaxLength(3);
+                entity.Property(e => e.TESTMST_CATTYPE).HasMaxLength(3);
 
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
-
-                entity.Property(e => e.XComm).HasColumnName("X_Comm");
             });
 
-            modelBuilder.Entity<QerFilldata>(entity =>
+            modelBuilder.Entity<QER_DOCTOR_COMM>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("QER_FILLDATA");
+                entity.ToView("QER_DOCTOR_COMM");
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EmailDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.MarkComplete).HasMaxLength(1);
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.ProfileName).HasMaxLength(255);
-
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerForMypathtest>(entity =>
+            modelBuilder.Entity<QER_DOCTOR_COMMISSION>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("QER_DOCTOR_COMMISSION");
+
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_City).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Region).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_State).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.SpecialTest).HasMaxLength(1);
+
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
+
+                entity.Property(e => e.WardNo).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<QER_DOCTOR_COMMISSION_OLD>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("QER_DOCTOR_COMMISSION_OLD");
+
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.SpecialTest).HasMaxLength(1);
+
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
+
+                entity.Property(e => e.WardNo).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<QER_FILLDATA>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("QER_FILLDATA");
+
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
+
+                entity.Property(e => e.EmailDate).HasColumnType("datetime");
+
+                entity.Property(e => e.MarkComplete).HasMaxLength(1);
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.ProfileName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
+
+                entity.Property(e => e.Type).HasMaxLength(1);
+
+                entity.Property(e => e.WardNo).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<QER_FOR_MYPATHTEST>(entity =>
             {
                 entity.HasNoKey();
 
@@ -4230,616 +2583,249 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.Active).HasMaxLength(1);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.COMPANY_CardDegree1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_CardDegree2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Cardiologist1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Cardiologist2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_PathoDegree1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_PathoDegree2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Pathologist1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Pathologist2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_RadDegree1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_RadDegree2).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Radiologist1).HasMaxLength(100);
+
+                entity.Property(e => e.COMPANY_Radiologist2).HasMaxLength(100);
 
                 entity.Property(e => e.Comments).HasColumnType("ntext");
 
-                entity.Property(e => e.CompanyCardDegree1)
-                    .HasColumnName("COMPANY_CardDegree1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardDegree2)
-                    .HasColumnName("COMPANY_CardDegree2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardiologist1)
-                    .HasColumnName("COMPANY_Cardiologist1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyCardiologist2)
-                    .HasColumnName("COMPANY_Cardiologist2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathoDegree1)
-                    .HasColumnName("COMPANY_PathoDegree1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathoDegree2)
-                    .HasColumnName("COMPANY_PathoDegree2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathologist1)
-                    .HasColumnName("COMPANY_Pathologist1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyPathologist2)
-                    .HasColumnName("COMPANY_Pathologist2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadDegree1)
-                    .HasColumnName("COMPANY_RadDegree1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadDegree2)
-                    .HasColumnName("COMPANY_RadDegree2")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadiologist1)
-                    .HasColumnName("COMPANY_Radiologist1")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CompanyRadiologist2)
-                    .HasColumnName("COMPANY_Radiologist2")
-                    .HasMaxLength(100);
-
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Doc2)
-                    .HasColumnName("DOC2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOC2).HasMaxLength(255);
 
-                entity.Property(e => e.DocdetLFieldNo).HasColumnName("DOCDET_lFieldNo");
+                entity.Property(e => e.DOCDET_tFieldValue).HasMaxLength(255);
 
-                entity.Property(e => e.DocdetLHeaderId).HasColumnName("DOCDET_lHeaderId");
+                entity.Property(e => e.DOCDET_tFieldValue1).HasColumnType("ntext");
 
-                entity.Property(e => e.DocdetLTestCatId).HasColumnName("DOCDET_lTestCatId");
+                entity.Property(e => e.DOCHDR_Age).HasMaxLength(50);
 
-                entity.Property(e => e.DocdetTFieldValue)
-                    .HasColumnName("DOCDET_tFieldValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DocdetTFieldValue1)
-                    .HasColumnName("DOCDET_tFieldValue1")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.DochdrAge)
-                    .HasColumnName("DOCHDR_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
-
-                entity.Property(e => e.DochdrLEmployeeId).HasColumnName("DOCHDR_lEmployeeId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrPid)
-                    .HasColumnName("DOCHDR_PID")
+                entity.Property(e => e.DOCHDR_PID)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
+                entity.Property(e => e.DOCHDR_Sex).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrSDescription)
-                    .HasColumnName("DOCHDR_sDescription")
-                    .HasColumnType("ntext");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCHDR_sDescription).HasColumnType("ntext");
 
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrSex)
-                    .HasColumnName("DOCHDR_Sex")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
+                entity.Property(e => e.DOCTOR_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.Docq2)
-                    .HasColumnName("docq2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_City).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorAddress1)
-                    .HasColumnName("DOCTOR_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Country).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorAddress2)
-                    .HasColumnName("DOCTOR_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Email).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorCity)
-                    .HasColumnName("DOCTOR_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorCompanyid).HasColumnName("DOCTOR_Companyid");
+                entity.Property(e => e.DOCTOR_Permanent).HasMaxLength(1);
 
-                entity.Property(e => e.DoctorCountry)
-                    .HasColumnName("DOCTOR_Country")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorEmail)
-                    .HasColumnName("DOCTOR_Email")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_Qualification).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorEx1commission).HasColumnName("DOCTOR_EX1Commission");
+                entity.Property(e => e.DOCTOR_Region).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorExcommission).HasColumnName("DOCTOR_EXCommission");
+                entity.Property(e => e.DOCTOR_State).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorHcommission).HasColumnName("DOCTOR_HCommission");
+                entity.Property(e => e.DOCTOR_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_id");
+                entity.Property(e => e.EMPLOYEE_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorMcommission).HasColumnName("DOCTOR_MCommission");
-
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorOcommission).HasColumnName("DOCTOR_OCommission");
-
-                entity.Property(e => e.DoctorPermanent)
-                    .HasColumnName("DOCTOR_Permanent")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.DoctorPfcommission).HasColumnName("DOCTOR_PFCommission");
-
-                entity.Property(e => e.DoctorPincode)
-                    .HasColumnName("DOCTOR_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorQualification)
-                    .HasColumnName("DOCTOR_Qualification")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorRcommission).HasColumnName("DOCTOR_RCommission");
-
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
-
-                entity.Property(e => e.DoctorSpcommission).HasColumnName("DOCTOR_SPCommission");
-
-                entity.Property(e => e.DoctorState)
-                    .HasColumnName("DOCTOR_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorTelno)
-                    .HasColumnName("DOCTOR_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorXcommission).HasColumnName("DOCTOR_XCommission");
-
-                entity.Property(e => e.EmployeeName)
-                    .HasColumnName("EMPLOYEE_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
                 entity.Property(e => e.IsProfile)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
                 entity.Property(e => e.MarkComplete).HasMaxLength(1);
 
-                entity.Property(e => e.OfficeAddress1)
-                    .HasColumnName("OFFICE_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress2)
-                    .HasColumnName("OFFICE_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeCity)
-                    .HasColumnName("OFFICE_City")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_City).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCountry)
-                    .HasColumnName("OFFICE_Country")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Country).HasMaxLength(50);
 
-                entity.Property(e => e.OfficePincode)
-                    .HasColumnName("OFFICE_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeRegion)
-                    .HasColumnName("OFFICE_Region")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Region).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeState)
-                    .HasColumnName("OFFICE_State")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_State).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeTelno)
-                    .HasColumnName("OFFICE_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeUrl)
-                    .HasColumnName("OFFICE_url")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_url).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
+                entity.Property(e => e.PATIENT_Sample).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PLT).HasColumnType("image");
 
-                entity.Property(e => e.PatientSample)
-                    .HasColumnName("PATIENT_Sample")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Plt)
-                    .HasColumnName("PLT")
-                    .HasColumnType("image");
-
-                entity.Property(e => e.RbcHisto)
-                    .HasColumnName("RBC_HISTO")
-                    .HasColumnType("image");
+                entity.Property(e => e.RBC_HISTO).HasColumnType("image");
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.TestdetCatTypeId).HasColumnName("TESTDET_CatTypeId");
+                entity.Property(e => e.TESTDET_Description).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetCompulsory).HasColumnName("TESTDET_Compulsory");
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetCurrentId).HasColumnName("TESTDET_CurrentId");
+                entity.Property(e => e.TESTDET_GroupName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetDescription)
-                    .HasColumnName("TESTDET_Description")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_NormalValue).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
+                entity.Property(e => e.TESTDET_sDefault).HasColumnType("ntext");
 
-                entity.Property(e => e.TestdetFieldStyle).HasColumnName("TESTDET_FieldStyle");
+                entity.Property(e => e.TESTDET_sFormula).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetFieldType).HasColumnName("TESTDET_FieldType");
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetGroupName)
-                    .HasColumnName("TESTDET_GroupName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetGroupNo).HasColumnName("TESTDET_GroupNo");
+                entity.Property(e => e.TESTMST_CatType).HasMaxLength(3);
 
-                entity.Property(e => e.TestdetMaxLimit).HasColumnName("TESTDET_MaxLimit");
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetMaxValue).HasColumnName("TESTDET_MaxValue");
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetMinLimit).HasColumnName("TESTDET_MinLimit");
+                entity.Property(e => e.TESTMST_ReportHeading).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetMinValue).HasColumnName("TESTDET_MinValue");
-
-                entity.Property(e => e.TestdetNormalValue)
-                    .HasColumnName("TESTDET_NormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSDefault)
-                    .HasColumnName("TESTDET_sDefault")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.TestdetSFormula)
-                    .HasColumnName("TESTDET_sFormula")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestdetTestTypeId).HasColumnName("TESTDET_TestTypeId");
-
-                entity.Property(e => e.TestdetValidate).HasColumnName("TESTDET_Validate");
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3);
-
-                entity.Property(e => e.TestmstCompanyid).HasColumnName("TESTMST_Companyid");
-
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
-                entity.Property(e => e.TestmstLumsum).HasColumnName("TESTMST_Lumsum");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPercentage).HasColumnName("TESTMST_Percentage");
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
-
-                entity.Property(e => e.TestmstReportHeading)
-                    .HasColumnName("TESTMST_ReportHeading")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstSample)
-                    .HasColumnName("TESTMST_sample")
+                entity.Property(e => e.TESTMST_sample)
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
-
-                entity.Property(e => e.TestmstTestcost).HasColumnName("TESTMST_Testcost");
-
                 entity.Property(e => e.Type).HasMaxLength(1);
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
 
                 entity.Property(e => e.ValidateUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.WBC).HasColumnType("image");
+
                 entity.Property(e => e.WardNo).HasMaxLength(50);
 
-                entity.Property(e => e.Wbc)
-                    .HasColumnName("WBC")
-                    .HasColumnType("image");
+                entity.Property(e => e.docq2).HasMaxLength(255);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerPaidrefund>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("qer_paidrefund");
-            });
-
-            modelBuilder.Entity<QerPatient>(entity =>
+            modelBuilder.Entity<QER_PATIENT>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_PATIENT");
 
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName1)
-                    .HasColumnName("DOCTOR_Name1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name1).HasMaxLength(255);
 
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerPatientHistory>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("QER_PATIENT_HISTORY");
-
-                entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.Flag)
-                    .HasColumnName("flag")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.HistoryDate)
-                    .HasColumnName("History_date")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.HistoryId).HasColumnName("History_Id");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Remarks).HasMaxLength(50);
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<QerPatientreport>(entity =>
+            modelBuilder.Entity<QER_PATIENTREPORT>(entity =>
             {
                 entity.HasNoKey();
 
@@ -4853,19 +2839,57 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.BarCopiese).HasColumnName("Bar_Copiese");
-
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Comments).HasColumnType("ntext");
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.DOB).HasColumnType("datetime");
+
+                entity.Property(e => e.DOCHDR_Age).HasMaxLength(50);
+
+                entity.Property(e => e.DOCHDR_Sex).HasMaxLength(50);
+
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.DOCHDR_sDescription).HasColumnType("ntext");
+
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_City).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Country).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Email).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Password)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DOCTOR_Permanent).HasMaxLength(1);
+
+                entity.Property(e => e.DOCTOR_Pincode).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Qualification).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Region).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_State).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Telno).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_UserName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DataEntryDate).HasColumnType("datetime");
 
@@ -4873,138 +2897,7 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Dob)
-                    .HasColumnName("DOB")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.DochdrAge)
-                    .HasColumnName("DOCHDR_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
-
-                entity.Property(e => e.DochdrLEmployeeId).HasColumnName("DOCHDR_lEmployeeId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSDescription)
-                    .HasColumnName("DOCHDR_sDescription")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrSex)
-                    .HasColumnName("DOCHDR_Sex")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorAddress1)
-                    .HasColumnName("DOCTOR_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorAddress2)
-                    .HasColumnName("DOCTOR_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorCity)
-                    .HasColumnName("DOCTOR_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorCode)
-                    .HasColumnName("doctor_Code")
-                    .HasMaxLength(8)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
-
-                entity.Property(e => e.DoctorCompanyid).HasColumnName("DOCTOR_Companyid");
-
-                entity.Property(e => e.DoctorCountry)
-                    .HasColumnName("DOCTOR_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorEmail)
-                    .HasColumnName("DOCTOR_Email")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorEx1commission).HasColumnName("DOCTOR_EX1Commission");
-
-                entity.Property(e => e.DoctorExcommission).HasColumnName("DOCTOR_EXCommission");
-
-                entity.Property(e => e.DoctorHcommission).HasColumnName("DOCTOR_HCommission");
-
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_id");
-
-                entity.Property(e => e.DoctorMcommission).HasColumnName("DOCTOR_MCommission");
-
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorOcommission).HasColumnName("DOCTOR_OCommission");
-
-                entity.Property(e => e.DoctorPassword)
-                    .HasColumnName("DOCTOR_Password")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.DoctorPermanent)
-                    .HasColumnName("DOCTOR_Permanent")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.DoctorPfcommission).HasColumnName("DOCTOR_PFCommission");
-
-                entity.Property(e => e.DoctorPincode)
-                    .HasColumnName("DOCTOR_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorQualification)
-                    .HasColumnName("DOCTOR_Qualification")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorRcommission).HasColumnName("DOCTOR_RCommission");
-
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
-
-                entity.Property(e => e.DoctorSpcommission).HasColumnName("DOCTOR_SPCommission");
-
-                entity.Property(e => e.DoctorState)
-                    .HasColumnName("DOCTOR_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorTelno)
-                    .HasColumnName("DOCTOR_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorUserName)
-                    .HasColumnName("DOCTOR_UserName")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.DoctorXcommission).HasColumnName("DOCTOR_XCommission");
+                entity.Property(e => e.EMPLOYEE_Name).HasMaxLength(255);
 
                 entity.Property(e => e.EmailDate).HasColumnType("datetime");
 
@@ -5012,13 +2905,7 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.EmployeeName)
-                    .HasColumnName("EMPLOYEE_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
                 entity.Property(e => e.IntegrationDate).HasColumnType("datetime");
 
@@ -5031,124 +2918,65 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.LableSample)
-                    .HasColumnName("Lable_Sample")
+                entity.Property(e => e.Lable_Sample)
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
                 entity.Property(e => e.MarkComplete).HasMaxLength(1);
 
-                entity.Property(e => e.OfficeAddress1)
-                    .HasColumnName("OFFICE_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress2)
-                    .HasColumnName("OFFICE_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeCity)
-                    .HasColumnName("OFFICE_City")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_City).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCountry)
-                    .HasColumnName("OFFICE_Country")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Country).HasMaxLength(50);
 
-                entity.Property(e => e.OfficePincode)
-                    .HasColumnName("OFFICE_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeRegion)
-                    .HasColumnName("OFFICE_Region")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Region).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeState)
-                    .HasColumnName("OFFICE_State")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_State).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeTelno)
-                    .HasColumnName("OFFICE_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeUrl)
-                    .HasColumnName("OFFICE_url")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_url).HasMaxLength(50);
 
-                entity.Property(e => e.Password).HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PDFDate).HasColumnType("datetime");
 
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Pdfdate)
-                    .HasColumnName("PDFDate")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Pdfuser)
-                    .HasColumnName("PDFUser")
+                entity.Property(e => e.PDFUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.PrintDate).HasColumnType("datetime");
 
@@ -5182,10 +3010,6 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
-
                 entity.Property(e => e.SampleReceivedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.SampleReceivedRemark)
@@ -5196,62 +3020,29 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SendSms).HasColumnName("SendSMS");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.Tat).HasColumnName("TAT");
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.TestAlias)
-                    .HasColumnName("TEST_ALIAS")
-                    .HasColumnType("ntext");
+                entity.Property(e => e.TESTMST_CatType).HasMaxLength(3);
 
-                entity.Property(e => e.TestTypeName).HasMaxLength(50);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3);
+                entity.Property(e => e.TESTMST_ReportHeading).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstCompanyid).HasColumnName("TESTMST_Companyid");
-
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
-                entity.Property(e => e.TestmstLumsum).HasColumnName("TESTMST_Lumsum");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPercentage).HasColumnName("TESTMST_Percentage");
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
-
-                entity.Property(e => e.TestmstReportHeading)
-                    .HasColumnName("TESTMST_ReportHeading")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstSample)
-                    .HasColumnName("TESTMST_sample")
+                entity.Property(e => e.TESTMST_sample)
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
+                entity.Property(e => e.TEST_ALIAS).HasColumnType("ntext");
 
-                entity.Property(e => e.TestmstTestcost).HasColumnName("TESTMST_Testcost");
+                entity.Property(e => e.TestTypeName).HasMaxLength(50);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
-
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
 
                 entity.Property(e => e.ValidateDate).HasColumnType("datetime");
 
@@ -5260,322 +3051,209 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.WardNo).HasMaxLength(50);
+
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+
+                entity.Property(e => e.doctor_Code)
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerPatienttype>(entity =>
+            modelBuilder.Entity<QER_PATIENTTYPE>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_PATIENTTYPE");
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("Center_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.Center_Name).HasMaxLength(255);
 
                 entity.Property(e => e.CurrentDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.NAME).HasMaxLength(255);
 
-                entity.Property(e => e.Name)
-                    .HasColumnName("NAME")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCompanyid).HasColumnName("PATIENT_Companyid");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
-
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientId).HasColumnName("Patient_id");
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("Patient_SampleCollected");
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Paymode)
-                    .HasColumnName("paymode")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
                 entity.Property(e => e.Remarks).HasMaxLength(50);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Type)
-                    .HasColumnName("TYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TYPE).HasMaxLength(50);
 
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
+                entity.Property(e => e.paymode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerPayments>(entity =>
+            modelBuilder.Entity<QER_PATIENT_HISTORY>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("QER_PATIENT_HISTORY");
+
+                entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.History_date).HasColumnType("datetime");
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
+
+                entity.Property(e => e.Remarks).HasMaxLength(50);
+
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
+
+                entity.Property(e => e.flag)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.userid).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<QER_PAYMENTS>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_PAYMENTS");
 
-                entity.Property(e => e.CenterId).HasColumnName("CENTER_id");
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
 
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerPaymentstype>(entity =>
+            modelBuilder.Entity<QER_PAYMENTSTYPE>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_PAYMENTSTYPE");
 
-                entity.Property(e => e.CenterId).HasColumnName("CENTER_id");
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
 
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CollectedatHospitalPaid).HasColumnName("COLLECTEDAtHospitalPaid");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.Neftpaid).HasColumnName("NEFTPaid");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Patientid1).HasColumnName("Patientid");
-
-                entity.Property(e => e.Upipaid).HasColumnName("UPIPaid");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerPendingTest>(entity =>
+            modelBuilder.Entity<QER_PENDING_TEST>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_PENDING_TEST");
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.IntRecords).HasColumnName("intRecords");
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerPendingTestsNew>(entity =>
+            modelBuilder.Entity<QER_PendingTestsNew>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_PendingTestsNew");
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
             });
 
-            modelBuilder.Entity<QerRatelist>(entity =>
+            modelBuilder.Entity<QER_RATELIST>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RATELIST");
 
-                entity.Property(e => e.TestTypeName).HasMaxLength(50);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TestTypeName).HasMaxLength(50);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
             });
 
-            modelBuilder.Entity<QerRefundamount>(entity =>
+            modelBuilder.Entity<QER_REFUNDAMOUNT>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_REFUNDAMOUNT");
-
-                entity.Property(e => e.Refundamount).HasColumnName("REFUNDAMOUNT");
             });
 
-            modelBuilder.Entity<QerResultregister>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTER>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTER");
 
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
+
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
+
                 entity.Property(e => e.TestTypeName).HasMaxLength(50);
-
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
             });
 
-            modelBuilder.Entity<QerResultregister1>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTER1>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTER1");
 
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerResultregister2>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTER2>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTER2");
 
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
+
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
+
                 entity.Property(e => e.TestTypeName).HasMaxLength(50);
-
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
             });
 
-            modelBuilder.Entity<QerResultregisterreport>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTERREPORT>(entity =>
             {
                 entity.HasNoKey();
 
@@ -5587,9 +3265,9 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
                 entity.Property(e => e.DataEntryDate).HasColumnType("datetime");
 
@@ -5597,31 +3275,13 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.Issent).HasColumnName("issent");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
                 entity.Property(e => e.PrintDate).HasColumnType("datetime");
 
@@ -5647,10 +3307,6 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Rs)
-                    .HasColumnName("rs")
-                    .HasMaxLength(308);
-
                 entity.Property(e => e.SampleReceivedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.SampleReceivedUser)
@@ -5659,278 +3315,127 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.TestTypeName).HasMaxLength(50);
 
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
-
                 entity.Property(e => e.ValidateDate).HasColumnType("datetime");
 
                 entity.Property(e => e.ValidateUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.rs).HasMaxLength(308);
             });
 
-            modelBuilder.Entity<QerResultregisterreport1>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTERREPORT1>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTERREPORT1");
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Rs)
-                    .HasColumnName("rs")
-                    .HasMaxLength(308);
-
-                entity.Property(e => e.TestCatId).HasColumnName("TestCatID");
+                entity.Property(e => e.rs).HasMaxLength(308);
             });
 
-            modelBuilder.Entity<QerResultregisterreportsms>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTERREPORTSMS>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTERREPORTSMS");
 
-                entity.Property(e => e.CenterId).HasColumnName("CENTER_id");
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.CenterTelno)
-                    .HasColumnName("CENTER_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_id");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Rs)
-                    .HasColumnName("rs")
-                    .HasMaxLength(308);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.rs).HasMaxLength(308);
             });
 
-            modelBuilder.Entity<QerResultregisterreportsmscritical>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTERREPORTSMSCRITICAL>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTERREPORTSMSCRITICAL");
 
-                entity.Property(e => e.CenterId).HasColumnName("CENTER_id");
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.CenterTelno)
-                    .HasColumnName("CENTER_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
 
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_id");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Rs)
-                    .HasColumnName("rs")
-                    .HasMaxLength(308);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.rs).HasMaxLength(308);
             });
 
-            modelBuilder.Entity<QerResultregistersms>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTERSMS>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTERSMS");
 
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerResultregistersmscritical>(entity =>
+            modelBuilder.Entity<QER_RESULTREGISTERSMSCRITICAL>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_RESULTREGISTERSMSCRITICAL");
 
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetMaxLimit).HasColumnName("TESTDET_MaxLimit");
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetMinLimit).HasColumnName("TESTDET_MinLimit");
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<QerSpecialtests>(entity =>
+            modelBuilder.Entity<QER_SPECIALTESTS>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_SPECIALTESTS");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
             });
 
-            modelBuilder.Entity<QerTdscertificate>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("QerTDSCertificate");
-
-                entity.Property(e => e.BillDate).HasColumnType("datetime");
-
-                entity.Property(e => e.CenterId).HasColumnName("Center_Id");
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.EndDate).HasColumnType("datetime");
-
-                entity.Property(e => e.FinYear)
-                    .IsRequired()
-                    .HasColumnName("Fin_Year")
-                    .HasMaxLength(5)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.StartDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Tds)
-                    .HasColumnName("TDS")
-                    .HasColumnType("decimal(38, 2)");
-
-                entity.Property(e => e.TdsCertificateRecDate).HasColumnType("datetime");
-
-                entity.Property(e => e.TdsCertificateRecNo)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Total).HasColumnType("decimal(18, 2)");
-            });
-
-            modelBuilder.Entity<QerTestcount>(entity =>
+            modelBuilder.Entity<QER_TESTCOUNT>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_TESTCOUNT");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.Tests).HasColumnName("tests");
             });
 
-            modelBuilder.Entity<QerTests>(entity =>
+            modelBuilder.Entity<QER_TESTS>(entity =>
             {
                 entity.HasNoKey();
 
@@ -5949,13 +3454,59 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(2)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Comments).HasColumnType("ntext");
 
                 entity.Property(e => e.Currentdate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.DOC2).HasMaxLength(255);
+
+                entity.Property(e => e.DOCDET_tFieldValue).HasMaxLength(255);
+
+                entity.Property(e => e.DOCDET_tFieldValue1).HasColumnType("ntext");
+
+                entity.Property(e => e.DOCHDR_Age).HasMaxLength(50);
+
+                entity.Property(e => e.DOCHDR_AgeFlag)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.DOCHDR_Sex).HasMaxLength(50);
+
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.DOCHDR_sDescription).HasColumnType("ntext");
+
+                entity.Property(e => e.DOCHDR_sDocNo).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Address1).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Address2).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_City).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Country).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Email).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_MobileNo).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Permanent).HasMaxLength(1);
+
+                entity.Property(e => e.DOCTOR_Pincode).HasMaxLength(50);
+
+                entity.Property(e => e.DOCTOR_Qualification).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Region).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_State).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Telno).HasMaxLength(50);
 
                 entity.Property(e => e.DataEntryDate).HasColumnType("datetime");
 
@@ -5963,148 +3514,7 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Doc2)
-                    .HasColumnName("DOC2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DocdetLFieldNo).HasColumnName("DOCDET_lFieldNo");
-
-                entity.Property(e => e.DocdetLHeaderId).HasColumnName("DOCDET_lHeaderId");
-
-                entity.Property(e => e.DocdetLTestCatId).HasColumnName("DOCDET_lTestCatId");
-
-                entity.Property(e => e.DocdetTFieldValue)
-                    .HasColumnName("DOCDET_tFieldValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DocdetTFieldValue1)
-                    .HasColumnName("DOCDET_tFieldValue1")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.DochdrAge)
-                    .HasColumnName("DOCHDR_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrAgeFlag)
-                    .IsRequired()
-                    .HasColumnName("DOCHDR_AgeFlag")
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLDocumentId).HasColumnName("DOCHDR_lDocumentId");
-
-                entity.Property(e => e.DochdrLEmployeeId).HasColumnName("DOCHDR_lEmployeeId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSDescription)
-                    .HasColumnName("DOCHDR_sDescription")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.DochdrSDocNo)
-                    .HasColumnName("DOCHDR_sDocNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrSex)
-                    .HasColumnName("DOCHDR_Sex")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.Docq2)
-                    .HasColumnName("docq2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorAddress1)
-                    .HasColumnName("DOCTOR_Address1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorAddress2)
-                    .HasColumnName("DOCTOR_Address2")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorCity)
-                    .HasColumnName("DOCTOR_City")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
-
-                entity.Property(e => e.DoctorCompanyid).HasColumnName("DOCTOR_Companyid");
-
-                entity.Property(e => e.DoctorCountry)
-                    .HasColumnName("DOCTOR_Country")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorEmail)
-                    .HasColumnName("DOCTOR_Email")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorEx1commission).HasColumnName("DOCTOR_EX1Commission");
-
-                entity.Property(e => e.DoctorExcommission).HasColumnName("DOCTOR_EXCommission");
-
-                entity.Property(e => e.DoctorHcommission).HasColumnName("DOCTOR_HCommission");
-
-                entity.Property(e => e.DoctorId).HasColumnName("DOCTOR_id");
-
-                entity.Property(e => e.DoctorMcommission).HasColumnName("DOCTOR_MCommission");
-
-                entity.Property(e => e.DoctorMobileNo)
-                    .HasColumnName("DOCTOR_MobileNo")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorOcommission).HasColumnName("DOCTOR_OCommission");
-
-                entity.Property(e => e.DoctorPermanent)
-                    .HasColumnName("DOCTOR_Permanent")
-                    .HasMaxLength(1);
-
-                entity.Property(e => e.DoctorPfcommission).HasColumnName("DOCTOR_PFCommission");
-
-                entity.Property(e => e.DoctorPincode)
-                    .HasColumnName("DOCTOR_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorQualification)
-                    .HasColumnName("DOCTOR_Qualification")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorRcommission).HasColumnName("DOCTOR_RCommission");
-
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
-
-                entity.Property(e => e.DoctorSpcommission).HasColumnName("DOCTOR_SPCommission");
-
-                entity.Property(e => e.DoctorState)
-                    .HasColumnName("DOCTOR_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorTelno)
-                    .HasColumnName("DOCTOR_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.DoctorXcommission).HasColumnName("DOCTOR_XCommission");
+                entity.Property(e => e.EMPLOYEE_Name).HasMaxLength(255);
 
                 entity.Property(e => e.EmailDate).HasColumnType("datetime");
 
@@ -6112,18 +3522,11 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.EmployeeName)
-                    .HasColumnName("EMPLOYEE_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Hosptype)
-                    .HasColumnName("HOSPTYPE")
-                    .HasMaxLength(50);
+                entity.Property(e => e.HOSPTYPE).HasMaxLength(50);
 
                 entity.Property(e => e.IntegrationDate).HasColumnType("datetime");
 
-                entity.Property(e => e.IsNabl)
-                    .HasColumnName("IsNABL")
+                entity.Property(e => e.IsNABL)
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
@@ -6132,122 +3535,65 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.LableSample)
-                    .HasColumnName("Lable_Sample")
+                entity.Property(e => e.Lable_Sample)
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
                 entity.Property(e => e.MarkComplete).HasMaxLength(1);
 
-                entity.Property(e => e.OfficeAddress1)
-                    .HasColumnName("OFFICE_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeAddress2)
-                    .HasColumnName("OFFICE_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.OFFICE_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.OfficeCity)
-                    .HasColumnName("OFFICE_City")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_City).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeCountry)
-                    .HasColumnName("OFFICE_Country")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Country).HasMaxLength(50);
 
-                entity.Property(e => e.OfficePincode)
-                    .HasColumnName("OFFICE_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeRegion)
-                    .HasColumnName("OFFICE_Region")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Region).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeState)
-                    .HasColumnName("OFFICE_State")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_State).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeTelno)
-                    .HasColumnName("OFFICE_Telno")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.OfficeUrl)
-                    .HasColumnName("OFFICE_url")
-                    .HasMaxLength(50);
+                entity.Property(e => e.OFFICE_url).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAgeFlag)
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .IsRequired()
-                    .HasColumnName("PATIENT_AgeFlag")
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDiscount).HasColumnName("PATIENT_Discount");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PDFDate).HasColumnType("datetime");
 
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Pdfdate)
-                    .HasColumnName("PDFDate")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Pdfuser)
-                    .HasColumnName("PDFUser")
+                entity.Property(e => e.PDFUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Plt)
-                    .HasColumnName("PLT")
-                    .HasColumnType("image");
+                entity.Property(e => e.PLT).HasColumnType("image");
 
                 entity.Property(e => e.PrintDate).HasColumnType("datetime");
 
@@ -6257,9 +3603,7 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.ProfileName).HasMaxLength(255);
 
-                entity.Property(e => e.Rbc)
-                    .HasColumnName("RBC")
-                    .HasColumnType("image");
+                entity.Property(e => e.RBC).HasColumnType("image");
 
                 entity.Property(e => e.RegistationDate).HasColumnType("datetime");
 
@@ -6287,10 +3631,6 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SampleDate)
-                    .HasColumnName("Sample_Date")
-                    .HasColumnType("smalldatetime");
-
                 entity.Property(e => e.SampleReceivedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.SampleReceivedRemark)
@@ -6301,104 +3641,39 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Sample_Date).HasColumnType("smalldatetime");
+
                 entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.Tat).HasColumnName("TAT");
+                entity.Property(e => e.TESTDET_Description).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetCompulsory).HasColumnName("TESTDET_Compulsory");
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetCurrentId).HasColumnName("TESTDET_CurrentId");
+                entity.Property(e => e.TESTDET_GroupName).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetDescription)
-                    .HasColumnName("TESTDET_Description")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_NormalValue).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
+                entity.Property(e => e.TESTDET_sDefault).HasColumnType("ntext");
 
-                entity.Property(e => e.TestdetFieldStyle).HasColumnName("TESTDET_FieldStyle");
+                entity.Property(e => e.TESTDET_sFormula).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetFieldType).HasColumnName("TESTDET_FieldType");
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetGroupName)
-                    .HasColumnName("TESTDET_GroupName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
-                entity.Property(e => e.TestdetGroupNo).HasColumnName("TESTDET_GroupNo");
+                entity.Property(e => e.TESTMST_CatType).HasMaxLength(3);
 
-                entity.Property(e => e.TestdetMaxLimit).HasColumnName("TESTDET_MaxLimit");
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetMaxValue).HasColumnName("TESTDET_MaxValue");
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetMinLimit).HasColumnName("TESTDET_MinLimit");
+                entity.Property(e => e.TESTMST_ReportHeading).HasMaxLength(255);
 
-                entity.Property(e => e.TestdetMinValue).HasColumnName("TESTDET_MinValue");
-
-                entity.Property(e => e.TestdetNormalValue)
-                    .HasColumnName("TESTDET_NormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSDefault)
-                    .HasColumnName("TESTDET_sDefault")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.TestdetSFormula)
-                    .HasColumnName("TESTDET_sFormula")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestdetValidate).HasColumnName("TESTDET_Validate");
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3);
-
-                entity.Property(e => e.TestmstCompanyid).HasColumnName("TESTMST_Companyid");
-
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
-                entity.Property(e => e.TestmstLumsum).HasColumnName("TESTMST_Lumsum");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPercentage).HasColumnName("TESTMST_Percentage");
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
-
-                entity.Property(e => e.TestmstReportHeading)
-                    .HasColumnName("TESTMST_ReportHeading")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstSample)
-                    .HasColumnName("TESTMST_sample")
+                entity.Property(e => e.TESTMST_sample)
                     .HasMaxLength(500)
                     .IsUnicode(false);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
-
-                entity.Property(e => e.TestmstTestcost).HasColumnName("TESTMST_Testcost");
 
                 entity.Property(e => e.Type).HasMaxLength(1);
 
@@ -6407,118 +3682,122 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Userid)
-                    .HasColumnName("userid")
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.ValidateDate).HasColumnType("datetime");
 
                 entity.Property(e => e.ValidateUser)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.WBC).HasColumnType("image");
+
                 entity.Property(e => e.WardNo).HasMaxLength(50);
 
-                entity.Property(e => e.Wbc)
-                    .HasColumnName("WBC")
-                    .HasColumnType("image");
+                entity.Property(e => e.docq2).HasMaxLength(255);
+
+                entity.Property(e => e.userid).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<QerWorkSheet>(entity =>
+            modelBuilder.Entity<QER_WORK_SHEET>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_WORK_SHEET");
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
 
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientAgeFlag)
-                    .HasColumnName("PATIENT_AgeFlag")
+                entity.Property(e => e.PATIENT_AgeFlag)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
                 entity.Property(e => e.TestTypeName).HasMaxLength(50);
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
             });
 
-            modelBuilder.Entity<QerWorkSheetOld>(entity =>
+            modelBuilder.Entity<QER_WORK_SHEET_OLD>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("QER_WORK_SHEET_OLD");
 
-                entity.Property(e => e.DochdrDDate)
-                    .HasColumnName("DOCHDR_dDate")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.DOCHDR_dDate).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
 
                 entity.Property(e => e.TestTypeName).HasMaxLength(50);
+            });
 
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
+            modelBuilder.Entity<QerCollectionCenterBillDetail>(entity =>
+            {
+                entity.HasNoKey();
 
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
+                entity.ToView("QerCollectionCenterBillDetail");
+
+                entity.Property(e => e.DOCTOR_NAME).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
+
+                entity.Property(e => e.Proposal_No)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<QerTDSCertificate>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("QerTDSCertificate");
+
+                entity.Property(e => e.BillDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.EndDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Fin_Year)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.StartDate).HasColumnType("datetime");
+
+                entity.Property(e => e.TDS).HasColumnType("decimal(38, 2)");
+
+                entity.Property(e => e.TdsCertificateRecDate).HasColumnType("datetime");
+
+                entity.Property(e => e.TdsCertificateRecNo)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Total).HasColumnType("decimal(18, 2)");
             });
 
             modelBuilder.Entity<QuantumTestMapp>(entity =>
             {
-                entity.HasKey(e => e.Testid);
+                entity.HasKey(e => e.testid);
 
-                entity.Property(e => e.Testid)
-                    .HasColumnName("testid")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.testid).ValueGeneratedNever();
             });
 
-            modelBuilder.Entity<RateListDiscountRate>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.Property(e => e.TestCategory)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Ratelist>(entity =>
+            modelBuilder.Entity<RATELIST>(entity =>
             {
                 entity.HasKey(e => new { e.Centerid, e.TestId });
-
-                entity.ToTable("RATELIST");
 
                 entity.Property(e => e.BaseRate).HasDefaultValueSql("(0)");
 
@@ -6529,17 +3808,11 @@ namespace myLabWebApi.Models.DB
                     .HasDefaultValueSql("(N'N')");
             });
 
-            modelBuilder.Entity<Ratelisthdr>(entity =>
+            modelBuilder.Entity<RATELISTHDR>(entity =>
             {
                 entity.HasKey(e => e.RateListId);
 
-                entity.ToTable("RATELISTHDR");
-
                 entity.Property(e => e.RateListId).ValueGeneratedNever();
-
-                entity.Property(e => e.Other).HasColumnName("other");
-
-                entity.Property(e => e.Other1).HasColumnName("other1");
 
                 entity.Property(e => e.RateListName)
                     .IsRequired()
@@ -6554,33 +3827,34 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<RejectReason>(entity =>
+            modelBuilder.Entity<RateListDiscountRate>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("Reject_Reason");
+                entity.Property(e => e.TestCategory)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Reject_Reason>(entity =>
+            {
+                entity.HasNoKey();
 
                 entity.Property(e => e.Reason)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.Property(e => e.id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<ReportReadySmslog>(entity =>
+            modelBuilder.Entity<ReportReadySMSLog>(entity =>
             {
                 entity.HasKey(e => e.AutoId);
-
-                entity.ToTable("ReportReadySMSLog");
             });
 
-            modelBuilder.Entity<ReportValuesCrsmslog>(entity =>
+            modelBuilder.Entity<ReportValuesCRSMSLOG>(entity =>
             {
                 entity.HasKey(e => e.Autoid);
-
-                entity.ToTable("ReportValuesCRSMSLOG");
 
                 entity.Property(e => e.Autoid)
                     .HasColumnType("numeric(18, 0)")
@@ -6592,11 +3866,9 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ReportValuesSmslog>(entity =>
+            modelBuilder.Entity<ReportValuesSMSLOG>(entity =>
             {
                 entity.HasKey(e => e.Autoid);
-
-                entity.ToTable("ReportValuesSMSLOG");
 
                 entity.Property(e => e.Autoid)
                     .HasColumnType("numeric(18, 0)")
@@ -6608,121 +3880,32 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Scheduler>(entity =>
+            modelBuilder.Entity<SMSAPI>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Path)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<SmsData>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("smsData");
-
-                entity.Property(e => e.Message)
-                    .HasColumnName("message")
-                    .HasMaxLength(1000)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Mobileno)
-                    .HasColumnName("mobileno")
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Regno).HasColumnName("regno");
-
-                entity.Property(e => e.Smsdate)
-                    .HasColumnName("smsdate")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.Smsid)
-                    .HasColumnName("smsid")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Sndstatus)
-                    .HasColumnName("sndstatus")
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<SmsSet>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("SMS_SET");
-
-                entity.Property(e => e.Msgcenter)
-                    .IsRequired()
-                    .HasColumnName("msgcenter")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Portno)
-                    .HasColumnName("portno")
-                    .HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Settings)
-                    .IsRequired()
-                    .HasColumnName("settings")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Sign)
-                    .IsRequired()
-                    .HasColumnName("sign")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.WebSign)
-                    .HasColumnName("web_sign")
-                    .HasColumnType("ntext");
-            });
-
-            modelBuilder.Entity<Smsapi>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("SMSAPI");
-
-                entity.Property(e => e.EnableSms).HasColumnName("EnableSMS");
 
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Password)
-                    .HasColumnName("password")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Sender)
-                    .HasColumnName("sender")
-                    .HasMaxLength(6)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Url)
-                    .HasColumnName("URL")
+                entity.Property(e => e.URL)
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.UserName)
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.password)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.sender)
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Smstemplatedet>(entity =>
+            modelBuilder.Entity<SMSTEMPLATEDET>(entity =>
             {
                 entity.HasKey(e => e.TemplateDetailId);
-
-                entity.ToTable("SMSTEMPLATEDET");
 
                 entity.HasIndex(e => e.FieldNo)
                     .HasName("IX_SMSTEMPLATEDET_Fieldno");
@@ -6743,91 +3926,243 @@ namespace myLabWebApi.Models.DB
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Smstemplatehdr>(entity =>
+            modelBuilder.Entity<SMSTEMPLATEHDR>(entity =>
             {
                 entity.HasKey(e => e.TemplateId)
                     .HasName("PK_SMSTEMPLATE");
 
-                entity.ToTable("SMSTEMPLATEHDR");
-
                 entity.Property(e => e.TemplateId).ValueGeneratedNever();
 
-                entity.Property(e => e.Smstemplate)
-                    .HasColumnName("SMSTemplate")
+                entity.Property(e => e.SMSTemplate)
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.SysDate).HasColumnType("datetime");
-
-                entity.Property(e => e.SysUserName)
-                    .HasColumnName("sysUserName")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.TemplateName)
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TemplateSmsname)
+                entity.Property(e => e.TemplateSMSName)
                     .IsRequired()
-                    .HasColumnName("TemplateSMSName")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.sysUserName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<SMSTESTREGISTER>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<SMS_SET>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.msgcenter)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.portno).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.settings)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.sign)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.web_sign).HasColumnType("ntext");
+            });
+
+            modelBuilder.Entity<Scheduler>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Path)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<TESTDET>(entity =>
+            {
+                entity.HasKey(e => e.TESTDET_CurrentId);
+
+                entity.HasIndex(e => e.TESTDET_TestMasterID)
+                    .HasName("IX_TESTDET_TESTMASTERID");
+
+                entity.Property(e => e.TESTDET_CurrentId).ValueGeneratedNever();
+
+                entity.Property(e => e.TESTDET_ANormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_BNormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_CNormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_DNormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_Description).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_GroupName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_NormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
+
+                entity.Property(e => e.TESTDET_sDefault).HasColumnType("ntext");
+
+                entity.Property(e => e.TESTDET_sFormula).HasMaxLength(50);
+
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
+
+                entity.Property(e => e.ValueForNormal)
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Smstestregister>(entity =>
+            modelBuilder.Entity<TESTMASTER>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("SMSTESTREGISTER");
+                entity.ToView("TESTMASTER");
 
-                entity.Property(e => e.TestdetFieldno).HasColumnName("TESTDET_Fieldno");
+                entity.Property(e => e.Active).HasMaxLength(1);
 
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-            });
+                entity.Property(e => e.Comments).HasColumnType("ntext");
 
-            modelBuilder.Entity<TblAppointmentTrack>(entity =>
-            {
-                entity.HasNoKey();
+                entity.Property(e => e.PREDEFVAL_Value).HasMaxLength(255);
 
-                entity.ToTable("tblAppointmentTrack");
+                entity.Property(e => e.SpecialTest).HasMaxLength(1);
 
-                entity.Property(e => e.AppointmentId)
-                    .HasMaxLength(30)
+                entity.Property(e => e.TESTDET_ANormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_BNormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_CNormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_DNormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_Description).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_FieldName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_GroupName).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_NormalValue).HasMaxLength(255);
+
+                entity.Property(e => e.TESTDET_sAlias).HasMaxLength(50);
+
+                entity.Property(e => e.TESTDET_sDefault).HasColumnType("ntext");
+
+                entity.Property(e => e.TESTDET_sFormula).HasMaxLength(50);
+
+                entity.Property(e => e.TESTDET_sUnit).HasMaxLength(50);
+
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
+
+                entity.Property(e => e.TESTMST_CatType).HasMaxLength(3);
+
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_ReportHeading).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_sample)
+                    .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ContactNo)
-                    .HasColumnName("contactNo")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Sysdate)
-                    .HasColumnName("sysdate")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.Type).HasMaxLength(1);
             });
 
-            modelBuilder.Entity<TestFormatDet>(entity =>
+            modelBuilder.Entity<TESTMST>(entity =>
+            {
+                entity.HasKey(e => e.TESTMST_CurrentId);
+
+                entity.HasIndex(e => e.TESTMST_CurrentId)
+                    .HasName("IX_TESTMST");
+
+                entity.Property(e => e.TESTMST_CurrentId).ValueGeneratedNever();
+
+                entity.Property(e => e.Active).HasMaxLength(1);
+
+                entity.Property(e => e.Comments).HasColumnType("ntext");
+
+                entity.Property(e => e.IsKitImageCompulsary)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.IsNABL)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SpecialTest)
+                    .HasMaxLength(1)
+                    .HasDefaultValueSql("(N'N')");
+
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
+
+                entity.Property(e => e.TESTMST_CatType)
+                    .HasMaxLength(3)
+                    .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_PrintFormat).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_ReportHeading).HasMaxLength(255);
+
+                entity.Property(e => e.TESTMST_TestTypeId).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.TESTMST_sample)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Type)
+                    .HasMaxLength(1)
+                    .HasDefaultValueSql("('P')");
+            });
+
+            modelBuilder.Entity<TESTREGISTER>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<TESTTYPE>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("TEST_FORMAT_DET");
+                entity.Property(e => e.TestTypeDescription).HasMaxLength(150);
 
-                entity.Property(e => e.TestFieldName)
-                    .HasColumnName("TEST_FieldName")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TestTypeName).HasMaxLength(50);
 
-                entity.Property(e => e.TestFormatSrNo).HasColumnName("TEST_FormatSrNo");
+                entity.Property(e => e.TestTypeRemark).HasMaxLength(150);
 
-                entity.Property(e => e.TestSDefault)
-                    .HasColumnName("TEST_sDefault")
-                    .HasColumnType("ntext");
+                entity.Property(e => e.TestTypeRemark1).HasMaxLength(150);
+            });
 
-                entity.Property(e => e.TestTestMasterId).HasColumnName("TEST_TestMasterID");
+            modelBuilder.Entity<TEST_FORMAT_DET>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.TEST_FieldName).HasMaxLength(255);
+
+                entity.Property(e => e.TEST_sDefault).HasColumnType("ntext");
             });
 
             modelBuilder.Entity<TestValidation>(entity =>
@@ -6842,417 +4177,55 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(1000)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
                 entity.Property(e => e.TotalVal).HasColumnType("decimal(18, 0)");
-            });
-
-            modelBuilder.Entity<Testdet>(entity =>
-            {
-                entity.HasKey(e => e.TestdetCurrentId);
-
-                entity.ToTable("TESTDET");
-
-                entity.HasIndex(e => e.TestdetTestMasterId)
-                    .HasName("IX_TESTDET_TESTMASTERID");
-
-                entity.Property(e => e.TestdetCurrentId)
-                    .HasColumnName("TESTDET_CurrentId")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.TestdetAmaxValue).HasColumnName("TESTDET_AMaxValue");
-
-                entity.Property(e => e.TestdetAminValue).HasColumnName("TESTDET_AMinValue");
-
-                entity.Property(e => e.TestdetAnormalValue)
-                    .HasColumnName("TESTDET_ANormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetBmaxValue).HasColumnName("TESTDET_BMaxValue");
-
-                entity.Property(e => e.TestdetBminValue).HasColumnName("TESTDET_BMinValue");
-
-                entity.Property(e => e.TestdetBnormalValue)
-                    .HasColumnName("TESTDET_BNormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetCatTypeId).HasColumnName("TESTDET_CatTypeId");
-
-                entity.Property(e => e.TestdetCmaxValue).HasColumnName("TESTDET_CMaxValue");
-
-                entity.Property(e => e.TestdetCminValue).HasColumnName("TESTDET_CMinValue");
-
-                entity.Property(e => e.TestdetCnormalValue)
-                    .HasColumnName("TESTDET_CNormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetCompulsory).HasColumnName("TESTDET_Compulsory");
-
-                entity.Property(e => e.TestdetDescription)
-                    .HasColumnName("TESTDET_Description")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetDmaxValue).HasColumnName("TESTDET_DMaxValue");
-
-                entity.Property(e => e.TestdetDminValue).HasColumnName("TESTDET_DMinValue");
-
-                entity.Property(e => e.TestdetDnormalValue)
-                    .HasColumnName("TESTDET_DNormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
-
-                entity.Property(e => e.TestdetFieldStyle).HasColumnName("TESTDET_FieldStyle");
-
-                entity.Property(e => e.TestdetFieldType).HasColumnName("TESTDET_FieldType");
-
-                entity.Property(e => e.TestdetGroupName)
-                    .HasColumnName("TESTDET_GroupName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetGroupNo).HasColumnName("TESTDET_GroupNo");
-
-                entity.Property(e => e.TestdetMaxLimit).HasColumnName("TESTDET_MaxLimit");
-
-                entity.Property(e => e.TestdetMaxValue).HasColumnName("TESTDET_MaxValue");
-
-                entity.Property(e => e.TestdetMinLimit).HasColumnName("TESTDET_MinLimit");
-
-                entity.Property(e => e.TestdetMinValue).HasColumnName("TESTDET_MinValue");
-
-                entity.Property(e => e.TestdetNormalValue)
-                    .HasColumnName("TESTDET_NormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSDefault)
-                    .HasColumnName("TESTDET_sDefault")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.TestdetSFormula)
-                    .HasColumnName("TESTDET_sFormula")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestdetTestTypeId).HasColumnName("TESTDET_TestTypeId");
-
-                entity.Property(e => e.TestdetValidate).HasColumnName("TESTDET_Validate");
-
-                entity.Property(e => e.ValueForNormal)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Testmaster>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("TESTMASTER");
-
-                entity.Property(e => e.Active).HasMaxLength(1);
-
-                entity.Property(e => e.Comments).HasColumnType("ntext");
-
-                entity.Property(e => e.PredefvalFieldid).HasColumnName("PREDEFVAL_Fieldid");
-
-                entity.Property(e => e.PredefvalId).HasColumnName("PREDEFVAL_Id");
-
-                entity.Property(e => e.PredefvalValNo).HasColumnName("PREDEFVAL_ValNo");
-
-                entity.Property(e => e.PredefvalValue)
-                    .HasColumnName("PREDEFVAL_Value")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.SpecialTest).HasMaxLength(1);
-
-                entity.Property(e => e.TestdetAmaxValue).HasColumnName("TESTDET_AMaxValue");
-
-                entity.Property(e => e.TestdetAminValue).HasColumnName("TESTDET_AMinValue");
-
-                entity.Property(e => e.TestdetAnormalValue)
-                    .HasColumnName("TESTDET_ANormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetBmaxValue).HasColumnName("TESTDET_BMaxValue");
-
-                entity.Property(e => e.TestdetBminValue).HasColumnName("TESTDET_BMinValue");
-
-                entity.Property(e => e.TestdetBnormalValue)
-                    .HasColumnName("TESTDET_BNormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetCmaxValue).HasColumnName("TESTDET_CMaxValue");
-
-                entity.Property(e => e.TestdetCminValue).HasColumnName("TESTDET_CMinValue");
-
-                entity.Property(e => e.TestdetCnormalValue)
-                    .HasColumnName("TESTDET_CNormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetCompulsory).HasColumnName("TESTDET_Compulsory");
-
-                entity.Property(e => e.TestdetCurrentId).HasColumnName("TESTDET_CurrentId");
-
-                entity.Property(e => e.TestdetDescription)
-                    .HasColumnName("TESTDET_Description")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetDmaxValue).HasColumnName("TESTDET_DMaxValue");
-
-                entity.Property(e => e.TestdetDminValue).HasColumnName("TESTDET_DMinValue");
-
-                entity.Property(e => e.TestdetDnormalValue)
-                    .HasColumnName("TESTDET_DNormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldName)
-                    .HasColumnName("TESTDET_FieldName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetFieldNo).HasColumnName("TESTDET_FieldNo");
-
-                entity.Property(e => e.TestdetFieldStyle).HasColumnName("TESTDET_FieldStyle");
-
-                entity.Property(e => e.TestdetFieldType).HasColumnName("TESTDET_FieldType");
-
-                entity.Property(e => e.TestdetGroupName)
-                    .HasColumnName("TESTDET_GroupName")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetGroupNo).HasColumnName("TESTDET_GroupNo");
-
-                entity.Property(e => e.TestdetMaxLimit).HasColumnName("TESTDET_MaxLimit");
-
-                entity.Property(e => e.TestdetMaxValue).HasColumnName("TESTDET_MaxValue");
-
-                entity.Property(e => e.TestdetMinLimit).HasColumnName("TESTDET_MinLimit");
-
-                entity.Property(e => e.TestdetMinValue).HasColumnName("TESTDET_MinValue");
-
-                entity.Property(e => e.TestdetNormalValue)
-                    .HasColumnName("TESTDET_NormalValue")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestdetSAlias)
-                    .HasColumnName("TESTDET_sAlias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSDefault)
-                    .HasColumnName("TESTDET_sDefault")
-                    .HasColumnType("ntext");
-
-                entity.Property(e => e.TestdetSFormula)
-                    .HasColumnName("TESTDET_sFormula")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetSUnit)
-                    .HasColumnName("TESTDET_sUnit")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestdetTestMasterId).HasColumnName("TESTDET_TestMasterID");
-
-                entity.Property(e => e.TestdetValidate).HasColumnName("TESTDET_Validate");
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3);
-
-                entity.Property(e => e.TestmstCompanyid).HasColumnName("TESTMST_Companyid");
-
-                entity.Property(e => e.TestmstCurrentId).HasColumnName("TESTMST_CurrentId");
-
-                entity.Property(e => e.TestmstLumsum).HasColumnName("TESTMST_Lumsum");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPercentage).HasColumnName("TESTMST_Percentage");
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
-
-                entity.Property(e => e.TestmstReportHeading)
-                    .HasColumnName("TESTMST_ReportHeading")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstSample)
-                    .HasColumnName("TESTMST_sample")
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TestmstTestTypeId).HasColumnName("TESTMST_TestTypeId");
-
-                entity.Property(e => e.TestmstTestcost).HasColumnName("TESTMST_Testcost");
-
-                entity.Property(e => e.Type).HasMaxLength(1);
-            });
-
-            modelBuilder.Entity<Testmst>(entity =>
-            {
-                entity.HasKey(e => e.TestmstCurrentId);
-
-                entity.ToTable("TESTMST");
-
-                entity.HasIndex(e => e.TestmstCurrentId)
-                    .HasName("IX_TESTMST");
-
-                entity.Property(e => e.TestmstCurrentId)
-                    .HasColumnName("TESTMST_CurrentId")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Active).HasMaxLength(1);
-
-                entity.Property(e => e.Comments).HasColumnType("ntext");
-
-                entity.Property(e => e.IsKitImageCompulsary)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('N')");
-
-                entity.Property(e => e.IsNabl)
-                    .HasColumnName("IsNABL")
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.SpecialTest)
-                    .HasMaxLength(1)
-                    .HasDefaultValueSql("(N'N')");
-
-                entity.Property(e => e.Tat).HasColumnName("TAT");
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstCatType)
-                    .HasColumnName("TESTMST_CatType")
-                    .HasMaxLength(3)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.TestmstCompanyid).HasColumnName("TESTMST_Companyid");
-
-                entity.Property(e => e.TestmstLumsum).HasColumnName("TESTMST_Lumsum");
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstPercentage).HasColumnName("TESTMST_Percentage");
-
-                entity.Property(e => e.TestmstPrintFormat)
-                    .HasColumnName("TESTMST_PrintFormat")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstRate).HasColumnName("TESTMST_Rate");
-
-                entity.Property(e => e.TestmstReportHeading)
-                    .HasColumnName("TESTMST_ReportHeading")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TestmstSample)
-                    .HasColumnName("TESTMST_sample")
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TestmstTestTypeId)
-                    .HasColumnName("TESTMST_TestTypeId")
-                    .HasDefaultValueSql("(0)");
-
-                entity.Property(e => e.TestmstTestcost).HasColumnName("TESTMST_Testcost");
-
-                entity.Property(e => e.Type)
-                    .HasMaxLength(1)
-                    .HasDefaultValueSql("('P')");
-            });
-
-            modelBuilder.Entity<Testregister>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("TESTREGISTER");
-
-                entity.Property(e => e.TestdetFieldno).HasColumnName("TESTDET_Fieldno");
-
-                entity.Property(e => e.TestmstId).HasColumnName("TESTMST_ID");
-            });
-
-            modelBuilder.Entity<Testtype>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("TESTTYPE");
-
-                entity.Property(e => e.TestTypeDescription).HasMaxLength(150);
-
-                entity.Property(e => e.TestTypeName).HasMaxLength(50);
-
-                entity.Property(e => e.TestTypeRemark).HasMaxLength(150);
-
-                entity.Property(e => e.TestTypeRemark1).HasMaxLength(150);
             });
 
             modelBuilder.Entity<TreeView>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.title).HasMaxLength(50);
+            });
 
-                entity.Property(e => e.Parentid).HasColumnName("parentid");
+            modelBuilder.Entity<USERRIGHTS>(entity =>
+            {
+                entity.HasNoKey();
 
-                entity.Property(e => e.Title)
-                    .HasColumnName("title")
-                    .HasMaxLength(50);
+                entity.Property(e => e.MenuName).HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<USERS>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Company_Id).HasDefaultValueSql("(2)");
+
+                entity.Property(e => e.Password).HasMaxLength(50);
+
+                entity.Property(e => e.UserName).HasMaxLength(50);
+
+                entity.Property(e => e.Userid).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<UserMaster>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("ID");
-
                 entity.Property(e => e.Address).HasMaxLength(250);
 
                 entity.Property(e => e.Age).HasMaxLength(50);
 
                 entity.Property(e => e.Area).HasMaxLength(50);
 
-                entity.Property(e => e.CentrId).HasColumnName("CentrID");
-
                 entity.Property(e => e.City).HasMaxLength(50);
 
-                entity.Property(e => e.ContactNo)
-                    .HasColumnName("Contact_No")
-                    .HasMaxLength(50);
+                entity.Property(e => e.Contact_No).HasMaxLength(50);
 
-                entity.Property(e => e.Dob)
-                    .HasColumnName("DOB")
-                    .HasMaxLength(50);
+                entity.Property(e => e.DOB).HasMaxLength(50);
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
                 entity.Property(e => e.Gender).HasMaxLength(50);
 
                 entity.Property(e => e.LabCode).HasMaxLength(50);
-
-                entity.Property(e => e.LabId).HasColumnName("LabID");
 
                 entity.Property(e => e.LabName).HasMaxLength(350);
 
@@ -7268,192 +4241,140 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.State).HasMaxLength(50);
 
-                entity.Property(e => e.SysDate)
-                    .HasColumnName("Sys_Date")
-                    .HasColumnType("datetime");
+                entity.Property(e => e.Sys_Date).HasColumnType("datetime");
 
                 entity.Property(e => e.Type).HasMaxLength(5);
 
                 entity.Property(e => e.UserName).HasMaxLength(150);
             });
 
-            modelBuilder.Entity<Userrights>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("USERRIGHTS");
-
-                entity.Property(e => e.MenuName).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Users>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("USERS");
-
-                entity.Property(e => e.Admin).HasColumnName("admin");
-
-                entity.Property(e => e.CompanyId)
-                    .HasColumnName("Company_Id")
-                    .HasDefaultValueSql("(2)");
-
-                entity.Property(e => e.Password).HasMaxLength(50);
-
-                entity.Property(e => e.UserName).HasMaxLength(50);
-
-                entity.Property(e => e.Userid).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<V1>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("v1");
-
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CenterRegion)
-                    .HasColumnName("CENTER_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DochdrBCommission).HasColumnName("DOCHDR_bCommission");
-
-                entity.Property(e => e.DochdrLDoctorId).HasColumnName("DOCHDR_lDoctorId");
-
-                entity.Property(e => e.DochdrLPatientId).HasColumnName("DOCHDR_lPatientId");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrSample).HasColumnName("DOCHDR_Sample");
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorName)
-                    .HasColumnName("DOCTOR_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Labno).HasColumnName("labno");
-
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.PatientDiscount).HasColumnName("Patient_Discount");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.SpecialTest).HasMaxLength(1);
-
-                entity.Property(e => e.TestmstAlias)
-                    .HasColumnName("TESTMST_Alias")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.WardNo).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<VwPatientBillDetails>(entity =>
+            modelBuilder.Entity<VW_PATIENT_BILL_DETAILS>(entity =>
             {
                 entity.HasNoKey();
 
                 entity.ToView("VW_PATIENT_BILL_DETAILS");
 
-                entity.Property(e => e.BlnCommission)
-                    .HasColumnName("blnCommission")
-                    .HasMaxLength(1);
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
 
-                entity.Property(e => e.CenterName)
-                    .HasColumnName("CENTER_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.Doctor_Name1).HasMaxLength(255);
 
-                entity.Property(e => e.CollectedatHospitalPaid).HasColumnName("COLLECTEDAtHospitalPaid");
-
-                entity.Property(e => e.DochdrRate).HasColumnName("DOCHDR_Rate");
-
-                entity.Property(e => e.DochdrTestCatId).HasColumnName("DOCHDR_TestCatID");
-
-                entity.Property(e => e.DoctorName1)
-                    .HasColumnName("Doctor_Name1")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DoctorName2)
-                    .HasColumnName("Doctor_Name2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.Doctor_Name2).HasMaxLength(255);
 
                 entity.Property(e => e.IsProfile)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.Labno).HasColumnName("labno");
+                entity.Property(e => e.PATIENT_Address1).HasMaxLength(255);
 
-                entity.Property(e => e.Neftpaid).HasColumnName("NEFTPAID");
+                entity.Property(e => e.PATIENT_Address2).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAddress1)
-                    .HasColumnName("PATIENT_Address1")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Age).HasMaxLength(50);
 
-                entity.Property(e => e.PatientAddress2)
-                    .HasColumnName("PATIENT_Address2")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_City).HasMaxLength(255);
 
-                entity.Property(e => e.PatientAge)
-                    .HasColumnName("PATIENT_Age")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
 
-                entity.Property(e => e.PatientAmountPaid).HasColumnName("PATIENT_AmountPaid");
+                entity.Property(e => e.PATIENT_Gender).HasMaxLength(50);
 
-                entity.Property(e => e.PatientCity)
-                    .HasColumnName("PATIENT_City")
-                    .HasMaxLength(255);
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
 
-                entity.Property(e => e.PatientCountry).HasColumnName("PATIENT_Country");
+                entity.Property(e => e.PATIENT_Pincode).HasMaxLength(50);
 
-                entity.Property(e => e.PatientDate)
-                    .HasColumnName("PATIENT_Date")
-                    .HasColumnType("smalldatetime");
+                entity.Property(e => e.PATIENT_Region).HasMaxLength(255);
 
-                entity.Property(e => e.PatientDoctorid).HasColumnName("PATIENT_Doctorid");
+                entity.Property(e => e.PATIENT_State).HasMaxLength(255);
 
-                entity.Property(e => e.PatientGender)
-                    .HasColumnName("PATIENT_Gender")
-                    .HasMaxLength(50);
+                entity.Property(e => e.PATIENT_Telno).HasMaxLength(50);
 
-                entity.Property(e => e.PatientId).HasColumnName("PATIENT_id");
-
-                entity.Property(e => e.PatientName)
-                    .HasColumnName("PATIENT_Name")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientPincode)
-                    .HasColumnName("PATIENT_Pincode")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.PatientRegion)
-                    .HasColumnName("PATIENT_Region")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientSampleCollected).HasColumnName("PATIENT_SampleCollected");
-
-                entity.Property(e => e.PatientState)
-                    .HasColumnName("PATIENT_State")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PatientTelno)
-                    .HasColumnName("PATIENT_Telno")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TestmstName)
-                    .HasColumnName("TESTMST_Name")
-                    .HasMaxLength(255);
+                entity.Property(e => e.TESTMST_Name).HasMaxLength(255);
 
                 entity.Property(e => e.Type).HasMaxLength(1);
 
-                entity.Property(e => e.Upipaid).HasColumnName("UPIPaid");
+                entity.Property(e => e.blnCommission).HasMaxLength(1);
+            });
+
+            modelBuilder.Entity<architect>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.TEST_NAME)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Type)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<qer_paidrefund>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("qer_paidrefund");
+            });
+
+            modelBuilder.Entity<smsData>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.message)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.mobileno)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.smsdate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.smsid).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.sndstatus)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<tblAppointmentTrack>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.AppointmentId)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.contactNo)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.sysdate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<v1>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("v1");
+
+                entity.Property(e => e.CENTER_Name).HasMaxLength(255);
+
+                entity.Property(e => e.CENTER_Region).HasMaxLength(255);
+
+                entity.Property(e => e.DOCTOR_Name).HasMaxLength(255);
+
+                entity.Property(e => e.PATIENT_Date).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.PATIENT_Name).HasMaxLength(255);
+
+                entity.Property(e => e.SpecialTest).HasMaxLength(1);
+
+                entity.Property(e => e.TESTMST_Alias).HasMaxLength(50);
+
+                entity.Property(e => e.WardNo).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

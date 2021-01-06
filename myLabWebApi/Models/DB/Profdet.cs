@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Profdet
+    public partial class PROFDET
     {
         public int? ProfileId { get; set; }
-        public int? TestId { get; set; }
+        public int? testId { get; set; }
     }
 }

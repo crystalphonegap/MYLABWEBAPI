@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Bookhomevisit
+    public partial class BOOKHOMEVISIT
     {
-        public int Id { get; set; }
-        public string PatientId { get; set; }
-        public string PatientName { get; set; }
-        public DateTime? Date { get; set; }
-        public string Time { get; set; }
-        public string Contact { get; set; }
-        public string Area { get; set; }
-        public string Address { get; set; }
-        public string PreferedLab { get; set; }
-        public string Remark { get; set; }
-        public string Filename { get; set; }
-        public string Filepath { get; set; }
-        public bool? BookedFlag { get; set; }
-        public DateTime? CurrentDate { get; set; }
+        public int ID { get; set; }
+        public string PATIENT_ID { get; set; }
+        public string Patient_name { get; set; }
+        public DateTime? DATE { get; set; }
+        public string TIME { get; set; }
+        public string CONTACT { get; set; }
+        public string AREA { get; set; }
+        public string ADDRESS { get; set; }
+        public string PREFERED_LAB { get; set; }
+        public string REMARK { get; set; }
+        public string FILENAME { get; set; }
+        public string FILEPATH { get; set; }
+        public bool? BOOKED_FLAG { get; set; }
+        public DateTime? Current_date { get; set; }
         public string Cancel { get; set; }
         public string Status { get; set; }
         public string BookedBy { get; set; }
@@ -30,7 +30,7 @@ namespace myLabWebApi.Models.DB
         public bool? RowSent { get; set; }
         public string Gender { get; set; }
         public string Age { get; set; }
-        public DateTime? SysDate { get; set; }
+        public DateTime? Sys_Date { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
     }

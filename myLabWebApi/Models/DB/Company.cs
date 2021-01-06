@@ -1,51 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Company
+    public partial class COMPANY
     {
-        public int? CompanySetupid { get; set; }
-        public string CompanyName { get; set; }
-        public string CompanyAddress1 { get; set; }
-        public string CompanyAddress2 { get; set; }
-        public string CompanyCity { get; set; }
-        public string CompanyState { get; set; }
-        public string CompanyPostalCode { get; set; }
-        public string CompanyCountry { get; set; }
-        public string CompanyPhoneNumber { get; set; }
-        public string CompanyFaxnumber { get; set; }
-        public string CompanyEmail { get; set; }
-        public string CompanyUrl { get; set; }
-        public string CompanyDataLoc { get; set; }
-        public string CompanyUsername { get; set; }
-        public string CompanyPassword { get; set; }
-        public string CompanyReportLoc { get; set; }
-        public string CompanyPathologist1 { get; set; }
-        public string CompanyPathologist2 { get; set; }
-        public string CompanyPathologist3 { get; set; }
-        public string CompanyPathoDegree1 { get; set; }
-        public string CompanyPathoDegree2 { get; set; }
-        public string CompanyPathoDegree3 { get; set; }
-        public string CompanyRadiologist1 { get; set; }
-        public string CompanyRadiologist2 { get; set; }
-        public string CompanyRadiologist3 { get; set; }
-        public string CompanyRadDegree1 { get; set; }
-        public string CompanyRadDegree2 { get; set; }
-        public string CompanyRadDegree3 { get; set; }
-        public string CompanyCardiologist1 { get; set; }
-        public string CompanyCardiologist2 { get; set; }
-        public string CompanyCardiologist3 { get; set; }
-        public string CompanyCardDegree1 { get; set; }
-        public string CompanyCardDegree2 { get; set; }
-        public string CompanyCardDegree3 { get; set; }
-        public string CompanySonoLogist { get; set; }
-        public string CompanySonoDegree { get; set; }
-        public string CompanyAbnormal { get; set; }
-        public double? CompanyTopMargin { get; set; }
-        public double? CompanyBotMargin { get; set; }
+        public int? COMPANY_Setupid { get; set; }
+        public string COMPANY_Name { get; set; }
+        public string COMPANY_Address1 { get; set; }
+        public string COMPANY_Address2 { get; set; }
+        public string COMPANY_City { get; set; }
+        public string COMPANY_State { get; set; }
+        public string COMPANY_PostalCode { get; set; }
+        public string COMPANY_Country { get; set; }
+        public string COMPANY_PhoneNumber { get; set; }
+        public string COMPANY_Faxnumber { get; set; }
+        public string COMPANY_Email { get; set; }
+        public string COMPANY_Url { get; set; }
+        public string COMPANY_DataLoc { get; set; }
+        public string COMPANY_Username { get; set; }
+        public string COMPANY_Password { get; set; }
+        public string COMPANY_ReportLoc { get; set; }
+        public string COMPANY_Pathologist1 { get; set; }
+        public string COMPANY_Pathologist2 { get; set; }
+        public string COMPANY_Pathologist3 { get; set; }
+        public string COMPANY_PathoDegree1 { get; set; }
+        public string COMPANY_PathoDegree2 { get; set; }
+        public string COMPANY_PathoDegree3 { get; set; }
+        public string COMPANY_Radiologist1 { get; set; }
+        public string COMPANY_Radiologist2 { get; set; }
+        public string COMPANY_Radiologist3 { get; set; }
+        public string COMPANY_RadDegree1 { get; set; }
+        public string COMPANY_RadDegree2 { get; set; }
+        public string COMPANY_RadDegree3 { get; set; }
+        public string COMPANY_Cardiologist1 { get; set; }
+        public string COMPANY_Cardiologist2 { get; set; }
+        public string COMPANY_Cardiologist3 { get; set; }
+        public string COMPANY_CardDegree1 { get; set; }
+        public string COMPANY_CardDegree2 { get; set; }
+        public string COMPANY_CardDegree3 { get; set; }
+        public string COMPANY_SonoLogist { get; set; }
+        public string COMPANY_SonoDegree { get; set; }
+        public string COMPANY_Abnormal { get; set; }
+        public double? COMPANY_TopMargin { get; set; }
+        public double? COMPANY_BotMargin { get; set; }
         public string Remarks { get; set; }
-        public short? CompanyPaperSize { get; set; }
-        public string CompanySeries { get; set; }
+        public short? COMPANY_PaperSize { get; set; }
+        public string COMPANY_Series { get; set; }
     }
 }

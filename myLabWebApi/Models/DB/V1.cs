@@ -1,30 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class V1
+    public partial class v1
     {
-        public int? DochdrLPatientId { get; set; }
-        public string PatientName { get; set; }
-        public DateTime? PatientDate { get; set; }
-        public int? DochdrLDoctorId { get; set; }
-        public string DoctorName { get; set; }
-        public int? DochdrTestCatId { get; set; }
-        public string TestmstAlias { get; set; }
-        public int? Labno { get; set; }
+        public int? DOCHDR_lPatientId { get; set; }
+        public string PATIENT_Name { get; set; }
+        public DateTime? PATIENT_Date { get; set; }
+        public int? DOCHDR_lDoctorId { get; set; }
+        public string DOCTOR_Name { get; set; }
+        public int? DOCHDR_TestCatID { get; set; }
+        public string TESTMST_Alias { get; set; }
+        public int? labno { get; set; }
         public string WardNo { get; set; }
         public int? TotalAmountPaid { get; set; }
-        public int? DochdrSample { get; set; }
-        public string CenterName { get; set; }
+        public int? DOCHDR_Sample { get; set; }
+        public string CENTER_Name { get; set; }
         public double? LumSumAmt { get; set; }
         public string SpecialTest { get; set; }
         public double? Percentage { get; set; }
         public double? Discount { get; set; }
-        public double? DochdrRate { get; set; }
-        public string CenterRegion { get; set; }
-        public double? PatientDiscount { get; set; }
+        public double? DOCHDR_Rate { get; set; }
+        public string CENTER_Region { get; set; }
+        public double? Patient_Discount { get; set; }
         public double? Comm { get; set; }
-        public bool DochdrBCommission { get; set; }
+        public bool DOCHDR_bCommission { get; set; }
     }
 }

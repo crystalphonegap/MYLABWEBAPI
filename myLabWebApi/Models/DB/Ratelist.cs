@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Ratelist
+    public partial class RATELIST
     {
         public int Centerid { get; set; }
         public int TestId { get; set; }

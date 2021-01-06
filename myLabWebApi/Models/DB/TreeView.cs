@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
     public partial class TreeView
     {
-        public int? Id { get; set; }
-        public string Title { get; set; }
-        public int? Parentid { get; set; }
+        public int? id { get; set; }
+        public string title { get; set; }
+        public int? parentid { get; set; }
     }
 }

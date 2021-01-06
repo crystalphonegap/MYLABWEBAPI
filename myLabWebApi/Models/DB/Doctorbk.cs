@@ -1,50 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Doctorbk
+    public partial class DOCTORBK
     {
-        public int DoctorId { get; set; }
-        public string DoctorName { get; set; }
-        public string DoctorAddress1 { get; set; }
-        public string DoctorAddress2 { get; set; }
-        public string DoctorCity { get; set; }
-        public string DoctorState { get; set; }
-        public string DoctorRegion { get; set; }
-        public string DoctorCountry { get; set; }
-        public string DoctorPincode { get; set; }
-        public string DoctorTelno { get; set; }
-        public string DoctorMobileNo { get; set; }
-        public string DoctorEmail { get; set; }
-        public string DoctorQualification { get; set; }
-        public string OfficeAddress1 { get; set; }
-        public string OfficeAddress2 { get; set; }
-        public string OfficeCity { get; set; }
-        public string OfficeState { get; set; }
-        public string OfficeRegion { get; set; }
-        public string OfficeCountry { get; set; }
-        public string OfficePincode { get; set; }
-        public string OfficeTelno { get; set; }
-        public string OfficeUrl { get; set; }
-        public double? DoctorCommission { get; set; }
-        public int? DoctorCompanyid { get; set; }
-        public string DoctorPermanent { get; set; }
-        public double? DoctorXcommission { get; set; }
-        public int? DoctorScommission { get; set; }
-        public double? DoctorRcommission { get; set; }
-        public double? DoctorPfcommission { get; set; }
-        public double? DoctorSpcommission { get; set; }
-        public double? DoctorMcommission { get; set; }
-        public double? DoctorOcommission { get; set; }
-        public double? DoctorHcommission { get; set; }
-        public double? DoctorExcommission { get; set; }
-        public double? DoctorEx1commission { get; set; }
-        public int? SendSms { get; set; }
-        public string DoctorUserName { get; set; }
-        public string DoctorPassword { get; set; }
+        public int DOCTOR_id { get; set; }
+        public string DOCTOR_Name { get; set; }
+        public string DOCTOR_Address1 { get; set; }
+        public string DOCTOR_Address2 { get; set; }
+        public string DOCTOR_City { get; set; }
+        public string DOCTOR_State { get; set; }
+        public string DOCTOR_Region { get; set; }
+        public string DOCTOR_Country { get; set; }
+        public string DOCTOR_Pincode { get; set; }
+        public string DOCTOR_Telno { get; set; }
+        public string DOCTOR_MobileNo { get; set; }
+        public string DOCTOR_Email { get; set; }
+        public string DOCTOR_Qualification { get; set; }
+        public string OFFICE_Address1 { get; set; }
+        public string OFFICE_Address2 { get; set; }
+        public string OFFICE_City { get; set; }
+        public string OFFICE_State { get; set; }
+        public string OFFICE_Region { get; set; }
+        public string OFFICE_Country { get; set; }
+        public string OFFICE_Pincode { get; set; }
+        public string OFFICE_Telno { get; set; }
+        public string OFFICE_url { get; set; }
+        public double? DOCTOR_Commission { get; set; }
+        public int? DOCTOR_Companyid { get; set; }
+        public string DOCTOR_Permanent { get; set; }
+        public double? DOCTOR_XCommission { get; set; }
+        public int? DOCTOR_SCommission { get; set; }
+        public double? DOCTOR_RCommission { get; set; }
+        public double? DOCTOR_PFCommission { get; set; }
+        public double? DOCTOR_SPCommission { get; set; }
+        public double? DOCTOR_MCommission { get; set; }
+        public double? DOCTOR_OCommission { get; set; }
+        public double? DOCTOR_HCommission { get; set; }
+        public double? DOCTOR_EXCommission { get; set; }
+        public double? DOCTOR_EX1Commission { get; set; }
+        public int? SendSMS { get; set; }
+        public string DOCTOR_UserName { get; set; }
+        public string DOCTOR_Password { get; set; }
         public string Password { get; set; }
-        public DateTime? Dob { get; set; }
-        public string DoctorCode { get; set; }
+        public DateTime? DOB { get; set; }
+        public string doctor_Code { get; set; }
     }
 }

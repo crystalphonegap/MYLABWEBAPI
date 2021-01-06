@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Testregister
+    public partial class TESTREGISTER
     {
-        public int? TestmstId { get; set; }
-        public int? TestdetFieldno { get; set; }
+        public int? TESTMST_ID { get; set; }
+        public int? TESTDET_Fieldno { get; set; }
     }
 }

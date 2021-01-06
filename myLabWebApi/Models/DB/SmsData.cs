@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class SmsData
+    public partial class smsData
     {
-        public long Smsid { get; set; }
-        public DateTime? Smsdate { get; set; }
-        public string Mobileno { get; set; }
-        public string Message { get; set; }
-        public string Sndstatus { get; set; }
-        public long? Regno { get; set; }
+        public long smsid { get; set; }
+        public DateTime? smsdate { get; set; }
+        public string mobileno { get; set; }
+        public string message { get; set; }
+        public string sndstatus { get; set; }
+        public long? regno { get; set; }
     }
 }

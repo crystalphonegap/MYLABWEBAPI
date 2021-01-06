@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Groupdet
+    public partial class GROUPDET
     {
-        public int? Grpid { get; set; }
-        public int? Testid { get; set; }
-        public int AutoId { get; set; }
+        public int? GRPID { get; set; }
+        public int? TESTID { get; set; }
+        public int Auto_Id { get; set; }
     }
 }

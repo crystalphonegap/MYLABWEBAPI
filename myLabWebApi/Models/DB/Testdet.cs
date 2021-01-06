@@ -1,44 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Testdet
+    public partial class TESTDET
     {
-        public int TestdetCurrentId { get; set; }
-        public int? TestdetTestMasterId { get; set; }
-        public int? TestdetFieldNo { get; set; }
-        public string TestdetFieldName { get; set; }
-        public short? TestdetFieldType { get; set; }
-        public string TestdetNormalValue { get; set; }
-        public string TestdetDescription { get; set; }
-        public string TestdetGroupName { get; set; }
-        public int? TestdetGroupNo { get; set; }
-        public short? TestdetFieldStyle { get; set; }
-        public bool? TestdetCompulsory { get; set; }
-        public double? TestdetMaxValue { get; set; }
-        public double? TestdetMinValue { get; set; }
-        public string TestdetSDefault { get; set; }
-        public string TestdetSAlias { get; set; }
-        public string TestdetSUnit { get; set; }
-        public string TestdetSFormula { get; set; }
-        public double? TestdetMaxLimit { get; set; }
-        public double? TestdetMinLimit { get; set; }
-        public bool? TestdetValidate { get; set; }
-        public string TestdetAnormalValue { get; set; }
-        public string TestdetBnormalValue { get; set; }
-        public string TestdetCnormalValue { get; set; }
-        public string TestdetDnormalValue { get; set; }
-        public double? TestdetAmaxValue { get; set; }
-        public double? TestdetAminValue { get; set; }
-        public double? TestdetBmaxValue { get; set; }
-        public double? TestdetBminValue { get; set; }
-        public double? TestdetCmaxValue { get; set; }
-        public double? TestdetCminValue { get; set; }
-        public double? TestdetDmaxValue { get; set; }
-        public double? TestdetDminValue { get; set; }
-        public int? TestdetTestTypeId { get; set; }
-        public int? TestdetCatTypeId { get; set; }
+        public int TESTDET_CurrentId { get; set; }
+        public int? TESTDET_TestMasterID { get; set; }
+        public int? TESTDET_FieldNo { get; set; }
+        public string TESTDET_FieldName { get; set; }
+        public short? TESTDET_FieldType { get; set; }
+        public string TESTDET_NormalValue { get; set; }
+        public string TESTDET_Description { get; set; }
+        public string TESTDET_GroupName { get; set; }
+        public int? TESTDET_GroupNo { get; set; }
+        public short? TESTDET_FieldStyle { get; set; }
+        public bool? TESTDET_Compulsory { get; set; }
+        public double? TESTDET_MaxValue { get; set; }
+        public double? TESTDET_MinValue { get; set; }
+        public string TESTDET_sDefault { get; set; }
+        public string TESTDET_sAlias { get; set; }
+        public string TESTDET_sUnit { get; set; }
+        public string TESTDET_sFormula { get; set; }
+        public double? TESTDET_MaxLimit { get; set; }
+        public double? TESTDET_MinLimit { get; set; }
+        public bool? TESTDET_Validate { get; set; }
+        public string TESTDET_ANormalValue { get; set; }
+        public string TESTDET_BNormalValue { get; set; }
+        public string TESTDET_CNormalValue { get; set; }
+        public string TESTDET_DNormalValue { get; set; }
+        public double? TESTDET_AMaxValue { get; set; }
+        public double? TESTDET_AMinValue { get; set; }
+        public double? TESTDET_BMaxValue { get; set; }
+        public double? TESTDET_BMinValue { get; set; }
+        public double? TESTDET_CMaxValue { get; set; }
+        public double? TESTDET_CMinValue { get; set; }
+        public double? TESTDET_DMaxValue { get; set; }
+        public double? TESTDET_DMinValue { get; set; }
+        public int? TESTDET_TestTypeId { get; set; }
+        public int? TESTDET_CatTypeId { get; set; }
         public string ValueForNormal { get; set; }
     }
 }

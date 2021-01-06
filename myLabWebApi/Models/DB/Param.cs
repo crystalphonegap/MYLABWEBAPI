@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
     public partial class Param
     {
@@ -36,10 +36,10 @@ namespace myLabWebApi.Models.DB
         public string ParamFooter { get; set; }
         public float? SampleType { get; set; }
         public string Suffix { get; set; }
-        public short? PPrecision { get; set; }
-        public string Sendsms { get; set; }
+        public short? pPrecision { get; set; }
+        public string SENDSMS { get; set; }
         public string Formula { get; set; }
-        public string Dc { get; set; }
+        public string DC { get; set; }
         public string ParamType { get; set; }
     }
 }

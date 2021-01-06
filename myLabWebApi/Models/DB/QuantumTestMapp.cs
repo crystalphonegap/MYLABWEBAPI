@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
     public partial class QuantumTestMapp
     {
-        public int Testid { get; set; }
+        public int testid { get; set; }
     }
 }

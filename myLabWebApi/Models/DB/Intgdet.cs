@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Intgdet
+    public partial class INTGDET
     {
         public long Id { get; set; }
         public long? Patientid { get; set; }
@@ -11,7 +11,7 @@ namespace myLabWebApi.Models.DB
         public int FieldNo { get; set; }
         public string FieldValue { get; set; }
         public int TestCatId { get; set; }
-        public DateTime? SysDateTime { get; set; }
+        public DateTime? sysDateTime { get; set; }
         public long? DocNo { get; set; }
     }
 }

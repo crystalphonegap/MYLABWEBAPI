@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Cbcworksheet28012013
+    public partial class CBCWorksheet28012013
     {
-        public int? TestCatId { get; set; }
-        public string FieldName { get; set; }
-        public string TestName { get; set; }
-        public int? FieldNo { get; set; }
+        public int? TestCat_ID { get; set; }
+        public string Field_name { get; set; }
+        public string Test_name { get; set; }
+        public int? Field_No { get; set; }
     }
 }

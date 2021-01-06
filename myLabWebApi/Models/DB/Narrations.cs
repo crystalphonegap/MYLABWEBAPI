@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Narrations
+    public partial class NARRATIONS
     {
         public int? NarrationId { get; set; }
         public string NarrationText { get; set; }

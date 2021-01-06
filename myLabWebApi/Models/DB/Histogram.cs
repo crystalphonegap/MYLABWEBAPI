@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Histogram
+    public partial class HISTOGRAM
     {
-        public int? DochdrLDocumentId { get; set; }
-        public int? DochdrLPatientId { get; set; }
-        public byte[] WbcHisto { get; set; }
-        public byte[] RbcHisto { get; set; }
-        public byte[] PltHisto { get; set; }
-        public int? LabNo { get; set; }
-        public DateTime? LabDate { get; set; }
-        public string Status { get; set; }
-        public decimal Srno { get; set; }
+        public int? DOCHDR_lDocumentID { get; set; }
+        public int? DOCHDR_lPatientId { get; set; }
+        public byte[] WBC_HISTO { get; set; }
+        public byte[] RBC_HISTO { get; set; }
+        public byte[] PLT_HISTO { get; set; }
+        public int? LAB_NO { get; set; }
+        public DateTime? LAB_DATE { get; set; }
+        public string STATUS { get; set; }
+        public decimal SRNO { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using myLabWebApi.Models;
 using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using myLabWebApi.Models.New;
 
 namespace myLabWebApi.Controllers
 {
@@ -57,11 +58,11 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("InsertDoctor")]
-        public IActionResult InsertDoctor(DoctorModel doctormodels)
+        public IActionResult InsertDoctor(DOCTOR DOCTORs)
         {
             try
             {
-                return Ok(_IEmployeeService.InsertUpdateDoctor(doctormodels));
+                return Ok(_IEmployeeService.InsertUpdateDoctor(DOCTORs));
             }
             catch (Exception ex)
             {
@@ -71,11 +72,11 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPut("UpdateDoctor")]
-        public IActionResult UpdateDoctor(DoctorModel doctormodels)
+        public IActionResult UpdateDoctor(DOCTOR DOCTORs)
         {
             try
             {
-                return Ok(_IEmployeeService.InsertUpdateDoctor(doctormodels));
+                return Ok(_IEmployeeService.InsertUpdateDoctor(DOCTORs));
             }
             catch (Exception ex)
             {

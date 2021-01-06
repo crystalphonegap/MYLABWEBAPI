@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class TblAppointmentTrack
+    public partial class tblAppointmentTrack
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string AppointmentId { get; set; }
-        public string ContactNo { get; set; }
-        public DateTime? Sysdate { get; set; }
+        public string contactNo { get; set; }
+        public DateTime? sysdate { get; set; }
     }
 }

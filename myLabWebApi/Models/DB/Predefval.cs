@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Predefval
+    public partial class PREDEFVAL
     {
-        public int? PredefvalId { get; set; }
-        public int? PredefvalFieldid { get; set; }
-        public int? PredefvalValNo { get; set; }
-        public string PredefvalValue { get; set; }
+        public int? PREDEFVAL_Id { get; set; }
+        public int? PREDEFVAL_Fieldid { get; set; }
+        public int? PREDEFVAL_ValNo { get; set; }
+        public string PREDEFVAL_Value { get; set; }
     }
 }

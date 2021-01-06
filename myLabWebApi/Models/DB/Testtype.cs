@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Testtype
+    public partial class TESTTYPE
     {
         public int TestTypeId { get; set; }
         public string TestTypeName { get; set; }

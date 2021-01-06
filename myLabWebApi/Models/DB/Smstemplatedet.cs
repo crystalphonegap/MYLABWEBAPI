@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Smstemplatedet
+    public partial class SMSTEMPLATEDET
     {
         public int TemplateDetailId { get; set; }
         public int TemplateId { get; set; }

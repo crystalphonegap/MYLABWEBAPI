@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
     public partial class CollectionCenterAmountReceived
     {
         public long PayRecId { get; set; }
-        public int CenterId { get; set; }
+        public int Center_Id { get; set; }
         public DateTime PayRecDate { get; set; }
         public long BillId { get; set; }
         public string PayRecMode { get; set; }
@@ -16,7 +16,7 @@ namespace myLabWebApi.Models.DB
         public DateTime? ChequeDate { get; set; }
         public decimal RecAmount { get; set; }
         public decimal Deduction { get; set; }
-        public decimal Tds { get; set; }
+        public decimal TDS { get; set; }
         public int? FromId { get; set; }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
     public partial class PatientProfilePic
     {
-        public string ContactNumber { get; set; }
-        public string ProfilePic { get; set; }
+        public string Contact_Number { get; set; }
+        public string Profile_Pic { get; set; }
     }
 }

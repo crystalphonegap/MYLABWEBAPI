@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace myLabWebApi.Models.DB
+namespace myLabWebApi.Models.New
 {
-    public partial class Userrights
+    public partial class USERRIGHTS
     {
         public int? Userid { get; set; }
         public string MenuName { get; set; }
