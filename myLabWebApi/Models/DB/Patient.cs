@@ -46,16 +46,16 @@ namespace myLabWebApi.Models.DB
         public string PatientKey { get; set; }
         public string PatientEmail { get; set; }
         public string AppointmentId { get; set; }
-        public object MobileNo { get; set; }
-        public object TEST { get; set; }
-        public object DOB { get; set; }
-        public object PATIENTNORMAL { get; set; }
-        public object PATIENTSeniorCitizen { get; set; }
-        public object PATIENTDiabetic { get; set; }
-        public object Result { get; set; }
-        public object IsBILL { get; set; }
-        public object PATIENTPERMANENTID { get; set; }
-        public object LabSeriesSetting { get; set; }
-        public object UserCodetxt { get; set; }
+        public object UserCodetxt { get; internal set; }
+        public object LabSeriesSetting { get; internal set; }
+        public object MobileNo { get; internal set; }
+        public object PATIENTPERMANENTID { get; internal set; }
+        public object TEST { get; internal set; }
+        public object DOB { get; internal set; }
+        public object PATIENTNORMAL { get; internal set; }
+        public object PATIENTSeniorCitizen { get; internal set; }
+        public object IsBILL { get; internal set; }
+        public object Result { get; internal set; }
+        public object PATIENTDiabetic { get; internal set; }
     }
 }

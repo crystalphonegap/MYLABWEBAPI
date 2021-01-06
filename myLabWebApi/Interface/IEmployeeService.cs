@@ -18,7 +18,7 @@ namespace myLabWebApi.Interface
 
         long GetDoctorSearchCount(string KeyWord);
 
-        DoctorModel GetDoctorById(int Id);
+        DoctorModel GetDoctorUsingId(int Id);
 
         long DeleteDoctorById(int Id);
 

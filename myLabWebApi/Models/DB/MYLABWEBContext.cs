@@ -150,7 +150,7 @@ namespace myLabWebApi.Models.DB
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=103.131.93.13;User Id=MYLAB;Password=MYLAB@123;Database=MYLABWEB;");
+                optionsBuilder.UseSqlServer("Data Source=103.131.93.13;Initial Catalog=MYLABWEB;User Id=MYLAB;Password=MYLAB@123;");
             }
         }
 
@@ -1452,6 +1452,10 @@ namespace myLabWebApi.Models.DB
                     .HasColumnName("DOCTOR_id")
                     .ValueGeneratedNever();
 
+                entity.Property(e => e.CollectionCenter)
+                    .HasColumnName("Collection_Center")
+                    .HasMaxLength(255);
+
                 entity.Property(e => e.Dob)
                     .HasColumnName("DOB")
                     .HasColumnType("datetime");
@@ -1462,6 +1466,10 @@ namespace myLabWebApi.Models.DB
 
                 entity.Property(e => e.DoctorAddress2)
                     .HasColumnName("DOCTOR_Address2")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.DoctorBill)
+                    .HasColumnName("DOCTOR_Bill")
                     .HasMaxLength(255);
 
                 entity.Property(e => e.DoctorCity)
@@ -1476,10 +1484,6 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.DoctorCommission).HasColumnName("DOCTOR_Commission");
 
                 entity.Property(e => e.DoctorCompanyid).HasColumnName("DOCTOR_Companyid");
-
-                entity.Property(e => e.DoctorCountry)
-                    .HasColumnName("DOCTOR_Country")
-                    .HasMaxLength(255);
 
                 entity.Property(e => e.DoctorEmail)
                     .HasColumnName("DOCTOR_Email")
@@ -1518,10 +1522,7 @@ namespace myLabWebApi.Models.DB
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DoctorPermanent)
-                    .IsRequired()
-                    .HasColumnName("DOCTOR_Permanent")
-                    .HasMaxLength(1);
+                entity.Property(e => e.DoctorPermanent).HasColumnName("DOCTOR_Permanent");
 
                 entity.Property(e => e.DoctorPfcommission)
                     .HasColumnName("DOCTOR_PFCommission")
@@ -1538,10 +1539,6 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.DoctorRcommission)
                     .HasColumnName("DOCTOR_RCommission")
                     .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.DoctorRegion)
-                    .HasColumnName("DOCTOR_Region")
-                    .HasMaxLength(255);
 
                 entity.Property(e => e.DoctorScommission).HasColumnName("DOCTOR_SCommission");
 
@@ -1603,6 +1600,10 @@ namespace myLabWebApi.Models.DB
                 entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.SendSms).HasColumnName("SendSMS");
+
+                entity.Property(e => e.Tds)
+                    .HasColumnName("TDS")
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Doctorbk>(entity =>

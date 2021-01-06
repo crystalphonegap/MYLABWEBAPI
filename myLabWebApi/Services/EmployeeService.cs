@@ -109,7 +109,7 @@ namespace myLabWebApi.Services
             return data.ToList().Count;
         }
 
-        public DoctorModel GetDoctorById(int Id)
+        public DoctorModel GetDoctorUsingId(int Id)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("DoctorID", Id, DbType.Int32);
@@ -155,15 +155,7 @@ namespace myLabWebApi.Services
             dbPara.Add("OFFICE_url", docmodel.OFFICE_url, DbType.String);
             dbPara.Add("DOCTOR_Commission", docmodel.DOCTOR_Commission, DbType.Decimal);
             dbPara.Add("DOCTOR_Companyid", docmodel.DOCTOR_Companyid, DbType.Int16);
-            //dbPara.Add("DOCTOR_Permanent", docmodel.DOCTOR_Permanent, DbType.String);
-            if (docmodel.DOCTOR_Permanent == "true")
-            {
-                dbPara.Add("DOCTOR_Permanent", "Y", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("DOCTOR_Permanent", "N", DbType.String);
-            }
+            dbPara.Add("DOCTOR_Permanent", docmodel.DOCTOR_Permanent, DbType.String);
             dbPara.Add("DOCTOR_XCommission", docmodel.DOCTOR_XCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_SCommission", docmodel.DOCTOR_SCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_RCommission", docmodel.DOCTOR_RCommission, DbType.Decimal);

@@ -11,8 +11,8 @@ namespace myLabWebApi.Models.DB
         public string DoctorAddress2 { get; set; }
         public string DoctorCity { get; set; }
         public string DoctorState { get; set; }
-        public string DoctorRegion { get; set; }
-        public string DoctorCountry { get; set; }
+        public string Tds { get; set; }
+        public string DoctorBill { get; set; }
         public string DoctorPincode { get; set; }
         public string DoctorTelno { get; set; }
         public string DoctorMobileNo { get; set; }
@@ -29,7 +29,7 @@ namespace myLabWebApi.Models.DB
         public string OfficeUrl { get; set; }
         public double? DoctorCommission { get; set; }
         public int? DoctorCompanyid { get; set; }
-        public string DoctorPermanent { get; set; }
+        public bool? DoctorPermanent { get; set; }
         public double? DoctorXcommission { get; set; }
         public int? DoctorScommission { get; set; }
         public double? DoctorRcommission { get; set; }
@@ -40,11 +40,12 @@ namespace myLabWebApi.Models.DB
         public double? DoctorHcommission { get; set; }
         public double? DoctorExcommission { get; set; }
         public double? DoctorEx1commission { get; set; }
-        public int? SendSms { get; set; }
+        public bool? SendSms { get; set; }
         public string DoctorUserName { get; set; }
         public string DoctorPassword { get; set; }
         public string Password { get; set; }
         public DateTime? Dob { get; set; }
         public string DoctorCode { get; set; }
+        public string CollectionCenter { get; set; }
     }
 }

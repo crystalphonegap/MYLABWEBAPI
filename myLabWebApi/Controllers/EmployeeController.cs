@@ -90,7 +90,7 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IEmployeeService.GetDoctorById(ID));
+                return Ok(_IEmployeeService.GetDoctorUsingId(ID));
             }
             catch (Exception ex)
             {
