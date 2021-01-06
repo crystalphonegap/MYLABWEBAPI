@@ -5,7 +5,7 @@ namespace myLabWebApi.Models.New
 {
     public partial class EMPLOYEE
     {
-        public int? EMPLOYEE_id { get; set; }
+        public int EMPLOYEE_id { get; set; }
         public string EMPLOYEE_Name { get; set; }
         public string EMPLOYEE_Address1 { get; set; }
         public string EMPLOYEE_Address2 { get; set; }
@@ -21,10 +21,10 @@ namespace myLabWebApi.Models.New
         public DateTime? EMPLOYEE_DateofJoining { get; set; }
         public string EMPLOYEE_Qualification { get; set; }
         public double? EMPLOYEE_Salary { get; set; }
-        public short? EMPLOYEE_Gender { get; set; }
-        public short? EMPLOYEE_Status { get; set; }
+        public string EMPLOYEE_Gender { get; set; }
+        public bool? EMPLOYEE_Status { get; set; }
         public int? EMPLOYEE_Companyid { get; set; }
-        public string EMPLOYEE_SalaryType { get; set; }
+        public bool? EMPLOYEE_Salary_Mode { get; set; }
         public bool? CollectionBoy_Flag { get; set; }
         public int? LabID { get; set; }
         public string Password { get; set; }

@@ -208,11 +208,11 @@ E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabW
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.pdb
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.genruntimeconfig.cache
 E:\AHMED\MYLAB Project\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csprojAssemblyReference.cache
+E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csprojAssemblyReference.cache
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.AssemblyInfoInputs.cache
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.AssemblyInfo.cs
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csproj.CoreCompileInputs.cache
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.MvcApplicationPartsAssemblyInfo.cache
-E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\obj\Debug\netcoreapp3.1\myLabWebApi.csprojAssemblyReference.cache
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\nlog.config
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\AHMED\MYLAB Project\Old\my_Lab_Web_Api\myLabWebApi\bin\Debug\netcoreapp3.1\appsettings.json

@@ -8,8 +8,6 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
-using myLabWebApi.Models.DB;
-using myLabWebApi.Models.New;
 
 namespace myLabWebApi.Services
 {
