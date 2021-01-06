@@ -138,9 +138,9 @@ namespace myLabWebApi.Services
             dbPara.Add("DOCTOR_Address2", docmodel.DOCTOR_Address2, DbType.String);
             dbPara.Add("DOCTOR_City", docmodel.DOCTOR_City, DbType.String);
             dbPara.Add("DOCTOR_State", docmodel.DOCTOR_State, DbType.String);
-            dbPara.Add("DOCTOR_Region", docmodel.TDS, DbType.String);
-            dbPara.Add("DOCTOR_Country", docmodel.Collection_Center, DbType.String);
-            dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Bill, DbType.String);
+            dbPara.Add("TDS", docmodel.TDS, DbType.String);
+            dbPara.Add("Collection_Center", docmodel.Collection_Center, DbType.String);
+            dbPara.Add("DOCTOR_Bill", docmodel.DOCTOR_Bill, DbType.String);
             dbPara.Add("DOCTOR_Pincode", docmodel.DOCTOR_Pincode, DbType.String);
             dbPara.Add("DOCTOR_Telno", docmodel.DOCTOR_Telno, DbType.String);
             dbPara.Add("DOCTOR_MobileNo", docmodel.DOCTOR_MobileNo, DbType.String);
@@ -157,7 +157,7 @@ namespace myLabWebApi.Services
             dbPara.Add("OFFICE_url", docmodel.OFFICE_url, DbType.String);
             dbPara.Add("DOCTOR_Commission", docmodel.DOCTOR_Commission, DbType.Decimal);
             dbPara.Add("DOCTOR_Companyid", docmodel.DOCTOR_Companyid, DbType.Int16);
-            dbPara.Add("DOCTOR_Permanent", docmodel.DOCTOR_Permanent, DbType.String);
+            dbPara.Add("DOCTOR_Permanent", docmodel.DOCTOR_Permanent, DbType.Boolean);
             dbPara.Add("DOCTOR_XCommission", docmodel.DOCTOR_XCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_SCommission", docmodel.DOCTOR_SCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_RCommission", docmodel.DOCTOR_RCommission, DbType.Decimal);
@@ -168,7 +168,7 @@ namespace myLabWebApi.Services
             dbPara.Add("DOCTOR_HCommission", docmodel.DOCTOR_HCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_EXCommission", docmodel.DOCTOR_EXCommission, DbType.Decimal);
             dbPara.Add("DOCTOR_EX1Commission", docmodel.DOCTOR_EX1Commission, DbType.Decimal);
-            dbPara.Add("SendSMS", docmodel.SendSMS, DbType.Int16);
+            dbPara.Add("SendSMS", docmodel.SendSMS, DbType.Boolean);
             dbPara.Add("DOCTOR_UserName", docmodel.DOCTOR_UserName, DbType.String);
             dbPara.Add("DOCTOR_Password", docmodel.DOCTOR_Password, DbType.String);
             dbPara.Add("Password", docmodel.Password, DbType.String);
