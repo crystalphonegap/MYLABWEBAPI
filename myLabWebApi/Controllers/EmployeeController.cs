@@ -29,12 +29,12 @@ namespace myLabWebApi.Controllers
             _IEmployeeService = IEmployeeService;
         }
 
-        [HttpGet("GetAllEmployeeDetails")]
-        public IActionResult GetAllEmployeeDetails()
+        [HttpGet("GetAllEmployeeDetails/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord)
         {
             try
             {
-                return Ok(_IEmployeeService.GetAllEmployeeDetails());
+                return Ok(_IEmployeeService.GetAllEmployeeDetails(PageNo, PageSize, KeyWord));
             }
             catch (Exception ex)
             {

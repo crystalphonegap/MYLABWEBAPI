@@ -9,7 +9,7 @@ namespace myLabWebApi.Interface
 {
     public interface IEmployeeService
     {
-        List<EMPLOYEE> GetAllEmployeeDetails();
+        List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord);
 
         List<DOCTOR> GetAllDoctorDetails();
 

@@ -26,9 +26,19 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public List<EMPLOYEE> GetAllEmployeeDetails()
+        public List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord)
         {
             var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetails]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
