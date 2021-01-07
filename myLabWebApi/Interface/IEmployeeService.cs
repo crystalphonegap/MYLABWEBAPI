@@ -1,4 +1,5 @@
 ﻿using myLabWebApi.Models;
+using myLabWebApi.Models.New;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,32 +9,32 @@ namespace myLabWebApi.Interface
 {
     public interface IEmployeeService
     {
-        List<EmployeeModel> GetAllEmployeeDetails();
+        //List<EMPLOYEE> GetAllEmployeeDetails();
 
-        List<DoctorModel> GetAllDoctorDetails();
+        List<DOCTOR> GetAllDoctorDetails();
 
-        long InsertUpdateDoctor(DoctorModel orderHeaderdetails);
+        long InsertUpdateDoctor(DOCTOR orderHeaderdetails);
 
-        List<DoctorModel> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
+        List<DOCTOR> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetDoctorSearchCount(string KeyWord);
 
-        DoctorModel GetDoctorById(int Id);
+        DOCTOR GetDoctorUsingId(int Id);
 
         long DeleteDoctorById(int Id);
 
-        List<CollectionCenterModel> GetAllCollectionCenterDetails();
+        List<COLLECTIONCENTER> GetAllCollectionCenterDetails();
 
-        long insertUpdollectionCenter(CollectionCenterModel centermodel);
+        long insertUpdollectionCenter(COLLECTIONCENTER centermodel);
 
-        List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
+        List<COLLECTIONCENTER> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetCollectionCenterSearchCount(string KeyWord);
 
-        CollectionCenterModel GetCollectionCenterById(int Id);
+        COLLECTIONCENTER GetCollectionCenterById(int Id);
 
         long DeleteCollectionCenterById(int Id);
 
-        long InsertUpdateEmployee(EmployeeModel empmodel);
+        //long InsertUpdateEmployee(EMPLOYEE empmodel);
     }
 }

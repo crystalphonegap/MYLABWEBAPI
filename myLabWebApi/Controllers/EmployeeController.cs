@@ -12,6 +12,7 @@ using myLabWebApi.Models;
 using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using myLabWebApi.Models.New;
 
 namespace myLabWebApi.Controllers
 {
@@ -28,19 +29,19 @@ namespace myLabWebApi.Controllers
             _IEmployeeService = IEmployeeService;
         }
 
-        [HttpGet("GetAllEmployeeDetails")]
-        public IActionResult GetAllEmployeeDetails()
-        {
-            try
-            {
-                return Ok(_IEmployeeService.GetAllEmployeeDetails());
-            }
-            catch (Exception ex)
-            {
-                //_ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
+        //[HttpGet("GetAllEmployeeDetails")]
+        //public IActionResult GetAllEmployeeDetails()
+        //{
+        //    try
+        //    {
+        //        return Ok(_IEmployeeService.GetAllEmployeeDetails());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //_ILogger.Log(ex);
+        //        return BadRequest();
+        //    }
+        //}
 
         [HttpGet("GetAllDoctorDetails")]
         public IActionResult GetAllDoctorDetails()
@@ -57,11 +58,11 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("InsertDoctor")]
-        public IActionResult InsertDoctor(DoctorModel doctormodels)
+        public IActionResult InsertDoctor(DOCTOR DOCTORs)
         {
             try
             {
-                return Ok(_IEmployeeService.InsertUpdateDoctor(doctormodels));
+                return Ok(_IEmployeeService.InsertUpdateDoctor(DOCTORs));
             }
             catch (Exception ex)
             {
@@ -71,11 +72,11 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPut("UpdateDoctor")]
-        public IActionResult UpdateDoctor(DoctorModel doctormodels)
+        public IActionResult UpdateDoctor(DOCTOR DOCTORs)
         {
             try
             {
-                return Ok(_IEmployeeService.InsertUpdateDoctor(doctormodels));
+                return Ok(_IEmployeeService.InsertUpdateDoctor(DOCTORs));
             }
             catch (Exception ex)
             {
@@ -90,7 +91,7 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IEmployeeService.GetDoctorById(ID));
+                return Ok(_IEmployeeService.GetDoctorUsingId(ID));
             }
             catch (Exception ex)
             {
@@ -144,7 +145,7 @@ namespace myLabWebApi.Controllers
 
 
         [HttpPost("InsertCollectionCenter")]
-        public IActionResult InsertCollectionCenter(CollectionCenterModel centermodel)
+        public IActionResult InsertCollectionCenter(COLLECTIONCENTER centermodel)
         {
             try
             {
@@ -158,7 +159,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPut("UpdateCollectionCenter")]
-        public IActionResult UpdateCollectionCenter(CollectionCenterModel centermodel)
+        public IActionResult UpdateCollectionCenter(COLLECTIONCENTER centermodel)
         {
             try
             {

@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\New\**" />
     <Compile Remove="Uploads\**" />
+    <Content Remove="Models\New\**" />
     <Content Remove="Uploads\**" />
+    <EmbeddedResource Remove="Models\New\**" />
     <EmbeddedResource Remove="Uploads\**" />
+    <None Remove="Models\New\**" />
     <None Remove="Uploads\**" />
   </ItemGroup>
 

@@ -1,0 +1,1 @@
+Scaffold-DbContext -UseDatabaseNames "Data Source=103.131.93.13;Initial Catalog=MYLABWEB;User Id=MYLAB;Password=MYLAB@123;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\New  
