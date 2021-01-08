@@ -10,14 +10,13 @@ namespace myLabWebApi.Models.New
         public string CENTER_Address1 { get; set; }
         public string CENTER_Address2 { get; set; }
         public string CENTER_City { get; set; }
-        public string CENTER_State { get; set; }
-        public string CENTER_Region { get; set; }
-        public string CENTER_Country { get; set; }
-        public string CENTER_Pincode { get; set; }
-        public string CENTER_Telno { get; set; }
-        public short? CENTER_Status { get; set; }
+        public string CENTER_Mobileno { get; set; }
+        public double? CENTER_Percentage { get; set; }
+        public string CENTER_Email { get; set; }
+        public int? CENTER_RATELIST_ID { get; set; }
+        public bool? CENTER_CREDIT { get; set; }
+        public bool? CENTER_Discount { get; set; }
         public int? CENTER_Companyid { get; set; }
-        public double? Percentage { get; set; }
-        public string OutSourceLab { get; set; }
+        public string CENTER_OutSourceLab { get; set; }
     }
 }

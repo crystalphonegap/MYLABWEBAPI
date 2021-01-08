@@ -10,10 +10,12 @@ namespace myLabWebApi.Interface
     public interface IEmployeeService
     {
         List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord);
+        long InsertUpdateEmployee(EMPLOYEE _Employee);
 
         List<DOCTOR> GetAllDoctorDetails();
 
         long InsertUpdateDoctor(DOCTOR orderHeaderdetails);
+    
 
         List<DOCTOR> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
 
@@ -23,18 +25,18 @@ namespace myLabWebApi.Interface
 
         long DeleteDoctorById(int Id);
 
-        List<CollectionCenterModel> GetAllCollectionCenterDetails();
+        List<COLLECTIONCENTER> GetAllCollectionCenterDetails();
 
-        long insertUpdollectionCenter(CollectionCenterModel centermodel);
+        long insertUpdollectionCenter(COLLECTIONCENTER centermodel);
 
-        List<CollectionCenterModel> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
+        List<COLLECTIONCENTER> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetCollectionCenterSearchCount(string KeyWord);
 
-        CollectionCenterModel GetCollectionCenterById(int Id);
+        COLLECTIONCENTER GetCollectionCenterById(int Id);
 
         long DeleteCollectionCenterById(int Id);
 
-        long InsertUpdateEmployee(EMPLOYEE empmodel);
+        //long InsertUpdateEmployee(EMPLOYEE empmodel);
     }
 }

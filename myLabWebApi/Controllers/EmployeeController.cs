@@ -43,6 +43,20 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpPost("InsertEmployee")]
+        public IActionResult InsertEmployee(EMPLOYEE empModel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.InsertUpdateEmployee(empModel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
         [HttpGet("GetAllDoctorDetails")]
         public IActionResult GetAllDoctorDetails()
         {
@@ -145,7 +159,7 @@ namespace myLabWebApi.Controllers
 
 
         [HttpPost("InsertCollectionCenter")]
-        public IActionResult InsertCollectionCenter(CollectionCenterModel centermodel)
+        public IActionResult InsertCollectionCenter(COLLECTIONCENTER centermodel)
         {
             try
             {
@@ -159,7 +173,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPut("UpdateCollectionCenter")]
-        public IActionResult UpdateCollectionCenter(CollectionCenterModel centermodel)
+        public IActionResult UpdateCollectionCenter(COLLECTIONCENTER centermodel)
         {
             try
             {
