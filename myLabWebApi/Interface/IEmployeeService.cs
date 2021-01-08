@@ -36,5 +36,11 @@ namespace myLabWebApi.Interface
         long DeleteCollectionCenterById(int Id);
 
         //long InsertUpdateEmployee(EMPLOYEE empmodel);
+
+        List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord);
+        long GetRateListSearchCount(string KeyWord);
+        RATELISTHDR GetRateListById(int Id);
+        long DeleteRateListById(int Id);
+        long insertUpdateRateList(RATELISTHDR RATELISTHDRmodel);
     }
 }

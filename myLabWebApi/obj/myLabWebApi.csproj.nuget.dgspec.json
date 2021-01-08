@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\AHMED\\MYLAB Project\\Old\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
+    "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
   },
   "projects": {
-    "E:\\AHMED\\MYLAB Project\\Old\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
+    "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\AHMED\\MYLAB Project\\Old\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "projectUniqueName": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
         "projectName": "myLabWebApi",
-        "projectPath": "E:\\AHMED\\MYLAB Project\\Old\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-        "packagesPath": "C:\\Users\\ASPIRE\\.nuget\\packages\\",
-        "outputPath": "E:\\AHMED\\MYLAB Project\\Old\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+        "projectPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "packagesPath": "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\",
+        "outputPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASPIRE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CRYSTAL PC 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
