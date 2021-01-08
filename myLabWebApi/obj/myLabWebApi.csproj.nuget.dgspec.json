@@ -1,38 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\anil\\MYLAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
+    "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
   },
   "projects": {
-    "D:\\anil\\MYLAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
+    "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\anil\\MYLAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "projectUniqueName": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
         "projectName": "myLabWebApi",
-        "projectPath": "D:\\anil\\MYLAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-        "packagesPath": "C:\\Users\\CRYSTAL\\.nuget\\packages\\",
-        "outputPath": "D:\\anil\\MYLAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
-=======
-    "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
-  },
-  "projects": {
-    "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-        "projectName": "myLabWebApi",
-        "projectPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-        "packagesPath": "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\",
-        "outputPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
->>>>>>> ce3d0189293123004216b70be5eaf102fd05006a
+        "projectPath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "packagesPath": "C:\\Users\\CrystalPc3\\.nuget\\packages\\",
+        "outputPath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\CRYSTAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\CRYSTAL PC 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> ce3d0189293123004216b70be5eaf102fd05006a
+          "C:\\Users\\CrystalPc3\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -55,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "ClosedXML": {
               "target": "Package",
@@ -159,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

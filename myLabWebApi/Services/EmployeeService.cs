@@ -280,13 +280,8 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-<<<<<<< HEAD
-
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
-=======
             
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
->>>>>>> ce3d0189293123004216b70be5eaf102fd05006a
             return data;
         }
 
@@ -312,10 +307,6 @@ namespace myLabWebApi.Services
             #endregion
         }
 
-<<<<<<< HEAD
-=======
-        //--Rate List-----------------------
-        //*****************************************
 
 
         public List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord)
@@ -392,6 +383,5 @@ namespace myLabWebApi.Services
             #endregion
         }
 
->>>>>>> ce3d0189293123004216b70be5eaf102fd05006a
     }
 }
