@@ -231,12 +231,102 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpPost("DeleteCollectionCenterDetailsByID/{ID}")]
+        [HttpGet("DeleteCollectionCenterDetailsByID/{ID}")]
         public IActionResult DeleteCollectionCenterDetailsByID(int ID)
         {
             try
             {
                 return Ok(_IEmployeeService.DeleteCollectionCenterById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+
+
+        [HttpPost("InsertRateList")]
+        public IActionResult InsertRateList(RATELISTHDR centermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertUpdateRateList(centermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut("UpdateRateList")]
+        public IActionResult UpdateRateList(RATELISTHDR centermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertUpdateRateList(centermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+
+        [HttpGet("GetRateListSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetRateListSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListSearch(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetRateListSearchCount/{KeyWord}")]
+        public IActionResult GetRateListSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetRateListDetailsByID/{ID}")]
+        public IActionResult GetRateListDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpGet("DeleteRateListDetailsByID/{ID}")]
+        public IActionResult DeleteRateListDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteRateListById(ID));
             }
             catch (Exception ex)
             {

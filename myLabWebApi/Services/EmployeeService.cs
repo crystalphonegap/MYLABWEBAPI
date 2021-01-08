@@ -280,8 +280,13 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
+<<<<<<< HEAD
 
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+=======
+            
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+>>>>>>> ce3d0189293123004216b70be5eaf102fd05006a
             return data;
         }
 
@@ -307,5 +312,86 @@ namespace myLabWebApi.Services
             #endregion
         }
 
+<<<<<<< HEAD
+=======
+        //--Rate List-----------------------
+        //*****************************************
+
+
+        public List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<RATELISTHDR>("[dbo].[SP_Rate_List]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetRateListSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<RATELISTHDR>("[dbo].[SP_Rate_List]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+        }
+
+        public RATELISTHDR GetRateListById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+
+            var data = _MyLabHelper.GetAll<RATELISTHDR>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0];
+        }
+
+
+        public long DeleteRateListById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+        public long insertUpdateRateList(RATELISTHDR RATELISTHDR)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("RateListId", RATELISTHDR.RateListId, DbType.Int64);
+            dbPara.Add("RateListName", RATELISTHDR.RateListName, DbType.String);
+            dbPara.Add("SysUser", RATELISTHDR.SysUser, DbType.String);
+            dbPara.Add("Routine", RATELISTHDR.Routine, DbType.Double);
+            dbPara.Add("Special", RATELISTHDR.Special, DbType.Double);
+            dbPara.Add("Microbiology", RATELISTHDR.Microbiology, DbType.Double);
+            dbPara.Add("Outside", RATELISTHDR.Outside, DbType.Double);
+            dbPara.Add("Histo", RATELISTHDR.Histo, DbType.Double);
+            dbPara.Add("other", RATELISTHDR.other, DbType.Double);
+            dbPara.Add("other1", RATELISTHDR.other1, DbType.Double);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateRateList]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+>>>>>>> ce3d0189293123004216b70be5eaf102fd05006a
     }
 }
