@@ -29,19 +29,20 @@ namespace myLabWebApi.Controllers
             _IEmployeeService = IEmployeeService;
         }
 
-        //[HttpGet("GetAllEmployeeDetails")]
-        //public IActionResult GetAllEmployeeDetails()
-        //{
-        //    try
-        //    {
-        //        return Ok(_IEmployeeService.GetAllEmployeeDetails());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //_ILogger.Log(ex);
-        //        return BadRequest();
-        //    }
-        //}
+        [HttpGet("GetAllEmployeeDetails/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetAllEmployeeDetails(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                //_ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
 
         [HttpGet("GetAllDoctorDetails")]
         public IActionResult GetAllDoctorDetails()
@@ -313,6 +314,162 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IEmployeeService.DeleteRateListById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Test Master List
+        [HttpGet("GetTestMasterForRateList")]
+        public IActionResult GetTestMasterForRateList()
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetTestMasterForRateList());
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Insert Rate Detail List
+        [HttpPost("InsertRateDetailList")]
+        public IActionResult InsertRateDetailList(TestMaster mastermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.InsertRateListDetails(mastermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Delete Rate Detail List
+        [HttpGet("DeleteRateListDetailsById/{ID}")]
+        public IActionResult DeleteRateListDetailsById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteRateListDetailsById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get Rate List Detail By ID
+        [HttpGet("GetRateListDetailsById/{ID}")]
+        public IActionResult GetRateListDetailsById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListDetailsById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+
+        //Use For Insert Employee
+        [HttpPost("InsertEmployee")]
+        public IActionResult InsertEmployee(EMPLOYEE empmodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.InsertUpdateEmployee(empmodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Update Employee
+        [HttpPut("UpdateEmployee")]
+        public IActionResult UpdateEmployee(EMPLOYEE empmodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.InsertUpdateEmployee(empmodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Delete Employee List
+        [HttpGet("DeleteEmployeeById/{ID}")]
+        public IActionResult DeleteEmployeeById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteEmployeeById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get Employee By ID
+        [HttpGet("GetEmployeeById/{ID}")]
+        public IActionResult GetEmployeeById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetEmployeeListByID(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Employee Search
+        [HttpGet("GetEmployeeSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetEmployeeSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetEmployeeSearch(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Employee Search  Count
+        [HttpGet("GetEmployeeSearchCount/{KeyWord}")]
+        public IActionResult GetEmployeeSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetEmployeeSearchCount(KeyWord));
             }
             catch (Exception ex)
             {
