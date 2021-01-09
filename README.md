@@ -1,6 +1,6 @@
 # my_Lab_Web_Api
 
-Steps to run After Cloning
+Steps to run for Cloning
 
 1st :- git clone https://github.com/ahmedshaikh123/my_Lab_Web_Api
 
