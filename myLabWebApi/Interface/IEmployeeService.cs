@@ -10,7 +10,6 @@ namespace myLabWebApi.Interface
     public interface IEmployeeService
     {
         List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord);
-        long InsertUpdateEmployee(EMPLOYEE _Employee);
 
         List<DOCTOR> GetAllDoctorDetails();
 
@@ -44,5 +43,24 @@ namespace myLabWebApi.Interface
         RATELISTHDR GetRateListById(int Id);
         long DeleteRateListById(int Id);
         long insertUpdateRateList(RATELISTHDR RATELISTHDRmodel);
+
+        List<TestMaster> GetTestMasterForRateList();
+
+        long InsertRateListDetails(TestMaster master);
+
+        List<TestMaster> GetRateListDetailsById(int Id);
+
+        long DeleteRateListDetailsById(int Id);
+
+
+        long InsertUpdateEmployee(EMPLOYEE empmodel);
+
+        EMPLOYEE GetEmployeeListByID(int Id);
+
+        long DeleteEmployeeById(int Id);
+
+        List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord);
+
+        long GetEmployeeSearchCount(string KeyWord);
     }
 }

@@ -41,38 +41,7 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetails]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
-        public long InsertUpdateEmployee(EMPLOYEE empModel)
-        {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("@EMPLOYEE_id", empModel.EMPLOYEE_id, DbType.Int64);
-            dbPara.Add("@EMPLOYEE_Name", empModel.EMPLOYEE_Name, DbType.String);
-            dbPara.Add("@EMPLOYEE_Address1", empModel.EMPLOYEE_Address1, DbType.String);
-            dbPara.Add("@EMPLOYEE_Address2", empModel.EMPLOYEE_Address2, DbType.String);
-            dbPara.Add("@EMPLOYEE_City", empModel.EMPLOYEE_City, DbType.String);
-            dbPara.Add("@EMPLOYEE_State", empModel.EMPLOYEE_State, DbType.String);
-            dbPara.Add("@EMPLOYEE_Region", empModel.EMPLOYEE_Region, DbType.String);
-            dbPara.Add("@EMPLOYEE_Country", empModel.EMPLOYEE_Country, DbType.String);
-            dbPara.Add("@EMPLOYEE_Pincode", empModel.EMPLOYEE_Pincode, DbType.String);
-            dbPara.Add("@EMPLOYEE_Telno", empModel.EMPLOYEE_Telno, DbType.String);
-            dbPara.Add("@EMPLOYEE_MobileNo", empModel.EMPLOYEE_MobileNo, DbType.String);
-            dbPara.Add("@EMPLOYEE_Email", empModel.EMPLOYEE_Email, DbType.String);
-            dbPara.Add("@EMPLOYEE_DateofBirth", empModel.EMPLOYEE_DateofBirth, DbType.DateTime);
-            dbPara.Add("@EMPLOYEE_DateofJoining", empModel.EMPLOYEE_DateofJoining, DbType.DateTime);
-            dbPara.Add("@EMPLOYEE_Qualification", empModel.EMPLOYEE_Qualification, DbType.String);
-            dbPara.Add("@EMPLOYEE_Gender", empModel.EMPLOYEE_Gender, DbType.String);
-            dbPara.Add("@EMPLOYEE_Status", empModel.EMPLOYEE_Status, DbType.Boolean);
-            dbPara.Add("@EMPLOYEE_Companyid", empModel.EMPLOYEE_Companyid, DbType.Int64);
-            dbPara.Add("@EMPLOYEE_Salary_Mode", empModel.EMPLOYEE_Salary_Mode, DbType.String);
-            dbPara.Add("@CollectionBoy_Flag", empModel.CollectionBoy_Flag, DbType.Boolean);
-            dbPara.Add("@LabID", empModel.LabID, DbType.Int32);
-            dbPara.Add("@Password", empModel.Password, DbType.String);
-            #region using dapper  
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
-                            dbPara,
-                            commandType: CommandType.StoredProcedure);
-            return data;
-            #endregion
-        }
+        
 
         //public long InsertUpdateEmployee(EMPLOYEE empmodel)
         //{
@@ -381,6 +350,145 @@ namespace myLabWebApi.Services
                             commandType: CommandType.StoredProcedure);
             return data;
             #endregion
+        }
+
+
+        public List<TestMaster> GetTestMasterForRateList()
+        {
+            var dbPara = new DynamicParameters();
+
+            var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMaster]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+
+        public long InsertRateListDetails(TestMaster master)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("RateListHID", master.RateListHID, DbType.Int64);
+            dbPara.Add("TestId", master.TestId, DbType.Int64);
+            dbPara.Add("TestRate", master.TestRate, DbType.Decimal);
+            dbPara.Add("Discount", master.Discount, DbType.Decimal);
+            dbPara.Add("LumSumAmt", master.LumSumAmt, DbType.Decimal);
+            dbPara.Add("SpecialTest", master.SpecialTest, DbType.String);
+            dbPara.Add("BaseRate", master.BaseRate, DbType.Decimal);
+            dbPara.Add("Discount1", master.Discount, DbType.Decimal);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertRateListDetails]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+        public List<TestMaster> GetRateListDetailsById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "D", DbType.String);
+            var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+        public long DeleteRateListDetailsById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Delete", DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+
+        public long InsertUpdateEmployee(EMPLOYEE empmodel)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
+            dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
+            dbPara.Add("EMPLOYEE_Address1", empmodel.EMPLOYEE_Address1, DbType.String);
+            dbPara.Add("EMPLOYEE_Address2", empmodel.EMPLOYEE_Address2, DbType.String);
+            dbPara.Add("EMPLOYEE_City", empmodel.EMPLOYEE_City, DbType.String);
+            dbPara.Add("EMPLOYEE_State", empmodel.EMPLOYEE_State, DbType.String);
+            dbPara.Add("EMPLOYEE_Region", empmodel.EMPLOYEE_Region, DbType.String);
+            dbPara.Add("EMPLOYEE_Country", empmodel.EMPLOYEE_Country, DbType.String);
+            dbPara.Add("EMPLOYEE_Pincode", empmodel.EMPLOYEE_Pincode, DbType.String);
+            dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
+            dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
+            dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
+            dbPara.Add("EMPLOYEE_DateofBirth", empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
+            dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
+            dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.String);
+            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.Boolean);
+            dbPara.Add("EMPLOYEE_Companyid", empmodel.EMPLOYEE_Companyid, DbType.Int32);
+            dbPara.Add("EMPLOYEE_Salary_Mode", empmodel.EMPLOYEE_Salary_Mode, DbType.Boolean);
+            dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
+            dbPara.Add("LabID", empmodel.LabID, DbType.Int32);
+            dbPara.Add("Password", empmodel.Password, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+        public EMPLOYEE GetEmployeeListByID(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "List", DbType.String);
+            var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0];
+        }
+
+        public long DeleteEmployeeById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Delete", DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetEmployeeDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+
+        public List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetEmployeeSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
         }
 
     }
