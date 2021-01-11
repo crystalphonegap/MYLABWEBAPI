@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
+    "D:\\MY_LAB_PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
   },
   "projects": {
-    "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
+    "D:\\MY_LAB_PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "projectUniqueName": "D:\\MY_LAB_PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
         "projectName": "myLabWebApi",
-        "projectPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-        "packagesPath": "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\",
-        "outputPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+        "projectPath": "D:\\MY_LAB_PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\MY_LAB_PROJECT\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CRYSTAL PC 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +26,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "ClosedXML": {
               "target": "Package",
@@ -143,7 +141,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
