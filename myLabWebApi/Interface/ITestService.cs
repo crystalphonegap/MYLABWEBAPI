@@ -17,5 +17,19 @@ namespace myLabWebApi.Interface
         TestTypeModel GetTestTypeUsingId(int Id);
 
         long DeleteTestTypeById(int Id);
+
+        long InsertUpdatePathalogyTest(PathalogyTestMaster model);
+
+        long InsertUpdatePathalogyTestDetails(PathalogyTestDetails model);
+
+        PathalogyTestMaster GetPathalogyTestMasterUsingId(int Id);
+
+        long DeletePathalogyTestMaster(int Id);
+
+        List<PathalogyTestDetails> GetPathalogyTestDetailsUsingId(int Id);
+
+        List<PathalogyTestMaster> GetPathalogyTestSearch(int PageNo, int PageSize, string KeyWord);
+
+        long GetPathalogyTestSearchCount(string KeyWord);
     }
 }

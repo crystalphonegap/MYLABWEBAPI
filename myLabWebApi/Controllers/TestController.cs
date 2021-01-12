@@ -119,5 +119,113 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+
+
+        //Use For Insert PathaLogy Test  
+        [HttpPost("InsertPathaLogyTest")]
+        public IActionResult InsertPathaLogyTest(PathalogyTestMaster model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdatePathalogyTest(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Update  PathaLogy Test 
+        [HttpPut("UpdatePathaLogyTest")]
+        public IActionResult UpdatePathaLogyTest(PathalogyTestMaster model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdatePathalogyTest(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Delete PathaLogyTest
+        [HttpGet("DeletePathaLogyTest/{ID}")]
+        public IActionResult DeletePathaLogyTest(int ID)
+        {
+            try
+            {
+                return Ok(_ITestService.DeletePathalogyTestMaster(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get PathaLogyTest MasterByID
+        [HttpGet("GetPathaLogyTestMasterByID/{ID}")]
+        public IActionResult GetPathaLogyTestMasterByID(int ID)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPathalogyTestMasterUsingId(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get PathaLogyTest DetailsByID
+        [HttpGet("GetPathaLogyTestdetailsByID/{ID}")]
+        public IActionResult GetPathaLogyTestdetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPathalogyTestDetailsUsingId(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For PathaLogyTest List Search
+        [HttpGet("GetPathaLogyTestListSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetPathaLogyTestListSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPathalogyTestSearch(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For PathaLogyTest List Search Count
+        [HttpGet("GetPathaLogyTestSearchCount/{KeyWord}")]
+        public IActionResult GetPathaLogyTestSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPathalogyTestSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
     }
 }
