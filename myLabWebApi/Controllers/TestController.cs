@@ -227,5 +227,50 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+        //Use For Insert Test  Format Details
+        [HttpPost("InsertTestFormatDetails")]
+        public IActionResult InsertTestFormatDetails(TestFormatDetails model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertTestFormatDetails(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Delete Test  Format Details
+        [HttpGet("DeleteTestFormatDetails/{ID}")]
+        public IActionResult DeleteTestFormatDetails(int ID)
+        {
+            try
+            {
+                return Ok(_ITestService.DeleteTestFormat(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get PathaLogyTest MasterByID
+        [HttpGet("GetTestFormatDetails/{ID}")]
+        public IActionResult GetTestFormatDetails(int ID)
+        {
+            try
+            {
+                return Ok(_ITestService.GetTestFormatDetailList(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
     }
 }

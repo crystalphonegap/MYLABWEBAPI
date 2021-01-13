@@ -31,5 +31,11 @@ namespace myLabWebApi.Interface
         List<PathalogyTestMaster> GetPathalogyTestSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetPathalogyTestSearchCount(string KeyWord);
+
+        long InsertTestFormatDetails(TestFormatDetails model);
+
+        long DeleteTestFormat(int Id);
+
+        List<TestFormatDetails> GetTestFormatDetailList(int Id);
     }
 }

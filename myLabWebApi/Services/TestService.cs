@@ -233,5 +233,39 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<PathalogyTestMaster>("[dbo].[SP_PathalogyList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
+
+
+        public long InsertTestFormatDetails(TestFormatDetails model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("TEST_TestMasterID", model.TEST_TestMasterID, DbType.Int32);
+            dbPara.Add("TEST_FieldName", model.TEST_FieldName, DbType.String);
+            dbPara.Add("TEST_FormatSrNo", model.TEST_FormatSrNo, DbType.Int32);
+            dbPara.Add("TEST_sDefault", model.TEST_sDefault, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertTestFormatDetails]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
+
+        public long DeleteTestFormat(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "Delete", DbType.String);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetTestForamtDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+        public List<TestFormatDetails> GetTestFormatDetailList(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "List", DbType.String);
+            var data = _MyLabHelper.GetAll<TestFormatDetails>("[dbo].[SP_GetTestForamtDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
     }
 }
