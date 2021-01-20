@@ -11,6 +11,7 @@ namespace myLabWebApi.Models
         public int TestId { get; set; }
         public string TESTMST_Name { get; set; }
         public double? BaseRate { get; set; }
+        public double? Referal_Fee { get; set; }
         public double? Discount { get; set; }
         public double? Discount1 { get; set; }
         public double? TestRate { get; set; }

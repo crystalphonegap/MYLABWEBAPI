@@ -353,10 +353,19 @@ namespace myLabWebApi.Services
         }
 
 
-        public List<TestMaster> GetTestMasterForRateList()
+        public List<TestMaster> GetTestMasterForRateList(string keyword)
         {
             var dbPara = new DynamicParameters();
+            if (keyword == "NoSearch")
+            {
+                dbPara.Add("keyword", "", DbType.String);
 
+            }
+            else
+            {
+                dbPara.Add("keyword", keyword, DbType.String);
+
+            }
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMaster]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }

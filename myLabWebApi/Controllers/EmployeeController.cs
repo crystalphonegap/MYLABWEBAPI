@@ -38,7 +38,7 @@ namespace myLabWebApi.Controllers
             }
             catch (Exception ex)
             {
-                //_ILogger.Log(ex);
+                _ILogger.Log(ex);
                 return BadRequest();
             }
         }
@@ -53,7 +53,7 @@ namespace myLabWebApi.Controllers
             }
             catch (Exception ex)
             {
-                //_ILogger.Log(ex);
+                _ILogger.Log(ex);
                 return BadRequest();
             }
         }
@@ -322,14 +322,14 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
+        [AllowAnonymous]
         //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList")]
-        public IActionResult GetTestMasterForRateList()
+        [HttpGet("GetTestMasterForRateList/{keyword}")]
+        public IActionResult GetTestMasterForRateList(string keyword)
         {
             try
             {
-                return Ok(_IEmployeeService.GetTestMasterForRateList());
+                return Ok(_IEmployeeService.GetTestMasterForRateList( keyword));
             }
             catch (Exception ex)
             {

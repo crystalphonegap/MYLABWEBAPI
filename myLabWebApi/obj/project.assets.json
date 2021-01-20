@@ -8423,11 +8423,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "projectUniqueName": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "projectName": "myLabWebApi",
-      "projectPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "projectPath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "packagesPath": "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\",
-      "outputPath": "D:\\Ahmed's Project's\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+      "outputPath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CRYSTAL PC 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
