@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
+    "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
   },
   "projects": {
-    "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
+    "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "projectUniqueName": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
         "projectName": "myLabWebApi",
-        "projectPath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "projectPath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
         "packagesPath": "C:\\Users\\CrystalPc3\\.nuget\\packages\\",
-        "outputPath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+        "outputPath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CrystalPc3\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -404,6 +404,8 @@ namespace myLabWebApi.Services
 
         public long InsertUpdateEmployee(EMPLOYEE empmodel)
         {
+            
+           
             var dbPara = new DynamicParameters();
             dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
             dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
@@ -417,19 +419,19 @@ namespace myLabWebApi.Services
             dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
             dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
             dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
-            dbPara.Add("EMPLOYEE_DateofBirth", empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
-            dbPara.Add("EMPLOYEE_DateofJoining", empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofBirth", Convert.ToDateTime(empmodel.EMPLOYEE_DateofBirth).AddDays(1), DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", Convert.ToDateTime(empmodel.EMPLOYEE_DateofJoining).AddDays(1), DbType.DateTime);
             dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
             dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
             dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.String);
-            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.Boolean);
+            dbPara.Add("EMPLOYEE_Status", empmodel.EMPLOYEE_Status, DbType.String);
             dbPara.Add("EMPLOYEE_Companyid", empmodel.EMPLOYEE_Companyid, DbType.Int32);
             dbPara.Add("EMPLOYEE_Salary_Mode", empmodel.EMPLOYEE_Salary_Mode, DbType.Boolean);
             dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
             dbPara.Add("LabID", empmodel.LabID, DbType.Int32);
             dbPara.Add("Password", empmodel.Password, DbType.String);
             #region using dapper  
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
@@ -440,7 +442,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-            dbPara.Add("Mode", "List", DbType.String);
+            //dbPara.Add("Mode", "List", DbType.String);
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }

@@ -404,7 +404,7 @@ namespace myLabWebApi.Controllers
         //Use For Update Employee
         [HttpPut("UpdateEmployee")]
         public IActionResult UpdateEmployee(EMPLOYEE empmodel)
-        {
+            {
             try
             {
                 return Ok(_IEmployeeService.InsertUpdateEmployee(empmodel));

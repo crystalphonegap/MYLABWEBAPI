@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LeBR3ECJ34Mjgw5F+ZhY8A7fpVdG4iaX9QeKN2f67ETBkB0vV3juizczPH+XhcH3vDNQ2IuASuPynNY6g6lweg==",
+  "dgSpecHash": "LNuaFX965aqy1w9N3tNCoFa3cjCLON6T6f/PTgTyO50kH2v4Wih30177s/MFW/HPMhXPHOgJE9oW79cyU1kl3A==",
   "success": true,
-  "projectFilePath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+  "projectFilePath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CrystalPc3\\.nuget\\packages\\closedxml\\0.95.4\\closedxml.0.95.4.nupkg.sha512",
     "C:\\Users\\CrystalPc3\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
@@ -173,12 +173,5 @@
     "C:\\Users\\CrystalPc3\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\CrystalPc3\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

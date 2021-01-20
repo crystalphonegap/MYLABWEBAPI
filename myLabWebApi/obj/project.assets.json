@@ -8423,11 +8423,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "projectUniqueName": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "projectName": "myLabWebApi",
-      "projectPath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "projectPath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "packagesPath": "C:\\Users\\CrystalPc3\\.nuget\\packages\\",
-      "outputPath": "D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+      "outputPath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CrystalPc3\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8562,13 +8562,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Anil\\my_Lab_Web_Api\\myLabWebApi\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
