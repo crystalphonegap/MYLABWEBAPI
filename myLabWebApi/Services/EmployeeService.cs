@@ -407,6 +407,8 @@ namespace myLabWebApi.Services
             
            
             var dbPara = new DynamicParameters();
+
+            //DateTime DOB = DateTime.ParseExact(empmodel.EMPLOYEE_DateofBirth, "dd-MM-yyyy", null);
             dbPara.Add("EMPLOYEE_id", empmodel.EMPLOYEE_id, DbType.Int64);
             dbPara.Add("EMPLOYEE_Name", empmodel.EMPLOYEE_Name, DbType.String);
             dbPara.Add("EMPLOYEE_Address1", empmodel.EMPLOYEE_Address1, DbType.String);
@@ -419,8 +421,8 @@ namespace myLabWebApi.Services
             dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
             dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
             dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
-            dbPara.Add("EMPLOYEE_DateofBirth", Convert.ToDateTime(empmodel.EMPLOYEE_DateofBirth).AddDays(1), DbType.DateTime);
-            dbPara.Add("EMPLOYEE_DateofJoining", Convert.ToDateTime(empmodel.EMPLOYEE_DateofJoining).AddDays(1), DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofBirth", Convert.ToDateTime(empmodel.EMPLOYEE_DateofBirth), DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", Convert.ToDateTime(empmodel.EMPLOYEE_DateofJoining), DbType.DateTime);
             dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
             dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
             dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.String);
@@ -450,10 +452,10 @@ namespace myLabWebApi.Services
         public long DeleteEmployeeById(int Id)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("ID", Id, DbType.Int32);
-            dbPara.Add("Mode", "Delete", DbType.String);
+            dbPara.Add("@EMPLOYEE_id", Id, DbType.Int32);
+
             #region using dapper  
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetEmployeeDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteEmployeeDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
             #endregion
         }
