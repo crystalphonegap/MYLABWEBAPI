@@ -62,5 +62,6 @@ namespace myLabWebApi.Interface
         List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetEmployeeSearchCount(string KeyWord);
+        RATELISTHDR GetRateListHeaderById(int Id);
     }
 }

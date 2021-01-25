@@ -254,6 +254,10 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+                if (centermodel.RateListId != 0)
+                {
+                    _IEmployeeService.DeleteRateListDetailsById(centermodel.RateListId);
+                }
                 return Ok(_IEmployeeService.insertUpdateRateList(centermodel));
             }
             catch (Exception ex)
@@ -293,8 +297,8 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetRateListDetailsByID/{ID}")]
-        public IActionResult GetRateListDetailsByID(int ID)
+        [HttpGet("GetRateListByID/{ID}")]
+        public IActionResult GetRateListByID(int ID)
         {
             try
             {
@@ -308,12 +312,26 @@ namespace myLabWebApi.Controllers
         }
 
 
+        [HttpGet("DeleteRateListById/{ID}")]
+        public IActionResult DeleteRateListById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteRateListById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
         [HttpGet("DeleteRateListDetailsByID/{ID}")]
         public IActionResult DeleteRateListDetailsByID(int ID)
         {
             try
             {
-                return Ok(_IEmployeeService.DeleteRateListById(ID));
+                return Ok(_IEmployeeService.DeleteRateListDetailsById(ID));
             }
             catch (Exception ex)
             {
@@ -384,6 +402,20 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpGet("GetRateListHeaderById/{ID}")]
+        public IActionResult GetRateListHeaderById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListHeaderById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
 
 
         //Use For Insert Employee
@@ -404,7 +436,7 @@ namespace myLabWebApi.Controllers
         //Use For Update Employee
         [HttpPut("UpdateEmployee")]
         public IActionResult UpdateEmployee(EMPLOYEE empmodel)
-        {
+            {
             try
             {
                 return Ok(_IEmployeeService.InsertUpdateEmployee(empmodel));

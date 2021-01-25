@@ -10,13 +10,13 @@ namespace myLabWebApi.Models
         public int RateListHID { get; set; }
         public int TestId { get; set; }
         public string TESTMST_Name { get; set; }
-        public double? BaseRate { get; set; }
-        public double? Referal_Fee { get; set; }
-        public double? Discount { get; set; }
-        public double? Discount1 { get; set; }
-        public double? TestRate { get; set; }
-        public double? LumSumAmt { get; set; }
-        public string SpecialTest { get; set; }
+        public decimal BaseRate { get; set; }
+        public decimal Referal_Fee { get; set; }
+        public decimal Discount { get; set; }
+        public decimal Discount1 { get; set; }
+        public decimal TestRate { get; set; }
+        public decimal LumSumAmt { get; set; }
+        public bool SpecialTest { get; set; }
         public string Type { get; set; }
     }
 }
