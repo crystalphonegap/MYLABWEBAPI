@@ -449,7 +449,7 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Delete Employee List
-        [HttpGet("DeleteEmployeeById/{ID}")]
+        [HttpDelete("DeleteEmployeeById/{ID}")]
         public IActionResult DeleteEmployeeById(int ID)
         {
             try
