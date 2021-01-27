@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using myLabWebApi.Models.New;
@@ -233,6 +224,19 @@ namespace myLabWebApi.Controllers
         }
 
 
+        [HttpPost("InsertSaveAsRateList")]
+        public IActionResult insertSaveAsRateList(RATELISTHDRSAVEAS centermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertSaveAsRateList(centermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
 
 
         [HttpPost("InsertRateList")]

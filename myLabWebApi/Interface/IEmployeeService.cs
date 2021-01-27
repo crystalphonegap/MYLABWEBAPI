@@ -63,5 +63,7 @@ namespace myLabWebApi.Interface
 
         long GetEmployeeSearchCount(string KeyWord);
         RATELISTHDR GetRateListHeaderById(int Id);
+
+        long insertSaveAsRateList(RATELISTHDRSAVEAS RATELISTHDR);
     }
 }

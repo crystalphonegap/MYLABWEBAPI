@@ -18,4 +18,11 @@ namespace myLabWebApi.Models.New
         public double? other { get; set; }
         public double? other1 { get; set; }
     }
+
+    public partial class RATELISTHDRSAVEAS
+    {
+        public int RateListId { get; set; }
+        public string RateListName { get; set; }
+        public string SysUser { get; set; }
+    }
 }

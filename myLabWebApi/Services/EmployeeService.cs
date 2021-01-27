@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 using myLabWebApi.Models.New;
 
@@ -351,6 +348,19 @@ namespace myLabWebApi.Services
             #endregion
         }
 
+        public long insertSaveAsRateList(RATELISTHDRSAVEAS RATELISTHDR)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("RateListId", RATELISTHDR.RateListId, DbType.Int64);
+            dbPara.Add("RateListName", RATELISTHDR.RateListName, DbType.String);
+            dbPara.Add("SysUser", RATELISTHDR.SysUser, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[Usp_SaveAsRateList]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
 
         public List<TestMaster> GetTestMasterForRateList(string keyword)
         {
