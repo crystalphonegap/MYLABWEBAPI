@@ -44,7 +44,7 @@ namespace myLabWebApi.Interface
         long DeleteRateListById(int Id);
         long insertUpdateRateList(RATELISTHDR RATELISTHDRmodel);
 
-        List<TestMaster> GetTestMasterForRateList();
+        List<TestMaster> GetTestMasterForRateList(string keyword);
 
         long InsertRateListDetails(TestMaster master);
 
@@ -62,5 +62,10 @@ namespace myLabWebApi.Interface
         List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetEmployeeSearchCount(string KeyWord);
+        RATELISTHDR GetRateListHeaderById(int Id);
+
+        long insertSaveAsRateList(RATELISTHDRSAVEAS RATELISTHDR);
+
+        List<TestMaster> GetTestMasterByCollectionCenterID(int CenterID, string Type, string KeyWord);
     }
 }

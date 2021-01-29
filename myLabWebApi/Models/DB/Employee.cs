@@ -17,12 +17,12 @@ namespace myLabWebApi.Models.New
         public string EMPLOYEE_Telno { get; set; }
         public string EMPLOYEE_MobileNo { get; set; }
         public string EMPLOYEE_Email { get; set; }
-        public DateTime? EMPLOYEE_DateofBirth { get; set; }
-        public DateTime? EMPLOYEE_DateofJoining { get; set; }
+        public DateTime EMPLOYEE_DateofBirth { get; set; }
+        public DateTime EMPLOYEE_DateofJoining { get; set; }
         public string EMPLOYEE_Qualification { get; set; }
         public double? EMPLOYEE_Salary { get; set; }
         public string EMPLOYEE_Gender { get; set; }
-        public bool? EMPLOYEE_Status { get; set; }
+        public string EMPLOYEE_Status { get; set; }
         public int? EMPLOYEE_Companyid { get; set; }
         public bool? EMPLOYEE_Salary_Mode { get; set; }
         public bool? CollectionBoy_Flag { get; set; }
