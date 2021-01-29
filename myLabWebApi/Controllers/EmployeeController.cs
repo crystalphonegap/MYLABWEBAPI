@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using myLabWebApi.Models.New;
@@ -38,7 +29,7 @@ namespace myLabWebApi.Controllers
             }
             catch (Exception ex)
             {
-                //_ILogger.Log(ex);
+                _ILogger.Log(ex);
                 return BadRequest();
             }
         }
@@ -53,7 +44,7 @@ namespace myLabWebApi.Controllers
             }
             catch (Exception ex)
             {
-                //_ILogger.Log(ex);
+                _ILogger.Log(ex);
                 return BadRequest();
             }
         }
@@ -233,6 +224,19 @@ namespace myLabWebApi.Controllers
         }
 
 
+        [HttpPost("InsertSaveAsRateList")]
+        public IActionResult insertSaveAsRateList(RATELISTHDRSAVEAS centermodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertSaveAsRateList(centermodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
 
 
         [HttpPost("InsertRateList")]
@@ -254,6 +258,10 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+                if (centermodel.RateListId != 0)
+                {
+                    _IEmployeeService.DeleteRateListDetailsById(centermodel.RateListId);
+                }
                 return Ok(_IEmployeeService.insertUpdateRateList(centermodel));
             }
             catch (Exception ex)
@@ -293,8 +301,8 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetRateListDetailsByID/{ID}")]
-        public IActionResult GetRateListDetailsByID(int ID)
+        [HttpGet("GetRateListByID/{ID}")]
+        public IActionResult GetRateListByID(int ID)
         {
             try
             {
@@ -308,6 +316,7 @@ namespace myLabWebApi.Controllers
         }
 
 
+<<<<<<< HEAD
         //[HttpDelete("DeleteRateListDetailsByID/{ID}")]
         //public IActionResult DeleteRateListDetailsByID(int ID)
         //{
@@ -321,15 +330,44 @@ namespace myLabWebApi.Controllers
         //        return BadRequest();
         //    }
         //}
-
-
-        //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList")]
-        public IActionResult GetTestMasterForRateList()
+=======
+        [HttpGet("DeleteRateListById/{ID}")]
+        public IActionResult DeleteRateListById(int ID)
         {
             try
             {
-                return Ok(_IEmployeeService.GetTestMasterForRateList());
+                return Ok(_IEmployeeService.DeleteRateListById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+>>>>>>> b1f4daf06965a60b8b47a98f428d769d1396f221
+
+        [HttpGet("DeleteRateListDetailsByID/{ID}")]
+        public IActionResult DeleteRateListDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.DeleteRateListDetailsById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [AllowAnonymous]
+        //Use For Test Master List
+        [HttpGet("GetTestMasterForRateList/{keyword}")]
+        public IActionResult GetTestMasterForRateList(string keyword)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetTestMasterForRateList( keyword));
             }
             catch (Exception ex)
             {
@@ -376,6 +414,20 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IEmployeeService.GetRateListDetailsById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetRateListHeaderById/{ID}")]
+        public IActionResult GetRateListHeaderById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListHeaderById(ID));
             }
             catch (Exception ex)
             {
@@ -477,5 +529,22 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+        //Use For Get TestMaster By CollectionCenter ID
+        [HttpGet("GetTestMasterByCollectionCenterID/{centerid},{Type},{KeyWord}")]
+        public IActionResult GetTestMasterByCollectionCenterID(int centerid,string Type,string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetTestMasterByCollectionCenterID(centerid,Type,KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
     }
 }

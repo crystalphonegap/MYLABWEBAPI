@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 using myLabWebApi.Models.New;
 
@@ -316,7 +313,6 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-
             var data = _MyLabHelper.GetAll<RATELISTHDR>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }
@@ -326,7 +322,6 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
@@ -344,6 +339,7 @@ namespace myLabWebApi.Services
             dbPara.Add("Histo", RATELISTHDR.Histo, DbType.Double);
             dbPara.Add("other", RATELISTHDR.other, DbType.Double);
             dbPara.Add("other1", RATELISTHDR.other1, DbType.Double);
+            dbPara.Add("EffectiveDate", RATELISTHDR.EffectiveDate, DbType.DateTime);
             #region using dapper  
             var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateRateList]",
                             dbPara,
@@ -352,11 +348,33 @@ namespace myLabWebApi.Services
             #endregion
         }
 
-
-        public List<TestMaster> GetTestMasterForRateList()
+        public long insertSaveAsRateList(RATELISTHDRSAVEAS RATELISTHDR)
         {
             var dbPara = new DynamicParameters();
+            dbPara.Add("RateListId", RATELISTHDR.RateListId, DbType.Int64);
+            dbPara.Add("RateListName", RATELISTHDR.RateListName, DbType.String);
+            dbPara.Add("SysUser", RATELISTHDR.SysUser, DbType.String);
+            #region using dapper  
+            var data = _MyLabHelper.Insert<long>("[dbo].[Usp_SaveAsRateList]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
 
+        public List<TestMaster> GetTestMasterForRateList(string keyword)
+        {
+            var dbPara = new DynamicParameters();
+            if (keyword == "NoSearch")
+            {
+                dbPara.Add("keyword", "", DbType.String);
+
+            }
+            else
+            {
+                dbPara.Add("keyword", keyword, DbType.String);
+
+            }
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMaster]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
@@ -370,7 +388,7 @@ namespace myLabWebApi.Services
             dbPara.Add("TestRate", master.TestRate, DbType.Decimal);
             dbPara.Add("Discount", master.Discount, DbType.Decimal);
             dbPara.Add("LumSumAmt", master.LumSumAmt, DbType.Decimal);
-            dbPara.Add("SpecialTest", master.SpecialTest, DbType.String);
+            dbPara.Add("SpecialTest", master.SpecialTest, DbType.Boolean);
             dbPara.Add("BaseRate", master.BaseRate, DbType.Decimal);
             dbPara.Add("Discount1", master.Discount, DbType.Decimal);
             #region using dapper  
@@ -387,6 +405,14 @@ namespace myLabWebApi.Services
             dbPara.Add("ID", Id, DbType.Int32);
             dbPara.Add("Mode", "D", DbType.String);
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+        public RATELISTHDR GetRateListHeaderById(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+            dbPara.Add("Mode", "H", DbType.String);
+            var data = _MyLabHelper.Get<RATELISTHDR>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
 
@@ -495,5 +521,22 @@ namespace myLabWebApi.Services
             return data.ToList().Count;
         }
 
+
+        public List<TestMaster> GetTestMasterByCollectionCenterID(int CenterID,string Type,string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("Type", Type, DbType.Int32);
+            dbPara.Add("CollectionCenterID", CenterID, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMasterByCollectionCenterID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
     }
 }
