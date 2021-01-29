@@ -308,19 +308,19 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpGet("DeleteRateListDetailsByID/{ID}")]
-        public IActionResult DeleteRateListDetailsByID(int ID)
-        {
-            try
-            {
-                return Ok(_IEmployeeService.DeleteRateListById(ID));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
+        //[HttpDelete("DeleteRateListDetailsByID/{ID}")]
+        //public IActionResult DeleteRateListDetailsByID(int ID)
+        //{
+        //    try
+        //    {
+        //        return Ok(_IEmployeeService.DeleteRateListById(ID));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest();
+        //    }
+        //}
 
 
         //Use For Test Master List
@@ -355,7 +355,7 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Delete Rate Detail List
-        [HttpGet("DeleteRateListDetailsById/{ID}")]
+        [HttpDelete("DeleteRateListDetailsById/{ID}")]
         public IActionResult DeleteRateListDetailsById(int ID)
         {
             try
