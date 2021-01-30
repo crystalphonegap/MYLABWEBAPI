@@ -13,5 +13,9 @@ echo "Your changes info is as Follows"
 echo  %name%
 
 git commit -m "%name%"
+
+echo "Git Pull Running"
+git pull
+echo "Git Push Running"
 git push
 ECHO Push Done
