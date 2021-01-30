@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using myLabWebApi.Interface;
-using myLabWebApi.Models;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-
+using myLabWebApi.Interface;
+using myLabWebApi.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 //using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace myLabWebApi.Extensions
 {
@@ -15,13 +17,11 @@ namespace myLabWebApi.Extensions
     {
         private readonly RequestDelegate _next;
         private readonly ILoggerManager _logger;
-
         public ExceptionMiddleware(RequestDelegate next, ILoggerManager logger)
         {
             _logger = logger;
             _next = next;
         }
-
         public async Task InvokeAsync(HttpContext httpContext)
         {
             try
@@ -34,7 +34,6 @@ namespace myLabWebApi.Extensions
                 await HandleExceptionAsync(httpContext, ex);
             }
         }
-
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             context.Response.ContentType = "application/json";

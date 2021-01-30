@@ -1,6 +1,9 @@
 ﻿using myLabWebApi.Models;
 using myLabWebApi.Models.New;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace myLabWebApi.Interface
 {
@@ -11,6 +14,7 @@ namespace myLabWebApi.Interface
         List<DOCTOR> GetAllDoctorDetails();
 
         long InsertUpdateDoctor(DOCTOR orderHeaderdetails);
+    
 
         List<DOCTOR> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
 
@@ -35,13 +39,9 @@ namespace myLabWebApi.Interface
         //long InsertUpdateEmployee(EMPLOYEE empmodel);
 
         List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord);
-
         long GetRateListSearchCount(string KeyWord);
-
         RATELISTHDR GetRateListById(int Id);
-
         long DeleteRateListById(int Id);
-
         long insertUpdateRateList(RATELISTHDR RATELISTHDRmodel);
 
         List<TestMaster> GetTestMasterForRateList(string keyword);
@@ -52,6 +52,7 @@ namespace myLabWebApi.Interface
 
         long DeleteRateListDetailsById(int Id);
 
+
         long InsertUpdateEmployee(EMPLOYEE empmodel);
 
         EMPLOYEE GetEmployeeListByID(int Id);
@@ -61,7 +62,6 @@ namespace myLabWebApi.Interface
         List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord);
 
         long GetEmployeeSearchCount(string KeyWord);
-
         RATELISTHDR GetRateListHeaderById(int Id);
 
         long insertSaveAsRateList(RATELISTHDRSAVEAS RATELISTHDR);

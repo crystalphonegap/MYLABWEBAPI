@@ -1,4 +1,9 @@
-﻿namespace myLabWebApi.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace  myLabWebApi.Entities
 {
     public class UserAuthenticationObject
     {

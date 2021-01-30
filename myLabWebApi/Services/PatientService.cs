@@ -1,13 +1,22 @@
-﻿using Microsoft.Extensions.Configuration;
-using myLabWebApi.Interface;
+﻿using myLabWebApi.Interface;
+using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace myLabWebApi.Services
 {
-    public class PATIENTService
+    public class PATIENTService  
     {
         private readonly IConfiguration _config;
         private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
+
 
         //public int Create(PATIENT PATIENT)
         //{
@@ -59,12 +68,13 @@ namespace myLabWebApi.Services
         //    dbPara.Add("AppointmentId", PATIENT.AppointmentId, DbType.String);
         //    dbPara.Add("Result", PATIENT.Result, DbType.String);
 
-        //    #region using dapper
+        //    #region using dapper  
         //    var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
         //                    dbPara,
         //                    commandType: CommandType.StoredProcedure);
         //    return data;
         //    #endregion
         //}
+
     }
 }

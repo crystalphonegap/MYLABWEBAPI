@@ -1,10 +1,15 @@
-﻿namespace myLabWebApi.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace myLabWebApi.Models
 {
     public class PathalogyTestMaster
     {
-        public int TESTMST_CurrentId { get; set; }
-        public string TESTMST_Name { get; set; }
-        public string TESTMST_PrintFormat { get; set; }
+        public int TESTMST_CurrentId { get;set;}
+        public string TESTMST_Name { get;set;}
+        public string TESTMST_PrintFormat { get;set;}
         public decimal TESTMST_Rate { get; set; }
         public string TESTMST_ReportHeading { get; set; }
         public string Type { get; set; }

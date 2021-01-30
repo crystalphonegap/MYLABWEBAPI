@@ -1,15 +1,21 @@
+using System;
+using System.Text;
+using myLabWebApi.Context;
+using myLabWebApi.Interface;
+using myLabWebApi.Helper;
+using myLabWebApi.Security;
+using myLabWebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Features;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using myLabWebApi.Context;
-using myLabWebApi.Helper;
-using myLabWebApi.Interface;
-using myLabWebApi.Security;
-using myLabWebApi.Services;
-using System;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace myLabWebApi
 {
@@ -25,12 +31,13 @@ namespace myLabWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
 
-            services.Configure<FormOptions>(o =>
-            {
+
+            services.Configure<FormOptions>(o => {
                 o.ValueLengthLimit = int.MaxValue;
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;
@@ -58,6 +65,7 @@ namespace myLabWebApi
 
             //});
 
+
             services.AddControllers();
 
             services.AddDbContext<DataContext>(options =>
@@ -74,7 +82,7 @@ namespace myLabWebApi
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-
+          
             services.AddControllers()
              .AddNewtonsoftJson(options =>
              {
@@ -84,6 +92,8 @@ namespace myLabWebApi
             services.AddScoped<ILogger, Logger>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<ITestService, TestService>();
+
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -140,6 +150,8 @@ namespace myLabWebApi
             //});
             //added for preventing Server Banner Discloser by suman on 20-11-2020
 
+
+
             /*security configuration*/
             app.UseXContentTypeOptions();
             app.UseReferrerPolicy(opts => opts.NoReferrer());
@@ -157,10 +169,14 @@ namespace myLabWebApi
             );
             /*security configuration*/
 
+
+
+
             app.UseHttpsRedirection();
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
 
             app.UseRouting();
 
@@ -174,6 +190,7 @@ namespace myLabWebApi
             app.UseAuthentication();
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -191,5 +208,6 @@ namespace myLabWebApi
             settings.MinToExpiration = Convert.ToInt32(Configuration["JwtSettings:minToExpiration"]);
             return settings;
         }
+
     }
 }

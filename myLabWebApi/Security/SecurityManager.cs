@@ -1,22 +1,27 @@
-﻿using myLabWebApi.Entities;
-using myLabWebApi.Interface;
+﻿using  myLabWebApi.Entities;
+using  myLabWebApi.Interface;
+using  myLabWebApi.Models;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace myLabWebApi.Security
+namespace  myLabWebApi.Security
 {
     public class SecurityManager
     {
         private readonly IUserMasterService _userMasterService;
         private readonly JwtSettings _jwtSettings;
-
         public SecurityManager(IUserMasterService userMasterService, JwtSettings jwtSettings)
         {
             _userMasterService = userMasterService;
             _jwtSettings = jwtSettings;
         }
+
 
         public UserAuthenticationObject ValidateUser(string UserCode, string Password)
         {
@@ -57,6 +62,7 @@ namespace myLabWebApi.Security
         //    return obj;
         //}
 
+
         private String BuildJwtToken(UserAuthenticationObject authObj)
         {
             List<Claim> jwtClaim = new List<Claim>();
@@ -72,7 +78,7 @@ namespace myLabWebApi.Security
 
             var jwt = new JwtSecurityToken(issuer: "http://localhost:44335",
                 audience: "MyLabUsers",
-                claims: jwtClaim, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //...
+                claims: jwtClaim, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //... 
                 notBefore: DateTime.UtcNow,
                 expires: DateTime.UtcNow.AddMinutes(15),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
@@ -80,5 +86,7 @@ namespace myLabWebApi.Security
 
             return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
+
+      
     }
 }

@@ -1,22 +1,24 @@
-﻿using Microsoft.Extensions.Configuration;
-using myLabWebApi.Interface;
-using myLabWebApi.Models;
+﻿using  myLabWebApi.Interface;
+using  myLabWebApi.Models;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
-namespace myLabWebApi.Services
+namespace  myLabWebApi.Services
 {
     public class UserMasterService : IUserMasterService
     {
+
+
         private readonly IConfiguration _config;
         private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
-
         public UserMasterService(IMyLabHelper MyLabHelper, ILogger ILoggerservice, IConfiguration config)
         {
             _config = config;
@@ -60,17 +62,15 @@ namespace myLabWebApi.Services
             dbPara.Add("Passwordvtxt", UserMasterDetails.Passwordvtxt, DbType.String);
             dbPara.Add("CreatedByint", 1, DbType.Int32);
             dbPara.Add("CreatedDatedatetime", DateTime.Now, DbType.DateTime);
-            dbPara.Add("ModifyByint", 1, DbType.Int32);
+            dbPara.Add("ModifyByint", 1, DbType.Int32); 
             dbPara.Add("ModifyDatedatetime", DateTime.Now, DbType.DateTime);
 
-            #region using dapper
-
+            #region using dapper  
             var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-
-            #endregion using dapper
+            #endregion
         }
 
         public long Delete(long id)
@@ -86,9 +86,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("IDbint", id, DbType.Int64);
-
-            #region using dapper
-
+            #region using dapper  
             var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewUserMasterById]", dbPara,
                     commandType: CommandType.StoredProcedure);
             UserMasterModel users = data;
@@ -102,7 +100,7 @@ namespace myLabWebApi.Services
             model.Emailvtxt = users.Emailvtxt;
             model.Divisionvtxt = users.Divisionvtxt;
             model.IsActivebit = users.IsActivebit;
-            model.Passwordvtxt = EncryptAngularStringAES(Decrypttxt(users.Passwordvtxt));
+            model.Passwordvtxt = EncryptAngularStringAES( Decrypttxt(users.Passwordvtxt));
             model.IsActivebit = users.IsActivebit;
             model.ModifyByint = users.ModifyByint;
             model.ModifyDatedatetime = users.ModifyDatedatetime;
@@ -110,10 +108,10 @@ namespace myLabWebApi.Services
             model.ParentCodevtxt = users.ParentCodevtxt;
             model.CreatedDatedatetime = users.CreatedDatedatetime;
             return model;
+            #endregion
 
-            #endregion using dapper
         }
-
+       
         string IUserMasterService.Update(UserMasterModel UserMaster)
         {
             var dbPara = new DynamicParameters();
@@ -130,12 +128,12 @@ namespace myLabWebApi.Services
             dbPara.Add("ModifyByint", 1, DbType.Int32);
             dbPara.Add("ModifyDatedatetime", DateTime.Now, DbType.DateTime);
 
+
             var data = _MyLabHelper.Update<string>("[dbo].[uspUpdateUserMaster]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
         }
-
         string IUserMasterService.ChangePassword(UserMasterModel UserMaster)
         {
             var dbPara = new DynamicParameters();
@@ -166,15 +164,19 @@ namespace myLabWebApi.Services
 
         public UserMasterModel Login(string usercode, string password)
         {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("usercode", usercode, DbType.String);
-            dbPara.Add("password", password, DbType.String);
-            var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
-            return data;
+           
+                var dbPara = new DynamicParameters();
+                dbPara.Add("usercode", usercode, DbType.String);
+                dbPara.Add("password", password, DbType.String);
+                var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
+                return data;
+           
+           
         }
 
         public UserMasterModel LoginLogs(string UserCode, string UserName, string UserType, string BrowserName, string IpAddress)
         {
+
             var dbPara = new DynamicParameters();
             dbPara.Add("UserCode", UserCode, DbType.String);
             dbPara.Add("UserName", UserName, DbType.String);
@@ -183,10 +185,13 @@ namespace myLabWebApi.Services
             dbPara.Add("IpAddress", IpAddress, DbType.String);
             var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspInsertLoginLogs]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
-        }
 
+
+        }
+       
         public long DeleteErrorLog(string DelDate)
         {
+
             var dbPara = new DynamicParameters();
             DateTime tempDelDate = DateTime.ParseExact(DelDate, "dd-MM-yyyy", null);
             dbPara.Add("DeleteDate", Convert.ToDateTime(tempDelDate).ToString("yyyy-MM-dd"), DbType.String);
@@ -200,15 +205,12 @@ namespace myLabWebApi.Services
             dbPara.Add("UserIDbint", usercode, DbType.String);
             dbPara.Add("Tokentxt", reftoken, DbType.String);
             dbPara.Add("ExpiryDatedatetime", DateTime.Now.AddDays(1), DbType.DateTime);
-
-            #region using dapper
-
+            #region using dapper  
             var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertRefreshToken]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-
-            #endregion using dapper
+            #endregion
         }
 
         public string GetRefreshToken(string usercode, string reftoken)
@@ -230,9 +232,10 @@ namespace myLabWebApi.Services
                            commandType: CommandType.StoredProcedure);
             return data;
         }
-
+       
         public static string Encrypttxt(string clearText)
         {
+
             string temptext = DecryptAngularStringAES(clearText);
             string EncryptionKey = "MAKV2SPBNI99212";
             byte[] clearBytes = Encoding.Unicode.GetBytes(temptext);
@@ -256,6 +259,7 @@ namespace myLabWebApi.Services
 
         public static string Decrypttxt(string cipherText)
         {
+
             string EncryptionKey = "MAKV2SPBNI99212";
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
             using (Aes encryptor = Aes.Create())
@@ -285,7 +289,6 @@ namespace myLabWebApi.Services
             var decriptedFromJavascript = DecryptStringFromBytes(encrypted, keybytes, iv);
             return decriptedFromJavascript;
         }
-
         private static string DecryptStringFromBytes(byte[] cipherText, byte[] key, byte[] iv)
         {
             // Check arguments.
@@ -328,12 +331,15 @@ namespace myLabWebApi.Services
                     {
                         using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                         {
+
                             using (var srDecrypt = new StreamReader(csDecrypt))
                             {
                                 // Read the decrypted bytes from the decrypting stream
                                 // and place them in a string.
                                 plaintext = srDecrypt.ReadToEnd();
+
                             }
+
                         }
                     }
                 }
@@ -467,5 +473,7 @@ namespace myLabWebApi.Services
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

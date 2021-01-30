@@ -1,19 +1,22 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using myLabWebApi.Entities;
-using myLabWebApi.Interface;
-using myLabWebApi.Models;
-using myLabWebApi.Security;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using ClosedXML.Excel;
+using myLabWebApi.Entities;
+using myLabWebApi.Interface;
+using myLabWebApi.Models;
+using  myLabWebApi.Security;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
-namespace myLabWebApi.Controllers
+namespace  myLabWebApi.Controllers
 {
     //uthorize]
     [Route("[controller]")]
@@ -24,8 +27,7 @@ namespace myLabWebApi.Controllers
         private readonly IChecktokenservice _Checktokenservice;
         private readonly JwtSettings _jwtSettings;
         private readonly ILogger _ILogger;
-        private static bool AngularEncryption = true;
-
+        static bool AngularEncryption = true;
         public UserMasterController(IUserMasterService userMasterService, JwtSettings jwtSettings, ILogger ILoggerservice, IChecktokenservice checktokenservice)
         {
             _ILogger = ILoggerservice;
@@ -35,6 +37,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpGet("GetYear")]
+
         public IActionResult GetYear()
         {
             try
@@ -66,6 +69,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpGet("GetProfile/{Id}")]
+
         public IActionResult GetProfile(long Id)
         {
             try
@@ -100,6 +104,7 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
         [HttpPost("Create")]
         public ActionResult Create(UserMasterModel model)
         {
@@ -123,12 +128,15 @@ namespace myLabWebApi.Controllers
                 };
 
                 return Ok(_userMasterService.Create(userMaster));
+
             }
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
                 return BadRequest();
             }
+
+
         }
 
         [HttpPut("Update")]
@@ -153,12 +161,15 @@ namespace myLabWebApi.Controllers
 
                 _userMasterService.Update(userMaster);
                 return Ok(userMaster);
+
             }
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
                 return BadRequest();
             }
+
+
         }
 
         [HttpPut("EditProfile")]
@@ -175,6 +186,7 @@ namespace myLabWebApi.Controllers
                         Idbint = model.Idbint,
                         UserNametxt = model.UserNametxt,
                         Mobilevtxt = model.Mobilevtxt,
+
                     };
                     return Ok(_userMasterService.EditProfile(userMaster));
                 }
@@ -182,12 +194,16 @@ namespace myLabWebApi.Controllers
                 {
                     return Ok("Un Authorized User");
                 }
+
+
             }
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
                 return BadRequest();
             }
+
+
         }
 
         [HttpPut("ChangePassword")]
@@ -204,6 +220,7 @@ namespace myLabWebApi.Controllers
                         Idbint = model.Idbint,
                         Passwordvtxt = Encrypttxt(model.Passwordvtxt),
                         NewPassword = Encrypttxt(model.NewPassword),
+
                     };
                     return Ok(_userMasterService.ChangePassword(userMaster));
                 }
@@ -211,15 +228,19 @@ namespace myLabWebApi.Controllers
                 {
                     return Ok("Un Authorized User");
                 }
+
+
             }
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
                 return BadRequest();
             }
-        }
 
+
+        }
         [HttpDelete("Delete/{ID}")]
+
         public IActionResult Delete(long ID)
         {
             try
@@ -233,7 +254,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
         [AllowAnonymous]
         [HttpPost("Refresh")]
         public IActionResult Refresh(RefreshTokenRequest requesttoken)
@@ -274,6 +294,7 @@ namespace myLabWebApi.Controllers
                 _ILogger.Log(ex);
                 return BadRequest();
             }
+
         }
 
         private RefreshToken GenerateRefreshToken1()
@@ -288,6 +309,7 @@ namespace myLabWebApi.Controllers
             refreshToken.ExpiryDatedatetime = DateTime.UtcNow.AddHours(12);
             return refreshToken;
         }
+
 
         public string GenerateRefreshToken()
         {
@@ -305,7 +327,7 @@ namespace myLabWebApi.Controllers
 
             var jwt = new JwtSecurityToken(issuer: "http://localhost:44335",
                 audience: "MyLabUsers",
-                claims: claims, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //...
+                claims: claims, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //... 
                 notBefore: DateTime.UtcNow,
                 expires: DateTime.UtcNow.AddMinutes(20),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
@@ -335,6 +357,7 @@ namespace myLabWebApi.Controllers
             return principal;
         }
 
+
         [AllowAnonymous]
         [HttpPost("Login")]
         public IActionResult Login(UserMasterModel userMaster)
@@ -361,9 +384,11 @@ namespace myLabWebApi.Controllers
                     {
                         ret = StatusCode((int)HttpStatusCode.OK, obj);
                     }
+
                 }
                 else
                 {
+
                     ret = StatusCode((int)HttpStatusCode.NotFound, "user not found");
                 }
                 return ret;
@@ -403,7 +428,9 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
         [HttpPost("EnterLog")]
+
         [HttpGet("GetError/{fromdate},{todate},{PageNo},{PageSize},{KeyWord}")]
         public IActionResult GetError(string fromdate, string todate, int PageNo, int PageSize, string KeyWord)
         {
@@ -418,6 +445,7 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
         [HttpGet("GetErrorCount/{fromdate},{todate},{KeyWord}")]
         public IActionResult GetErrorCount(string fromdate, string todate, string KeyWord)
         {
@@ -431,7 +459,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
         [AllowAnonymous]
         [HttpPost("ResetPassword")]
         public ActionResult ResetPassword(UserMasterModel model)
@@ -453,7 +480,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
         public static string Encrypttxt(string clearText)
         {
             string temptext;
@@ -516,7 +542,6 @@ namespace myLabWebApi.Controllers
             var decriptedFromJavascript = DecryptStringFromBytes(encrypted, keybytes, iv);
             return decriptedFromJavascript;
         }
-
         private static string DecryptStringFromBytes(byte[] cipherText, byte[] key, byte[] iv)
         {
             // Check arguments.
@@ -559,12 +584,15 @@ namespace myLabWebApi.Controllers
                     {
                         using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                         {
+
                             using (var srDecrypt = new StreamReader(csDecrypt))
                             {
                                 // Read the decrypted bytes from the decrypting stream
                                 // and place them in a string.
                                 plaintext = srDecrypt.ReadToEnd();
+
                             }
+
                         }
                     }
                 }
@@ -635,3 +663,5 @@ namespace myLabWebApi.Controllers
         }
     }
 }
+
+

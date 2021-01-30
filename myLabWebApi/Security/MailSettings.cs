@@ -1,4 +1,9 @@
-﻿namespace myLabWebApi.Security
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace  myLabWebApi.Security
 {
     public class MailSettings
     {
