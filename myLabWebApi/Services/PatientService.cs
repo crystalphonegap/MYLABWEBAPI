@@ -1,4 +1,5 @@
 ﻿using myLabWebApi.Interface;
+using myLabWebApi.Models;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -11,70 +12,65 @@ using Microsoft.Extensions.Configuration;
 
 namespace myLabWebApi.Services
 {
-    public class PATIENTService  
+    public class PATIENTService  : IPatientService
     {
         private readonly IConfiguration _config;
         private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
 
 
-        //public int Create(PATIENT PATIENT)
-        //{
-        //    var dbPara = new DynamicParameters();
-        //    dbPara.Add("AddEditFlag", PATIENT.UserCodetxt, DbType.String);
-        //    dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
-        //    dbPara.Add("PATIENT_Id", PATIENT.PATIENTId, DbType.String);
-        //    dbPara.Add("PATIENT_Name", PATIENT.PATIENTName, DbType.String);
-        //    dbPara.Add("PATIENT_Address1", PATIENT.PATIENTAddress1, DbType.String);
-        //    dbPara.Add("PATIENT_Address2", PATIENT.PATIENTAddress2, DbType.String);
-        //    dbPara.Add("PATIENT_City", PATIENT.PATIENTCity, DbType.String);
-        //    dbPara.Add("PATIENT_State", PATIENT.PATIENTState, DbType.Boolean);
-        //    dbPara.Add("PATIENT_Region", PATIENT.PATIENTRegion, DbType.String);
-        //    dbPara.Add("PATIENT_Country", PATIENT.PATIENTCountry, DbType.String);
-        //    dbPara.Add("PATIENT_Pincode", PATIENT.PATIENTPincode, DbType.String);
-        //    dbPara.Add("PATIENT_Telno", PATIENT.PATIENTTelno, DbType.String);
-        //    dbPara.Add("MobileNo", PATIENT.MobileNo, DbType.String);
-        //    dbPara.Add("PATIENT_Gender", PATIENT.PATIENTGender, DbType.String);
-        //    dbPara.Add("PATIENT_Age", PATIENT.PATIENTAge, DbType.Boolean);
-        //    dbPara.Add("PATIENT_Date", PATIENT.PATIENTDate, DbType.String);
-        //    dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENTDoctorid, DbType.String);
-        //    dbPara.Add("PATIENT_Companyid", PATIENT.PATIENTCompanyid, DbType.String);
-        //    dbPara.Add("PATIENT_AmountPaid", PATIENT.PATIENTAmountPaid, DbType.String);
-        //    dbPara.Add("PATIENT_SampleCollected", PATIENT.PATIENTSampleCollected, DbType.String);
-        //    dbPara.Add("Doctorid2", PATIENT.Doctorid2, DbType.String);
-        //    dbPara.Add("blnCommission", PATIENT.BlnCommission, DbType.Boolean);
-        //    dbPara.Add("labno", PATIENT.Labno, DbType.String);
-        //    dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
-        //    dbPara.Add("HOSPTYPE", PATIENT.Hosptype, DbType.String);
-        //    dbPara.Add("TotalAmount", PATIENT.TotalAmount, DbType.String);
-        //    dbPara.Add("EmergencyCharges", PATIENT.EmergencyCharges, DbType.String);
-        //    dbPara.Add("Discount", PATIENT.Discount, DbType.String);
-        //    dbPara.Add("EmergencyChargesPecent", PATIENT.EmergencyChargesPecent, DbType.String);
-        //    dbPara.Add("Sample_Date", PATIENT.SampleDate, DbType.String);
-        //    dbPara.Add("Remarks", PATIENT.Remarks, DbType.Boolean);
-        //    dbPara.Add("userid", PATIENT.Userid, DbType.String);
-        //    dbPara.Add("PATIENTno", PATIENT.PATIENTno, DbType.String);
-        //    dbPara.Add("DiscountPercent", PATIENT.DiscountPercent, DbType.String);
-        //    dbPara.Add("test_alias", PATIENT.TestAlias, DbType.String);
-        //    dbPara.Add("Bar_copiese", PATIENT.BarCopiese, DbType.String);
-        //    dbPara.Add("PATIENT_PERMANENTID", PATIENT.PATIENTPERMANENTID, DbType.String);
-        //    dbPara.Add("TEST", PATIENT.TEST, DbType.String);
-        //    dbPara.Add("DOB", PATIENT.DOB, DbType.Boolean);
-        //    dbPara.Add("PATIENT_NORMAL", PATIENT.PATIENTNORMAL, DbType.String);
-        //    dbPara.Add("PATIENT_SeniorCitizen", PATIENT.PATIENTSeniorCitizen, DbType.String);
-        //    dbPara.Add("PATIENT_Diabetic", PATIENT.PATIENTDiabetic, DbType.String);
-        //    dbPara.Add("IsBILL", PATIENT.IsBILL, DbType.String);
-        //    dbPara.Add("Urgent", PATIENT.Urgent, DbType.String);
-        //    dbPara.Add("AppointmentId", PATIENT.AppointmentId, DbType.String);
-        //    dbPara.Add("Result", PATIENT.Result, DbType.String);
+        public int Create(PatientMasterModel PATIENT)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PATIENT_id", PATIENT.PATIENT_id, DbType.Int32);
+            dbPara.Add("Patientno", PATIENT.Patientno, DbType.Int32);
+            dbPara.Add("PATIENT_Name", PATIENT.PATIENT_Name, DbType.String);
+            dbPara.Add("PATIENT_Address1", PATIENT.PATIENT_Address1, DbType.String);
+            dbPara.Add("PATIENT_Address2", PATIENT.PATIENT_Address2, DbType.String);
+            dbPara.Add("PATIENT_SendSms", PATIENT.PATIENT_SendSms, DbType.String);
+            dbPara.Add("PATIENT_VisitTime", PATIENT.PATIENT_VisitTime, DbType.String);
+            dbPara.Add("PATIENT_Email", PATIENT.PATIENT_Email, DbType.String);
+            dbPara.Add("PATIENT_Country", PATIENT.PATIENT_Country, DbType.String);
+            dbPara.Add("PATIENT_PaymentMode", PATIENT.PATIENT_PaymentMode, DbType.String);
+            dbPara.Add("PATIENT_Telno", PATIENT.PATIENT_Telno, DbType.String);
+            dbPara.Add("PATIENT_Gender", PATIENT.PATIENT_Gender, DbType.String);
+            dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
 
-        //    #region using dapper  
-        //    var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
-        //                    dbPara,
-        //                    commandType: CommandType.StoredProcedure);
-        //    return data;
-        //    #endregion
-        //}
+            dbPara.Add("PATIENT_Date", PATIENT.PATIENT_Date, DbType.DateTime);
+            dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
+            dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
+            dbPara.Add("PATIENT_AmountPaid", PATIENT.PATIENT_AmountPaid, DbType.Decimal);
+            dbPara.Add("PATIENT_SampleCollected", PATIENT.PATIENT_SampleCollected, DbType.Int32);
+            dbPara.Add("Doctorid2", PATIENT.Doctorid2, DbType.Int32);
+            dbPara.Add("blnCommission", PATIENT.blnCommission, DbType.Boolean);
+            dbPara.Add("labno", PATIENT.labno, DbType.Int32);
+            dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
+            dbPara.Add("HOSPTYPE", PATIENT.HOSPTYPE, DbType.String);
+            dbPara.Add("TotalAmount", PATIENT.TotalAmount, DbType.Decimal);
+            dbPara.Add("EmergencyCharges", PATIENT.EmergencyCharges, DbType.Decimal);
+            dbPara.Add("Discount", PATIENT.Discount, DbType.Decimal);
+            dbPara.Add("EmergencyChargesPecent", PATIENT.EmergencyChargesPecent, DbType.Decimal);
+            dbPara.Add("Sample_Date", PATIENT.Sample_Date, DbType.DateTime);
+            dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
+            dbPara.Add("DiscountPercent", PATIENT.DiscountPercent, DbType.Decimal);
+            dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);
+            dbPara.Add("CreatedDate", PATIENT.CreatedDate, DbType.DateTime);
+            dbPara.Add("username", PATIENT.username, DbType.String);
+            dbPara.Add("TEST_ALIAS", PATIENT.TEST_ALIAS, DbType.String);
+            dbPara.Add("Bar_Copiese", PATIENT.Bar_Copiese, DbType.Int32);
+            dbPara.Add("Urgent", PATIENT.Urgent, DbType.Int32);
+            dbPara.Add("Issent", PATIENT.Issent, DbType.Boolean);
+            dbPara.Add("PrintUrgent", PATIENT.PrintUrgent, DbType.Boolean);
+            dbPara.Add("Patient_key", PATIENT.Patient_key, DbType.String);
+            dbPara.Add("AppointmentId", PATIENT.AppointmentId, DbType.String);
+
+            #region using dapper  
+            var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+            #endregion
+        }
 
     }
 }
