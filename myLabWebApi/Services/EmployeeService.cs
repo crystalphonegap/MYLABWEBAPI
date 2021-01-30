@@ -1,12 +1,12 @@
-﻿using myLabWebApi.Interface;
+﻿using Dapper;
+using Microsoft.Extensions.Configuration;
+using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using Dapper;
+using myLabWebApi.Models.New;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Microsoft.Extensions.Configuration;
-using myLabWebApi.Models.New;
 
 namespace myLabWebApi.Services
 {
@@ -22,6 +22,7 @@ namespace myLabWebApi.Services
             _ILogger = ILoggerservice;
             _MyLabHelper = MyLabHelper;
         }
+
         public List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord)
         {
             var dbPara = new DynamicParameters();
@@ -38,7 +39,6 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetails]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
-        
 
         //public long InsertUpdateEmployee(EMPLOYEE empmodel)
         //{
@@ -66,7 +66,7 @@ namespace myLabWebApi.Services
         //    dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
         //    dbPara.Add("LabID", empmodel.LabID, DbType.String);
         //    dbPara.Add("Password", empmodel.Password, DbType.String);
-        //    #region using dapper  
+        //    #region using dapper
         //    var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
         //                    dbPara,
         //                    commandType: CommandType.StoredProcedure);
@@ -181,12 +181,15 @@ namespace myLabWebApi.Services
             //DateTime dobdt = DateTime.ParseExact(docmodel.DOB.ToString(), "dd-MM-yyyy", null);
             //dbPara.Add("DOB", Convert.ToDateTime(dobdt).ToString("yyyy-MM-dd"), DbType.String);
             dbPara.Add("doctor_Code", docmodel.doctor_Code, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         //--Collectio Center-----------------------
@@ -246,7 +249,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
-            
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
@@ -265,15 +268,16 @@ namespace myLabWebApi.Services
             dbPara.Add("CENTER_RATELIST_ID", centermodel.CENTER_RATELIST_ID, DbType.Int64);
             dbPara.Add("CENTER_CREDIT", centermodel.CENTER_CREDIT, DbType.Boolean);
             dbPara.Add("CENTER_Discount", centermodel.CENTER_Discount, DbType.Boolean);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateCollectionCenter]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
-
-
 
         public List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord)
         {
@@ -317,7 +321,6 @@ namespace myLabWebApi.Services
             return data[0];
         }
 
-
         public long DeleteRateListById(int Id)
         {
             var dbPara = new DynamicParameters();
@@ -340,12 +343,15 @@ namespace myLabWebApi.Services
             dbPara.Add("other", RATELISTHDR.other, DbType.Double);
             dbPara.Add("other1", RATELISTHDR.other1, DbType.Double);
             dbPara.Add("EffectiveDate", RATELISTHDR.EffectiveDate, DbType.DateTime);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateRateList]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         public long insertSaveAsRateList(RATELISTHDRSAVEAS RATELISTHDR)
@@ -354,12 +360,15 @@ namespace myLabWebApi.Services
             dbPara.Add("RateListId", RATELISTHDR.RateListId, DbType.Int64);
             dbPara.Add("RateListName", RATELISTHDR.RateListName, DbType.String);
             dbPara.Add("SysUser", RATELISTHDR.SysUser, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[Usp_SaveAsRateList]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         public List<TestMaster> GetTestMasterForRateList(string keyword)
@@ -368,17 +377,14 @@ namespace myLabWebApi.Services
             if (keyword == "NoSearch")
             {
                 dbPara.Add("keyword", "", DbType.String);
-
             }
             else
             {
                 dbPara.Add("keyword", keyword, DbType.String);
-
             }
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMaster]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
-
 
         public long InsertRateListDetails(TestMaster master)
         {
@@ -391,12 +397,15 @@ namespace myLabWebApi.Services
             dbPara.Add("SpecialTest", master.SpecialTest, DbType.Boolean);
             dbPara.Add("BaseRate", master.BaseRate, DbType.Decimal);
             dbPara.Add("Discount1", master.Discount, DbType.Decimal);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertRateListDetails]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         public List<TestMaster> GetRateListDetailsById(int Id)
@@ -407,6 +416,7 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
+
         public RATELISTHDR GetRateListHeaderById(int Id)
         {
             var dbPara = new DynamicParameters();
@@ -420,18 +430,17 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("@ID", Id, DbType.Int32);
-            
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
-        }
 
+            #endregion using dapper
+        }
 
         public long InsertUpdateEmployee(EMPLOYEE empmodel)
         {
-            
-           
             var dbPara = new DynamicParameters();
 
             //DateTime DOB = DateTime.ParseExact(empmodel.EMPLOYEE_DateofBirth, "dd-MM-yyyy", null);
@@ -458,12 +467,15 @@ namespace myLabWebApi.Services
             dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
             dbPara.Add("LabID", empmodel.LabID, DbType.Int32);
             dbPara.Add("Password", empmodel.Password, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateEmployee]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         public EMPLOYEE GetEmployeeListByID(int Id)
@@ -480,12 +492,13 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("@EMPLOYEE_id", Id, DbType.Int32);
 
-            #region using dapper  
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteEmployeeDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
-        }
 
+            #endregion using dapper
+        }
 
         public List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord)
         {
@@ -521,8 +534,7 @@ namespace myLabWebApi.Services
             return data.ToList().Count;
         }
 
-
-        public List<TestMaster> GetTestMasterByCollectionCenterID(int CenterID,string Type,string KeyWord)
+        public List<TestMaster> GetTestMasterByCollectionCenterID(int CenterID, string Type, string KeyWord)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("Type", Type, DbType.Int32);

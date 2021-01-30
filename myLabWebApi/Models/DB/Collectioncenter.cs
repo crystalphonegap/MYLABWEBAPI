@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace myLabWebApi.Models.New
+﻿namespace myLabWebApi.Models.New
 {
     public partial class COLLECTIONCENTER
     {

@@ -1,26 +1,25 @@
-﻿using myLabWebApi.Interface;
-using Dapper;
+﻿using Dapper;
+using Microsoft.Extensions.Configuration;
+using myLabWebApi.Interface;
 using System;
 using System.Data;
-using System.Linq;
 using System.Text;
 
-using Microsoft.Extensions.Configuration;
 namespace myLabWebApi.Helper
 {
     public class Logger : ILogger
     {
         private readonly IMyLabHelper _MyLabHelper;
         public IConfiguration Configuration { get; }
-        public Logger(IMyLabHelper MyLabHelper , IConfiguration configuration)
+
+        public Logger(IMyLabHelper MyLabHelper, IConfiguration configuration)
         {
             _MyLabHelper = MyLabHelper;
 
             Configuration = configuration;
         }
 
-
-        public  void Log(Exception exception)
+        public void Log(Exception exception)
         {
             StringBuilder sbExceptionMessage = new StringBuilder();
 
@@ -38,28 +37,29 @@ namespace myLabWebApi.Helper
             }
             while (exception != null);
             string value = Configuration["LogtoSQL:Enable"];
-            if(value== "Yes")
+            if (value == "Yes")
             {
                 LogToDB(sbExceptionMessage.ToString());
             }
         }
 
-        private  void LogToDB(string log)
+        private void LogToDB(string log)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("ExceptionMessage", log, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<int>("[dbo].[spInsertLog]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
-           
-            #endregion
 
+            #endregion using dapper
         }
 
         void ILogger.LogToDB(string log)
         {
-            LogToDB( log);
+            LogToDB(log);
         }
     }
 }

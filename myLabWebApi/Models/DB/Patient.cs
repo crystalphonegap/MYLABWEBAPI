@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace myLabWebApi.Models.DB
 {
@@ -46,7 +43,7 @@ namespace myLabWebApi.Models.DB
         public int Issent { get; set; }
         public int? PrintUrgent { get; set; }
         public string Patient_key { get; set; }
-        public string PATIENT_Email  { get; set; }
+        public string PATIENT_Email { get; set; }
         public string AppointmentId { get; set; }
     }
 }

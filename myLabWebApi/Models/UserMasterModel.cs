@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace  myLabWebApi.Models
+namespace myLabWebApi.Models
 {
     public class UserMasterModel
     {
-        
         public long Idbint { get; set; }
         public string UserCodetxt { get; set; }
         public string UserNametxt { get; set; }
@@ -24,7 +21,7 @@ namespace  myLabWebApi.Models
         public int? ModifyByint { get; set; }
         public DateTime? ModifyDatedatetime { get; set; }
 
-        public virtual ICollection<RefreshToken> RefreshTokens  { get; set; }
+        public virtual ICollection<RefreshToken> RefreshTokens { get; set; }
 
         public string Flag { get; set; }
         public string BrowserName { get; set; }

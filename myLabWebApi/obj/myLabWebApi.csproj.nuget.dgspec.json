@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
+    "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {}
   },
   "projects": {
-    "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
+    "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "projectUniqueName": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
         "projectName": "myLabWebApi",
-        "projectPath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
-        "packagesPath": "C:\\Users\\CrystalPc3\\.nuget\\packages\\",
-        "outputPath": "D:\\Anil\\2019 studio\\MY LAB PROJECT\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+        "projectPath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+        "packagesPath": "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\",
+        "outputPath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\CrystalPc3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CRYSTAL PC 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

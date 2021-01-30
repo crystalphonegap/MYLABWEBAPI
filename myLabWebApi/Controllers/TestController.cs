@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
+﻿using Microsoft.AspNetCore.Mvc;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using ExcelDataReader;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using myLabWebApi.Models.New;
+using System;
 
 namespace myLabWebApi.Controllers
 {
@@ -74,7 +63,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
         //Use For Update Test Type List
         [HttpPut("UpdateTestType")]
         public IActionResult UpdateTestType(TestTypeModel model)
@@ -120,9 +108,7 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
-
-        //Use For Insert PathaLogy Test  
+        //Use For Insert PathaLogy Test
         [HttpPost("InsertPathaLogyTest")]
         public IActionResult InsertPathaLogyTest(PathalogyTestMaster model)
         {
@@ -137,8 +123,7 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
-        //Use For Update  PathaLogy Test 
+        //Use For Update  PathaLogy Test
         [HttpPut("UpdatePathaLogyTest")]
         public IActionResult UpdatePathaLogyTest(PathalogyTestMaster model)
         {
