@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
+﻿using Microsoft.AspNetCore.Mvc;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using ExcelDataReader;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using myLabWebApi.Models.New;
+using System;
 
 namespace myLabWebApi.Controllers
 {
@@ -23,7 +13,7 @@ namespace myLabWebApi.Controllers
         private readonly ILogger _ILogger;
         private readonly IEmployeeService _IEmployeeService;
 
-        public EmployeeController( ILogger ILoggerservice,IEmployeeService IEmployeeService)
+        public EmployeeController(ILogger ILoggerservice, IEmployeeService IEmployeeService)
         {
             _ILogger = ILoggerservice;
             _IEmployeeService = IEmployeeService;
@@ -42,7 +32,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
 
         [HttpGet("GetAllDoctorDetails")]
         public IActionResult GetAllDoctorDetails()
@@ -86,7 +75,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
         [HttpGet("GetDoctorDetailsByID/{ID}")]
         public IActionResult GetDoctorDetailsByID(int ID)
         {
@@ -100,7 +88,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
 
         [HttpDelete("DeleteDoctorDetailsByID/{ID}")]
         public IActionResult DeleteDoctorDetailsByID(int ID)
@@ -121,7 +108,7 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IEmployeeService.GetDoctorSearch(PageNo,PageSize, KeyWord));
+                return Ok(_IEmployeeService.GetDoctorSearch(PageNo, PageSize, KeyWord));
             }
             catch (Exception ex)
             {
@@ -143,7 +130,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
 
         [HttpPost("InsertCollectionCenter")]
         public IActionResult InsertCollectionCenter(COLLECTIONCENTER centermodel)
@@ -172,8 +158,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
-
 
         [HttpGet("GetCollectionCenterSearch/{PageNo},{PageSize},{KeyWord}")]
         public IActionResult GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord)
@@ -217,7 +201,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
         [HttpGet("DeleteCollectionCenterDetailsByID/{ID}")]
         public IActionResult DeleteCollectionCenterDetailsByID(int ID)
         {
@@ -231,9 +214,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
-
-
 
         [HttpPost("InsertRateList")]
         public IActionResult InsertRateList(RATELISTHDR centermodel)
@@ -262,8 +242,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
-
 
         [HttpGet("GetRateListSearch/{PageNo},{PageSize},{KeyWord}")]
         public IActionResult GetRateListSearch(int PageNo, int PageSize, string KeyWord)
@@ -307,7 +285,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
         //[HttpDelete("DeleteRateListDetailsByID/{ID}")]
         //public IActionResult DeleteRateListDetailsByID(int ID)
         //{
@@ -321,7 +298,6 @@ namespace myLabWebApi.Controllers
         //        return BadRequest();
         //    }
         //}
-
 
         //Use For Test Master List
         [HttpGet("GetTestMasterForRateList")]
@@ -337,7 +313,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
 
         //Use For Insert Rate Detail List
         [HttpPost("InsertRateDetailList")]
@@ -384,8 +359,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
-
         //Use For Insert Employee
         [HttpPost("InsertEmployee")]
         public IActionResult InsertEmployee(EMPLOYEE empmodel)
@@ -404,7 +377,7 @@ namespace myLabWebApi.Controllers
         //Use For Update Employee
         [HttpPut("UpdateEmployee")]
         public IActionResult UpdateEmployee(EMPLOYEE empmodel)
-            {
+        {
             try
             {
                 return Ok(_IEmployeeService.InsertUpdateEmployee(empmodel));
@@ -446,7 +419,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-
         //Use For Employee Search
         [HttpGet("GetEmployeeSearch/{PageNo},{PageSize},{KeyWord}")]
         public IActionResult GetEmployeeSearch(int PageNo, int PageSize, string KeyWord)
@@ -461,7 +433,6 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
 
         //Use For Employee Search  Count
         [HttpGet("GetEmployeeSearchCount/{KeyWord}")]

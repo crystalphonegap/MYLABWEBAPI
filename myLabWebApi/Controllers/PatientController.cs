@@ -1,7 +1,6 @@
-﻿using myLabWebApi.Interface;
+﻿using Microsoft.AspNetCore.Mvc;
+using myLabWebApi.Interface;
 using myLabWebApi.Security;
-using Microsoft.AspNetCore.Mvc;
-using myLabWebApi.Models;
 
 namespace myLabWebApi.Controllers
 {

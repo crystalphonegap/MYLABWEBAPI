@@ -1,15 +1,10 @@
-﻿using myLabWebApi.Interface;
+﻿using Dapper;
+using Microsoft.Extensions.Configuration;
+using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using myLabWebApi.Models.New;
 
 namespace myLabWebApi.Services
 {
@@ -34,12 +29,15 @@ namespace myLabWebApi.Services
             dbPara.Add("TestTypeDescription", model.TestTypeDescription, DbType.String);
             dbPara.Add("TestTypeRemark", model.TestTypeRemark, DbType.String);
             dbPara.Add("TestTypeRemark1", model.TestTypeRemark1, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateTestType]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         public List<TestTypeModel> GetTestTypeSearch(int PageNo, int PageSize, string KeyWord)
@@ -117,14 +115,16 @@ namespace myLabWebApi.Services
             dbPara.Add("IsKitImageCompulsary", model.IsKitImageCompulsary, DbType.String);
             dbPara.Add("TAT", model.TAT, DbType.String);
             dbPara.Add("IsNABL", model.IsNABL, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateTestMasterList]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
-        }
 
+            #endregion using dapper
+        }
 
         public long InsertUpdatePathalogyTestDetails(PathalogyTestDetails model)
         {
@@ -164,14 +164,16 @@ namespace myLabWebApi.Services
             dbPara.Add("TESTDET_TestTypeId	", model.TESTDET_TestTypeId, DbType.Int32);
             dbPara.Add("TESTDET_CatTypeId 	", model.TESTDET_CatTypeId, DbType.Int32);
             dbPara.Add("ValueForNormal		", model.ValueForNormal, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertPathalogyTestDetails]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
-        }
 
+            #endregion using dapper
+        }
 
         public PathalogyTestMaster GetPathalogyTestMasterUsingId(int Id)
         {
@@ -234,7 +236,6 @@ namespace myLabWebApi.Services
             return data.ToList().Count;
         }
 
-
         public long InsertTestFormatDetails(TestFormatDetails model)
         {
             var dbPara = new DynamicParameters();
@@ -242,12 +243,15 @@ namespace myLabWebApi.Services
             dbPara.Add("TEST_FieldName", model.TEST_FieldName, DbType.String);
             dbPara.Add("TEST_FormatSrNo", model.TEST_FormatSrNo, DbType.Int32);
             dbPara.Add("TEST_sDefault", model.TEST_sDefault, DbType.String);
-            #region using dapper  
+
+            #region using dapper
+
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertTestFormatDetails]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
-            #endregion
+
+            #endregion using dapper
         }
 
         public long DeleteTestFormat(int Id)
