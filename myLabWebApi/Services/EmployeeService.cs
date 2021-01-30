@@ -419,10 +419,10 @@ namespace myLabWebApi.Services
         public long DeleteRateListDetailsById(int Id)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("ID", Id, DbType.Int32);
-            dbPara.Add("Mode", "Delete", DbType.String);
+            dbPara.Add("@ID", Id, DbType.Int32);
+            
             #region using dapper  
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_GetRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
             #endregion
         }
