@@ -1,19 +1,17 @@
-﻿using myLabWebApi.Interface;
-using Dapper;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
+using myLabWebApi.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace myLabWebApi.Helper
 {
     public class MyLabHelper : IMyLabHelper
     {
         private readonly IConfiguration _config;
+
         public MyLabHelper(IConfiguration config)
         {
             _config = config;
@@ -45,7 +43,6 @@ namespace myLabWebApi.Helper
             DataTable dt = new DataTable();
             using (SqlConnection sqlConn = new SqlConnection(_config.GetConnectionString("DatabaseContext")))
             {
-              
                 using (SqlCommand sqlCmd = new SqlCommand(sp, sqlConn))
                 {
                     sqlCmd.CommandType = CommandType.StoredProcedure;
@@ -67,8 +64,6 @@ namespace myLabWebApi.Helper
                 return db.Execute(sp, parms, commandType: commandType);
             }
         }
-
-
 
         public T Insert<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
@@ -158,6 +153,5 @@ namespace myLabWebApi.Helper
                 return db.Query<T>(sp, parms, commandType: commandType).ToList();
             }
         }
-
     }
 }

@@ -1,7 +1,6 @@
-﻿using myLabWebApi.Interface;
+﻿using Microsoft.AspNetCore.Mvc;
+using myLabWebApi.Interface;
 using myLabWebApi.Security;
-using Microsoft.AspNetCore.Mvc;
-using myLabWebApi.Models;
 
 namespace myLabWebApi.Controllers
 {
@@ -13,9 +12,7 @@ namespace myLabWebApi.Controllers
         private readonly IChecktokenservice _Checktokenservice;
         private readonly JwtSettings _jwtSettings;
         private readonly ILogger _ILogger;
-        static bool AngularEncryption = true;
-
-
+        private static bool AngularEncryption = true;
 
         //[HttpPost("Create")]
         //public ActionResult Create(UserMasterModel model)
@@ -48,10 +45,6 @@ namespace myLabWebApi.Controllers
         //        return BadRequest();
         //    }
 
-
         //}
-
-
-
     }
 }

@@ -1,25 +1,21 @@
-﻿using  myLabWebApi.Interface;
-using  myLabWebApi.Security;
-using Microsoft.IdentityModel.Tokens;
+﻿using myLabWebApi.Interface;
+using myLabWebApi.Security;
 using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace  myLabWebApi.Services
+namespace myLabWebApi.Services
 {
     public class Checktokenservice : IChecktokenservice
     {
         private readonly JwtSettings _jwtSettings;
 
-
         public Checktokenservice(JwtSettings jwtSettings)
         {
             _jwtSettings = jwtSettings;
         }
+
         public bool CheckToken(string Token, string usercode)
         {
             var principal = GetPrincipalFromExpiredToken(Token);
@@ -37,7 +33,6 @@ namespace  myLabWebApi.Services
                 return false;
             }
         }
-
 
         public bool CheckTokenForCustomer(string Token, string usercode)
         {
@@ -75,7 +70,6 @@ namespace  myLabWebApi.Services
             }
         }
 
-
         public bool CheckTokenByID(string Token, long id)
         {
             var principal = GetPrincipalFromExpiredToken(Token);
@@ -93,6 +87,7 @@ namespace  myLabWebApi.Services
                 return false;
             }
         }
+
         private ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
         {
             var tokenValidationParameters = new TokenValidationParameters
