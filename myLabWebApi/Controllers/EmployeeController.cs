@@ -271,20 +271,6 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetRateListDetailsByID/{ID}")]
-        public IActionResult GetRateListDetailsByID(int ID)
-        {
-            try
-            {
-                return Ok(_IEmployeeService.GetRateListById(ID));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
-
         //[HttpDelete("DeleteRateListDetailsByID/{ID}")]
         //public IActionResult DeleteRateListDetailsByID(int ID)
         //{
@@ -300,12 +286,26 @@ namespace myLabWebApi.Controllers
         //}
 
         //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList")]
+        [HttpGet("GetTestMasterForRateList/{s}")]
         public IActionResult GetTestMasterForRateList(string s)
         {
             try
             {
                 return Ok(_IEmployeeService.GetTestMasterForRateList(s));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetRateListHeaderById/{s}")]
+        public IActionResult GetRateListHeaderById(int s)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListHeaderById(s));
             }
             catch (Exception ex)
             {
@@ -351,6 +351,20 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IEmployeeService.GetRateListDetailsById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetRateListById/{ID}")]
+        public IActionResult GetRateListById(int ID)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetRateListById(ID));
             }
             catch (Exception ex)
             {
@@ -441,6 +455,21 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IEmployeeService.GetEmployeeSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For GetTestMasterByCollectionCenterID
+        [HttpGet("GetTestMasterByCollectionCenterID/{CenterID},{Type},{KeyWord}")]
+        public IActionResult GetTestMasterByCollectionCenterID(int CenterID, string Type, string KeyWord)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.GetTestMasterByCollectionCenterID(CenterID, Type, KeyWord));
             }
             catch (Exception ex)
             {
