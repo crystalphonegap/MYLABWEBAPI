@@ -24,26 +24,26 @@ namespace myLabWebApi.Models
         public string PATIENT_Telno { get; set; }
         public string PATIENT_Gender { get; set; }
         public string PATIENT_Age { get; set; }
-        public DateTime PATIENT_Date { get; set; }
+        public string PATIENT_Date { get; set; }
         public int PATIENT_Doctorid { get; set; }
         public int PATIENT_Companyid { get; set; }
-        public decimal PATIENT_AmountPaid { get; set; }
+        public string PATIENT_AmountPaid { get; set; }
         public int PATIENT_SampleCollected { get; set; }
         public int Doctorid2 { get; set; }
         public bool blnCommission { get; set; }
         public int labno { get; set; }
         public string WardNo { get; set; }
         public string HOSPTYPE { get; set; }
-        public decimal TotalAmount { get; set; }
-        public decimal EmergencyCharges { get; set; }
-        public decimal Discount { get; set; }
-        public decimal EmergencyChargesPecent { get; set; }
-        public DateTime Sample_Date { get; set; }
-        public DateTime PATIENT_DOB { get; set; }
+        public string TotalAmount { get; set; }
+        public string EmergencyCharges { get; set; }
+        public string Discount { get; set; }
+        public string EmergencyChargesPecent { get; set; }
+        public string Sample_Date { get; set; }
+        public string PATIENT_DOB { get; set; }
         public string Remarks { get; set; }
-        public decimal DiscountPercent { get; set; }
+        public string DiscountPercent { get; set; }
         public string PATIENT_AgeFlag { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDate { get; set; }
         public string username { get; set; }
         public string TEST_ALIAS { get; set; }
         public int Bar_Copiese { get; set; }
@@ -55,10 +55,10 @@ namespace myLabWebApi.Models
         public string TEST { get; set; }
         public string Remark { get; set; }
         public string Paymode { get; set; }
-        public decimal UPI_WalletAmount { get; set; }
-        public decimal ChequeAmount { get; set; }
-        public decimal CreditCardAmount { get; set; }
-        public decimal NEFT_RTGSAmount { get; set; }
+        public string UPI_WalletAmount { get; set; }
+        public string ChequeAmount { get; set; }
+        public string CreditCardAmount { get; set; }
+        public string NEFT_RTGSAmount { get; set; }
 
         public string OtherRemarks { get; set; }
     }

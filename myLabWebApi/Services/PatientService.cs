@@ -44,24 +44,24 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
             dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
             dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
-            dbPara.Add("PATIENT_Date", PATIENT.PATIENT_Date, DbType.DateTime);
-            dbPara.Add("PATIENT_DOB", PATIENT.PATIENT_DOB, DbType.DateTime);
+            dbPara.Add("PATIENT_Date", string.IsNullOrEmpty(PATIENT.PATIENT_Date) ? null : Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
+            dbPara.Add("PATIENT_DOB", string.IsNullOrEmpty(PATIENT.PATIENT_DOB) ? null : Convert.ToDateTime(PATIENT.PATIENT_DOB) , DbType.DateTime);
             dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
             dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
-            dbPara.Add("PATIENT_AmountPaid", PATIENT.PATIENT_AmountPaid, DbType.Decimal);
+            dbPara.Add("PATIENT_AmountPaid", string.IsNullOrEmpty(PATIENT.PATIENT_AmountPaid) ? null : Convert.ToDecimal(PATIENT.PATIENT_AmountPaid), DbType.Decimal);
             dbPara.Add("PATIENT_SampleCollected", PATIENT.PATIENT_SampleCollected, DbType.Int32);
             dbPara.Add("Doctorid2", PATIENT.Doctorid2, DbType.Int32);
             dbPara.Add("blnCommission", PATIENT.blnCommission, DbType.Boolean);
             dbPara.Add("labno", PATIENT.labno, DbType.Int32);
             dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
             dbPara.Add("HOSPTYPE", PATIENT.HOSPTYPE, DbType.String);
-            dbPara.Add("TotalAmount", PATIENT.TotalAmount, DbType.Decimal);
-            dbPara.Add("EmergencyCharges", PATIENT.EmergencyCharges, DbType.Decimal);
-            dbPara.Add("Discount", PATIENT.Discount, DbType.Decimal);
-            dbPara.Add("EmergencyChargesPecent", PATIENT.EmergencyChargesPecent, DbType.Decimal);
-            dbPara.Add("Sample_Date", PATIENT.Sample_Date, DbType.DateTime);
+            dbPara.Add("TotalAmount", string.IsNullOrEmpty(PATIENT.TotalAmount) ? null : Convert.ToDecimal(PATIENT.TotalAmount), DbType.Decimal);
+            dbPara.Add("EmergencyCharges", string.IsNullOrEmpty(PATIENT.EmergencyCharges)? null : Convert.ToDecimal(PATIENT.EmergencyCharges)  , DbType.Decimal);
+            dbPara.Add("Discount", string.IsNullOrEmpty(PATIENT.Discount) ? null : Convert.ToDecimal(PATIENT.Discount), DbType.Decimal);
+            dbPara.Add("EmergencyChargesPecent", string.IsNullOrEmpty(PATIENT.EmergencyChargesPecent)? null : Convert.ToDecimal(PATIENT.EmergencyChargesPecent) , DbType.Decimal);
+            dbPara.Add("Sample_Date",string.IsNullOrEmpty(PATIENT.Sample_Date) ? null : Convert.ToDateTime(PATIENT.Sample_Date) , DbType.DateTime);
             dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
-            dbPara.Add("DiscountPercent", PATIENT.DiscountPercent, DbType.Decimal);
+            dbPara.Add("DiscountPercent", string.IsNullOrEmpty(PATIENT.DiscountPercent)? null : Convert.ToDecimal(PATIENT.DiscountPercent) , DbType.Decimal);
             dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);
             dbPara.Add("userid", PATIENT.username, DbType.String);
             dbPara.Add("test_alias", PATIENT.TEST_ALIAS, DbType.String);
@@ -74,11 +74,11 @@ namespace myLabWebApi.Services
             dbPara.Add("TEST", PATIENT.TEST, DbType.String);
             dbPara.Add("Remark", PATIENT.Remark, DbType.String);
             dbPara.Add("Paymode", PATIENT.Paymode, DbType.String);
-            dbPara.Add("UPI_WalletAmount", PATIENT.UPI_WalletAmount, DbType.Decimal);
-            dbPara.Add("ChequeAmount", PATIENT.ChequeAmount, DbType.Decimal);
-            dbPara.Add("CreditCardAmount", PATIENT.CreditCardAmount, DbType.Decimal);
-            dbPara.Add("NEFT_RTGSAmount", PATIENT.NEFT_RTGSAmount, DbType.Decimal);
-            dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
+            dbPara.Add("UPI_WalletAmount", string.IsNullOrEmpty(PATIENT.UPI_WalletAmount) ? null : Convert.ToDecimal(PATIENT.UPI_WalletAmount) , DbType.Decimal);
+            dbPara.Add("ChequeAmount", string.IsNullOrEmpty(PATIENT.ChequeAmount) ? null : Convert.ToDecimal(PATIENT.ChequeAmount) , DbType.Decimal);
+            dbPara.Add("CreditCardAmount", string.IsNullOrEmpty(PATIENT.CreditCardAmount) ? null : Convert.ToDecimal(PATIENT.CreditCardAmount) , DbType.Decimal);
+            dbPara.Add("NEFT_RTGSAmount", string.IsNullOrEmpty(PATIENT.NEFT_RTGSAmount) ? null : Convert.ToDecimal(PATIENT.NEFT_RTGSAmount), DbType.Decimal);
+            dbPara.Add("OtherRemarks", string.IsNullOrEmpty(PATIENT.OtherRemarks) ? null : Convert.ToDecimal(PATIENT.OtherRemarks) , DbType.String);
             #region using dapper  
             var data = _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                             dbPara,
