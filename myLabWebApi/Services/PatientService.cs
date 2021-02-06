@@ -25,11 +25,12 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public int Create(PatientMasterModel PATIENT)
+        public int Create(PatientMasterModel PATIENT, string strMode)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PATIENT_id", PATIENT.PATIENT_id, DbType.Int32);
-            dbPara.Add("Patientno", PATIENT.Patientno, DbType.Int32);
+            dbPara.Add("AddEditFlag", strMode, DbType.String);
+            dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
+            dbPara.Add("Patient_Id", PATIENT.Patient_Id, DbType.Int16);
             dbPara.Add("PATIENT_Name", PATIENT.PATIENT_Name, DbType.String);
             dbPara.Add("PATIENT_Address1", PATIENT.PATIENT_Address1, DbType.String);
             dbPara.Add("PATIENT_Address2", PATIENT.PATIENT_Address2, DbType.String);
@@ -41,7 +42,10 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_Telno", PATIENT.PATIENT_Telno, DbType.String);
             dbPara.Add("PATIENT_Gender", PATIENT.PATIENT_Gender, DbType.String);
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
+            dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
+            dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
             dbPara.Add("PATIENT_Date", PATIENT.PATIENT_Date, DbType.DateTime);
+            dbPara.Add("PATIENT_DOB", PATIENT.PATIENT_DOB, DbType.DateTime);
             dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
             dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
             dbPara.Add("PATIENT_AmountPaid", PATIENT.PATIENT_AmountPaid, DbType.Decimal);
@@ -59,23 +63,31 @@ namespace myLabWebApi.Services
             dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
             dbPara.Add("DiscountPercent", PATIENT.DiscountPercent, DbType.Decimal);
             dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);
-            dbPara.Add("CreatedDate", PATIENT.CreatedDate, DbType.DateTime);
-            dbPara.Add("username", PATIENT.username, DbType.String);
-            dbPara.Add("TEST_ALIAS", PATIENT.TEST_ALIAS, DbType.String);
+            dbPara.Add("userid", PATIENT.username, DbType.String);
+            dbPara.Add("test_alias", PATIENT.TEST_ALIAS, DbType.String);
             dbPara.Add("Bar_Copiese", PATIENT.Bar_Copiese, DbType.Int32);
             dbPara.Add("Urgent", PATIENT.Urgent, DbType.Int32);
             dbPara.Add("Issent", PATIENT.Issent, DbType.Boolean);
             dbPara.Add("PrintUrgent", PATIENT.PrintUrgent, DbType.Boolean);
             dbPara.Add("Patient_key", PATIENT.Patient_key, DbType.String);
             dbPara.Add("AppointmentId", PATIENT.AppointmentId, DbType.String);
-
+            dbPara.Add("TEST", PATIENT.TEST, DbType.String);
+            dbPara.Add("Remark", PATIENT.Remark, DbType.String);
+            dbPara.Add("Paymode", PATIENT.Paymode, DbType.String);
+            dbPara.Add("UPI_WalletAmount", PATIENT.UPI_WalletAmount, DbType.Decimal);
+            dbPara.Add("ChequeAmount", PATIENT.ChequeAmount, DbType.Decimal);
+            dbPara.Add("CreditCardAmount", PATIENT.CreditCardAmount, DbType.Decimal);
+            dbPara.Add("NEFT_RTGSAmount", PATIENT.NEFT_RTGSAmount, DbType.Decimal);
+            dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
             #region using dapper  
-            var data = _MyLabHelper.Insert<int>("[dbo].[uspInsertUserMaster]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
             return data;
             #endregion
         }
+
+
         public int InsertDOCHDR(DOCHDRModel model)
         {
             var dbPara = new DynamicParameters();

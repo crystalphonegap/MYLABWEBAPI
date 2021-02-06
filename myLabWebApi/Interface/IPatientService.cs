@@ -8,7 +8,7 @@ namespace myLabWebApi.Interface
 {
     public interface IPatientService
     {
-        int Create(PatientMasterModel Patient);
+        int Create(PatientMasterModel Patient, string strMode);
 
         int InsertDOCHDR(DOCHDRModel model);
 

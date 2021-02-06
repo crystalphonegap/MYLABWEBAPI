@@ -24,7 +24,7 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IPatientService.Create(model));
+                return Ok(_IPatientService.Create(model,"A"));
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IPatientService.Create(model));
+                return Ok(_IPatientService.Create(model,"U"));
             }
             catch (Exception ex)
             {
