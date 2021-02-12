@@ -10,11 +10,10 @@ namespace myLabWebApi.Interface
     {
         int Create(PatientMasterModel Patient, string strMode);
 
-        int InsertDOCHDR(DOCHDRModel model);
+        List<PatientMasterModel>  GetPatientSearch(int PageNo, int PageSize, string KeyWord);
 
-        int InsertDOCDET(DOCDETModel model);
-        int InsertPatientPayment(AmountPaidModel model);
+        long GetPatientSearchCount(string KeyWord);
 
-        int InsertPatientHistory(PatientHistoryModel model);
+        List<PatientMasterModel> GetPatientDetail(long ID);
     }
 }

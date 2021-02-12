@@ -38,21 +38,31 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+                var PATIENT_Age = model.PATIENT_Age;
+                var gender = model.PATIENT_Gender;
+                var flag = model.PATIENT_AgeFlag;
+
+
                 return Ok(_IPatientService.Create(model,"U"));
+
+
             }
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
+                throw ex;
+
                 return BadRequest();
             }
         }
 
-        [HttpPost("InsertDOCHDR")]
-        public ActionResult InsertDOCHDR(DOCHDRModel model)
+
+        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetPatientSearch(int PageNo, int PageSize, string KeyWord)
         {
             try
             {
-                return Ok(_IPatientService.InsertDOCHDR(model));
+                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, KeyWord));
             }
             catch (Exception ex)
             {
@@ -62,12 +72,12 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpPost("InsertDOCDET")]
-        public ActionResult InsertDOCDET(DOCDETModel model)
+        [HttpGet("GetPatientDetail/{ID}")]
+        public IActionResult GetPatientDetail(int ID)
         {
             try
             {
-                return Ok(_IPatientService.InsertDOCDET(model));
+                return Ok(_IPatientService.GetPatientDetail(ID));
             }
             catch (Exception ex)
             {
@@ -76,12 +86,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpPost("InsertPatientPayment")]
-        public ActionResult InsertPatientPayment(AmountPaidModel model)
+        [HttpGet("GetPatientSearchCount/{KeyWord}")]
+        public IActionResult GetPatientSearchCount(string KeyWord)
         {
             try
             {
-                return Ok(_IPatientService.InsertPatientPayment(model));
+                return Ok(_IPatientService.GetPatientSearchCount(KeyWord));
             }
             catch (Exception ex)
             {
@@ -91,18 +101,6 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpPost("InsertPatientHistory")]
-        public ActionResult InsertPatientHistory(PatientHistoryModel model)
-        {
-            try
-            {
-                return Ok(_IPatientService.InsertPatientHistory(model));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
+       
     }
 }
