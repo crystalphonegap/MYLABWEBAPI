@@ -28,7 +28,7 @@ namespace myLabWebApi.Controllers
             }
             catch (Exception ex)
             {
-                //_ILogger.Log(ex);
+                 _ILogger.Log(ex);
                 return BadRequest();
             }
         }
@@ -42,7 +42,7 @@ namespace myLabWebApi.Controllers
             }
             catch (Exception ex)
             {
-                //_ILogger.Log(ex);
+                _ILogger.Log(ex);
                 return BadRequest();
             }
         }

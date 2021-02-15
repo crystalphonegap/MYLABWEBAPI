@@ -50,8 +50,6 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                throw ex;
-
                 return BadRequest();
             }
         }
