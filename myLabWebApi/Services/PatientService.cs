@@ -123,13 +123,13 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
-        public List<PatientMasterModel> GetPatientDetail(long ID)
+        public List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -3, DbType.Int32);
             dbPara.Add("PageSize", ID, DbType.Int32);
             dbPara.Add("Keyword", "", DbType.String);
-            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList() ;
         }
 

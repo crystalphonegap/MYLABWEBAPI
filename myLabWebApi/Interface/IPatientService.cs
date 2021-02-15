@@ -14,7 +14,7 @@ namespace myLabWebApi.Interface
 
         long GetPatientSearchCount(string KeyWord);
 
-        List<PatientMasterModel> GetPatientDetail(long ID);
+        List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID);
         List<PAIT_HDR_DET_TEST> GetPatientTestDetail(long ID);
     }
 }

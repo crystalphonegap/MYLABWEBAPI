@@ -69,6 +69,9 @@ namespace myLabWebApi.Models
 
         public int TestId { get; set; }
         public string TESTMST_Name { get; set; }
+        public string TESTDET_FieldName { get; set; }
+        public string DOCDET_tFieldValue { get; set; }
+        public string TESTDET_NormalValue { get; set; }
         public decimal BaseRate { get; set; }
         public decimal Referal_Fee { get; set; }
         public decimal Discount1 { get; set; }
@@ -81,7 +84,6 @@ namespace myLabWebApi.Models
         public long ID { get; set; }
         public int DOCDET_lHeaderId { get; set; }
         public int DOCDET_lFieldNo { get; set; }
-        public string DOCDET_tFieldValue { get; set; }
         public int DOCDET_lTestCatId { get; set; }
         public string DOCDET_tFieldValue1 { get; set; }
         public bool isResRec { get; set; }
