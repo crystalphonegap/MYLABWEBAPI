@@ -133,5 +133,14 @@ namespace myLabWebApi.Services
             return data.ToList() ;
         }
 
+
+        public List<PAIT_HDR_DET_TEST> GetPatientTestDetail(long ID)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("TestId", ID, DbType.Int32);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[USP_GETTESTDETAIL]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList() ;
+        }
+
     }
 }

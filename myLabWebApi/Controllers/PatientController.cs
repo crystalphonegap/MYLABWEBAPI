@@ -99,6 +99,20 @@ namespace myLabWebApi.Controllers
         }
 
 
-       
+        [HttpGet("GetPatientTestDetail/{ID}")]
+        public IActionResult GetPatientTestDetail(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientTestDetail(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
     }
 }
