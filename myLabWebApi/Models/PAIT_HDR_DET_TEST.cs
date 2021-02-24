@@ -62,11 +62,7 @@ namespace myLabWebApi.Models
         public string CreditCardAmount { get; set; }
         public string NEFT_RTGSAmount { get; set; }
         public string CashAmount { get; set; }
-
         public string OtherRemarks { get; set; }
-
-
-
         public int TestId { get; set; }
         public string TESTMST_Name { get; set; }
         public string TESTDET_FieldName { get; set; }
@@ -80,14 +76,16 @@ namespace myLabWebApi.Models
         public string SpecialTest { get; set; }
         public string Type { get; set; }
         public int CENTER_id { get; set; }
-
         public long ID { get; set; }
         public int DOCDET_lHeaderId { get; set; }
         public int DOCDET_lFieldNo { get; set; }
         public int DOCDET_lTestCatId { get; set; }
+        public int TESTDET_FieldNo { get; set; }
+        public string TESTDET_FieldType { get; set; }
+        public string TESTDET_sFormula { get; set; }
         public string DOCDET_tFieldValue1 { get; set; }
         public bool isResRec { get; set; }
-        public bool Rerun { get; set; }
+        public string Rerun { get; set; }
         public string NormalValue { get; set; }
         public string sUnit { get; set; }
         public float MinValue { get; set; }
@@ -101,6 +99,7 @@ namespace myLabWebApi.Models
         public long DOCHDR_lPatientId { get; set; }
         public int DOCHDR_lDoctorId { get; set; }
         public string DOCHDR_sDescription { get; set; }
+        public string ResampleReason { get; set; }
         public DateTime DOCHDR_dDate { get; set; }
         public int DOCHDR_TestCatID { get; set; }
         public string DOCHDR_Sex { get; set; }
@@ -144,5 +143,7 @@ namespace myLabWebApi.Models
         public DateTime RequestDate { get; set; }
         public string RequestUser { get; set; }
         public DateTime IntegrationDate { get; set; }
-    }
+        public List<PREDEFVALModel> PREDEFVALModel { get; set; }
+}
+
 }

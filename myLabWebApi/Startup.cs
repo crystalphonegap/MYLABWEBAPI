@@ -64,9 +64,6 @@ namespace myLabWebApi
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext")));
 
-            //For all to Access WebApi
-
-            //Commented By SUman on 20-11-2020
             services.AddCors(options =>
             {
                 options.AddPolicy("EnableCORS", builder =>

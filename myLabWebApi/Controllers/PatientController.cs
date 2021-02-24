@@ -3,6 +3,7 @@ using myLabWebApi.Interface;
 using myLabWebApi.Models;
 using myLabWebApi.Security;
 using System;
+using System.Collections.Generic;
 
 namespace myLabWebApi.Controllers
 {
@@ -46,6 +47,20 @@ namespace myLabWebApi.Controllers
                 return Ok(_IPatientService.Create(model,"U"));
 
 
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        [HttpPut("UpdateDocDetTestValue")]
+        public ActionResult UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
+        {
+            try
+            {
+                return Ok(_IPatientService.UpdateDocDetTestValue(model));
             }
             catch (Exception ex)
             {
@@ -105,6 +120,21 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IPatientService.GetPatientTestDetail(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpGet("GetNarration/{KeyWord}")]
+        public IActionResult GetNarration(string KeyWord)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetNarration(KeyWord));
             }
             catch (Exception ex)
             {
