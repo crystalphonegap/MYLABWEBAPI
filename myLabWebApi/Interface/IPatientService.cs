@@ -20,5 +20,7 @@ namespace myLabWebApi.Interface
         long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model);
 
         List<NarrationModel> GetNarration(string KeyWord);
+
+        List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID);
     }
 }

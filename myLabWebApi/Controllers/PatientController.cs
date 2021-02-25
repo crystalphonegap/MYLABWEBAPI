@@ -143,6 +143,20 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpGet("GetPatientAllTestDetail/{ID}")]
+        public IActionResult GetPatientAllTestDetail(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientAllTestDetail(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
 
     }
 }

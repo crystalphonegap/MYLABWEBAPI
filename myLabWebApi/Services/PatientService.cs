@@ -201,6 +201,14 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_GetNarration]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
+        public List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID)
+        {
+            var dbPara = new DynamicParameters(); 
+            dbPara.Add("ID", ID, DbType.Int32);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
 
     }
 }
