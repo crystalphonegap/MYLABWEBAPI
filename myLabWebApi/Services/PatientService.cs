@@ -158,7 +158,6 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("TestId", ID, DbType.Int32);
 
-            List<PAIT_HDR_DET_TEST> model = new List<PAIT_HDR_DET_TEST>();
             var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[USP_GETTESTDETAIL]", dbPara, commandType: CommandType.StoredProcedure);
             for (int i = 0; i < data.Count; i++)
             {
@@ -166,19 +165,18 @@ namespace myLabWebApi.Services
                 {
                     List < PREDEFVALModel> PREDEFVALModel = new List<PREDEFVALModel>();
                     var PREDEFVALSTRING = GetPreDefineValue(data[i].DOCDET_lHeaderId, data[i].DOCDET_lFieldNo);
-                    List<string> result = PREDEFVALSTRING.Split(',').ToList();
-                    for (int k = 0; k < result.Count; k++) {
-                        PREDEFVALModel PREDEFVALModel1 = new PREDEFVALModel();
-                        PREDEFVALModel1.PREDEFVAL_Value = result[k];
-                        PREDEFVALModel.Add(PREDEFVALModel1);
+                    if (PREDEFVALSTRING != null)
+                    {
+                        List<string> result = PREDEFVALSTRING.Split(',').ToList();
+                        for (int k = 0; k < result.Count; k++)
+                        {
+                            PREDEFVALModel PREDEFVALModel1 = new PREDEFVALModel();
+                            PREDEFVALModel1.PREDEFVAL_Value = result[k];
+                            PREDEFVALModel.Add(PREDEFVALModel1);
+                        }
+                        data[i].PREDEFVALModel = PREDEFVALModel;
                     }
-                    data[i].PREDEFVALModel = PREDEFVALModel;
                 }
-                else
-                {
-                    model.Add(data[i]);
-                }
-
 
             }
             return data.ToList();
@@ -205,7 +203,29 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters(); 
             dbPara.Add("ID", ID, DbType.Int32);
+
             var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (Convert.ToInt32(data[i].TESTDET_FieldType) == 1)
+                {
+                    List<PREDEFVALModel> PREDEFVALModel = new List<PREDEFVALModel>();
+                    var PREDEFVALSTRING = GetPreDefineValue(data[i].DOCDET_lHeaderId, data[i].DOCDET_lFieldNo);
+                    if (PREDEFVALSTRING != null)
+                    {
+
+                        List<string> result = PREDEFVALSTRING.Split(',').ToList();
+                        for (int k = 0; k < result.Count; k++)
+                        {
+                            PREDEFVALModel PREDEFVALModel1 = new PREDEFVALModel();
+                            PREDEFVALModel1.PREDEFVAL_Value = result[k];
+                            PREDEFVALModel.Add(PREDEFVALModel1);
+                        }
+                        data[i].PREDEFVALModel = PREDEFVALModel;
+                    }
+                }
+              
+            }
             return data.ToList();
         }
 
