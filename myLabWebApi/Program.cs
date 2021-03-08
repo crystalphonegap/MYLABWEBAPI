@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
+using System.IO;
 
 namespace myLabWebApi
 {
@@ -18,6 +19,8 @@ namespace myLabWebApi
          Host.CreateDefaultBuilder(args)
              .ConfigureWebHostDefaults(webBuilder =>
              {
+                 webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
+                 webBuilder.UseWebRoot("wwwroot");
                  webBuilder.UseStartup<Startup>();
              });
 

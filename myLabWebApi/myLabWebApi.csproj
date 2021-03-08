@@ -20,6 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Reports\Report1.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\Reports\Report1.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="Dapper" Version="2.0.78" />
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
@@ -40,12 +49,28 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.ReportViewer.WebForms.v12" Version="12.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NLog" Version="4.7.7" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.7.0" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.10.0" />
     <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
+    <PackageReference Include="System.CodeDom" Version="5.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RDLC\RDLC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\Reports\TestReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataSet\" />
   </ItemGroup>
 
 </Project>

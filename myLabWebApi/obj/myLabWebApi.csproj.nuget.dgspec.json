@@ -27,7 +27,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj": {
+                "projectPath": "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +44,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AspNetCore.Reporting": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "ClosedXML": {
               "target": "Package",
               "version": "[0.95.4, )"
@@ -100,6 +108,10 @@
               "target": "Package",
               "version": "[5.0.3, )"
             },
+            "Microsoft.ReportViewer.WebForms.v12": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "NLog": {
               "target": "Package",
               "version": "[4.7.7, )"
@@ -119,6 +131,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "System.CodeDom": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
@@ -145,6 +161,16 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj",
+        "projectName": "RDLC",
+        "projectPath": "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj"
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

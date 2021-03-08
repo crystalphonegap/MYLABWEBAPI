@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCore.Reporting;
+using Dapper;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
-using myLabWebApi.Security;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace myLabWebApi.Controllers
 {
@@ -13,11 +18,20 @@ namespace myLabWebApi.Controllers
     {
         private readonly IPatientService _IPatientService;
         private readonly ILogger _ILogger;
+        private readonly IConfiguration _config;
 
-        public PatientController(ILogger ILoggerservice, IPatientService IPatientService)
+      
+
+        private readonly IMyLabHelper _MyLabHelper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public PatientController(ILogger ILoggerservice, IMyLabHelper MyLabHelper, IConfiguration config,IPatientService IPatientService, IWebHostEnvironment webHostEnvironment)
         {
             _ILogger = ILoggerservice;
+            _webHostEnvironment = webHostEnvironment;
             _IPatientService = IPatientService;
+            _MyLabHelper = MyLabHelper;
+            _config = config;
         }
 
         [HttpPost("CreatePatient")]
@@ -157,6 +171,31 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpGet("TestDetailReport/{ID}")]
+        public IActionResult TestDetailReport(int ID)
+        {
+            try
+            {
+                string mimtype = "";
+                int extension = 1;
+                //var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
+                var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\TestReport.rdlc";
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                List<PAIT_HDR_DET_TEST> resultdata = _IPatientService.GetPatientTestDetail(ID);
+                LocalReport localreport = new LocalReport(path);
+                localreport.AddDataSource("DataSet1", resultdata);
+                var result = localreport.Execute(RenderType.Pdf, extension, parameters, mimtype);
+                //System.IO.File.WriteAllBytes(@"D:\testpdf.pdf", result.MainStream);
+                string base64String = Convert.ToBase64String(result.MainStream, 0, result.MainStream.Length);
+                return Ok(base64String);
+
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
 
     }
 }

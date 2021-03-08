@@ -29,7 +29,7 @@ namespace myLabWebApi
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-
+            services.AddMvc();
             services.Configure<FormOptions>(o =>
             {
                 o.ValueLengthLimit = int.MaxValue;
