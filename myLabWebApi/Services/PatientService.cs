@@ -9,6 +9,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net.Http.Json;
 
 namespace myLabWebApi.Services
 {
@@ -17,6 +20,7 @@ namespace myLabWebApi.Services
         private readonly IConfiguration _config;
         private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
+
 
         public PATIENTService(IMyLabHelper MyLabHelper, ILogger ILoggerservice, IConfiguration config)
         {
@@ -153,10 +157,10 @@ namespace myLabWebApi.Services
             return data;
         }
 
-        public List<PAIT_HDR_DET_TEST> GetPatientTestDetail(long ID)
+        public List<PAIT_HDR_DET_TEST> GetPatientTestDetail(string ID)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("TestId", ID, DbType.Int32);
+            dbPara.Add("TestId",Convert.ToInt32( ID), DbType.Int32);
 
             var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[USP_GETTESTDETAIL]", dbPara, commandType: CommandType.StoredProcedure);
             for (int i = 0; i < data.Count; i++)

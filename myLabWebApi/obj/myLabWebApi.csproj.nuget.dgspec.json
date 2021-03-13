@@ -13,8 +13,12 @@
         "packagesPath": "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\",
         "outputPath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\CRYSTAL PC 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,11 +31,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj": {
-                "projectPath": "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -51,6 +51,10 @@
             "ClosedXML": {
               "target": "Package",
               "version": "[0.95.4, )"
+            },
+            "CrystalDecisions.CrystalReports.Engine": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Dapper": {
               "target": "Package",
@@ -108,10 +112,6 @@
               "target": "Package",
               "version": "[5.0.3, )"
             },
-            "Microsoft.ReportViewer.WebForms.v12": {
-              "target": "Package",
-              "version": "[12.0.0, )"
-            },
             "NLog": {
               "target": "Package",
               "version": "[4.7.7, )"
@@ -159,18 +159,8 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj": {
-      "restore": {
-        "projectUniqueName": "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj",
-        "projectName": "RDLC",
-        "projectPath": "D:\\AhmedProject\\my_Lab_Web_Api\\RDLC\\RDLC.csproj"
-      },
-      "frameworks": {
-        "net472": {}
       }
     }
   }

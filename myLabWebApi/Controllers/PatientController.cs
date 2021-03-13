@@ -1,4 +1,5 @@
 ﻿using AspNetCore.Reporting;
+using CrystalDecisions.CrystalReports.Engine;
 using Dapper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,8 +8,6 @@ using myLabWebApi.Interface;
 using myLabWebApi.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace myLabWebApi.Controllers
 {
@@ -129,7 +128,7 @@ namespace myLabWebApi.Controllers
 
 
         [HttpGet("GetPatientTestDetail/{ID}")]
-        public IActionResult GetPatientTestDetail(int ID)
+        public  IActionResult GetPatientTestDetail(string ID)
         {
             try
             {
@@ -170,32 +169,5 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
-
-        [HttpGet("TestDetailReport/{ID}")]
-        public IActionResult TestDetailReport(int ID)
-        {
-            try
-            {
-                string mimtype = "";
-                int extension = 1;
-                //var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
-                var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\TestReport.rdlc";
-                Dictionary<string, string> parameters = new Dictionary<string, string>();
-                List<PAIT_HDR_DET_TEST> resultdata = _IPatientService.GetPatientTestDetail(ID);
-                LocalReport localreport = new LocalReport(path);
-                localreport.AddDataSource("DataSet1", resultdata);
-                var result = localreport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-                //System.IO.File.WriteAllBytes(@"D:\testpdf.pdf", result.MainStream);
-                string base64String = Convert.ToBase64String(result.MainStream, 0, result.MainStream.Length);
-                return Ok(base64String);
-
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
-
     }
 }

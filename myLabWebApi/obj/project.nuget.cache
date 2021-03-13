@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "knSLxP61SOBuFqrcRmOdL5QzDsptoyEPIpTK4lsABw8nMmo2z0VOl3ylAEKDckWhTtZoWZPPLHMjCGv3h6tyTw==",
+  "dgSpecHash": "3f33FwCFehbKdnzfGzG+2noRqUSExwc6jXNpcSXBte12AZvNlKfIc3WmgwIUsP/LSswMqq1v54V8rje+yUIYkA==",
   "success": true,
   "projectFilePath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\aspnetcore.reporting\\2.1.0\\aspnetcore.reporting.2.1.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\aspnetcore.reportingservices\\2.1.0\\aspnetcore.reportingservices.2.1.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\closedxml\\0.95.4\\closedxml.0.95.4.nupkg.sha512",
+    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\crystaldecisions.crystalreports.engine\\1.0.0\\crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\documentformat.openxml\\2.7.2\\documentformat.openxml.2.7.2.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
@@ -52,7 +53,6 @@
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
-    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.reportviewer.webforms.v12\\12.0.0\\microsoft.reportviewer.webforms.v12.12.0.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
@@ -185,8 +185,8 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.ReportViewer.WebForms.v12 12.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.ReportViewer.WebForms.v12",
+      "message": "Package 'CrystalDecisions.CrystalReports.Engine 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalDecisions.CrystalReports.Engine",
       "targetGraphs": [
         "net5.0"
       ]

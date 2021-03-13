@@ -15,12 +15,14 @@ namespace myLabWebApi.Interface
         long GetPatientSearchCount(string KeyWord);
 
         List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID);
-        List<PAIT_HDR_DET_TEST> GetPatientTestDetail(long ID);
+        List<PAIT_HDR_DET_TEST> GetPatientTestDetail(string ID);
 
         long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model);
 
         List<NarrationModel> GetNarration(string KeyWord);
 
         List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID);
+
+
     }
 }
