@@ -137,6 +137,24 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
+        //Use for Get Patient By Mobile No
+        public int GetPatientByMobileNoCount(string MobileNo)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("MobileNo", MobileNo, DbType.String);
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[USP_GetPatientDetailsByMobileNo]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.Count;
+        }
+
+        public List<PatientMasterModel> GetPatientByMobileNo(string MobileNo)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("MobileNo", MobileNo, DbType.String);
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[USP_GetPatientDetailsByMobileNo]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+        //Use for Get Patient By Mobile No
+
         public long  UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
         {
             long data=0;
@@ -234,6 +252,22 @@ namespace myLabWebApi.Services
         }
 
 
+
+        public string GetLabNo(string LabSeriesSetting)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("LabSeriesSetting", LabSeriesSetting, DbType.String);
+            var data = _MyLabHelper.GetAll<string>("[dbo].[USP_getLabNoByDate]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToString();
+        }
+
+        public List<PatientMasterModel> GetPatientMobileNos(string MobileNo)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("MobileNo", MobileNo, DbType.String);
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[USP_GetPatientMobileNo]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
 
     }
 }

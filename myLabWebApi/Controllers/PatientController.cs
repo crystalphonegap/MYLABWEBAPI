@@ -169,5 +169,64 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+
+        //Use for Get Patient Details By Mobile No
+        [HttpGet("GetPatientByMobileNo/{MobileNo}")]
+        public IActionResult GetPatientByMobileNo(string MobileNo)
+        {
+            try
+            {
+                int rst = _IPatientService.GetPatientByMobileNoCount(MobileNo);
+                if (rst == 1)
+                {
+                    List<PatientMasterModel> model = _IPatientService.GetPatientByMobileNo(MobileNo);
+                    return Ok(_IPatientService.GetPatientDetail(model[0].Patient_Id));
+                }
+                else if (rst > 1)
+                {
+                    return Ok(_IPatientService.GetPatientByMobileNo(MobileNo));
+                }
+                else
+                {
+                    return Ok("No Records Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get Default Lab No
+        [HttpGet("GetLabNo/{LabSeriesSetting}")]
+        public IActionResult GetLabNo(string LabSeriesSetting)
+        {
+            try
+            {
+               return Ok(_IPatientService.GetLabNo(LabSeriesSetting));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Get Patient Mobile No's
+        [HttpGet("GetPatientMobileNos/{MobileNo}")]
+        public IActionResult GetPatientMobileNos(string MobileNo)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientMobileNos(MobileNo));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
     }
 }
