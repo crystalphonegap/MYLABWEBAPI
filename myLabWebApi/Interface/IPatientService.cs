@@ -23,6 +23,15 @@ namespace myLabWebApi.Interface
 
         List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID);
 
+        //Use for Get Patient By Mobile No
+        int GetPatientByMobileNoCount(string MobileNo);
 
+        List<PatientMasterModel> GetPatientByMobileNo(string MobileNo);
+        //Use for Get Patient By Mobile No
+
+
+        string GetLabNo(string LabSeriesSetting);
+
+        List<PatientMasterModel> GetPatientMobileNos(string MobileNo);
     }
 }

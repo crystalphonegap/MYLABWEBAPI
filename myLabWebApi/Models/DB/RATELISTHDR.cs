@@ -16,6 +16,8 @@ namespace myLabWebApi.Models.New
         public double? Histo { get; set; }
         public double? other { get; set; }
         public double? other1 { get; set; }
+
+        public string CollectionCenterName { get; set; }
     }
 
     public partial class RATELISTHDRSAVEAS
