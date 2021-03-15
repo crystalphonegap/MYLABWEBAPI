@@ -48,7 +48,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
             dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
             dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
-            dbPara.Add("PATIENT_Date", string.IsNullOrEmpty(PATIENT.PATIENT_Date) ? null : Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
+            dbPara.Add("PATIENT_Date", string.IsNullOrEmpty(PATIENT.PATIENT_Date.ToString()) ? null :  PATIENT.PATIENT_Date, DbType.DateTime);
             dbPara.Add("PATIENT_DOB", string.IsNullOrEmpty(PATIENT.PATIENT_DOB) ? null : Convert.ToDateTime(PATIENT.PATIENT_DOB), DbType.DateTime);
             dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
             dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
@@ -63,7 +63,7 @@ namespace myLabWebApi.Services
             dbPara.Add("EmergencyCharges", string.IsNullOrEmpty(PATIENT.EmergencyCharges) ? null : Convert.ToDecimal(PATIENT.EmergencyCharges), DbType.Decimal);
             dbPara.Add("Discount", string.IsNullOrEmpty(PATIENT.Discount) ? null : Convert.ToDecimal(PATIENT.Discount), DbType.Decimal);
             dbPara.Add("EmergencyChargesPecent", string.IsNullOrEmpty(PATIENT.EmergencyChargesPecent) ? null : Convert.ToDecimal(PATIENT.EmergencyChargesPecent), DbType.Decimal);
-            dbPara.Add("Sample_Date", string.IsNullOrEmpty(PATIENT.Sample_Date) ? null : Convert.ToDateTime(PATIENT.Sample_Date), DbType.DateTime);
+            dbPara.Add("Sample_Date", string.IsNullOrEmpty(PATIENT.Sample_Date.ToString()) ? null :  PATIENT.Sample_Date, DbType.DateTime);
             dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
             dbPara.Add("DiscountPercent", string.IsNullOrEmpty(PATIENT.DiscountPercent) ? null : Convert.ToDecimal(PATIENT.DiscountPercent), DbType.Decimal);
             dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);

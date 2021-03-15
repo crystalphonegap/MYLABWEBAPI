@@ -24,7 +24,7 @@ namespace myLabWebApi.Models
         public string PATIENT_Telno { get; set; }
         public string PATIENT_Gender { get; set; }
         public string PATIENT_Age { get; set; }
-        public string PATIENT_Date { get; set; }
+        public DateTime PATIENT_Date { get; set; }
         public int PATIENT_Doctorid { get; set; }
         public string PATIENT_DoctorName { get; set; }
         public int PATIENT_Companyid { get; set; }
@@ -41,7 +41,7 @@ namespace myLabWebApi.Models
         public string EmergencyCharges { get; set; }
         public string Discount { get; set; }
         public string EmergencyChargesPecent { get; set; }
-        public string Sample_Date { get; set; }
+        public DateTime Sample_Date { get; set; }
         public string PATIENT_DOB { get; set; }
         public string Remarks { get; set; }
         public string DiscountPercent { get; set; }
