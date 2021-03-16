@@ -189,7 +189,7 @@ namespace myLabWebApi.Controllers
                 }
                 else
                 {
-                    return Ok("No Records Found");
+                    return Ok(null);
                 }
             }
             catch (Exception ex)
