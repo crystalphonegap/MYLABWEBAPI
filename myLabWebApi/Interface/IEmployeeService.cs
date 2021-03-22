@@ -44,7 +44,7 @@ namespace myLabWebApi.Interface
 
         long insertUpdateRateList(RATELISTHDR RATELISTHDRmodel);
 
-        List<TestMaster> GetTestMasterForRateList(string keyword);
+        List<TestMaster> GetTestMasterForRateList(string keyword, string Type, int Catagory);
 
         long InsertRateListDetails(TestMaster master);
 

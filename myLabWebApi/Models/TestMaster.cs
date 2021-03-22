@@ -5,6 +5,7 @@
         public int RateListHID { get; set; }
         public int TestId { get; set; }
         public string TESTMST_Name { get; set; }
+        public string TestTypeName { get; set; }
         public decimal BaseRate { get; set; }
         public decimal Referal_Fee { get; set; }
         public decimal Discount { get; set; }

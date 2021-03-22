@@ -142,6 +142,7 @@ namespace myLabWebApi.Models
         public string RequestUser { get; set; }
         public DateTime IntegrationDate { get; set; }
         public List<PREDEFVALModel> PREDEFVALModel { get; set; }
-}
+        public string TestTypeName { get; set; }
+    }
 
 }

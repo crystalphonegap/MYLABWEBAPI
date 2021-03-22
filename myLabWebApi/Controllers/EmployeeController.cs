@@ -286,12 +286,12 @@ namespace myLabWebApi.Controllers
         //}
 
         //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList/{s}")]
-        public IActionResult GetTestMasterForRateList(string s)
+        [HttpGet("GetTestMasterForRateList/{keyword},{Type},{Catagory}")]
+        public IActionResult GetTestMasterForRateList(string keyword, string Type, int Catagory)
         {
             try
             {
-                return Ok(_IEmployeeService.GetTestMasterForRateList(s));
+                return Ok(_IEmployeeService.GetTestMasterForRateList(keyword, Type, Catagory));
             }
             catch (Exception ex)
             {

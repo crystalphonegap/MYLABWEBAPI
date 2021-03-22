@@ -34,5 +34,12 @@ namespace myLabWebApi.Interface
         long DeleteTestFormat(int Id);
 
         List<TestFormatDetails> GetTestFormatDetailList(int Id);
+        long GetReSampleReasonSearchCount(string KeyWord);
+        List<NarrationModel> GetReSampleReasonSearch(int PageNo, int PageSize, string KeyWord);
+        long InsertUpdateReSampleReason(NarrationModel model);
+        public long GetNarrationSearchCount(string KeyWord);
+        public List<NarrationModel> GetNarrationSearch(int PageNo, int PageSize, string KeyWord);
+        public long InsertUpdateNarration(NarrationModel model);
+
     }
 }

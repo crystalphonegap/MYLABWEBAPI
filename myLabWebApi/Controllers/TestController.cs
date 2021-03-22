@@ -257,5 +257,133 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+
+
+
+
+        //Use For Insert Test Type List
+        [HttpPost("InsertNarration")]
+        public IActionResult InsertNarration(NarrationModel model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateNarration(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Update Test Type List
+        [HttpPut("UpdateNarration")]
+        public IActionResult UpdateNarration(NarrationModel model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateNarration(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Narration List Search
+        [HttpGet("GetNarrationListSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetNarrationListSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_ITestService.GetNarrationSearch(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Narration List Search Count
+        [HttpGet("GetNarrationSearchCount/{KeyWord}")]
+        public IActionResult GetNarrationSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_ITestService.GetNarrationSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+
+
+        //Use For Insert Test Type List
+        [HttpPost("InsertReSampleReason")]
+        public IActionResult InsertReSampleReason(NarrationModel model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateReSampleReason(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Update Test Type List
+        [HttpPut("UpdateReSampleReason")]
+        public IActionResult UpdateReSampleReason(TestTypeModel model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateTestType(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For ReSampleReason List Search
+        [HttpGet("GetReSampleReasonListSearch/{PageNo},{PageSize},{KeyWord}")]
+        public IActionResult GetReSampleReasonListSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            try
+            {
+                return Ok(_ITestService.GetReSampleReasonSearch(PageNo, PageSize, KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For ReSampleReason List Search Count
+        [HttpGet("GetReSampleReasonSearchCount/{KeyWord}")]
+        public IActionResult GetReSampleReasonSearchCount(string KeyWord)
+        {
+            try
+            {
+                return Ok(_ITestService.GetReSampleReasonSearchCount(KeyWord));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
     }
 }

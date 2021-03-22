@@ -145,7 +145,7 @@ namespace myLabWebApi.Services
             dbPara.Add("DOCTOR_City", docmodel.DOCTOR_City, DbType.String);
             dbPara.Add("DOCTOR_State", docmodel.DOCTOR_State, DbType.String);
             dbPara.Add("TDS", docmodel.TDS, DbType.String);
-            dbPara.Add("Collection_Center", docmodel.Collection_Center, DbType.String);
+            dbPara.Add("Collection_Center", docmodel.Collection_Center, DbType.Int64);
             dbPara.Add("DOCTOR_Bill", docmodel.DOCTOR_Bill, DbType.String);
             dbPara.Add("DOCTOR_Pincode", docmodel.DOCTOR_Pincode, DbType.String);
             dbPara.Add("DOCTOR_Telno", docmodel.DOCTOR_Telno, DbType.String);
@@ -371,7 +371,7 @@ namespace myLabWebApi.Services
             #endregion using dapper
         }
 
-        public List<TestMaster> GetTestMasterForRateList(string keyword)
+        public List<TestMaster> GetTestMasterForRateList(string keyword,string Type,int Catagory)
         {
             var dbPara = new DynamicParameters();
             if (keyword == "NoSearch")
@@ -382,6 +382,8 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("keyword", keyword, DbType.String);
             }
+            dbPara.Add("@Type", Type, DbType.String);
+            dbPara.Add("@Catagory", Catagory, DbType.Int64);
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMaster]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }

@@ -271,5 +271,107 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<TestFormatDetails>("[dbo].[SP_GetTestForamtDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
+
+
+        public long InsertUpdateNarration(NarrationModel model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("NarrationId", model.NarrationId, DbType.Int32);
+            dbPara.Add("NarrationText", model.NarrationText, DbType.String);
+            
+            #region using dapper
+
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateNARRATIONS]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+
+            #endregion using dapper
+        }
+        public List<NarrationModel> GetNarrationSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_NARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetNarrationSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<CountModel>("[dbo].[SP_NARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0].ListCount;
+        }
+
+
+
+        public long InsertUpdateReSampleReason(NarrationModel model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("NarrationId", model.NarrationId, DbType.Int32);
+            dbPara.Add("NarrationText", model.NarrationText, DbType.String);
+
+            #region using dapper
+
+            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateReSampleNARRATIONS]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure);
+            return data;
+
+            #endregion using dapper
+        }
+        public List<NarrationModel> GetReSampleReasonSearch(int PageNo, int PageSize, string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", PageNo, DbType.Int32);
+            dbPara.Add("PageSize", PageSize, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_ReSampleNARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetReSampleReasonSearchCount(string KeyWord)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (KeyWord == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", KeyWord, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<CountModel>("[dbo].[SP_ReSampleNARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0].ListCount;
+        }
+
     }
 }
