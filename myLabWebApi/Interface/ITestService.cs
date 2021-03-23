@@ -7,9 +7,9 @@ namespace myLabWebApi.Interface
     {
         long InsertUpdateTestType(TestTypeModel model);
 
-        List<TestTypeModel> GetTestTypeSearch(int PageNo, int PageSize, string KeyWord);
+        List<TestTypeModel> GetTestTypeSearch(SearchByKeywordPageNoPageSize m);
 
-        long GetTestTypeSearchCount(string KeyWord);
+        long GetTestTypeSearchCount(SearchByKeyword m);
 
         TestTypeModel GetTestTypeUsingId(int Id);
 
@@ -25,20 +25,20 @@ namespace myLabWebApi.Interface
 
         List<PathalogyTestDetails> GetPathalogyTestDetailsUsingId(int Id);
 
-        List<PathalogyTestMaster> GetPathalogyTestSearch(int PageNo, int PageSize, string KeyWord);
+        List<PathalogyTestMaster> GetPathalogyTestSearch(SearchByKeywordPageNoPageSize m);
 
-        long GetPathalogyTestSearchCount(string KeyWord);
+        long GetPathalogyTestSearchCount(SearchByKeyword m);
 
         long InsertTestFormatDetails(TestFormatDetails model);
 
         long DeleteTestFormat(int Id);
 
         List<TestFormatDetails> GetTestFormatDetailList(int Id);
-        long GetReSampleReasonSearchCount(string KeyWord);
-        List<NarrationModel> GetReSampleReasonSearch(int PageNo, int PageSize, string KeyWord);
+        long GetReSampleReasonSearchCount(SearchByKeyword m);
+        List<NarrationModel> GetReSampleReasonSearch(SearchByKeywordPageNoPageSize m);
         long InsertUpdateReSampleReason(NarrationModel model);
-        public long GetNarrationSearchCount(string KeyWord);
-        public List<NarrationModel> GetNarrationSearch(int PageNo, int PageSize, string KeyWord);
+        public long GetNarrationSearchCount(SearchByKeyword m);
+        public List<NarrationModel> GetNarrationSearch(SearchByKeywordPageNoPageSize m);
         public long InsertUpdateNarration(NarrationModel model);
 
     }

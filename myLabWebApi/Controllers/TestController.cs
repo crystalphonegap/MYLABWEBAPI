@@ -19,12 +19,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Test Type List Search
-        [HttpGet("GetAllTestTypeDetails/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetAllTestTypeDetails(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetAllTestTypeDetails")]
+        public IActionResult GetAllTestTypeDetails(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_ITestService.GetTestTypeSearch(PageNo, PageSize, KeyWord));
+                return Ok(_ITestService.GetTestTypeSearch(m));
             }
             catch (Exception ex)
             {
@@ -34,12 +34,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Test Type List Search Count
-        [HttpGet("GetTestTypeSearchCount/{KeyWord}")]
-        public IActionResult GetTestTypeSearchCount(string KeyWord)
+        [HttpPost("GetTestTypeSearchCount")]
+        public IActionResult GetTestTypeSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_ITestService.GetTestTypeSearchCount(KeyWord));
+                return Ok(_ITestService.GetTestTypeSearchCount(m));
             }
             catch (Exception ex)
             {
@@ -184,12 +184,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For PathaLogyTest List Search
-        [HttpGet("GetPathaLogyTestListSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetPathaLogyTestListSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetPathalogyTestSearch")]
+        public IActionResult GetPathalogyTestSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_ITestService.GetPathalogyTestSearch(PageNo, PageSize, KeyWord));
+                return Ok(_ITestService.GetPathalogyTestSearch(m));
             }
             catch (Exception ex)
             {
@@ -199,12 +199,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For PathaLogyTest List Search Count
-        [HttpGet("GetPathaLogyTestSearchCount/{KeyWord}")]
-        public IActionResult GetPathaLogyTestSearchCount(string KeyWord)
+        [HttpPost("GetPathalogyTestSearchCount")]
+        public IActionResult GetPathalogyTestSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_ITestService.GetPathalogyTestSearchCount(KeyWord));
+                return Ok(_ITestService.GetPathalogyTestSearchCount(m));
             }
             catch (Exception ex)
             {
@@ -293,12 +293,12 @@ namespace myLabWebApi.Controllers
 
 
         //Use For Narration List Search
-        [HttpGet("GetNarrationListSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetNarrationListSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetNarrationSearch")]
+        public IActionResult GetNarrationSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_ITestService.GetNarrationSearch(PageNo, PageSize, KeyWord));
+                return Ok(_ITestService.GetNarrationSearch(m));
             }
             catch (Exception ex)
             {
@@ -308,12 +308,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Narration List Search Count
-        [HttpGet("GetNarrationSearchCount/{KeyWord}")]
-        public IActionResult GetNarrationSearchCount(string KeyWord)
+        [HttpPost("GetNarrationSearchCount")]
+        public IActionResult GetNarrationSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_ITestService.GetNarrationSearchCount(KeyWord));
+                return Ok(_ITestService.GetNarrationSearchCount(m));
             }
             catch (Exception ex)
             {
@@ -357,12 +357,12 @@ namespace myLabWebApi.Controllers
 
 
         //Use For ReSampleReason List Search
-        [HttpGet("GetReSampleReasonListSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetReSampleReasonListSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetReSampleReasonListSearch")]
+        public IActionResult GetReSampleReasonListSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_ITestService.GetReSampleReasonSearch(PageNo, PageSize, KeyWord));
+                return Ok(_ITestService.GetReSampleReasonSearch(m));
             }
             catch (Exception ex)
             {
@@ -372,12 +372,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For ReSampleReason List Search Count
-        [HttpGet("GetReSampleReasonSearchCount/{KeyWord}")]
-        public IActionResult GetReSampleReasonSearchCount(string KeyWord)
+        [HttpPost("GetReSampleReasonSearchCount")]
+        public IActionResult GetReSampleReasonSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_ITestService.GetReSampleReasonSearchCount(KeyWord));
+                return Ok(_ITestService.GetReSampleReasonSearchCount(m));
             }
             catch (Exception ex)
             {

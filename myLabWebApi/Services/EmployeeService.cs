@@ -23,19 +23,12 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord)
+        public List<EMPLOYEE> GetAllEmployeeDetails(SearchByKeywordPageNoPageSize m)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", PageNo, DbType.Int32);
-            dbPara.Add("PageSize", PageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_GetEmployeeDetails]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -83,36 +76,22 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public List<DOCTOR> GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
+        public List<DOCTOR> GetDoctorSearch(SearchByKeywordPageNoPageSize m)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", PageNo, DbType.Int32);
-            dbPara.Add("PageSize", PageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetDoctorSearchCount(string KeyWord)
+        public long GetDoctorSearchCount(SearchByKeyword m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
@@ -202,36 +181,22 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public List<COLLECTIONCENTER> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord)
+        public List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchByKeywordPageNoPageSize m)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", PageNo, DbType.Int32);
-            dbPara.Add("PageSize", PageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<COLLECTIONCENTER>("[dbo].[SP_CollectionCenterList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetCollectionCenterSearchCount(string KeyWord)
+        public long GetCollectionCenterSearchCount(SearchByKeyword m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<COLLECTIONCENTER>("[dbo].[SP_CollectionCenterList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
@@ -279,36 +244,22 @@ namespace myLabWebApi.Services
             #endregion using dapper
         }
 
-        public List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord)
+        public List<RATELISTHDR> GetRateListSearch(SearchByKeywordPageNoPageSize m)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", PageNo, DbType.Int32);
-            dbPara.Add("PageSize", PageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<RATELISTHDR>("[dbo].[SP_Rate_List]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetRateListSearchCount(string KeyWord)
+        public long GetRateListSearchCount(SearchByKeyword m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<RATELISTHDR>("[dbo].[SP_Rate_List]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
@@ -458,8 +409,8 @@ namespace myLabWebApi.Services
             dbPara.Add("EMPLOYEE_Telno", empmodel.EMPLOYEE_Telno, DbType.String);
             dbPara.Add("EMPLOYEE_MobileNo", empmodel.EMPLOYEE_MobileNo, DbType.String);
             dbPara.Add("EMPLOYEE_Email", empmodel.EMPLOYEE_Email, DbType.String);
-            dbPara.Add("EMPLOYEE_DateofBirth", Convert.ToDateTime(empmodel.EMPLOYEE_DateofBirth), DbType.DateTime);
-            dbPara.Add("EMPLOYEE_DateofJoining", Convert.ToDateTime(empmodel.EMPLOYEE_DateofJoining), DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofBirth", string.IsNullOrEmpty(empmodel.EMPLOYEE_DateofBirth) ?null: empmodel.EMPLOYEE_DateofBirth, DbType.DateTime);
+            dbPara.Add("EMPLOYEE_DateofJoining", string.IsNullOrEmpty(empmodel.EMPLOYEE_DateofBirth) ? null : empmodel.EMPLOYEE_DateofJoining, DbType.DateTime);
             dbPara.Add("EMPLOYEE_Qualification", empmodel.EMPLOYEE_Qualification, DbType.String);
             dbPara.Add("EMPLOYEE_Salary", empmodel.EMPLOYEE_Salary, DbType.Decimal);
             dbPara.Add("EMPLOYEE_Gender", empmodel.EMPLOYEE_Gender, DbType.String);
@@ -502,36 +453,22 @@ namespace myLabWebApi.Services
             #endregion using dapper
         }
 
-        public List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord)
+        public List<EMPLOYEE> GetEmployeeSearch(SearchByKeywordPageNoPageSize m)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", PageNo, DbType.Int32);
-            dbPara.Add("PageSize", PageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetEmployeeSearchCount(string KeyWord)
+        public long GetEmployeeSearchCount(SearchByKeyword m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            if (KeyWord == "NoSearch")
-            {
-                dbPara.Add("Keyword", "", DbType.String);
-            }
-            else
-            {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
-            }
+            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
@@ -552,5 +489,6 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMasterByCollectionCenterID]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
+         
     }
 }

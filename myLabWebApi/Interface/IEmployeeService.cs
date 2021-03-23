@@ -6,15 +6,15 @@ namespace myLabWebApi.Interface
 {
     public interface IEmployeeService
     {
-        List<EMPLOYEE> GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord);
+        List<EMPLOYEE> GetAllEmployeeDetails(SearchByKeywordPageNoPageSize m);
 
         List<DOCTOR> GetAllDoctorDetails();
 
         long InsertUpdateDoctor(DOCTOR orderHeaderdetails);
 
-        List<DOCTOR> GetDoctorSearch(int PageNo, int PageSize, string KeyWord);
+        List<DOCTOR> GetDoctorSearch(SearchByKeywordPageNoPageSize m);
 
-        long GetDoctorSearchCount(string KeyWord);
+        long GetDoctorSearchCount(SearchByKeyword m);
 
         DOCTOR GetDoctorUsingId(int Id);
 
@@ -24,9 +24,9 @@ namespace myLabWebApi.Interface
 
         long insertUpdollectionCenter(COLLECTIONCENTER centermodel);
 
-        List<COLLECTIONCENTER> GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord);
+        List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchByKeywordPageNoPageSize m);
 
-        long GetCollectionCenterSearchCount(string KeyWord);
+        long GetCollectionCenterSearchCount(SearchByKeyword m);
 
         COLLECTIONCENTER GetCollectionCenterById(int Id);
 
@@ -34,9 +34,9 @@ namespace myLabWebApi.Interface
 
         //long InsertUpdateEmployee(EMPLOYEE empmodel);
 
-        List<RATELISTHDR> GetRateListSearch(int PageNo, int PageSize, string KeyWord);
+        List<RATELISTHDR> GetRateListSearch(SearchByKeywordPageNoPageSize m);
 
-        long GetRateListSearchCount(string KeyWord);
+        long GetRateListSearchCount(SearchByKeyword m);
 
         RATELISTHDR GetRateListById(int Id);
 
@@ -58,9 +58,9 @@ namespace myLabWebApi.Interface
 
         long DeleteEmployeeById(int Id);
 
-        List<EMPLOYEE> GetEmployeeSearch(int PageNo, int PageSize, string KeyWord);
+        List<EMPLOYEE> GetEmployeeSearch(SearchByKeywordPageNoPageSize m);
 
-        long GetEmployeeSearchCount(string KeyWord);
+        long GetEmployeeSearchCount(SearchByKeyword m);
 
         RATELISTHDR GetRateListHeaderById(int Id);
 

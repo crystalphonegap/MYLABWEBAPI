@@ -19,12 +19,12 @@ namespace myLabWebApi.Controllers
             _IEmployeeService = IEmployeeService;
         }
 
-        [HttpGet("GetAllEmployeeDetails/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetAllEmployeeDetails(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetAllEmployeeDetails")]
+        public IActionResult GetAllEmployeeDetails(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetAllEmployeeDetails(PageNo, PageSize, KeyWord));
+                return Ok(_IEmployeeService.GetAllEmployeeDetails(m));
             }
             catch (Exception ex)
             {
@@ -103,12 +103,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetDoctorSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetDoctorSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetDoctorSearch")]
+        public IActionResult GetDoctorSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetDoctorSearch(PageNo, PageSize, KeyWord));
+                return Ok(_IEmployeeService.GetDoctorSearch(m));
             }
             catch (Exception ex)
             {
@@ -117,12 +117,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetDoctorSearchCount/{KeyWord}")]
-        public IActionResult GetDoctorSearchCount(string KeyWord)
+        [HttpPost("GetDoctorSearchCount")]
+        public IActionResult GetDoctorSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetDoctorSearchCount(KeyWord));
+                return Ok(_IEmployeeService.GetDoctorSearchCount(m));
             }
             catch (Exception ex)
             {
@@ -159,12 +159,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetCollectionCenterSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetCollectionCenterSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetCollectionCenterSearch")]
+        public IActionResult GetCollectionCenterSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetCollectionCenterSearch(PageNo, PageSize, KeyWord));
+                return Ok(_IEmployeeService.GetCollectionCenterSearch(m));
             }
             catch (Exception ex)
             {
@@ -173,12 +173,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetCollectionCenterSearchCount/{KeyWord}")]
-        public IActionResult GetCollectionCenterSearchCount(string KeyWord)
+        [HttpPost("GetCollectionCenterSearchCount")]
+        public IActionResult GetCollectionCenterSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetCollectionCenterSearchCount(KeyWord));
+                return Ok(_IEmployeeService.GetCollectionCenterSearchCount(m));
             }
             catch (Exception ex)
             {
@@ -243,12 +243,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetRateListSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetRateListSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetRateListSearch")]
+        public IActionResult GetRateListSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetRateListSearch(PageNo, PageSize, KeyWord));
+                return Ok(_IEmployeeService.GetRateListSearch(m));
             }
             catch (Exception ex)
             {
@@ -257,12 +257,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetRateListSearchCount/{KeyWord}")]
-        public IActionResult GetRateListSearchCount(string KeyWord)
+        [HttpPost("GetRateListSearchCount")]
+        public IActionResult GetRateListSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetRateListSearchCount(KeyWord));
+                return Ok(_IEmployeeService.GetRateListSearchCount(m));
             }
             catch (Exception ex)
             {
@@ -286,12 +286,12 @@ namespace myLabWebApi.Controllers
         //}
 
         //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList/{keyword},{Type},{Catagory}")]
+        [HttpGet("GetTestMasterForRateList,{keyword},{Type},{Catagory}")]
         public IActionResult GetTestMasterForRateList(string keyword, string Type, int Catagory)
         {
             try
             {
-                return Ok(_IEmployeeService.GetTestMasterForRateList(keyword, Type, Catagory));
+                return Ok(_IEmployeeService.GetTestMasterForRateList(keyword,  Type,  Catagory));
             }
             catch (Exception ex)
             {
@@ -434,12 +434,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Employee Search
-        [HttpGet("GetEmployeeSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetEmployeeSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpPost("GetEmployeeSearch")]
+        public IActionResult GetEmployeeSearch(SearchByKeywordPageNoPageSize m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetEmployeeSearch(PageNo, PageSize, KeyWord));
+                return Ok(_IEmployeeService.GetEmployeeSearch(m));
             }
             catch (Exception ex)
             {
@@ -449,12 +449,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Employee Search  Count
-        [HttpGet("GetEmployeeSearchCount/{KeyWord}")]
-        public IActionResult GetEmployeeSearchCount(string KeyWord)
+        [HttpPost("GetEmployeeSearchCount")]
+        public IActionResult GetEmployeeSearchCount(SearchByKeyword m)
         {
             try
             {
-                return Ok(_IEmployeeService.GetEmployeeSearchCount(KeyWord));
+                return Ok(_IEmployeeService.GetEmployeeSearchCount(m));
             }
             catch (Exception ex)
             {
