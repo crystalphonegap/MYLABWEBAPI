@@ -23,7 +23,7 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public List<EMPLOYEE> GetAllEmployeeDetails(SearchByKeywordPageNoPageSize m)
+        public List<EMPLOYEE> GetAllEmployeeDetails(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
@@ -76,7 +76,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public List<DOCTOR> GetDoctorSearch(SearchByKeywordPageNoPageSize m)
+        public List<DOCTOR> GetDoctorSearch(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
@@ -181,7 +181,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchByKeywordPageNoPageSize m)
+        public List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
@@ -244,7 +244,7 @@ namespace myLabWebApi.Services
             #endregion using dapper
         }
 
-        public List<RATELISTHDR> GetRateListSearch(SearchByKeywordPageNoPageSize m)
+        public List<RATELISTHDR> GetRateListSearch(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
@@ -453,7 +453,7 @@ namespace myLabWebApi.Services
             #endregion using dapper
         }
 
-        public List<EMPLOYEE> GetEmployeeSearch(SearchByKeywordPageNoPageSize m)
+        public List<EMPLOYEE> GetEmployeeSearch(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);

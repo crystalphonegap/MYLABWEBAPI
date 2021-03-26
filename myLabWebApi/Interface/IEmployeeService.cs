@@ -6,13 +6,13 @@ namespace myLabWebApi.Interface
 {
     public interface IEmployeeService
     {
-        List<EMPLOYEE> GetAllEmployeeDetails(SearchByKeywordPageNoPageSize m);
+        List<EMPLOYEE> GetAllEmployeeDetails(SearchFilters m);
 
         List<DOCTOR> GetAllDoctorDetails();
 
         long InsertUpdateDoctor(DOCTOR orderHeaderdetails);
 
-        List<DOCTOR> GetDoctorSearch(SearchByKeywordPageNoPageSize m);
+        List<DOCTOR> GetDoctorSearch(SearchFilters m);
 
         long GetDoctorSearchCount(SearchByKeyword m);
 
@@ -24,7 +24,7 @@ namespace myLabWebApi.Interface
 
         long insertUpdollectionCenter(COLLECTIONCENTER centermodel);
 
-        List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchByKeywordPageNoPageSize m);
+        List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchFilters m);
 
         long GetCollectionCenterSearchCount(SearchByKeyword m);
 
@@ -34,7 +34,7 @@ namespace myLabWebApi.Interface
 
         //long InsertUpdateEmployee(EMPLOYEE empmodel);
 
-        List<RATELISTHDR> GetRateListSearch(SearchByKeywordPageNoPageSize m);
+        List<RATELISTHDR> GetRateListSearch(SearchFilters m);
 
         long GetRateListSearchCount(SearchByKeyword m);
 
@@ -58,7 +58,7 @@ namespace myLabWebApi.Interface
 
         long DeleteEmployeeById(int Id);
 
-        List<EMPLOYEE> GetEmployeeSearch(SearchByKeywordPageNoPageSize m);
+        List<EMPLOYEE> GetEmployeeSearch(SearchFilters m);
 
         long GetEmployeeSearchCount(SearchByKeyword m);
 

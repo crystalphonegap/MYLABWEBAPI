@@ -20,7 +20,7 @@ namespace myLabWebApi.Controllers
 
         //Use For Test Type List Search
         [HttpPost("GetAllTestTypeDetails")]
-        public IActionResult GetAllTestTypeDetails(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetAllTestTypeDetails(SearchFilters m)
         {
             try
             {
@@ -185,7 +185,7 @@ namespace myLabWebApi.Controllers
 
         //Use For PathaLogyTest List Search
         [HttpPost("GetPathalogyTestSearch")]
-        public IActionResult GetPathalogyTestSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetPathalogyTestSearch(SearchByKeywordPageNoPageSizeType m)
         {
             try
             {
@@ -200,7 +200,7 @@ namespace myLabWebApi.Controllers
 
         //Use For PathaLogyTest List Search Count
         [HttpPost("GetPathalogyTestSearchCount")]
-        public IActionResult GetPathalogyTestSearchCount(SearchByKeyword m)
+        public IActionResult GetPathalogyTestSearchCount(SearchByKeywordType m)
         {
             try
             {
@@ -294,7 +294,7 @@ namespace myLabWebApi.Controllers
 
         //Use For Narration List Search
         [HttpPost("GetNarrationSearch")]
-        public IActionResult GetNarrationSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetNarrationSearch(SearchFilters m)
         {
             try
             {
@@ -358,7 +358,7 @@ namespace myLabWebApi.Controllers
 
         //Use For ReSampleReason List Search
         [HttpPost("GetReSampleReasonListSearch")]
-        public IActionResult GetReSampleReasonListSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetReSampleReasonListSearch(SearchFilters m)
         {
             try
             {

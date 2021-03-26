@@ -20,7 +20,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetAllEmployeeDetails")]
-        public IActionResult GetAllEmployeeDetails(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetAllEmployeeDetails(SearchFilters m)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetDoctorSearch")]
-        public IActionResult GetDoctorSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetDoctorSearch(SearchFilters m)
         {
             try
             {
@@ -160,7 +160,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetCollectionCenterSearch")]
-        public IActionResult GetCollectionCenterSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetCollectionCenterSearch(SearchFilters m)
         {
             try
             {
@@ -244,7 +244,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetRateListSearch")]
-        public IActionResult GetRateListSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetRateListSearch(SearchFilters m)
         {
             try
             {
@@ -435,7 +435,7 @@ namespace myLabWebApi.Controllers
 
         //Use For Employee Search
         [HttpPost("GetEmployeeSearch")]
-        public IActionResult GetEmployeeSearch(SearchByKeywordPageNoPageSize m)
+        public IActionResult GetEmployeeSearch(SearchFilters m)
         {
             try
             {
