@@ -166,8 +166,8 @@ namespace myLabWebApi.Services
                                     dbPara.Add("TESTDET_CatTypeId", string.IsNullOrEmpty(model.PathalogyTestDetails[count].TESTDET_CatTypeId) ? null : Convert.ToInt64(model.PathalogyTestDetails[count].TESTDET_CatTypeId), DbType.Int64);
                                     dbPara.Add("ValueForNormal", model.PathalogyTestDetails[count].ValueForNormal, DbType.String);
                                     DETID= db.Query<long>("[dbo].[SP_InsertTestDetails]", dbPara,commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
-                             
-                                    if (model.PathalogyTestDetails[count].PREDEFVALModel.Count > 0)
+                          
+                                    if (model.PathalogyTestDetails[count].PREDEFVALModel != null)
                                     {
                                         for (int count2 = 0; count2 < model.PathalogyTestDetails[count].PREDEFVALModel.Count; count2++)
                                         {
@@ -180,11 +180,6 @@ namespace myLabWebApi.Services
                                     }
                                 }
                             }
-
-
-
-
-
 
                             tran.Commit();
                         }
