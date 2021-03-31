@@ -286,7 +286,7 @@ namespace myLabWebApi.Controllers
         //}
 
         //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList,{keyword},{Type},{Catagory}")]
+        [HttpGet("GetTestMasterForRateList/{keyword},{Type},{Catagory}")]
         public IActionResult GetTestMasterForRateList(string keyword, string Type, int Catagory)
         {
             try
@@ -314,20 +314,20 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        //Use For Insert Rate Detail List
-        [HttpPost("InsertRateDetailList")]
-        public IActionResult InsertRateDetailList(TestMaster mastermodel)
-        {
-            try
-            {
-                return Ok(_IEmployeeService.InsertRateListDetails(mastermodel));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
+        ////Use For Insert Rate Detail List
+        //[HttpPost("InsertRateDetailList")]
+        //public IActionResult InsertRateDetailList(TestMaster mastermodel)
+        //{
+        //    try
+        //    {
+        //        return Ok(_IEmployeeService.InsertRateListDetails(mastermodel));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest();
+        //    }
+        //}
 
         //Use For Delete Rate Detail List
         [HttpDelete("DeleteRateListDetailsById/{ID}")]

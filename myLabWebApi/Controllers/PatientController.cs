@@ -171,6 +171,21 @@ namespace myLabWebApi.Controllers
         }
 
 
+
+        [HttpGet("GetTestDetailByTestMstID/{ID}")]
+        public IActionResult GetTestDetailByTestMstID(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetTestDetailByTestMstID(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
         //Use for Get Patient Details By Mobile No
         [HttpGet("GetPatientByMobileNo/{MobileNo}")]
         public IActionResult GetPatientByMobileNo(string MobileNo)

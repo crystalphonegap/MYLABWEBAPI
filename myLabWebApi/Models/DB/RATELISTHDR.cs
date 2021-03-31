@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace myLabWebApi.Models.New
 {
@@ -18,6 +19,8 @@ namespace myLabWebApi.Models.New
         public double? other1 { get; set; }
 
         public string CollectionCenterName { get; set; }
+
+        public List<TestMaster> TestMaster { get; set; }
     }
 
     public partial class RATELISTHDRSAVEAS

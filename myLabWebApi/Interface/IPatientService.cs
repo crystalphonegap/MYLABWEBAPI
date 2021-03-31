@@ -22,6 +22,7 @@ namespace myLabWebApi.Interface
         List<NarrationModel> GetNarration(string KeyWord);
 
         List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID);
+        List<PAIT_HDR_DET_TEST> GetTestDetailByTestMstID(long ID);
 
         //Use for Get Patient By Mobile No
         int GetPatientByMobileNoCount(string MobileNo);

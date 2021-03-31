@@ -24,7 +24,7 @@ namespace myLabWebApi.Models
         public string PATIENT_Telno { get; set; }
         public string PATIENT_Gender { get; set; }
         public string PATIENT_Age { get; set; }
-        public DateTime PATIENT_Date { get; set; }
+        public string PATIENT_Date { get; set; }
         public int PATIENT_Doctorid { get; set; }
         public string PATIENT_DoctorName { get; set; }
         public int PATIENT_Companyid { get; set; }

@@ -46,11 +46,11 @@ namespace myLabWebApi.Interface
 
         List<TestMaster> GetTestMasterForRateList(string keyword, string Type, int Catagory);
 
-        long InsertRateListDetails(TestMaster master);
+        long InsertRateListDetails(List<TestMaster> master, long RateListHID);
 
         List<TestMaster> GetRateListDetailsById(int Id);
 
-        long DeleteRateListDetailsById(int Id);
+        long DeleteRateListDetailsById(long Id);
 
         long InsertUpdateEmployee(EMPLOYEE empmodel);
 

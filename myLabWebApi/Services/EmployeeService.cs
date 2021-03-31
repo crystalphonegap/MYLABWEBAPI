@@ -274,6 +274,7 @@ namespace myLabWebApi.Services
 
         public long DeleteRateListById(int Id)
         {
+            //change sp for use
             var dbPara = new DynamicParameters();
             dbPara.Add("ID", Id, DbType.Int32);
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteRateListDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
@@ -297,9 +298,11 @@ namespace myLabWebApi.Services
 
             #region using dapper
 
-            var data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateRateList]",
+            long data = _MyLabHelper.Insert<long>("[dbo].[InsertUpdateRateList]",
                             dbPara,
                             commandType: CommandType.StoredProcedure);
+            DeleteRateListDetailsById(data);
+            InsertRateListDetails(RATELISTHDR.TestMaster, data);
             return data;
 
             #endregion using dapper
@@ -339,23 +342,34 @@ namespace myLabWebApi.Services
             return data;
         }
 
-        public long InsertRateListDetails(TestMaster master)
+        public long InsertRateListDetails(List<TestMaster>  master, long RateListHID)
         {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("RateListHID", master.RateListHID, DbType.Int64);
-            dbPara.Add("TestId", master.TestId, DbType.Int64);
-            dbPara.Add("TestRate", master.TestRate, DbType.Decimal);
-            dbPara.Add("Discount", master.Discount, DbType.Decimal);
-            dbPara.Add("LumSumAmt", master.LumSumAmt, DbType.Decimal);
-            dbPara.Add("SpecialTest", master.SpecialTest, DbType.Boolean);
-            dbPara.Add("BaseRate", master.BaseRate, DbType.Decimal);
-            dbPara.Add("Discount1", master.Discount, DbType.Decimal);
+            long data = 0;
+            for (int count =0;count < master.Count; count++)
+            {
+                try
+                {
+                    var dbPara = new DynamicParameters();
+                    dbPara.Add("RateListHID", RateListHID, DbType.Int64);
+                    dbPara.Add("TestId", master[count].TestId, DbType.Int64);
+                    dbPara.Add("TestRate", master[count].TestRate, DbType.Decimal);
+                    dbPara.Add("Discount", master[count].Discount, DbType.Decimal);
+                    dbPara.Add("LumSumAmt", master[count].LumSumAmt, DbType.Decimal);
+                    dbPara.Add("SpecialTest", master[count].SpecialTest, DbType.Boolean);
+                    dbPara.Add("BaseRate", master[count].BaseRate, DbType.Decimal);
+                    dbPara.Add("Discount1", master[count].Discount, DbType.Decimal);
 
-            #region using dapper
+                    #region using dapper
 
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertRateListDetails]",
-                            dbPara,
-                            commandType: CommandType.StoredProcedure);
+                    data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertRateListDetails]",
+                                   dbPara,
+                                   commandType: CommandType.StoredProcedure);
+
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
             return data;
 
             #endregion using dapper
@@ -379,10 +393,10 @@ namespace myLabWebApi.Services
             return data;
         }
 
-        public long DeleteRateListDetailsById(int Id)
+        public long DeleteRateListDetailsById(long Id)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("@ID", Id, DbType.Int32);
+            dbPara.Add("@ID", Id, DbType.Int64);
 
             #region using dapper
 

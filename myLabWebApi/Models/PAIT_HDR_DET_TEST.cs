@@ -62,6 +62,7 @@ namespace myLabWebApi.Models
         public string CashAmount { get; set; }
         public string OtherRemarks { get; set; }
         public int TestId { get; set; }
+        public int TESTDET_CurrentId { get; set; }
         public string TESTMST_Name { get; set; }
         public string TESTDET_FieldName { get; set; }
         public string DOCDET_tFieldValue { get; set; }
@@ -71,7 +72,7 @@ namespace myLabWebApi.Models
         public decimal Discount1 { get; set; }
         public decimal TestRate { get; set; }
         public decimal LumSumAmt { get; set; }
-        public string SpecialTest { get; set; }
+        public bool SpecialTest { get; set; }
         public string Type { get; set; }
         public int CENTER_id { get; set; }
         public long ID { get; set; }
@@ -143,6 +144,51 @@ namespace myLabWebApi.Models
         public DateTime IntegrationDate { get; set; }
         public List<PREDEFVALModel> PREDEFVALModel { get; set; }
         public string TestTypeName { get; set; }
+        public string TESTMST_CurrentId { get; set; }
+        public string TESTMST_PrintFormat { get; set; }
+        public string TESTMST_Rate { get; set; }
+        public string TESTMST_ReportHeading { get; set; }
+        public string TESTMST_Testcost { get; set; }
+        public string TESTMST_Alias { get; set; }
+        public string TESTMST_Percentage { get; set; }
+        public string TESTMST_Lumsum { get; set; }
+        public bool Active { get; set; }
+        public string Comments { get; set; }
+        public string TESTMST_Companyid { get; set; }
+        public string TESTMST_TestTypeId { get; set; }
+        public string TESTMST_CatType { get; set; }
+        public string TESTMST_sample { get; set; }
+        public bool IsKitImageCompulsary { get; set; }
+        public string TAT { get; set; }
+        public bool IsNABL { get; set; }
+        public string TESTDET_TestMasterID { get; set; }
+        public string TESTDET_Description { get; set; }
+        public string TESTDET_GroupName { get; set; }
+        public string TESTDET_GroupNo { get; set; }
+        public string TESTDET_FieldStyle { get; set; }
+        public bool TESTDET_Compulsory { get; set; }
+        public string TESTDET_MaxValue { get; set; }
+        public string TESTDET_MinValue { get; set; }
+        public string TESTDET_sDefault { get; set; }
+        public string TESTDET_sAlias { get; set; }
+        public string TESTDET_sUnit { get; set; }
+        public string TESTDET_MaxLimit { get; set; }
+        public string TESTDET_MinLimit { get; set; }
+        public bool TESTDET_Validate { get; set; }
+        public string TESTDET_ANormalValue { get; set; }
+        public string TESTDET_BNormalValue { get; set; }
+        public string TESTDET_CNormalValue { get; set; }
+        public string TESTDET_DNormalValue { get; set; }
+        public string TESTDET_AMaxValue { get; set; }
+        public string TESTDET_AMinValue { get; set; }
+        public string TESTDET_BMaxValue { get; set; }
+        public string TESTDET_BMinValue { get; set; }
+        public string TESTDET_CMaxValue { get; set; }
+        public string TESTDET_CMinValue { get; set; }
+        public string TESTDET_DMaxValue { get; set; }
+        public string TESTDET_DMinValue { get; set; }
+        public string TESTDET_TestTypeId { get; set; }
+        public string TESTDET_CatTypeId { get; set; }
     }
 
 }
