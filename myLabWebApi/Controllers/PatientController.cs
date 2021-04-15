@@ -47,6 +47,21 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
+        [HttpGet("GetAllTESTDETForPathTest/{search}")]
+        public IActionResult GetAllTESTDETForPathTest(string search)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetAllTESTDETForPathTest(search));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
         [HttpPut("UpdatePatient")]
         public ActionResult UpdatePatient(PatientMasterModel model)
         {
@@ -236,6 +251,62 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_IPatientService.GetPatientMobileNos(MobileNo));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("GetBlackListMobilesSearch")]
+        public ActionResult GetBlackListMobilesSearch(SearchFilters model)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetBlackListMobilesSearch( model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("GetBlackListMobilesSearchCount")]
+        public ActionResult GetBlackListMobilesSearchCount(SearchFilters model)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetBlackListMobilesSearchCount(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+        [HttpGet("DeleteBlackListMobiles/{ID}")]
+        public ActionResult DeleteBlackListMobiles(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.DeleteBlackListMobiles(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+        [HttpPost("InsertBlackListMobiles")]
+        public ActionResult InsertBlackListMobiles(BlackListMobilesModel model)
+        {
+            try
+            {
+                return Ok(_IPatientService.InsertBlackListMobiles(model));
             }
             catch (Exception ex)
             {

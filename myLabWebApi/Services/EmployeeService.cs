@@ -86,7 +86,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetDoctorSearchCount(SearchByKeyword m)
+        public long GetDoctorSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -191,7 +191,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetCollectionCenterSearchCount(SearchByKeyword m)
+        public long GetCollectionCenterSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -254,7 +254,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetRateListSearchCount(SearchByKeyword m)
+        public long GetRateListSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -364,7 +364,6 @@ namespace myLabWebApi.Services
                     data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertRateListDetails]",
                                    dbPara,
                                    commandType: CommandType.StoredProcedure);
-
                 }catch(Exception ex)
                 {
                     Console.WriteLine(ex);
@@ -477,7 +476,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetEmployeeSearchCount(SearchByKeyword m)
+        public long GetEmployeeSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);

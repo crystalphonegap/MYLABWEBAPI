@@ -79,9 +79,6 @@ namespace myLabWebApi.Models
         public int DOCDET_lHeaderId { get; set; }
         public int DOCDET_lFieldNo { get; set; }
         public int DOCDET_lTestCatId { get; set; }
-        public int TESTDET_FieldNo { get; set; }
-        public string TESTDET_FieldType { get; set; }
-        public string TESTDET_sFormula { get; set; }
         public string DOCDET_tFieldValue1 { get; set; }
         public bool isResRec { get; set; }
         public string Rerun { get; set; }
@@ -189,6 +186,12 @@ namespace myLabWebApi.Models
         public string TESTDET_DMinValue { get; set; }
         public string TESTDET_TestTypeId { get; set; }
         public string TESTDET_CatTypeId { get; set; }
+        public int TESTDET_FieldNo { get; set; }
+        public string TESTDET_FieldType { get; set; }
+        public string TESTDET_sFormula { get; set; }
+        public string TEST_FieldName { get; set; }
+        public int TEST_FormatSrNo { get; set; }
+        public string TEST_sDefault { get; set; }
     }
 
 }

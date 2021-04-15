@@ -118,7 +118,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetDoctorSearchCount")]
-        public IActionResult GetDoctorSearchCount(SearchByKeyword m)
+        public IActionResult GetDoctorSearchCount(SearchFilters m)
         {
             try
             {
@@ -174,7 +174,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetCollectionCenterSearchCount")]
-        public IActionResult GetCollectionCenterSearchCount(SearchByKeyword m)
+        public IActionResult GetCollectionCenterSearchCount(SearchFilters m)
         {
             try
             {
@@ -258,7 +258,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("GetRateListSearchCount")]
-        public IActionResult GetRateListSearchCount(SearchByKeyword m)
+        public IActionResult GetRateListSearchCount(SearchFilters m)
         {
             try
             {
@@ -450,7 +450,7 @@ namespace myLabWebApi.Controllers
 
         //Use For Employee Search  Count
         [HttpPost("GetEmployeeSearchCount")]
-        public IActionResult GetEmployeeSearchCount(SearchByKeyword m)
+        public IActionResult GetEmployeeSearchCount(SearchFilters m)
         {
             try
             {

@@ -18,13 +18,6 @@ namespace myLabWebApi.Models
         public string KeyWord { get; set; }
         public string Type { get; set; }
     }
-    public class SearchByKeyword
-    {
-        public int PageNo { get; set; }
-        public int PageSize { get; set; }
-        public string KeyWord { get; set; }
-    }
-
     public class SearchByKeywordType
     {
         public int PageNo { get; set; }

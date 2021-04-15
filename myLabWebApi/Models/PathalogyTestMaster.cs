@@ -24,6 +24,8 @@ namespace myLabWebApi.Models
         public bool IsKitImageCompulsary { get; set; }
         public string TAT { get; set; }
         public bool IsNABL { get; set; }
+        public bool Selected { get; set; }
         public List<PathalogyTestDetails> PathalogyTestDetails { get; set; }
+        public List<TestFormatDetails> TestFormatDetails { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace myLabWebApi.Interface
 
         List<DOCTOR> GetDoctorSearch(SearchFilters m);
 
-        long GetDoctorSearchCount(SearchByKeyword m);
+        long GetDoctorSearchCount(SearchFilters m);
 
         DOCTOR GetDoctorUsingId(int Id);
 
@@ -26,7 +26,7 @@ namespace myLabWebApi.Interface
 
         List<COLLECTIONCENTER> GetCollectionCenterSearch(SearchFilters m);
 
-        long GetCollectionCenterSearchCount(SearchByKeyword m);
+        long GetCollectionCenterSearchCount(SearchFilters m);
 
         COLLECTIONCENTER GetCollectionCenterById(int Id);
 
@@ -36,7 +36,7 @@ namespace myLabWebApi.Interface
 
         List<RATELISTHDR> GetRateListSearch(SearchFilters m);
 
-        long GetRateListSearchCount(SearchByKeyword m);
+        long GetRateListSearchCount(SearchFilters m);
 
         RATELISTHDR GetRateListById(int Id);
 
@@ -60,7 +60,7 @@ namespace myLabWebApi.Interface
 
         List<EMPLOYEE> GetEmployeeSearch(SearchFilters m);
 
-        long GetEmployeeSearchCount(SearchByKeyword m);
+        long GetEmployeeSearchCount(SearchFilters m);
 
         RATELISTHDR GetRateListHeaderById(int Id);
 

@@ -52,7 +52,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetTestTypeSearchCount(SearchByKeyword m)
+        public long GetTestTypeSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -69,6 +69,13 @@ namespace myLabWebApi.Services
             dbPara.Add("Mode", "Get", DbType.String);
             var data = _MyLabHelper.GetAll<TestTypeModel>("[dbo].[SP_GetTestTypeByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
+        }
+        public List<TestDetModel> GetPTestResult(long Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32); 
+            var data = _MyLabHelper.GetAll<TestDetModel>("[dbo].[SP_GetTestResultByTestMstID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
         }
 
         public long DeleteTestTypeById(int Id)
@@ -179,6 +186,90 @@ namespace myLabWebApi.Services
                                         }
                                     }
                                 }
+                            }
+
+                            tran.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            tran.Rollback();
+                            throw ex;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (db.State == ConnectionState.Open)
+                        db.Close();
+                }
+
+                return MSTID;
+            }
+
+            #region using dapper
+
+
+            #endregion using dapper
+        }
+
+        public long InsertUpdateTest(PathalogyTestMaster model)
+        {
+            long MSTID;
+            long DETID;
+            var dbPara = new DynamicParameters();
+            using (IDbConnection db = new SqlConnection(_config.GetConnectionString("DatabaseContext")))
+            {
+                try
+                {
+                    if (db.State == ConnectionState.Closed)
+                        db.Open();
+
+                    using (var tran = db.BeginTransaction())
+                    {
+                        try
+                        {
+                            dbPara.Add("TESTMST_CurrentId", string.IsNullOrEmpty(model.TESTMST_CurrentId) ? 0 : Convert.ToInt64(model.TESTMST_CurrentId), DbType.Int64);
+                            dbPara.Add("TESTMST_Name", model.TESTMST_Name, DbType.String);
+                            dbPara.Add("TESTMST_PrintFormat", model.TESTMST_PrintFormat, DbType.String);
+                            dbPara.Add("TESTMST_Rate", string.IsNullOrEmpty(model.TESTMST_Rate) ? null : Convert.ToDecimal(model.TESTMST_Rate), DbType.Decimal);
+                            dbPara.Add("TESTMST_ReportHeading", model.TESTMST_ReportHeading, DbType.String);
+                            dbPara.Add("Type", model.Type, DbType.String);
+                            dbPara.Add("TESTMST_Testcost", string.IsNullOrEmpty(model.TESTMST_Testcost) ? null : Convert.ToDecimal(model.TESTMST_Testcost), DbType.Decimal);
+                            dbPara.Add("TESTMST_Alias", model.TESTMST_Alias, DbType.String);
+                            dbPara.Add("TESTMST_Percentage", string.IsNullOrEmpty(model.TESTMST_Percentage) ? null : Convert.ToDecimal(model.TESTMST_Percentage), DbType.Decimal);
+                            dbPara.Add("TESTMST_Lumsum", string.IsNullOrEmpty(model.TESTMST_Lumsum) ? null : Convert.ToDecimal(model.TESTMST_Lumsum), DbType.Decimal);
+                            dbPara.Add("Active", model.Active, DbType.Boolean);
+                            dbPara.Add("Comments", model.Comments, DbType.String);
+                            dbPara.Add("TESTMST_Companyid", string.IsNullOrEmpty(model.TESTMST_Companyid) ? null : Convert.ToInt64(model.TESTMST_Companyid), DbType.Int64);
+                            dbPara.Add("TESTMST_TestTypeId", string.IsNullOrEmpty(model.TESTMST_TestTypeId) ? null : Convert.ToInt64(model.TESTMST_TestTypeId), DbType.Int64);
+                            dbPara.Add("TESTMST_CatType", model.TESTMST_CatType, DbType.String);
+                            dbPara.Add("SpecialTest", model.SpecialTest, DbType.Boolean);
+                            dbPara.Add("TESTMST_sample", model.TESTMST_sample, DbType.String);
+                            dbPara.Add("IsKitImageCompulsary",null, DbType.Boolean);
+                            dbPara.Add("TAT", model.TAT, DbType.String);
+                            dbPara.Add("IsNABL", model.IsNABL, DbType.Boolean);
+                            MSTID = db.Query<long>("[dbo].[SP_InsertUpdateTestMasterList]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
+
+                            dbPara = new DynamicParameters();
+                            dbPara.Add("TEST_TestMasterID", MSTID, DbType.Int64);
+                            var temp = db.Query<long>("[dbo].[SP_DeleteTestFormatDetails]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
+
+                             if (model.TestFormatDetails != null)
+                            {
+                                for (int count = 0; count < model.TestFormatDetails.Count; count++)
+                                {
+                                    dbPara = new DynamicParameters();
+                                    dbPara.Add("TEST_TestMasterID", MSTID, DbType.Int64);
+                                    dbPara.Add("TEST_FieldName", model.TestFormatDetails[count].TEST_FieldName, DbType.String);
+                                    dbPara.Add("TEST_FormatSrNo",count, DbType.Int64);
+                                    dbPara.Add("TEST_sDefault", model.TestFormatDetails[count].TEST_sDefault, DbType.String);
+
+                                    DETID = db.Query<long>("[dbo].[SP_InsertTestFormatDetails]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
+                                 }
                             }
 
                             tran.Commit();
@@ -369,7 +460,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetNarrationSearchCount(SearchByKeyword m)
+        public long GetNarrationSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -406,7 +497,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
-        public long GetReSampleReasonSearchCount(SearchByKeyword m)
+        public long GetReSampleReasonSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -414,6 +505,80 @@ namespace myLabWebApi.Services
             dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<CountModel>("[dbo].[SP_ReSampleNARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0].ListCount;
+        }
+
+        public long InsertRemarkMaster(List< TestDetModel> model)
+        {
+            long MSTID=0;
+            var dbPara = new DynamicParameters();
+            using (IDbConnection db = new SqlConnection(_config.GetConnectionString("DatabaseContext")))
+            {
+                try
+                {
+                    if (db.State == ConnectionState.Closed)
+                        db.Open();
+
+                    using (var tran = db.BeginTransaction())
+                    {
+                        try
+                        {
+                           
+                             dbPara = new DynamicParameters();
+                            dbPara.Add("TESTDET_TestMasterID", model[0].TESTDET_TestMasterID, DbType.Int64);
+                            var temp = db.Query<long>("[dbo].[SP_DeleteResultMaster]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
+                            int counter=0;
+                            if (model != null)
+                            {
+
+                                foreach (var item in model)
+                                {
+                                    if (item.sms == true)
+                                    {
+                                        dbPara = new DynamicParameters();
+                                        dbPara.Add("TESTDET_TestMasterID", model[0].TESTDET_TestMasterID, DbType.Int64);
+                                        dbPara.Add("TESTDET_FieldNo", item.TESTDET_FieldNo, DbType.Int64);
+                                        dbPara.Add("type", "sms", DbType.String);
+                                        MSTID = db.Query<long>("[dbo].[SP_InsertResultMaster]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
+                                    }
+                                    if (model[counter].work == true)
+                                    {
+                                        dbPara = new DynamicParameters();
+                                        dbPara.Add("TESTDET_TestMasterID", model[0].TESTDET_TestMasterID, DbType.Int64);
+                                        dbPara.Add("TESTDET_FieldNo", item.TESTDET_FieldNo, DbType.Int64);
+                                        dbPara.Add("type", "work", DbType.String);
+                                        MSTID = db.Query<long>("[dbo].[SP_InsertResultMaster]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
+                                    }
+
+                                } 
+
+                            }
+
+                            tran.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            tran.Rollback();
+                            throw ex;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (db.State == ConnectionState.Open)
+                        db.Close();
+                }
+
+                return MSTID;
+            }
+
+            #region using dapper
+
+
+            #endregion using dapper
         }
 
     }

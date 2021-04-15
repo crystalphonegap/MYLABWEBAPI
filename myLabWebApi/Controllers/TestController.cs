@@ -2,6 +2,7 @@
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
 using System;
+using System.Collections.Generic;
 
 namespace myLabWebApi.Controllers
 {
@@ -19,6 +20,22 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For Test Type List Search
+        [HttpGet("GetPTestResult/{ID}")]
+        public IActionResult GetPTestResult(long ID)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPTestResult(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+        //Use For Test Type List Search
         [HttpPost("GetAllTestTypeDetails")]
         public IActionResult GetAllTestTypeDetails(SearchFilters m)
         {
@@ -32,10 +49,11 @@ namespace myLabWebApi.Controllers
                 return BadRequest();
             }
         }
+         
 
         //Use For Test Type List Search Count
         [HttpPost("GetTestTypeSearchCount")]
-        public IActionResult GetTestTypeSearchCount(SearchByKeyword m)
+        public IActionResult GetTestTypeSearchCount(SearchFilters m)
         {
             try
             {
@@ -108,6 +126,21 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
+        [HttpPost("InsertRemarkMaster")]
+        public IActionResult InsertRemarkMaster(List<TestDetModel> model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertRemarkMaster(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
         //Use For Insert PathaLogy Test
         [HttpPost("InsertPathaLogyTest")]
         public IActionResult InsertPathaLogyTest(PathalogyTestMaster model)
@@ -130,6 +163,40 @@ namespace myLabWebApi.Controllers
             try
             {
                 return Ok(_ITestService.InsertUpdatePathalogyTest(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+
+
+
+
+        //Use For Insert xRAY,HISTO,Sono Test
+        [HttpPost("InsertTest")]
+        public IActionResult InsertTest(PathalogyTestMaster model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateTest(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest();
+            }
+        }
+
+        //Use For Update  PathaLogy Test
+        [HttpPut("UpdateTest")]
+        public IActionResult UpdateTest(PathalogyTestMaster model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateTest(model));
             }
             catch (Exception ex)
             {
@@ -309,7 +376,7 @@ namespace myLabWebApi.Controllers
 
         //Use For Narration List Search Count
         [HttpPost("GetNarrationSearchCount")]
-        public IActionResult GetNarrationSearchCount(SearchByKeyword m)
+        public IActionResult GetNarrationSearchCount(SearchFilters m)
         {
             try
             {
@@ -373,7 +440,7 @@ namespace myLabWebApi.Controllers
 
         //Use For ReSampleReason List Search Count
         [HttpPost("GetReSampleReasonSearchCount")]
-        public IActionResult GetReSampleReasonSearchCount(SearchByKeyword m)
+        public IActionResult GetReSampleReasonSearchCount(SearchFilters m)
         {
             try
             {
