@@ -47,7 +47,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<TestTypeModel>("[dbo].[SP_TestTypeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -57,7 +57,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<CountModel>("[dbo].[SP_TestTypeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0].ListCount;
         }
@@ -381,7 +381,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             dbPara.Add("Type", m.Type == "NoSearch" ? "" : m.Type.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<PathalogyTestMaster>("[dbo].[SP_GetTestListByType]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
@@ -392,7 +392,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             dbPara.Add("Type", m.Type == "NoSearch" ? "" : m.Type.Trim(), DbType.String);
             var data = _MyLabHelper.Get<Count>("[dbo].[SP_GetTestListByType]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ListCount;
@@ -455,7 +455,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_NARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -465,7 +465,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<CountModel>("[dbo].[SP_NARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0].ListCount;
         }
@@ -492,7 +492,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_ReSampleNARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -502,7 +502,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            dbPara.Add("Keyword", m.KeyWord == "NoSearch" ? "" : m.KeyWord.Trim(), DbType.String);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<CountModel>("[dbo].[SP_ReSampleNARRATIONSList]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0].ListCount;
         }

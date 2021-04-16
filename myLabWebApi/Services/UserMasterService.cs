@@ -25,7 +25,7 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public List<ErrorModel> GetError(string fromdate, string todate, int pageNo, int pageSize, string KeyWord, string Type)
+        public List<ErrorModel> GetError(string fromdate, string todate, int pageNo, int pageSize, string Keyword, string Type)
         {
             var dbPara = new DynamicParameters();
             DateTime fdate = DateTime.ParseExact(fromdate, "dd-MM-yyyy", null);
@@ -34,13 +34,13 @@ namespace myLabWebApi.Services
             dbPara.Add("todate", Convert.ToDateTime(tdate).ToString("yyyy-MM-dd"), DbType.DateTime);
             dbPara.Add("PageNo", pageNo, DbType.Int32);
             dbPara.Add("PageSize", pageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
+            if (Keyword == "NoSearch")
             {
-                dbPara.Add("KeyWord", "", DbType.String);
+                dbPara.Add("Keyword", "", DbType.String);
             }
             else
             {
-                dbPara.Add("KeyWord", KeyWord, DbType.String);
+                dbPara.Add("Keyword", Keyword, DbType.String);
             }
             dbPara.Add("Type", Type, DbType.String);
             var data = _MyLabHelper.GetAll<ErrorModel>("[dbo].[uspviewError]", dbPara, commandType: CommandType.StoredProcedure);
@@ -429,7 +429,7 @@ namespace myLabWebApi.Services
             throw new NotImplementedException();
         }
 
-        public List<UserMasterModel> Search(string keyword)
+        public List<UserMasterModel> Search(string Keyword)
         {
             throw new NotImplementedException();
         }
@@ -439,32 +439,32 @@ namespace myLabWebApi.Services
             throw new NotImplementedException();
         }
 
-        public List<UserMasterModel> GetAllUserMasterForDivisionalAdminSearch(int PageNo, int PageSize, string KeyWord)
+        public List<UserMasterModel> GetAllUserMasterForDivisionalAdminSearch(int PageNo, int PageSize, string Keyword)
         {
             throw new NotImplementedException();
         }
 
-        public List<UserMasterModel> GetAllUserMasterByParentCode(string status, string CustomerId, int PageNo, int PageSize, string KeyWord)
+        public List<UserMasterModel> GetAllUserMasterByParentCode(string status, string CustomerId, int PageNo, int PageSize, string Keyword)
         {
             throw new NotImplementedException();
         }
 
-        public long GetAllUserMasterCountByParentCode(string status, string CustomerId, string KeyWord)
+        public long GetAllUserMasterCountByParentCode(string status, string CustomerId, string Keyword)
         {
             throw new NotImplementedException();
         }
 
-        public List<UserMasterModel> GetAllUserMasterForDivisionalAdminDownload(string KeyWord)
+        public List<UserMasterModel> GetAllUserMasterForDivisionalAdminDownload(string Keyword)
         {
             throw new NotImplementedException();
         }
 
-        public long GetAllUserMasterForDivisionalAdminCount(string KeyWord)
+        public long GetAllUserMasterForDivisionalAdminCount(string Keyword)
         {
             throw new NotImplementedException();
         }
 
-        public List<UserMasterModel> ExportToExcelForParent(string ParentCode, string status, string KeyWord)
+        public List<UserMasterModel> ExportToExcelForParent(string ParentCode, string status, string Keyword)
         {
             throw new NotImplementedException();
         }

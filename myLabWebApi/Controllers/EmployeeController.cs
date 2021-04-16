@@ -286,12 +286,12 @@ namespace myLabWebApi.Controllers
         //}
 
         //Use For Test Master List
-        [HttpGet("GetTestMasterForRateList/{keyword},{Type},{Catagory}")]
-        public IActionResult GetTestMasterForRateList(string keyword, string Type, int Catagory)
+        [HttpGet("GetTestMasterForRateList/{Keyword},{Type},{Catagory}")]
+        public IActionResult GetTestMasterForRateList(string Keyword, string Type, int Catagory)
         {
             try
             {
-                return Ok(_IEmployeeService.GetTestMasterForRateList(keyword,  Type,  Catagory));
+                return Ok(_IEmployeeService.GetTestMasterForRateList(Keyword,  Type,  Catagory));
             }
             catch (Exception ex)
             {
@@ -464,12 +464,12 @@ namespace myLabWebApi.Controllers
         }
 
         //Use For GetTestMasterByCollectionCenterID
-        [HttpGet("GetTestMasterByCollectionCenterID/{CenterID},{Type},{KeyWord}")]
-        public IActionResult GetTestMasterByCollectionCenterID(int CenterID, string Type, string KeyWord)
+        [HttpGet("GetTestMasterByCollectionCenterID/{CenterID},{Type},{Keyword}")]
+        public IActionResult GetTestMasterByCollectionCenterID(int CenterID, string Type, string Keyword)
         {
             try
             {
-                return Ok(_IEmployeeService.GetTestMasterByCollectionCenterID(CenterID, Type, KeyWord));
+                return Ok(_IEmployeeService.GetTestMasterByCollectionCenterID(CenterID, Type, Keyword));
             }
             catch (Exception ex)
             {

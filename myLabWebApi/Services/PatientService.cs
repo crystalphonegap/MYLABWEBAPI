@@ -32,41 +32,65 @@ namespace myLabWebApi.Services
         public int Create(PatientMasterModel PATIENT, string strMode)
         {
             var dbPara = new DynamicParameters();
-            try
+            dbPara.Add("AddEditFlag", strMode, DbType.String);
+            dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
+            dbPara.Add("Patient_Id", PATIENT.Patient_Id, DbType.Int16);
+            dbPara.Add("PATIENT_Name", PATIENT.PATIENT_Name, DbType.String);
+            dbPara.Add("PATIENT_Address1", PATIENT.PATIENT_Address1, DbType.String);
+            dbPara.Add("PATIENT_Address2", PATIENT.PATIENT_Address2, DbType.String);
+            dbPara.Add("PATIENT_SendSms", PATIENT.PATIENT_SendSms, DbType.String);
+            dbPara.Add("PATIENT_VisitTime", PATIENT.PATIENT_VisitTime, DbType.String);
+            dbPara.Add("PATIENT_Email", PATIENT.PATIENT_Email, DbType.String);
+            dbPara.Add("PATIENT_Country", PATIENT.PATIENT_Country, DbType.String);
+            dbPara.Add("PATIENT_PaymentMode", PATIENT.PATIENT_PaymentMode, DbType.String);
+            dbPara.Add("PATIENT_Telno", PATIENT.PATIENT_Telno, DbType.String);
+            dbPara.Add("PATIENT_Gender", PATIENT.PATIENT_Gender, DbType.String);
+            dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
+            dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
+            dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
+            if (string.IsNullOrEmpty(PATIENT.PATIENT_Date.ToString()))
             {
-                dbPara.Add("AddEditFlag", strMode, DbType.String);
-                dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
-                dbPara.Add("Patient_Id", PATIENT.Patient_Id, DbType.Int16);
-                dbPara.Add("PATIENT_Name", PATIENT.PATIENT_Name, DbType.String);
-                dbPara.Add("PATIENT_Address1", PATIENT.PATIENT_Address1, DbType.String);
-                dbPara.Add("PATIENT_Address2", PATIENT.PATIENT_Address2, DbType.String);
-                dbPara.Add("PATIENT_SendSms", PATIENT.PATIENT_SendSms, DbType.String);
-                dbPara.Add("PATIENT_VisitTime", PATIENT.PATIENT_VisitTime, DbType.String);
-                dbPara.Add("PATIENT_Email", PATIENT.PATIENT_Email, DbType.String);
-                dbPara.Add("PATIENT_Country", PATIENT.PATIENT_Country, DbType.String);
-                dbPara.Add("PATIENT_PaymentMode", PATIENT.PATIENT_PaymentMode, DbType.String);
-                dbPara.Add("PATIENT_Telno", PATIENT.PATIENT_Telno, DbType.String);
-                dbPara.Add("PATIENT_Gender", PATIENT.PATIENT_Gender, DbType.String);
-                dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
-                dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
-                return 5;
-                dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
-                dbPara.Add("PATIENT_Date", string.IsNullOrEmpty(PATIENT.PATIENT_Date.ToString()) ? null : Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
-                dbPara.Add("PATIENT_DOB", string.IsNullOrEmpty(PATIENT.PATIENT_DOB.ToString()) ? null : Convert.ToDateTime(PATIENT.PATIENT_DOB), DbType.DateTime);
-                dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
-                dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
-                dbPara.Add("PATIENT_AmountPaid", string.IsNullOrEmpty(PATIENT.PATIENT_AmountPaid) ? null : Convert.ToDecimal(PATIENT.PATIENT_AmountPaid), DbType.Decimal);
-                dbPara.Add("PATIENT_SampleCollected", PATIENT.PATIENT_SampleCollected, DbType.Int32);
-                dbPara.Add("Doctorid2", PATIENT.Doctorid2, DbType.Int32);
-                dbPara.Add("blnCommission", PATIENT.blnCommission, DbType.Boolean);
-                dbPara.Add("labno", PATIENT.labno, DbType.Int32);
-                dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
-                dbPara.Add("HOSPTYPE", PATIENT.HOSPTYPE, DbType.String);
-                dbPara.Add("TotalAmount", string.IsNullOrEmpty(PATIENT.TotalAmount.ToString()) ? null : Convert.ToDecimal(PATIENT.TotalAmount), DbType.Decimal);
-                dbPara.Add("EmergencyCharges", string.IsNullOrEmpty(PATIENT.EmergencyCharges) ? null : Convert.ToDecimal(PATIENT.EmergencyCharges), DbType.Decimal);
-                dbPara.Add("Discount", string.IsNullOrEmpty(PATIENT.Discount) ? null : Convert.ToDecimal(PATIENT.Discount), DbType.Decimal);
-                dbPara.Add("EmergencyChargesPecent", string.IsNullOrEmpty(PATIENT.EmergencyChargesPecent) ? null : Convert.ToDecimal(PATIENT.EmergencyChargesPecent), DbType.Decimal);
-                dbPara.Add("Sample_Date", string.IsNullOrEmpty(PATIENT.Sample_Date.ToString()) ? null : Convert.ToDateTime(PATIENT.Sample_Date), DbType.DateTime);
+                dbPara.Add("PATIENT_Date", null, DbType.DateTime);
+
+            }
+            else
+            {
+                dbPara.Add("PATIENT_Date", Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
+
+            }
+            if (string.IsNullOrEmpty(PATIENT.PATIENT_DOB.ToString()))
+            {
+                dbPara.Add("PATIENT_DOB", null, DbType.DateTime);
+
+            }
+            else 
+            {
+                dbPara.Add("PATIENT_DOB", Convert.ToDateTime(PATIENT.PATIENT_DOB), DbType.DateTime);
+
+            }
+            dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
+            dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
+            dbPara.Add("PATIENT_AmountPaid", string.IsNullOrEmpty(PATIENT.PATIENT_AmountPaid) ? null : Convert.ToDecimal(PATIENT.PATIENT_AmountPaid), DbType.Decimal);
+            dbPara.Add("PATIENT_SampleCollected", PATIENT.PATIENT_SampleCollected, DbType.Int32);
+            dbPara.Add("Doctorid2", PATIENT.Doctorid2, DbType.Int32);
+            dbPara.Add("blnCommission", PATIENT.blnCommission, DbType.Boolean);
+            dbPara.Add("labno", PATIENT.labno, DbType.Int32);
+            dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
+            dbPara.Add("HOSPTYPE", PATIENT.HOSPTYPE, DbType.String);
+            dbPara.Add("TotalAmount", string.IsNullOrEmpty(PATIENT.TotalAmount.ToString()) ? null : Convert.ToDecimal(PATIENT.TotalAmount), DbType.Decimal);
+            dbPara.Add("EmergencyCharges", string.IsNullOrEmpty(PATIENT.EmergencyCharges) ? null : Convert.ToDecimal(PATIENT.EmergencyCharges), DbType.Decimal);
+            dbPara.Add("Discount", string.IsNullOrEmpty(PATIENT.Discount) ? null : Convert.ToDecimal(PATIENT.Discount), DbType.Decimal);
+            dbPara.Add("EmergencyChargesPecent", string.IsNullOrEmpty(PATIENT.EmergencyChargesPecent) ? null : Convert.ToDecimal(PATIENT.EmergencyChargesPecent), DbType.Decimal);
+            if (string.IsNullOrEmpty(PATIENT.Sample_Date.ToString()))
+            {
+                dbPara.Add("Sample_Date", null, DbType.DateTime);
+
+            }
+            else 
+            {
+                dbPara.Add("Sample_Date", Convert.ToDateTime(PATIENT.Sample_Date), DbType.DateTime);
+
+            } 
                 dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
                 dbPara.Add("DiscountPercent", string.IsNullOrEmpty(PATIENT.DiscountPercent) ? null : Convert.ToDecimal(PATIENT.DiscountPercent), DbType.Decimal);
                 dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);
@@ -81,56 +105,52 @@ namespace myLabWebApi.Services
                 dbPara.Add("TEST", PATIENT.TEST, DbType.String);
                 dbPara.Add("Remark", PATIENT.Remark, DbType.String);
                 dbPara.Add("Paymode", PATIENT.Paymode, DbType.String);
-                dbPara.Add("UPI_WalletAmount", string.IsNullOrEmpty(PATIENT.UPI_WalletAmount) ? null : Convert.ToDecimal(PATIENT.UPI_WalletAmount), DbType.Decimal);
+            dbPara.Add("UPI_WalletAmount", string.IsNullOrEmpty(PATIENT.UPI_WalletAmount) ? null : Convert.ToDecimal(PATIENT.UPI_WalletAmount), DbType.Decimal);
                 dbPara.Add("ChequeAmount", string.IsNullOrEmpty(PATIENT.ChequeAmount) ? null : Convert.ToDecimal(PATIENT.ChequeAmount), DbType.Decimal);
                 dbPara.Add("CreditCardAmount", string.IsNullOrEmpty(PATIENT.CreditCardAmount) ? null : Convert.ToDecimal(PATIENT.CreditCardAmount), DbType.Decimal);
-                dbPara.Add("NEFT_RTGSAmount", string.IsNullOrEmpty(PATIENT.NEFT_RTGSAmount) ? null : Convert.ToDecimal(PATIENT.NEFT_RTGSAmount), DbType.Decimal);
+            dbPara.Add("NEFT_RTGSAmount", string.IsNullOrEmpty(PATIENT.NEFT_RTGSAmount) ? null : Convert.ToDecimal(PATIENT.NEFT_RTGSAmount), DbType.Decimal);
                 dbPara.Add("CashAmount", string.IsNullOrEmpty(PATIENT.CashAmount) ? null : Convert.ToDecimal(PATIENT.CashAmount), DbType.Decimal);
                 dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
-            }catch(Exception ex)
-            {
-                 File.WriteAllTextAsync("aaerror.txt", ex.Message);
-            }
-           
-            #region using dapper  
-            var data = _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
-                            dbPara,
-                            commandType: CommandType.StoredProcedure);
+
+             
+                var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+            
             return data;
-            #endregion
         }
 
 
 
-        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string KeyWord)
+        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", PageNo, DbType.Int32);
             dbPara.Add("PageSize", PageSize, DbType.Int32);
-            if (KeyWord == "NoSearch")
+            if (Keyword == "NoSearch")
             {
                 dbPara.Add("Keyword", "", DbType.String);
             }
             else
             {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
+                dbPara.Add("Keyword", Keyword, DbType.String);
             }
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetPatientSearchCount(string KeyWord)
+        public long GetPatientSearchCount(string Keyword)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            if (KeyWord == "NoSearch")
+            if (Keyword == "NoSearch")
             {
                 dbPara.Add("Keyword", "", DbType.String);
             }
             else
             {
-                dbPara.Add("Keyword", KeyWord, DbType.String);
+                dbPara.Add("Keyword", Keyword, DbType.String);
             }
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
@@ -257,10 +277,10 @@ namespace myLabWebApi.Services
             return data;
         }
 
-        public List<NarrationModel> GetNarration(string KeyWord)
+        public List<NarrationModel> GetNarration(string Keyword)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("Keyword", KeyWord, DbType.String);
+            dbPara.Add("Keyword", Keyword, DbType.String);
             var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_GetNarration]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -329,7 +349,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("LabSeriesSetting", LabSeriesSetting, DbType.String);
-            var data = _MyLabHelper.GetAll<string>("[dbo].[USP_getLabNoByDate]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.Get<string>("[dbo].[USP_getLabNoByDate]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToString();
         }
 
@@ -347,13 +367,13 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", model.PageNo, DbType.Int32);
             dbPara.Add("PageSize", model.PageSize, DbType.Int32);
-            if (model.KeyWord == "NoSearch")
+            if (model.Keyword == "NoSearch")
             {
                 dbPara.Add("Keyword", "", DbType.String);
             }
             else
             {
-                dbPara.Add("Keyword", model.KeyWord, DbType.String);
+                dbPara.Add("Keyword", model.Keyword, DbType.String);
             }
             var data = _MyLabHelper.GetAll<BlackListMobilesModel>("[dbo].[SP_BlackListMobilesList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
@@ -364,13 +384,13 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
-            if (model.KeyWord == "NoSearch")
+            if (model.Keyword == "NoSearch")
             {
                 dbPara.Add("Keyword", "", DbType.String);
             }
             else
             {
-                dbPara.Add("Keyword", model.KeyWord, DbType.String);
+                dbPara.Add("Keyword", model.Keyword, DbType.String);
             }
             var data = _MyLabHelper.Get<CountModel>("[dbo].[SP_BlackListMobilesList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ListCount;

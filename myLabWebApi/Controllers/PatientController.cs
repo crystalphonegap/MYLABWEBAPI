@@ -43,7 +43,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return Ok(ex.Message);
             }
         }
 
@@ -98,12 +98,12 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetPatientSearch(int PageNo, int PageSize, string KeyWord)
+        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword}")]
+        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, KeyWord));
+                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword));
             }
             catch (Exception ex)
             {
@@ -127,12 +127,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetPatientSearchCount/{KeyWord}")]
-        public IActionResult GetPatientSearchCount(string KeyWord)
+        [HttpGet("GetPatientSearchCount/{Keyword}")]
+        public IActionResult GetPatientSearchCount(string Keyword)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearchCount(KeyWord));
+                return Ok(_IPatientService.GetPatientSearchCount(Keyword));
             }
             catch (Exception ex)
             {
@@ -157,12 +157,12 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpGet("GetNarration/{KeyWord}")]
-        public IActionResult GetNarration(string KeyWord)
+        [HttpGet("GetNarration/{Keyword}")]
+        public IActionResult GetNarration(string Keyword)
         {
             try
             {
-                return Ok(_IPatientService.GetNarration(KeyWord));
+                return Ok(_IPatientService.GetNarration(Keyword));
             }
             catch (Exception ex)
             {

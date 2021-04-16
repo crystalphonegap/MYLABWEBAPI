@@ -9,7 +9,7 @@ namespace myLabWebApi.Interface
 
         UserMasterModel GetById(long id);
 
-        List<ErrorModel> GetError(string fromdate, string todate, int PageNo, int PageSize, string KeyWord, string Type);
+        List<ErrorModel> GetError(string fromdate, string todate, int PageNo, int PageSize, string Keyword, string Type);
 
         string Update(UserMasterModel UserMaster);
 
@@ -25,7 +25,7 @@ namespace myLabWebApi.Interface
 
         List<UserMasterModel> ListAll();
 
-        List<UserMasterModel> Search(string keyword);
+        List<UserMasterModel> Search(string Keyword);
 
         List<UserMasterModel> UserPaging(int pageNo, int pageSize);
 
@@ -39,17 +39,17 @@ namespace myLabWebApi.Interface
 
         int DeleteRefreshToken(string usercode, string token);
 
-        List<UserMasterModel> GetAllUserMasterForDivisionalAdminSearch(int PageNo, int PageSize, string KeyWord);
+        List<UserMasterModel> GetAllUserMasterForDivisionalAdminSearch(int PageNo, int PageSize, string Keyword);
 
-        List<UserMasterModel> GetAllUserMasterByParentCode(string status, string CustomerId, int PageNo, int PageSize, string KeyWord);
+        List<UserMasterModel> GetAllUserMasterByParentCode(string status, string CustomerId, int PageNo, int PageSize, string Keyword);
 
-        long GetAllUserMasterCountByParentCode(string status, string CustomerId, string KeyWord);
+        long GetAllUserMasterCountByParentCode(string status, string CustomerId, string Keyword);
 
-        List<UserMasterModel> GetAllUserMasterForDivisionalAdminDownload(string KeyWord);
+        List<UserMasterModel> GetAllUserMasterForDivisionalAdminDownload(string Keyword);
 
-        long GetAllUserMasterForDivisionalAdminCount(string KeyWord);
+        long GetAllUserMasterForDivisionalAdminCount(string Keyword);
 
-        List<UserMasterModel> ExportToExcelForParent(string ParentCode, string status, string KeyWord);
+        List<UserMasterModel> ExportToExcelForParent(string ParentCode, string status, string Keyword);
 
         string ResetPassword(UserMasterModel UserMaster);
     }

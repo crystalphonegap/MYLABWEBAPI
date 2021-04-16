@@ -406,12 +406,12 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("EnterLog")]
-        [HttpGet("GetError/{fromdate},{todate},{PageNo},{PageSize},{KeyWord}")]
-        public IActionResult GetError(string fromdate, string todate, int PageNo, int PageSize, string KeyWord)
+        [HttpGet("GetError/{fromdate},{todate},{PageNo},{PageSize},{Keyword}")]
+        public IActionResult GetError(string fromdate, string todate, int PageNo, int PageSize, string Keyword)
         {
             try
             {
-                return Ok(_userMasterService.GetError(fromdate, todate, PageNo, PageSize, KeyWord, "List"));
+                return Ok(_userMasterService.GetError(fromdate, todate, PageNo, PageSize, Keyword, "List"));
             }
             catch (Exception ex)
             {
@@ -420,12 +420,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetErrorCount/{fromdate},{todate},{KeyWord}")]
-        public IActionResult GetErrorCount(string fromdate, string todate, string KeyWord)
+        [HttpGet("GetErrorCount/{fromdate},{todate},{Keyword}")]
+        public IActionResult GetErrorCount(string fromdate, string todate, string Keyword)
         {
             try
             {
-                return Ok(_userMasterService.GetError(fromdate, todate, 0, 0, KeyWord, "count"));
+                return Ok(_userMasterService.GetError(fromdate, todate, 0, 0, Keyword, "count"));
             }
             catch (Exception ex)
             {
