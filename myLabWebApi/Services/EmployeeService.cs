@@ -89,7 +89,7 @@ namespace myLabWebApi.Services
         public long GetDoctorSearchCount(SearchFilters m)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageNo", -2, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
@@ -104,15 +104,7 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_GetDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }
-
-        public long DeleteDoctorById(int Id)
-        {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("DoctorID", Id, DbType.Int32);
-
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteDoctorDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
-            return data;
-        }
+         
 
         public long InsertUpdateDoctor(DOCTOR docmodel)
         {
@@ -209,15 +201,7 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<COLLECTIONCENTER>("[dbo].[SP_GetCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
             return data[0];
         }
-
-        public long DeleteCollectionCenterById(int Id)
-        {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("ID", Id, DbType.Int32);
-
-            var data = _MyLabHelper.Insert<long>("[dbo].[SP_DeleteCollectionCenterDetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
-            return data;
-        }
+         
 
         public long insertUpdollectionCenter(COLLECTIONCENTER centermodel)
         {

@@ -45,6 +45,7 @@ namespace myLabWebApi.Models.New
         public string Password { get; set; }
         public DateTime? DOB { get; set; }
         public string doctor_Code { get; set; }
+        public string CENTER_Name { get; set; }
         public int Collection_Center { get; set; }
     }
 }

@@ -18,7 +18,6 @@ namespace myLabWebApi.Interface
 
         DOCTOR GetDoctorUsingId(int Id);
 
-        long DeleteDoctorById(int Id);
 
         List<COLLECTIONCENTER> GetAllCollectionCenterDetails();
 
@@ -30,7 +29,6 @@ namespace myLabWebApi.Interface
 
         COLLECTIONCENTER GetCollectionCenterById(int Id);
 
-        long DeleteCollectionCenterById(int Id);
 
         //long InsertUpdateEmployee(EMPLOYEE empmodel);
 

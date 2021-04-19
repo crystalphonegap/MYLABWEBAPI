@@ -35,6 +35,7 @@ namespace myLabWebApi.Interface
         string GetLabNo(string LabSeriesSetting);
 
         List<PatientMasterModel> GetPatientMobileNos(string MobileNo);
+        string GlobalDelete(GlobalDeleteModal model);
 
         long DeleteBlackListMobiles(int ID);
 

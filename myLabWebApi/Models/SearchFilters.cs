@@ -24,5 +24,12 @@ namespace myLabWebApi.Models
         public int PageSize { get; set; }
         public string Keyword { get; set; }
         public string Type { get; set; }
+
     }
+    public class GlobalDeleteModal
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
+        
 }

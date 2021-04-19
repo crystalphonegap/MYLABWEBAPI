@@ -29,7 +29,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                  _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -43,7 +43,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -57,7 +57,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -71,7 +71,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -85,23 +85,10 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
-        [HttpDelete("DeleteDoctorDetailsByID/{ID}")]
-        public IActionResult DeleteDoctorDetailsByID(int ID)
-        {
-            try
-            {
-                return Ok(_IEmployeeService.DeleteDoctorById(ID));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
 
         [HttpPost("GetDoctorSearch")]
         public IActionResult GetDoctorSearch(SearchFilters m)
@@ -113,7 +100,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -127,7 +114,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -141,7 +128,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -155,7 +142,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -169,7 +156,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -183,7 +170,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -197,23 +184,10 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
-
-        [HttpGet("DeleteCollectionCenterDetailsByID/{ID}")]
-        public IActionResult DeleteCollectionCenterDetailsByID(int ID)
-        {
-            try
-            {
-                return Ok(_IEmployeeService.DeleteCollectionCenterById(ID));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest();
-            }
-        }
+         
 
         [HttpPost("InsertRateList")]
         public IActionResult InsertRateList(RATELISTHDR centermodel)
@@ -225,7 +199,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -239,7 +213,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -253,7 +227,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -267,7 +241,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -281,7 +255,7 @@ namespace myLabWebApi.Controllers
         //    catch (Exception ex)
         //    {
         //        _ILogger.Log(ex);
-        //        return BadRequest();
+        //        return BadRequest(ex);
         //    }
         //}
 
@@ -296,7 +270,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -310,7 +284,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -325,7 +299,7 @@ namespace myLabWebApi.Controllers
         //    catch (Exception ex)
         //    {
         //        _ILogger.Log(ex);
-        //        return BadRequest();
+        //        return BadRequest(ex);
         //    }
         //}
 
@@ -340,7 +314,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -355,7 +329,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -369,7 +343,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -384,7 +358,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -399,7 +373,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -414,7 +388,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -429,7 +403,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -444,7 +418,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -459,7 +433,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -474,7 +448,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
     }

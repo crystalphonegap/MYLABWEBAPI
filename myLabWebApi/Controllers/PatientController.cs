@@ -58,7 +58,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -79,7 +79,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -93,7 +93,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -108,7 +108,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -123,7 +123,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -137,7 +137,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -152,7 +152,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -167,7 +167,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -181,7 +181,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -197,7 +197,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -225,7 +225,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -240,7 +240,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -255,7 +255,22 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
+            }
+        }
+
+        //Use For Get Patient Mobile No's
+        [HttpPost("GlobalDelete")]
+        public IActionResult GlobalDelete(GlobalDeleteModal model)
+        {
+            try
+            {
+                return Ok(_IPatientService.GlobalDelete(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
             }
         }
 
@@ -270,7 +285,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -285,7 +300,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
         [HttpGet("DeleteBlackListMobiles/{ID}")]
@@ -298,7 +313,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
         [HttpPost("InsertBlackListMobiles")]
@@ -311,7 +326,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
     }

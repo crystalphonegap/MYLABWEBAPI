@@ -48,7 +48,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
             dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
             dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
-            if (string.IsNullOrEmpty(PATIENT.PATIENT_Date.ToString()))
+            if (string.IsNullOrEmpty(PATIENT.PATIENT_Date))
             {
                 dbPara.Add("PATIENT_Date", null, DbType.DateTime);
 
@@ -58,7 +58,7 @@ namespace myLabWebApi.Services
                 dbPara.Add("PATIENT_Date", Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
 
             }
-            if (string.IsNullOrEmpty(PATIENT.PATIENT_DOB.ToString()))
+            if (string.IsNullOrEmpty(PATIENT.PATIENT_DOB))
             {
                 dbPara.Add("PATIENT_DOB", null, DbType.DateTime);
 
@@ -77,11 +77,11 @@ namespace myLabWebApi.Services
             dbPara.Add("labno", PATIENT.labno, DbType.Int32);
             dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
             dbPara.Add("HOSPTYPE", PATIENT.HOSPTYPE, DbType.String);
-            dbPara.Add("TotalAmount", string.IsNullOrEmpty(PATIENT.TotalAmount.ToString()) ? null : Convert.ToDecimal(PATIENT.TotalAmount), DbType.Decimal);
+            dbPara.Add("TotalAmount", string.IsNullOrEmpty(PATIENT.TotalAmount) ? null : Convert.ToDecimal(PATIENT.TotalAmount), DbType.Decimal);
             dbPara.Add("EmergencyCharges", string.IsNullOrEmpty(PATIENT.EmergencyCharges) ? null : Convert.ToDecimal(PATIENT.EmergencyCharges), DbType.Decimal);
             dbPara.Add("Discount", string.IsNullOrEmpty(PATIENT.Discount) ? null : Convert.ToDecimal(PATIENT.Discount), DbType.Decimal);
             dbPara.Add("EmergencyChargesPecent", string.IsNullOrEmpty(PATIENT.EmergencyChargesPecent) ? null : Convert.ToDecimal(PATIENT.EmergencyChargesPecent), DbType.Decimal);
-            if (string.IsNullOrEmpty(PATIENT.Sample_Date.ToString()))
+            if (string.IsNullOrEmpty(PATIENT.Sample_Date))
             {
                 dbPara.Add("Sample_Date", null, DbType.DateTime);
 
@@ -358,6 +358,15 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("MobileNo", MobileNo, DbType.String);
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[USP_GetPatientMobileNo]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+        public string GlobalDelete(GlobalDeleteModal model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("Name", model.Name, DbType.String);
+            dbPara.Add("ID", model.ID, DbType.String);
+            var data = _MyLabHelper.Get<string>("[dbo].[USP_GlobalDelete]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
 

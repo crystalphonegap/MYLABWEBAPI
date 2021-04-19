@@ -48,7 +48,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -63,7 +63,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -98,7 +98,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -129,7 +129,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -159,7 +159,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -188,7 +188,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -217,7 +217,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -232,7 +232,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -274,7 +274,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -373,7 +373,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -387,7 +387,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -401,7 +401,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -416,7 +416,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -430,7 +430,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -452,7 +452,7 @@ namespace myLabWebApi.Controllers
             catch (Exception ex)
             {
                 _ILogger.Log(ex);
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
