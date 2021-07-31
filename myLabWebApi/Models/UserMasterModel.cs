@@ -31,4 +31,10 @@ namespace myLabWebApi.Models
         public string Territory { get; set; }
         public string ResetTokenvtxt { get; set; }
     }
-}
+    public class LoginModel
+    { 
+        public string UserCodetxt { get; set; }  
+        public string Passwordvtxt { get; set; }
+    }
+
+    }

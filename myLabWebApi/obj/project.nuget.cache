@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l1an2a4fGF1O/+R2VYISwq7RRwJq8N2X7e6Wv+TUWsvwH48DQxo480TxNAoiEahX2Mr+G6UHRIJPMyjGCp7Ing==",
+  "dgSpecHash": "UztYs+f8yHGHhiu1z5qZlv2TW6cvRey5cAisQ8Ij+K8a2NL/0KuxNaf3LIoExFkOE1pc8CtYECip9zoJCN2gYA==",
   "success": true,
-  "projectFilePath": "D:\\AhmedProject\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+  "projectFilePath": "D:\\AhmedProject\\MYLAB\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\aspnetcore.reporting\\2.1.0\\aspnetcore.reporting.2.1.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\aspnetcore.reportingservices\\2.1.0\\aspnetcore.reportingservices.2.1.0.nupkg.sha512",
@@ -178,7 +178,11 @@
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.7\\microsoft.netcore.app.host.win-x64.5.0.7.nupkg.sha512",
+    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\CRYSTAL PC 2\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": [
     {

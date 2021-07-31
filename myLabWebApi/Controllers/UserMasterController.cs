@@ -339,7 +339,7 @@ namespace myLabWebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("Login")]
-        public IActionResult Login(UserMasterModel userMaster)
+        public IActionResult Login(LoginModel userMaster)
         {
             try
             {
