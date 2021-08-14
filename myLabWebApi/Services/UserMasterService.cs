@@ -50,15 +50,14 @@ namespace myLabWebApi.Services
         public int Create(UserMasterModel UserMasterDetails)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("UserCodetxt", UserMasterDetails.UserCodetxt, DbType.String);
-            dbPara.Add("UserNametxt", UserMasterDetails.UserNametxt, DbType.String);
-            dbPara.Add("UserTypetxt", UserMasterDetails.UserTypetxt, DbType.String);
-            dbPara.Add("ParentCodevtxt", UserMasterDetails.ParentCodevtxt, DbType.String);
-            dbPara.Add("Divisionvtxt", UserMasterDetails.Divisionvtxt, DbType.String);
-            dbPara.Add("Mobilevtxt", UserMasterDetails.Mobilevtxt, DbType.String);
-            dbPara.Add("Emailvtxt", UserMasterDetails.Emailvtxt, DbType.String);
-            dbPara.Add("IsActivebit", UserMasterDetails.IsActivebit, DbType.Boolean);
-            dbPara.Add("Passwordvtxt", UserMasterDetails.Passwordvtxt, DbType.String);
+            dbPara.Add("UserName", UserMasterDetails.UserName, DbType.String);
+            dbPara.Add("Type", UserMasterDetails.Type, DbType.String);
+            dbPara.Add("LabCode", UserMasterDetails.LabCode, DbType.String);
+            dbPara.Add("LabID", UserMasterDetails.LabID, DbType.String);
+            dbPara.Add("Contact_No", UserMasterDetails.Contact_No, DbType.String);
+            dbPara.Add("Email", UserMasterDetails.Email, DbType.String);
+            dbPara.Add("Flag", UserMasterDetails.Flag, DbType.Boolean);
+            dbPara.Add("Password", UserMasterDetails.Password, DbType.String);
             dbPara.Add("CreatedByint", 1, DbType.Int32);
             dbPara.Add("CreatedDatedatetime", DateTime.Now, DbType.DateTime);
             dbPara.Add("ModifyByint", 1, DbType.Int32);
@@ -95,21 +94,21 @@ namespace myLabWebApi.Services
             UserMasterModel users = data;
 
             UserMasterModel model = new UserMasterModel();
-            model.UserCodetxt = users.UserCodetxt;
-            model.UserNametxt = users.UserNametxt;
-            model.Idbint = users.Idbint;
-            model.UserTypetxt = users.UserTypetxt;
-            model.Mobilevtxt = users.Mobilevtxt;
-            model.Emailvtxt = users.Emailvtxt;
-            model.Divisionvtxt = users.Divisionvtxt;
-            model.IsActivebit = users.IsActivebit;
-            model.Passwordvtxt = EncryptAngularStringAES(Decrypttxt(users.Passwordvtxt));
-            model.IsActivebit = users.IsActivebit;
-            model.ModifyByint = users.ModifyByint;
-            model.ModifyDatedatetime = users.ModifyDatedatetime;
-            model.CreatedByint = users.CreatedByint;
-            model.ParentCodevtxt = users.ParentCodevtxt;
-            model.CreatedDatedatetime = users.CreatedDatedatetime;
+            //model.UserCodetxt = users.UserCodetxt;
+            //model.UserNametxt = users.UserNametxt;
+            //model.Idbint = users.Idbint;
+            //model.UserTypetxt = users.UserTypetxt;
+            //model.Mobilevtxt = users.Mobilevtxt;
+            //model.Emailvtxt = users.Emailvtxt;
+            //model.Divisionvtxt = users.Divisionvtxt;
+            //model.IsActivebit = users.IsActivebit;
+            //model.Passwordvtxt = EncryptAngularStringAES(Decrypttxt(users.Passwordvtxt));
+            //model.IsActivebit = users.IsActivebit;
+            //model.ModifyByint = users.ModifyByint;
+            //model.ModifyDatedatetime = users.ModifyDatedatetime;
+            //model.CreatedByint = users.CreatedByint;
+            //model.ParentCodevtxt = users.ParentCodevtxt;
+            //model.CreatedDatedatetime = users.CreatedDatedatetime;
             return model;
 
             #endregion using dapper
@@ -119,15 +118,14 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
 
-            dbPara.Add("IDbint", UserMaster.Idbint, DbType.Int64);
-            dbPara.Add("UserCodetxt", UserMaster.UserCodetxt, DbType.String);
-            dbPara.Add("UserNametxt", UserMaster.UserNametxt, DbType.String);
-            dbPara.Add("UserTypetxt", UserMaster.UserTypetxt, DbType.String);
-            dbPara.Add("Divisionvtxt", UserMaster.Divisionvtxt, DbType.String);
-            dbPara.Add("Mobilevtxt", UserMaster.Mobilevtxt, DbType.String);
-            dbPara.Add("Emailvtxt", UserMaster.Emailvtxt, DbType.String);
-            dbPara.Add("Passwordvtxt", UserMaster.Passwordvtxt, DbType.String);
-            dbPara.Add("IsActivebit", UserMaster.IsActivebit, DbType.Boolean);
+            dbPara.Add("IDbint", UserMaster.ID, DbType.Int64);
+            dbPara.Add("UserNametxt", UserMaster.UserName, DbType.String);
+            dbPara.Add("UserTypetxt", UserMaster.Type, DbType.String);
+            dbPara.Add("LabCode", UserMaster.LabCode, DbType.String);
+            dbPara.Add("Mobilevtxt", UserMaster.Contact_No, DbType.String);
+            dbPara.Add("Email", UserMaster.Email, DbType.String);
+            dbPara.Add("Password", UserMaster.Password, DbType.String);
+            dbPara.Add("Flag", UserMaster.Flag, DbType.Boolean);
             dbPara.Add("ModifyByint", 1, DbType.Int32);
             dbPara.Add("ModifyDatedatetime", DateTime.Now, DbType.DateTime);
 
@@ -141,8 +139,8 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
 
-            dbPara.Add("IDbint", UserMaster.Idbint, DbType.Int64);
-            dbPara.Add("Passwordvtxt", UserMaster.Passwordvtxt, DbType.String);
+            dbPara.Add("IDbint", UserMaster.ID, DbType.Int64);
+            dbPara.Add("Passwordvtxt", UserMaster.Password, DbType.String);
             dbPara.Add("NewPassword", UserMaster.NewPassword, DbType.String);
 
             var data = _MyLabHelper.Update<string>("[dbo].[uspUpdateUserPassword]",
@@ -155,9 +153,9 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
 
-            dbPara.Add("IDbint", UserMaster.Idbint, DbType.Int64);
-            dbPara.Add("UserNametxt", UserMaster.UserNametxt, DbType.String);
-            dbPara.Add("Mobilevtxt", UserMaster.Mobilevtxt, DbType.String);
+            dbPara.Add("IDbint", UserMaster.ID, DbType.Int64);
+            dbPara.Add("UserNametxt", UserMaster.UserName, DbType.String);
+            dbPara.Add("Mobilevtxt", UserMaster.Contact_No, DbType.String);
 
             var data = _MyLabHelper.Update<string>("[dbo].[uspUpdateUserProfile]",
                             dbPara,
@@ -408,8 +406,8 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
 
-            dbPara.Add("UserCode", UserMaster.UserCodetxt, DbType.String);
-            dbPara.Add("EmailID", UserMaster.Emailvtxt, DbType.String);
+            dbPara.Add("UserCode", UserMaster.UserName, DbType.String);
+            dbPara.Add("EmailID", UserMaster.Email, DbType.String);
             dbPara.Add("NewPassword", UserMaster.NewPassword, DbType.String);
             dbPara.Add("ResetToken", UserMaster.ResetTokenvtxt, DbType.String);
 

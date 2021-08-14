@@ -23,17 +23,17 @@ namespace myLabWebApi.Controllers
     public class UserMasterController : ControllerBase
     {
         private readonly IUserMasterService _userMasterService;
-        private readonly IChecktokenservice _Checktokenservice;
-        private readonly JwtSettings _jwtSettings;
+        //private readonly IChecktokenservice _Checktokenservice;
+        //private readonly JwtSettings _jwtSettings;
         private readonly ILogger _ILogger;
         private static bool AngularEncryption = true;
 
-        public UserMasterController(IUserMasterService userMasterService, JwtSettings jwtSettings, ILogger ILoggerservice, IChecktokenservice checktokenservice)
+        public UserMasterController(IUserMasterService userMasterService, ILogger ILoggerservice)
         {
             _ILogger = ILoggerservice;
             _userMasterService = userMasterService;
-            _jwtSettings = jwtSettings;
-            _Checktokenservice = checktokenservice;
+            //_jwtSettings = jwtSettings;
+            //_Checktokenservice = checktokenservice;
         }
 
         [HttpGet("GetYear")]
@@ -67,40 +67,40 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetProfile/{Id}")]
-        public IActionResult GetProfile(long Id)
-        {
-            try
-            {
-                string Token = Request.Headers["Authorization"];
-                string[] authorize = Token.Split(" ");
-                if (_Checktokenservice.CheckTokenByID(authorize[1].Trim(), Id))
-                {
-                    var UserMasterModel = _userMasterService.GetById(Id);
-                    UserMasterModel = new UserMasterModel()
-                    {
-                        Idbint = UserMasterModel.Idbint,
-                        UserCodetxt = UserMasterModel.UserCodetxt,
-                        UserNametxt = UserMasterModel.UserNametxt,
-                        UserTypetxt = UserMasterModel.UserTypetxt,
-                        Divisionvtxt = UserMasterModel.Divisionvtxt,
-                        Mobilevtxt = UserMasterModel.Mobilevtxt,
-                        Emailvtxt = UserMasterModel.Emailvtxt,
-                    };
+        //[HttpGet("GetProfile/{Id}")]
+        //public IActionResult GetProfile(long Id)
+        //{
+        //    try
+        //    {
+        //        string Token = Request.Headers["Authorization"];
+        //        string[] authorize = Token.Split(" ");
+        //        if (_Checktokenservice.CheckTokenByID(authorize[1].Trim(), Id))
+        //        {
+        //            var UserMasterModel = _userMasterService.GetById(Id);
+        //            UserMasterModel = new UserMasterModel()
+        //            {
+        //                Idbint = UserMasterModel.Idbint,
+        //                UserCodetxt = UserMasterModel.UserCodetxt,
+        //                UserNametxt = UserMasterModel.UserNametxt,
+        //                UserTypetxt = UserMasterModel.UserTypetxt,
+        //                Divisionvtxt = UserMasterModel.Divisionvtxt,
+        //                Mobilevtxt = UserMasterModel.Mobilevtxt,
+        //                Emailvtxt = UserMasterModel.Emailvtxt,
+        //            };
 
-                    return Ok(UserMasterModel);
-                }
-                else
-                {
-                    return Ok("Un Authorized User");
-                }
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest(ex);
-            }
-        }
+        //            return Ok(UserMasterModel);
+        //        }
+        //        else
+        //        {
+        //            return Ok("Un Authorized User");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest(ex);
+        //    }
+        //}
 
         [HttpPost("Create")]
         public ActionResult Create(UserMasterModel model)
@@ -109,19 +109,18 @@ namespace myLabWebApi.Controllers
             {
                 var userMaster = new UserMasterModel()
                 {
-                    UserCodetxt = model.UserCodetxt,
-                    UserNametxt = model.UserNametxt,
-                    UserTypetxt = model.UserTypetxt,
-                    Divisionvtxt = model.Divisionvtxt,
-                    Mobilevtxt = model.Mobilevtxt,
-                    ParentCodevtxt = model.ParentCodevtxt,
-                    Emailvtxt = model.Emailvtxt,
-                    IsActivebit = model.IsActivebit,
-                    Passwordvtxt = Encrypttxt(model.Passwordvtxt),
-                    CreatedByint = 1,
-                    CreatedDatedatetime = DateTime.Now,
-                    ModifyByint = 1,
-                    ModifyDatedatetime = DateTime.Now
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    Type = model.Type,
+                    Contact_No = model.Contact_No
+                    //ParentCodevtxt = model.ParentCodevtxt,
+                    //Emailvtxt = model.Emailvtxt,
+                    //IsActivebit = model.IsActivebit,
+                    //Passwordvtxt = Encrypttxt(model.Passwordvtxt),
+                    //CreatedByint = 1,
+                    //CreatedDatedatetime = DateTime.Now,
+                    //ModifyByint = 1,
+                    //ModifyDatedatetime = DateTime.Now
                 };
 
                 return Ok(_userMasterService.Create(userMaster));
@@ -140,17 +139,17 @@ namespace myLabWebApi.Controllers
             {
                 var userMaster = new UserMasterModel()
                 {
-                    Idbint = model.Idbint,
-                    UserCodetxt = model.UserCodetxt,
-                    UserNametxt = model.UserNametxt,
-                    UserTypetxt = model.UserTypetxt,
-                    Divisionvtxt = model.Divisionvtxt,
-                    Mobilevtxt = model.Mobilevtxt,
-                    Emailvtxt = model.Emailvtxt,
-                    Passwordvtxt = Encrypttxt(model.Passwordvtxt),
-                    IsActivebit = model.IsActivebit,
-                    ModifyByint = 1,
-                    ModifyDatedatetime = DateTime.Now
+                    //Idbint = model.Idbint,
+                    //UserCodetxt = model.UserCodetxt,
+                    //UserNametxt = model.UserNametxt,
+                    //UserTypetxt = model.UserTypetxt,
+                    //Divisionvtxt = model.Divisionvtxt,
+                    //Mobilevtxt = model.Mobilevtxt,
+                    //Emailvtxt = model.Emailvtxt,
+                    //Passwordvtxt = Encrypttxt(model.Passwordvtxt),
+                    //IsActivebit = model.IsActivebit,
+                    //ModifyByint = 1,
+                    //ModifyDatedatetime = DateTime.Now
                 };
 
                 _userMasterService.Update(userMaster);
@@ -163,63 +162,63 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpPut("EditProfile")]
-        public ActionResult EditProfile(UserMasterModel model)
-        {
-            try
-            {
-                string Token = Request.Headers["Authorization"];
-                string[] authorize = Token.Split(" ");
-                if (_Checktokenservice.CheckTokenByID(authorize[1].Trim(), model.Idbint))
-                {
-                    var userMaster = new UserMasterModel()
-                    {
-                        Idbint = model.Idbint,
-                        UserNametxt = model.UserNametxt,
-                        Mobilevtxt = model.Mobilevtxt,
-                    };
-                    return Ok(_userMasterService.EditProfile(userMaster));
-                }
-                else
-                {
-                    return Ok("Un Authorized User");
-                }
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest(ex);
-            }
-        }
+        //[HttpPut("EditProfile")]
+        //public ActionResult EditProfile(UserMasterModel model)
+        //{
+        //    try
+        //    {
+        //        string Token = Request.Headers["Authorization"];
+        //        string[] authorize = Token.Split(" ");
+        //        if (_Checktokenservice.CheckTokenByID(authorize[1].Trim(), model.Idbint))
+        //        {
+        //            var userMaster = new UserMasterModel()
+        //            {
+        //                Idbint = model.Idbint,
+        //                UserNametxt = model.UserNametxt,
+        //                Mobilevtxt = model.Mobilevtxt,
+        //            };
+        //            return Ok(_userMasterService.EditProfile(userMaster));
+        //        }
+        //        else
+        //        {
+        //            return Ok("Un Authorized User");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest(ex);
+        //    }
+        //}
 
-        [HttpPut("ChangePassword")]
-        public ActionResult ChangePassword(UserMasterModel model)
-        {
-            try
-            {
-                string Token = Request.Headers["Authorization"];
-                string[] authorize = Token.Split(" ");
-                if (_Checktokenservice.CheckTokenByID(authorize[1].Trim(), model.Idbint))
-                {
-                    var userMaster = new UserMasterModel()
-                    {
-                        Idbint = model.Idbint,
-                        Passwordvtxt = Encrypttxt(model.Passwordvtxt),
-                        NewPassword = Encrypttxt(model.NewPassword),
-                    };
-                    return Ok(_userMasterService.ChangePassword(userMaster));
-                }
-                else
-                {
-                    return Ok("Un Authorized User");
-                }
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest(ex);
-            }
-        }
+        //[HttpPut("ChangePassword")]
+        //public ActionResult ChangePassword(UserMasterModel model)
+        //{
+        //    try
+        //    {
+        //        string Token = Request.Headers["Authorization"];
+        //        string[] authorize = Token.Split(" ");
+        //        if (_Checktokenservice.CheckTokenByID(authorize[1].Trim(), model.Idbint))
+        //        {
+        //            var userMaster = new UserMasterModel()
+        //            {
+        //                Idbint = model.Idbint,
+        //                Passwordvtxt = Encrypttxt(model.Passwordvtxt),
+        //                NewPassword = Encrypttxt(model.NewPassword),
+        //            };
+        //            return Ok(_userMasterService.ChangePassword(userMaster));
+        //        }
+        //        else
+        //        {
+        //            return Ok("Un Authorized User");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest(ex);
+        //    }
+        //}
 
         [HttpDelete("Delete/{ID}")]
         public IActionResult Delete(long ID)
@@ -236,47 +235,47 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [AllowAnonymous]
-        [HttpPost("Refresh")]
-        public IActionResult Refresh(RefreshTokenRequest requesttoken)
-        {
-            try
-            {
-                if (requesttoken.TokenTxt == "undefined" || requesttoken.RefreshTokenTxt == "undefined")
-                {
-                    return new ObjectResult(new
-                    {
-                        Issue = "Invalid refresh token",
-                    });
-                }
-                var principal = GetPrincipalFromExpiredToken(requesttoken.TokenTxt);
-                var username = principal.Claims.ToList();
-                var savedRefreshToken = _userMasterService.GetRefreshToken(username[0].Value, requesttoken.RefreshTokenTxt); //retrieve the refresh token from a data store
-                if (savedRefreshToken != requesttoken.RefreshTokenTxt)
+        //[AllowAnonymous]
+        //[HttpPost("Refresh")]
+        //public IActionResult Refresh(RefreshTokenRequest requesttoken)
+        //{
+        //    try
+        //    {
+        //        if (requesttoken.TokenTxt == "undefined" || requesttoken.RefreshTokenTxt == "undefined")
+        //        {
+        //            return new ObjectResult(new
+        //            {
+        //                Issue = "Invalid refresh token",
+        //            });
+        //        }
+        //        var principal = GetPrincipalFromExpiredToken(requesttoken.TokenTxt);
+        //        var username = principal.Claims.ToList();
+        //        var savedRefreshToken = _userMasterService.GetRefreshToken(username[0].Value, requesttoken.RefreshTokenTxt); //retrieve the refresh token from a data store
+        //        if (savedRefreshToken != requesttoken.RefreshTokenTxt)
 
-                    return new ObjectResult(new
-                    {
-                        Issue = "Invalid refresh token",
-                    });
-                //throw new SecurityTokenException("Invalid refresh token");
+        //            return new ObjectResult(new
+        //            {
+        //                Issue = "Invalid refresh token",
+        //            });
+        //        //throw new SecurityTokenException("Invalid refresh token");
 
-                var newJwtToken = GenerateToken(principal.Claims);
-                var newRefreshToken = GenerateRefreshToken();
-                _userMasterService.DeleteRefreshToken(username[0].Value, requesttoken.RefreshTokenTxt);
-                _userMasterService.SaveRefreshToken(username[0].Value, newRefreshToken);
+        //        var newJwtToken = GenerateToken(principal.Claims);
+        //        var newRefreshToken = GenerateRefreshToken();
+        //        _userMasterService.DeleteRefreshToken(username[0].Value, requesttoken.RefreshTokenTxt);
+        //        _userMasterService.SaveRefreshToken(username[0].Value, newRefreshToken);
 
-                return new ObjectResult(new
-                {
-                    token = newJwtToken,
-                    refreshToken = newRefreshToken
-                });
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest(ex);
-            }
-        }
+        //        return new ObjectResult(new
+        //        {
+        //            token = newJwtToken,
+        //            refreshToken = newRefreshToken
+        //        });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest(ex);
+        //    }
+        //}
 
         private RefreshToken GenerateRefreshToken1()
         {
@@ -301,74 +300,83 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        private string GenerateToken(IEnumerable<Claim> claims)
-        {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
+        //private string GenerateToken(IEnumerable<Claim> claims)
+        //{
+        //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 
-            var jwt = new JwtSecurityToken(issuer: "http://localhost:44335",
-                audience: "MyLabUsers",
-                claims: claims, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //...
-                notBefore: DateTime.UtcNow,
-                expires: DateTime.UtcNow.AddMinutes(20),
-                signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
-            );
+        //    var jwt = new JwtSecurityToken(issuer: "http://localhost:44335",
+        //        audience: "MyLabUsers",
+        //        claims: claims, //the user's claims, for example new Claim[] { new Claim(ClaimTypes.Name, "The username"), //...
+        //        notBefore: DateTime.UtcNow,
+        //        expires: DateTime.UtcNow.AddMinutes(20),
+        //        signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
+        //    );
 
-            return new JwtSecurityTokenHandler().WriteToken(jwt); //the method is called WriteToken but returns a string
-        }
+        //    return new JwtSecurityTokenHandler().WriteToken(jwt); //the method is called WriteToken but returns a string
+        //}
 
-        private ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
-        {
-            var tokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
-                ValidateIssuer = false,
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key)),
-                ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
-            };
+        //private ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
+        //{
+        //    var tokenValidationParameters = new TokenValidationParameters
+        //    {
+        //        ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
+        //        ValidateIssuer = false,
+        //        ValidateIssuerSigningKey = true,
+        //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key)),
+        //        ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
+        //    };
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            SecurityToken securityToken;
-            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
-            var jwtSecurityToken = securityToken as JwtSecurityToken;
-            if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
-                throw new SecurityTokenException("Invalid token");
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //    SecurityToken securityToken;
+        //    var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
+        //    var jwtSecurityToken = securityToken as JwtSecurityToken;
+        //    if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+        //        throw new SecurityTokenException("Invalid token");
 
-            return principal;
-        }
+        //    return principal;
+        //}
 
-        [AllowAnonymous]
+        
         [HttpPost("Login")]
-        public IActionResult Login(LoginModel userMaster)
+        public IActionResult Login(UserMasterModel userMaster)
         {
             try
             {
-                IActionResult ret;
-                UserAuthenticationObject obj = new UserAuthenticationObject();
-                SecurityManager security = new SecurityManager(_userMasterService, _jwtSettings);
-                obj = security.ValidateUser(userMaster.UserCodetxt, Encrypttxt(userMaster.Passwordvtxt));
+                //IActionResult ret;
+                UserMasterModel usermodel = _userMasterService.Login(userMaster.UserName,userMaster.Password);
+                //UserAuthenticationObject obj = new UserAuthenticationObject();
+                //SecurityManager security = new SecurityManager(_userMasterService, _jwtSettings);
+                //obj = security.ValidateUser(userMaster.UserCodetxt, Encrypttxt(userMaster.Passwordvtxt));
 
-                if (obj.IsAuthenticated)
+                //if (obj.IsAuthenticated)
+                //{
+                //    if (obj.IDbint != 0)
+                //    {
+                //        RefreshToken refreshToken = GenerateRefreshToken1();
+                //        refreshToken.UserIDbint = obj.UserCodetxt;
+                //        //userMaster.RefreshTokens.Add(refreshToken);
+                //        _userMasterService.SaveRefreshToken(refreshToken.UserIDbint, refreshToken.Tokentxt);
+                //        obj.RefreshToken = refreshToken.Tokentxt;
+                //        ret = StatusCode((int)HttpStatusCode.OK, obj);
+                //    }
+                //    else
+                //    {
+                //        ret = StatusCode((int)HttpStatusCode.OK, obj);
+                //    }
+                //}
+                //else
+                //{
+                //    ret = StatusCode((int)HttpStatusCode.NotFound, "user not found");
+                //}
+                //ret = StatusCode((int)HttpStatusCode.OK);
+                if(usermodel.UserName != "")
                 {
-                    if (obj.IDbint != 0)
-                    {
-                        RefreshToken refreshToken = GenerateRefreshToken1();
-                        refreshToken.UserIDbint = obj.UserCodetxt;
-                        //userMaster.RefreshTokens.Add(refreshToken);
-                        _userMasterService.SaveRefreshToken(refreshToken.UserIDbint, refreshToken.Tokentxt);
-                        obj.RefreshToken = refreshToken.Tokentxt;
-                        ret = StatusCode((int)HttpStatusCode.OK, obj);
-                    }
-                    else
-                    {
-                        ret = StatusCode((int)HttpStatusCode.OK, obj);
-                    }
+                    return Ok(_userMasterService.Login(userMaster.UserName, userMaster.Password));
                 }
                 else
                 {
-                    ret = StatusCode((int)HttpStatusCode.NotFound, "user not found");
+                    return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
                 }
-                return ret;
             }
             catch (Exception ex)
             {
@@ -377,19 +385,19 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpPost("LoginLogs")]
-        public IActionResult LoginLogs(UserMasterModel userMaster)
-        {
-            try
-            {
-                return Ok(_userMasterService.LoginLogs(userMaster.UserCodetxt, userMaster.UserNametxt, userMaster.UserTypetxt, userMaster.BrowserName, userMaster.IpAddress));
-            }
-            catch (Exception ex)
-            {
-                _ILogger.Log(ex);
-                return BadRequest(ex);
-            }
-        }
+        //[HttpPost("LoginLogs")]
+        //public IActionResult LoginLogs(UserMasterModel userMaster)
+        //{
+        //    try
+        //    {
+        //        return Ok(_userMasterService.LoginLogs(userMaster.UserCodetxt, userMaster.UserNametxt, userMaster.UserTypetxt, userMaster.BrowserName, userMaster.IpAddress));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest(ex);
+        //    }
+        //}
 
         [HttpGet("DeleteErrorLog/{DelDate}")]
         public IActionResult DeleteErrorLog(string DelDate)
@@ -442,8 +450,8 @@ namespace myLabWebApi.Controllers
             {
                 var userMaster = new UserMasterModel()
                 {
-                    UserCodetxt = model.UserCodetxt,
-                    Emailvtxt = model.Emailvtxt,
+                    UserName = model.UserName,
+                    Email = model.Email,
                     ResetTokenvtxt = model.ResetTokenvtxt,
                     NewPassword = Encrypttxt(model.NewPassword),
                 };
