@@ -63,6 +63,10 @@ namespace myLabWebApi.Models
         public string CashAmount { get; set; }
         public string OtherRemarks { get; set; }
 
-         
+        public string FileName { get; set; }
+        public int TPAId { get; set; }
+        public string HospitalizeRemark { get; set; }
+
+
     }
 }

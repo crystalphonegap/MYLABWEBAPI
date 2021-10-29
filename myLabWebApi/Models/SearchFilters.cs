@@ -10,6 +10,9 @@ namespace myLabWebApi.Models
         public int PageNo { get; set; }
         public int PageSize { get; set; }
         public string Keyword { get; set; }
+
+        public string FromDate { get; set; }
+        public string ToDate  { get; set; }
     }
     public class SearchByKeywordPageNoPageSizeType
     {

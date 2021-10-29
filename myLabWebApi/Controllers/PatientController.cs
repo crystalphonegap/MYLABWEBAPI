@@ -18,19 +18,21 @@ namespace myLabWebApi.Controllers
         private readonly IPatientService _IPatientService;
         private readonly ILogger _ILogger;
         private readonly IConfiguration _config;
+        private readonly IPaymentModeService _IpaymentMode;
 
       
 
         private readonly IMyLabHelper _MyLabHelper;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PatientController(ILogger ILoggerservice, IMyLabHelper MyLabHelper, IConfiguration config,IPatientService IPatientService, IWebHostEnvironment webHostEnvironment)
+        public PatientController(ILogger ILoggerservice, IMyLabHelper MyLabHelper, IConfiguration config,IPatientService IPatientService, IWebHostEnvironment webHostEnvironment, IPaymentModeService IpaymentMode)
         {
             _ILogger = ILoggerservice;
             _webHostEnvironment = webHostEnvironment;
             _IPatientService = IPatientService;
             _MyLabHelper = MyLabHelper;
             _config = config;
+            _IpaymentMode = IpaymentMode;
         }
 
         [HttpPost("CreatePatient")]
@@ -47,7 +49,33 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpGet("GetAllPaymentMode")]
+        public IActionResult GetAllPaymentMode()
+        {
+            try
+            {
+                return Ok(_IpaymentMode.GetAllPaymentMode());
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
 
+        [HttpGet("GetAllTAPLIST")]
+        public IActionResult GetAllTAPLIST()
+        {
+            try
+            {
+                return Ok(_IpaymentMode.GetAllTAPLIST());
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
         [HttpGet("GetAllTESTDETForPathTest/{search}")]
         public IActionResult GetAllTESTDETForPathTest(string search)
         {
@@ -98,12 +126,12 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword}")]
-        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword)
+        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword},{FromDate},{ToDate}")]
+        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword));
+                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword,FromDate,ToDate));
             }
             catch (Exception ex)
             {
@@ -127,12 +155,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetPatientSearchCount/{Keyword}")]
-        public IActionResult GetPatientSearchCount(string Keyword)
+        [HttpGet("GetPatientSearchCount/{Keyword},{FromDate},{ToDate}")]
+        public IActionResult GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearchCount(Keyword));
+                return Ok(_IPatientService.GetPatientSearchCount(Keyword,FromDate,ToDate));
             }
             catch (Exception ex)
             {

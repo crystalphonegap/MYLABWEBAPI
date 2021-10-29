@@ -192,6 +192,8 @@ namespace myLabWebApi.Models
         public string TEST_FieldName { get; set; }
         public int TEST_FormatSrNo { get; set; }
         public string TEST_sDefault { get; set; }
+        public int TPAId { get; set; }
+        public string HospitalizeRemark { get; set; }
     }
 
 }

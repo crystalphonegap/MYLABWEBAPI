@@ -10,11 +10,11 @@ namespace myLabWebApi.Interface
     {
         int Create(PatientMasterModel Patient, string strMode);
 
-        List<PatientMasterModel>  GetPatientSearch(int PageNo, int PageSize, string Keyword);
+        List<PatientMasterModel>  GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate);
 
         List<PAIT_HDR_DET_TEST> GetAllTESTDETForPathTest(string search);
 
-        long GetPatientSearchCount(string Keyword);
+        long GetPatientSearchCount(string Keyword, string FromDate, string ToDate);
 
         List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID);
 

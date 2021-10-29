@@ -82,6 +82,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+           
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -452,10 +453,26 @@ namespace myLabWebApi.Services
 
         public List<EMPLOYEE> GetEmployeeSearch(SearchFilters m)
         {
+
+         
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+            if(m.FromDate==null || m.FromDate=="null")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate,  DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(m.FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(m.ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
+            
+          
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -466,6 +483,18 @@ namespace myLabWebApi.Services
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+            if (m.FromDate == null || m.FromDate == "null")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(m.FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(m.ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }

@@ -42,7 +42,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_VisitTime", PATIENT.PATIENT_VisitTime, DbType.String);
             dbPara.Add("PATIENT_Email", PATIENT.PATIENT_Email, DbType.String);
             dbPara.Add("PATIENT_Country", PATIENT.PATIENT_Country, DbType.String);
-            dbPara.Add("PATIENT_PaymentMode", PATIENT.PATIENT_PaymentMode, DbType.String);
+            dbPara.Add("PATIENT_PaymentMode", PATIENT.Paymode, DbType.String);
             dbPara.Add("PATIENT_Telno", PATIENT.PATIENT_Telno, DbType.String);
             dbPara.Add("PATIENT_Gender", PATIENT.PATIENT_Gender, DbType.String);
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
@@ -112,8 +112,11 @@ namespace myLabWebApi.Services
                 dbPara.Add("CashAmount", string.IsNullOrEmpty(PATIENT.CashAmount) ? null : Convert.ToDecimal(PATIENT.CashAmount), DbType.Decimal);
                 dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
 
-             
-                var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
+            dbPara.Add("TPAID", PATIENT.TPAId, DbType.Int32);
+            dbPara.Add("HospitalizeRemark", PATIENT.HospitalizeRemark, DbType.String);
+
+
+            var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
             
@@ -122,7 +125,7 @@ namespace myLabWebApi.Services
 
 
 
-        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword)
+        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", PageNo, DbType.Int32);
@@ -135,11 +138,24 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("Keyword", Keyword, DbType.String);
             }
+
+            if (FromDate == null || ToDate == "null" || ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetPatientSearchCount(string Keyword)
+        public long GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -152,6 +168,18 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("Keyword", Keyword, DbType.String);
             }
+            if (FromDate == null || ToDate == "null" || ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
@@ -161,6 +189,9 @@ namespace myLabWebApi.Services
             dbPara.Add("PageNo", -3, DbType.Int32);
             dbPara.Add("PageSize", ID, DbType.Int32);
             dbPara.Add("Keyword", "", DbType.String);
+            DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+            dbPara.Add("FromDate", FDate, DbType.DateTime);
+            dbPara.Add("ToDate", FDate, DbType.DateTime);
             var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
