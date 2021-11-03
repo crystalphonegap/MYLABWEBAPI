@@ -114,6 +114,12 @@ namespace myLabWebApi.Services
 
             dbPara.Add("TPAID", PATIENT.TPAId, DbType.Int32);
             dbPara.Add("HospitalizeRemark", PATIENT.HospitalizeRemark, DbType.String);
+            dbPara.Add("Email1", PATIENT.Email1, DbType.String);
+            dbPara.Add("Email2", PATIENT.Email2, DbType.String);
+            dbPara.Add("Mobile1", PATIENT.Mobile1, DbType.String);
+            dbPara.Add("Mobile2", PATIENT.Mobile2, DbType.String);
+            dbPara.Add("City", PATIENT.City, DbType.String);
+            dbPara.Add("Area", PATIENT.Area, DbType.String);
 
 
             var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",

@@ -9,5 +9,7 @@ namespace myLabWebApi.Interface
         List<PaymentModeClass> GetAllPaymentMode();
 
         List<TPAClass> GetAllTAPLIST();
+
+        int InsertUpdatePaymentMode(PaymentModeClass paymentMode);
     }
 }

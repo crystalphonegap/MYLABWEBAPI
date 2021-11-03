@@ -63,6 +63,20 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpPost("InsertUpdatePaymentMode")]
+        public ActionResult InsertUpdatePaymentMode(PaymentModeClass model)
+        {
+            try
+            {
+                return Ok(_IpaymentMode.InsertUpdatePaymentMode(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return Ok(ex.Message);
+            }
+        }
+
         [HttpGet("GetAllTAPLIST")]
         public IActionResult GetAllTAPLIST()
         {

@@ -38,5 +38,17 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<TPAClass>("[dbo].[PRC_MS_GETTPALIST]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
+        public int InsertUpdatePaymentMode(PaymentModeClass model)
+        {
+            int data = 0;
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", model.Id, DbType.Int32);
+            dbPara.Add("@P_PAYMENTMODE", model.PaymentMode, DbType.String);
+            dbPara.Add("@P_ACTION", "I", DbType.String);
+            data = _MyLabHelper.Insert<int>("[dbo].[PRC_MS_PAYMENTMODE_IUD]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+            return data;
+        }
     }
 }

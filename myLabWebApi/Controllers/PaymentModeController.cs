@@ -38,6 +38,8 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+       
     }
 
 
