@@ -153,7 +153,9 @@ namespace myLabWebApi.Services
             //DateTime dobdt = DateTime.ParseExact(docmodel.DOB.ToString(), "dd-MM-yyyy", null);
             //dbPara.Add("DOB", Convert.ToDateTime(dobdt).ToString("yyyy-MM-dd"), DbType.String);
             dbPara.Add("doctor_Code", docmodel.doctor_Code, DbType.String);
-
+            dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Country, DbType.String);
+            dbPara.Add("OFFICE_Area", docmodel.OFFICE_Area, DbType.String);
+            dbPara.Add("DOCTOR_Area", docmodel.DOCTOR_Area, DbType.String);
             #region using dapper
 
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
@@ -218,6 +220,11 @@ namespace myLabWebApi.Services
             dbPara.Add("CENTER_RATELIST_ID", centermodel.CENTER_RATELIST_ID, DbType.Int64);
             dbPara.Add("CENTER_CREDIT", centermodel.CENTER_CREDIT, DbType.Boolean);
             dbPara.Add("CENTER_Discount", centermodel.CENTER_Discount, DbType.Boolean);
+            dbPara.Add("Area", centermodel.Area, DbType.String);
+            dbPara.Add("Pincode", centermodel.Pincode, DbType.String);
+            dbPara.Add("State", centermodel.State, DbType.String);
+            dbPara.Add("Country", centermodel.Country, DbType.String);
+            dbPara.Add("TelephoneNo", centermodel.TelephoneNo, DbType.String);
 
             #region using dapper
 

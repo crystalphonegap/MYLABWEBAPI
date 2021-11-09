@@ -120,7 +120,10 @@ namespace myLabWebApi.Services
             dbPara.Add("Mobile2", PATIENT.Mobile2, DbType.String);
             dbPara.Add("City", PATIENT.City, DbType.String);
             dbPara.Add("Area", PATIENT.Area, DbType.String);
-
+            dbPara.Add("State", PATIENT.State, DbType.String);
+            dbPara.Add("Pincode", PATIENT.Pincode, DbType.String);
+            dbPara.Add("TelephoneNo", PATIENT.TelephoneNo, DbType.String);
+            
 
             var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                           dbPara,

@@ -9,6 +9,7 @@ using myLabWebApi.Models;
 using System;
 using System.Collections.Generic;
 
+
 namespace myLabWebApi.Controllers
 {
     [Route("[controller]")]
@@ -19,8 +20,6 @@ namespace myLabWebApi.Controllers
         private readonly ILogger _ILogger;
         private readonly IConfiguration _config;
         private readonly IPaymentModeService _IpaymentMode;
-
-      
 
         private readonly IMyLabHelper _MyLabHelper;
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -145,7 +144,10 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword,FromDate,ToDate));
+               
+               return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword,FromDate,ToDate));
+              
+                
             }
             catch (Exception ex)
             {

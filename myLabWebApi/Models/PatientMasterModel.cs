@@ -75,6 +75,10 @@ namespace myLabWebApi.Models
         public string Mobile1 { get; set; }
         public string Mobile2 { get; set; }
 
+        public string State { get; set; }
+        public string Pincode { get; set; }
+        public string TelephoneNo { get; set; }
+
 
     }
 }
