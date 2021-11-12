@@ -60,6 +60,11 @@ namespace myLabWebApi.Services
             dbPara.Add("@P_ACTION", model.Action, DbType.String);
             dbPara.Add("@P_Address2", model.Address2, DbType.String);
             dbPara.Add("@P_City", model.City, DbType.String);
+            dbPara.Add("@P_Area", model.Area, DbType.String);
+            dbPara.Add("@P_State", model.State, DbType.String);
+            dbPara.Add("@P_Pincode", model.Pincode, DbType.String);
+            dbPara.Add("@P_TelephoneNo", model.TelephoneNo, DbType.String);
+            dbPara.Add("@P_Country", model.Country, DbType.String);
 
             #region using dapper
 

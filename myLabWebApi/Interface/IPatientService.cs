@@ -18,6 +18,8 @@ namespace myLabWebApi.Interface
 
         List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID);
 
+        List<PAIT_HDR_DET_TEST> GetPatientDetail2(string mobile);
+
         List<PAIT_HDR_DET_TEST> GetPatientTestDetail(string ID);
 
         long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model);

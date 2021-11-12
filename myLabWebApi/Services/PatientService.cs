@@ -205,6 +205,17 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
+
+        public List<PAIT_HDR_DET_TEST> GetPatientDetail2(string  mobile)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_MOBILE", mobile, DbType.String);
+           
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[PRC_MS_GETPATIENT_NAMEBYMOBILE]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+
         //Use for Get Patient By Mobile No
         public int GetPatientByMobileNoCount(string MobileNo)
         {
