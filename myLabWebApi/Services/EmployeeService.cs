@@ -225,6 +225,7 @@ namespace myLabWebApi.Services
             dbPara.Add("State", centermodel.State, DbType.String);
             dbPara.Add("Country", centermodel.Country, DbType.String);
             dbPara.Add("TelephoneNo", centermodel.TelephoneNo, DbType.String);
+            dbPara.Add("CENTER_OutSourceLab", centermodel.CENTER_OutSourceLab, DbType.Boolean);
 
             #region using dapper
 

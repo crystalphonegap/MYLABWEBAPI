@@ -1,14 +1,12 @@
-﻿using AspNetCore.Reporting;
-using CrystalDecisions.CrystalReports.Engine;
-using Dapper;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
 using System;
 using System.Collections.Generic;
-
+using System.Collections.Specialized;
+using System.Net.Http;
 
 namespace myLabWebApi.Controllers
 {
@@ -39,6 +37,8 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+
+                var files = Request.Form.Files;
                 return Ok(_IPatientService.Create(model,"A"));
             }
             catch (Exception ex)
@@ -65,6 +65,8 @@ namespace myLabWebApi.Controllers
         [HttpPost("InsertUpdatePaymentMode")]
         public ActionResult InsertUpdatePaymentMode(PaymentModeClass model)
         {
+            
+            //var filesToDelete =System.Web.HttpContext.Current.Request.Params["filesToDelete"];
             try
             {
                 return Ok(_IpaymentMode.InsertUpdatePaymentMode(model));
@@ -108,13 +110,13 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+               
+                //var files = Request.Form.Files;
                 var PATIENT_Age = model.PATIENT_Age;
                 var gender = model.PATIENT_Gender;
                 var flag = model.PATIENT_AgeFlag;
 
-
                 return Ok(_IPatientService.Create(model,"U"));
-
 
             }
             catch (Exception ex)
@@ -123,6 +125,8 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+      
+
 
         [HttpPut("UpdateDocDetTestValue")]
         public ActionResult UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)

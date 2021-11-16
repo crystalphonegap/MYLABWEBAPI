@@ -14,7 +14,7 @@
         public bool? CENTER_CREDIT { get; set; }
         public bool? CENTER_Discount { get; set; }
         public int? CENTER_Companyid { get; set; }
-        public string CENTER_OutSourceLab { get; set; }
+        public bool? CENTER_OutSourceLab { get; set; }
         public string Area { get; set; }
         public string Pincode { get; set; }
         public string State { get; set; }

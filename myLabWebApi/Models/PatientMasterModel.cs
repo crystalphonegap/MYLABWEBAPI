@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -78,6 +79,8 @@ namespace myLabWebApi.Models
         public string State { get; set; }
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
+
+        public IFormFile FileUpload { get; set; }
 
 
     }

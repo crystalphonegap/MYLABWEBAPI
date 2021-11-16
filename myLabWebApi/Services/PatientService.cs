@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace myLabWebApi.Services
 {
@@ -31,6 +33,10 @@ namespace myLabWebApi.Services
 
         public int Create(PatientMasterModel PATIENT, string strMode)
         {
+            
+            var fileSourceLocation = "EventImg";
+          
+            var filedb = UploadedSitePhotoFiles(PATIENT.FileUpload, fileSourceLocation, "");
             var dbPara = new DynamicParameters();
             dbPara.Add("AddEditFlag", strMode, DbType.String);
             dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
@@ -123,7 +129,8 @@ namespace myLabWebApi.Services
             dbPara.Add("State", PATIENT.State, DbType.String);
             dbPara.Add("Pincode", PATIENT.Pincode, DbType.String);
             dbPara.Add("TelephoneNo", PATIENT.TelephoneNo, DbType.String);
-            
+            dbPara.Add("FileName", PATIENT.FileName, DbType.String);
+
 
             var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                           dbPara,
@@ -477,6 +484,33 @@ namespace myLabWebApi.Services
             return data;
         }
 
+        public async Task<string> UploadedSitePhotoFiles(IFormFile newFiles1, string LocationFolder, string CustomerCodevtxt)
+        {
+            var fileName = "";
+            var file = newFiles1;
+
+            var folderName = LocationFolder;//Path.Combine(LocationFolder, ChaildLocationFolder);
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+            if (file.Length > 0)
+            {
+                var fileName1 = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                // fileName=fileName1;
+                //fileName=uid+"_"+id+"_"+fileName1;
+                fileName = CustomerCodevtxt + "_" + DateTime.Now.Ticks + fileName1;
+                // fileName=CustomerCodevtxt+"_"+fileName1;
+                var fullPath = Path.Combine(pathToSave, fileName);
+                var dbPath = Path.Combine(folderName, fileName);
+
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                //return Ok(new { dbPath });
+            };
+            return fileName;
+        }
 
     }
 }
