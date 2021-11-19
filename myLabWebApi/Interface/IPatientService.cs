@@ -16,7 +16,7 @@ namespace myLabWebApi.Interface
 
         long GetPatientSearchCount(string Keyword, string FromDate, string ToDate);
 
-        List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID);
+        List<PAIT_HDR_DET_TEST_New> GetPatientDetail(long ID);
 
         List<PAIT_HDR_DET_TEST> GetPatientDetail2(string mobile);
 
@@ -26,7 +26,7 @@ namespace myLabWebApi.Interface
 
         List<NarrationModel> GetNarration(string Keyword);
 
-        List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID);
+        List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID);
 
         List<PAIT_HDR_DET_TEST> GetTestDetailByTestMstID(long ID);
 

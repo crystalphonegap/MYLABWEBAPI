@@ -36,7 +36,7 @@ namespace myLabWebApi.Services
             
             var fileSourceLocation = "EventImg";
           
-            var filedb = UploadedSitePhotoFiles(PATIENT.FileUpload, fileSourceLocation, "");
+           // var filedb = UploadedSitePhotoFiles(PATIENT.FileUpload, fileSourceLocation, "");
             var dbPara = new DynamicParameters();
             dbPara.Add("AddEditFlag", strMode, DbType.String);
             dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
@@ -199,7 +199,7 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
-        public List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID)
+        public List<PAIT_HDR_DET_TEST_New> GetPatientDetail(long ID)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -3, DbType.Int32);
@@ -208,7 +208,7 @@ namespace myLabWebApi.Services
             DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
             dbPara.Add("FromDate", FDate, DbType.DateTime);
             dbPara.Add("ToDate", FDate, DbType.DateTime);
-            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
@@ -342,12 +342,12 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_GetNarration]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
-        public List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID)
+        public List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID)
         {
             var dbPara = new DynamicParameters(); 
             dbPara.Add("ID", ID, DbType.Int32);
 
-            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
             for (int i = 0; i < data.Count; i++)
             {
                 if (Convert.ToInt32(data[i].TESTDET_FieldType) == 1)

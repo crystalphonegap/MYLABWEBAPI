@@ -38,7 +38,7 @@ namespace myLabWebApi.Controllers
             try
             {
 
-                var files = Request.Form.Files;
+               // var files = Request.Form.Files;
                 return Ok(_IPatientService.Create(model,"A"));
             }
             catch (Exception ex)
