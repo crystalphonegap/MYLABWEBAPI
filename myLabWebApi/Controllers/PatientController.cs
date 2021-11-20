@@ -1,13 +1,12 @@
-﻿using AspNetCore.Reporting;
-using CrystalDecisions.CrystalReports.Engine;
-using Dapper;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Net.Http;
 
 namespace myLabWebApi.Controllers
 {
@@ -18,19 +17,19 @@ namespace myLabWebApi.Controllers
         private readonly IPatientService _IPatientService;
         private readonly ILogger _ILogger;
         private readonly IConfiguration _config;
-
-      
+        private readonly IPaymentModeService _IpaymentMode;
 
         private readonly IMyLabHelper _MyLabHelper;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PatientController(ILogger ILoggerservice, IMyLabHelper MyLabHelper, IConfiguration config,IPatientService IPatientService, IWebHostEnvironment webHostEnvironment)
+        public PatientController(ILogger ILoggerservice, IMyLabHelper MyLabHelper, IConfiguration config,IPatientService IPatientService, IWebHostEnvironment webHostEnvironment, IPaymentModeService IpaymentMode)
         {
             _ILogger = ILoggerservice;
             _webHostEnvironment = webHostEnvironment;
             _IPatientService = IPatientService;
             _MyLabHelper = MyLabHelper;
             _config = config;
+            _IpaymentMode = IpaymentMode;
         }
 
         [HttpPost("CreatePatient")]
@@ -38,6 +37,8 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+
+               // var files = Request.Form.Files;
                 return Ok(_IPatientService.Create(model,"A"));
             }
             catch (Exception ex)
@@ -47,7 +48,49 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpGet("GetAllPaymentMode")]
+        public IActionResult GetAllPaymentMode()
+        {
+            try
+            {
+                return Ok(_IpaymentMode.GetAllPaymentMode());
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
 
+        [HttpPost("InsertUpdatePaymentMode")]
+        public ActionResult InsertUpdatePaymentMode(PaymentModeClass model)
+        {
+            
+            //var filesToDelete =System.Web.HttpContext.Current.Request.Params["filesToDelete"];
+            try
+            {
+                return Ok(_IpaymentMode.InsertUpdatePaymentMode(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return Ok(ex.Message);
+            }
+        }
+
+        [HttpGet("GetAllTAPLIST")]
+        public IActionResult GetAllTAPLIST()
+        {
+            try
+            {
+                return Ok(_IpaymentMode.GetAllTAPLIST());
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
         [HttpGet("GetAllTESTDETForPathTest/{search}")]
         public IActionResult GetAllTESTDETForPathTest(string search)
         {
@@ -67,13 +110,13 @@ namespace myLabWebApi.Controllers
         {
             try
             {
+               
+                //var files = Request.Form.Files;
                 var PATIENT_Age = model.PATIENT_Age;
                 var gender = model.PATIENT_Gender;
                 var flag = model.PATIENT_AgeFlag;
 
-
                 return Ok(_IPatientService.Create(model,"U"));
-
 
             }
             catch (Exception ex)
@@ -82,6 +125,8 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+      
+
 
         [HttpPut("UpdateDocDetTestValue")]
         public ActionResult UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
@@ -98,12 +143,15 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword}")]
-        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword)
+        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword},{FromDate},{ToDate}")]
+        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword));
+               
+               return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword,FromDate,ToDate));
+              
+                
             }
             catch (Exception ex)
             {
@@ -127,12 +175,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetPatientSearchCount/{Keyword}")]
-        public IActionResult GetPatientSearchCount(string Keyword)
+        [HttpGet("GetPatientSearchCount/{Keyword},{FromDate},{ToDate}")]
+        public IActionResult GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearchCount(Keyword));
+                return Ok(_IPatientService.GetPatientSearchCount(Keyword,FromDate,ToDate));
             }
             catch (Exception ex)
             {

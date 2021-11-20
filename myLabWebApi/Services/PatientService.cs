@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace myLabWebApi.Services
 {
@@ -31,6 +33,10 @@ namespace myLabWebApi.Services
 
         public int Create(PatientMasterModel PATIENT, string strMode)
         {
+            
+            var fileSourceLocation = "EventImg";
+          
+           // var filedb = UploadedSitePhotoFiles(PATIENT.FileUpload, fileSourceLocation, "");
             var dbPara = new DynamicParameters();
             dbPara.Add("AddEditFlag", strMode, DbType.String);
             dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
@@ -42,7 +48,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_VisitTime", PATIENT.PATIENT_VisitTime, DbType.String);
             dbPara.Add("PATIENT_Email", PATIENT.PATIENT_Email, DbType.String);
             dbPara.Add("PATIENT_Country", PATIENT.PATIENT_Country, DbType.String);
-            dbPara.Add("PATIENT_PaymentMode", PATIENT.PATIENT_PaymentMode, DbType.String);
+            dbPara.Add("PATIENT_PaymentMode", PATIENT.Paymode, DbType.String);
             dbPara.Add("PATIENT_Telno", PATIENT.PATIENT_Telno, DbType.String);
             dbPara.Add("PATIENT_Gender", PATIENT.PATIENT_Gender, DbType.String);
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
@@ -112,8 +118,21 @@ namespace myLabWebApi.Services
                 dbPara.Add("CashAmount", string.IsNullOrEmpty(PATIENT.CashAmount) ? null : Convert.ToDecimal(PATIENT.CashAmount), DbType.Decimal);
                 dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
 
-             
-                var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
+            dbPara.Add("TPAID", PATIENT.TPAId, DbType.Int32);
+            dbPara.Add("HospitalizeRemark", PATIENT.HospitalizeRemark, DbType.String);
+            dbPara.Add("Email1", PATIENT.Email1, DbType.String);
+            dbPara.Add("Email2", PATIENT.Email2, DbType.String);
+            dbPara.Add("Mobile1", PATIENT.Mobile1, DbType.String);
+            dbPara.Add("Mobile2", PATIENT.Mobile2, DbType.String);
+            dbPara.Add("City", PATIENT.City, DbType.String);
+            dbPara.Add("Area", PATIENT.Area, DbType.String);
+            dbPara.Add("State", PATIENT.State, DbType.String);
+            dbPara.Add("Pincode", PATIENT.Pincode, DbType.String);
+            dbPara.Add("TelephoneNo", PATIENT.TelephoneNo, DbType.String);
+            dbPara.Add("FileName", PATIENT.FileName, DbType.String);
+
+
+            var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
             
@@ -122,7 +141,7 @@ namespace myLabWebApi.Services
 
 
 
-        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword)
+        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", PageNo, DbType.Int32);
@@ -135,11 +154,24 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("Keyword", Keyword, DbType.String);
             }
+
+            if (FromDate == null || ToDate == "null" || ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetPatientSearchCount(string Keyword)
+        public long GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -152,18 +184,44 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("Keyword", Keyword, DbType.String);
             }
+            if (FromDate == null || ToDate == "null" || ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
-        public List<PAIT_HDR_DET_TEST> GetPatientDetail(long ID)
+        public List<PAIT_HDR_DET_TEST_New> GetPatientDetail(long ID)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -3, DbType.Int32);
             dbPara.Add("PageSize", ID, DbType.Int32);
             dbPara.Add("Keyword", "", DbType.String);
-            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
+            DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+            dbPara.Add("FromDate", FDate, DbType.DateTime);
+            dbPara.Add("ToDate", FDate, DbType.DateTime);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
+
+
+        public List<PAIT_HDR_DET_TEST> GetPatientDetail2(string  mobile)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_MOBILE", mobile, DbType.String);
+           
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[PRC_MS_GETPATIENT_NAMEBYMOBILE]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
 
         //Use for Get Patient By Mobile No
         public int GetPatientByMobileNoCount(string MobileNo)
@@ -284,12 +342,12 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.GetAll<NarrationModel>("[dbo].[SP_GetNarration]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
-        public List<PAIT_HDR_DET_TEST> GetPatientAllTestDetail(long ID)
+        public List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID)
         {
             var dbPara = new DynamicParameters(); 
             dbPara.Add("ID", ID, DbType.Int32);
 
-            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
             for (int i = 0; i < data.Count; i++)
             {
                 if (Convert.ToInt32(data[i].TESTDET_FieldType) == 1)
@@ -426,6 +484,33 @@ namespace myLabWebApi.Services
             return data;
         }
 
+        public async Task<string> UploadedSitePhotoFiles(IFormFile newFiles1, string LocationFolder, string CustomerCodevtxt)
+        {
+            var fileName = "";
+            var file = newFiles1;
+
+            var folderName = LocationFolder;//Path.Combine(LocationFolder, ChaildLocationFolder);
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+            if (file.Length > 0)
+            {
+                var fileName1 = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                // fileName=fileName1;
+                //fileName=uid+"_"+id+"_"+fileName1;
+                fileName = CustomerCodevtxt + "_" + DateTime.Now.Ticks + fileName1;
+                // fileName=CustomerCodevtxt+"_"+fileName1;
+                var fullPath = Path.Combine(pathToSave, fileName);
+                var dbPath = Path.Combine(folderName, fileName);
+
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                //return Ok(new { dbPath });
+            };
+            return fileName;
+        }
 
     }
 }
