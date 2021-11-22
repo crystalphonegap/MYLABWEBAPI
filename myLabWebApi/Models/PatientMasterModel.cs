@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,6 +64,26 @@ namespace myLabWebApi.Models
         public string CashAmount { get; set; }
         public string OtherRemarks { get; set; }
 
-         
+        public string FileName { get; set; }
+        public int TPAId { get; set; }
+        public string HospitalizeRemark { get; set; }
+
+
+        public string City { get; set; }
+        public string Area { get; set; }
+        public string Email1 { get; set; }
+        public string Email2 { get; set; }
+        public string Mobile1 { get; set; }
+        public string Mobile2 { get; set; }
+
+        public string State { get; set; }
+        public string Pincode { get; set; }
+        public string TelephoneNo { get; set; }
+        public string SavedFileName { get; set; }
+        public IFormFile FileUpload { get; set; }
+
+
     }
+   
+
 }

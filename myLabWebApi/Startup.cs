@@ -84,6 +84,8 @@ namespace myLabWebApi
             services.AddScoped<ITestService, TestService>();
             services.AddScoped<IPatientService, PATIENTService>();
             services.AddScoped<IUserMasterService, UserMasterService>();
+            services.AddScoped<IPaymentModeService, PaymentModeService>();
+            services.AddScoped<ITPAService, TPAService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

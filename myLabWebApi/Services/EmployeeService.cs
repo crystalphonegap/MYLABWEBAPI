@@ -82,6 +82,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+           
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_DoctorList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -152,7 +153,9 @@ namespace myLabWebApi.Services
             //DateTime dobdt = DateTime.ParseExact(docmodel.DOB.ToString(), "dd-MM-yyyy", null);
             //dbPara.Add("DOB", Convert.ToDateTime(dobdt).ToString("yyyy-MM-dd"), DbType.String);
             dbPara.Add("doctor_Code", docmodel.doctor_Code, DbType.String);
-
+            dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Country, DbType.String);
+            dbPara.Add("OFFICE_Area", docmodel.OFFICE_Area, DbType.String);
+            dbPara.Add("DOCTOR_Area", docmodel.DOCTOR_Area, DbType.String);
             #region using dapper
 
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
@@ -217,6 +220,12 @@ namespace myLabWebApi.Services
             dbPara.Add("CENTER_RATELIST_ID", centermodel.CENTER_RATELIST_ID, DbType.Int64);
             dbPara.Add("CENTER_CREDIT", centermodel.CENTER_CREDIT, DbType.Boolean);
             dbPara.Add("CENTER_Discount", centermodel.CENTER_Discount, DbType.Boolean);
+            dbPara.Add("Area", centermodel.Area, DbType.String);
+            dbPara.Add("Pincode", centermodel.Pincode, DbType.String);
+            dbPara.Add("State", centermodel.State, DbType.String);
+            dbPara.Add("Country", centermodel.Country, DbType.String);
+            dbPara.Add("TelephoneNo", centermodel.TelephoneNo, DbType.String);
+            dbPara.Add("CENTER_OutSourceLab", centermodel.CENTER_OutSourceLab, DbType.Boolean);
 
             #region using dapper
 
@@ -452,10 +461,26 @@ namespace myLabWebApi.Services
 
         public List<EMPLOYEE> GetEmployeeSearch(SearchFilters m)
         {
+
+         
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", m.PageNo, DbType.Int32);
             dbPara.Add("PageSize", m.PageSize, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+            if(m.FromDate==null || m.FromDate=="null")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate,  DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(m.FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(m.ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
+            
+          
             var data = _MyLabHelper.GetAll<EMPLOYEE>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
@@ -466,6 +491,18 @@ namespace myLabWebApi.Services
             dbPara.Add("PageNo", -1, DbType.Int32);
             dbPara.Add("PageSize", 0, DbType.Int32);
             dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+            if (m.FromDate == null || m.FromDate == "null")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(m.FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(m.ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
             var data = _MyLabHelper.GetAll<DOCTOR>("[dbo].[SP_EmployeeList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }

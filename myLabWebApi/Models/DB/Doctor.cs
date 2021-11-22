@@ -47,5 +47,9 @@ namespace myLabWebApi.Models.New
         public string doctor_Code { get; set; }
         public string CENTER_Name { get; set; }
         public int Collection_Center { get; set; }
+        public string DOCTOR_Country { get; set; }
+       
+        public string OFFICE_Area { get; set; }
+        public string DOCTOR_Area { get; set; }
     }
 }
