@@ -82,6 +82,8 @@ namespace myLabWebApi.Models
 
         public IFormFile FileUpload { get; set; }
 
+        public string ProposalNumber { get; set; }
+
 
     }
    

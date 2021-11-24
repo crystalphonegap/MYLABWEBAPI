@@ -204,6 +204,7 @@ namespace myLabWebApi.Models
         public string State { get; set; }
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
+        public string ProposalNumber { get; set; }
     }
 
     public class PAIT_HDR_DET_TEST_New
@@ -407,5 +408,6 @@ namespace myLabWebApi.Models
         public string State { get; set; }
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
+        public string ProposalNumber { get; set; }
     }
 }

@@ -255,20 +255,22 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                int rst = _IPatientService.GetPatientByMobileNoCount(MobileNo);
-                if (rst == 1)
-                {
+                //int rst = _IPatientService.GetPatientByMobileNoCount(MobileNo);
+                //if (rst == 1)
+                //{
                     List<PatientMasterModel> model = _IPatientService.GetPatientByMobileNo(MobileNo);
-                    return Ok(_IPatientService.GetPatientDetail(model[0].Patient_Id));
-                }
-                else if (rst > 1)
-                {
-                    return Ok(_IPatientService.GetPatientByMobileNo(MobileNo));
-                }
-                else
-                {
-                    return Ok(null);
-                }
+                    return Ok(_IPatientService.GetPatientDetail2(MobileNo));
+
+                    //return Ok(_IPatientService.GetPatientDetail(model[0].Patient_Id));
+                //}
+                //else if (rst > 1)
+                //{
+                //    return Ok(_IPatientService.GetPatientByMobileNo(MobileNo));
+                //}
+                //else
+                //{
+                //    return Ok(null);
+                //}
             }
             catch (Exception ex)
             {
