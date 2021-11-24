@@ -8908,12 +8908,31 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\CrystalPc3\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
     "C:\\Users\\Crystalweb-001\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+>>>>>>> fa24a529890c131a28dee67ea4fb481d6e99217d
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "D:\\My Lab Angular\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "projectName": "myLabWebApi",
+      "projectPath": "D:\\My Lab Angular\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
+      "packagesPath": "C:\\Users\\CrystalPc3\\.nuget\\packages\\",
+      "outputPath": "D:\\My Lab Angular\\my_Lab_Web_Api\\myLabWebApi\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\CrystalPc3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
       "projectUniqueName": "D:\\Anil\\MYLAB\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
       "projectName": "myLabWebApi",
       "projectPath": "D:\\Anil\\MYLAB\\my_Lab_Web_Api\\myLabWebApi\\myLabWebApi.csproj",
@@ -8925,6 +8944,7 @@
       ],
       "configFilePaths": [
         "C:\\Users\\Crystalweb-001\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> fa24a529890c131a28dee67ea4fb481d6e99217d
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9065,7 +9085,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+>>>>>>> fa24a529890c131a28dee67ea4fb481d6e99217d
       }
     }
   },

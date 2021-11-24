@@ -211,6 +211,7 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
+       
 
         public List<PAIT_HDR_DET_TEST> GetPatientDetail2(string  mobile)
         {
@@ -240,25 +241,74 @@ namespace myLabWebApi.Services
         }
         //Use for Get Patient By Mobile No
 
-        public long  UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
+
+
+        //Commented by suman 23-11-2021
+        //public long  UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
+        //{
+        //    long data=0;
+        //    for (int i = 0; i < model.Count; i++)
+        //    {
+        //        var dbPara = new DynamicParameters();
+        //        dbPara.Add("DOCDET_lHeaderId", model[i].DOCDET_lHeaderId, DbType.Int32);
+        //        dbPara.Add("DOCDET_lFieldNo", model[i].DOCDET_lFieldNo, DbType.String);
+        //        dbPara.Add("DOCDET_tFieldValue", model[i].DOCDET_tFieldValue, DbType.String);
+        //        dbPara.Add("DOCHDR_sDescription", model[0].DOCHDR_sDescription, DbType.String);
+        //        dbPara.Add("ResampleReason", model[0].ResampleReason, DbType.String);
+        //        dbPara.Add("MarkComplete", model[0].MarkComplete, DbType.String);
+        //        dbPara.Add("Rerun", string.IsNullOrEmpty( model[i].Rerun)?false: model[i].Rerun, DbType.Boolean);
+        //        data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDocDetTestValue]",
+        //                      dbPara,
+        //                      commandType: CommandType.StoredProcedure);
+        //    }
+        //    return data;
+        //}
+
+        //Commented by suman 23-11-2021
+
+        #region "Added By Suman"
+
+        public long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
         {
-            long data=0;
+            long data = 0;
             for (int i = 0; i < model.Count; i++)
             {
                 var dbPara = new DynamicParameters();
                 dbPara.Add("DOCDET_lHeaderId", model[i].DOCDET_lHeaderId, DbType.Int32);
                 dbPara.Add("DOCDET_lFieldNo", model[i].DOCDET_lFieldNo, DbType.String);
                 dbPara.Add("DOCDET_tFieldValue", model[i].DOCDET_tFieldValue, DbType.String);
-                dbPara.Add("DOCHDR_sDescription", model[0].DOCHDR_sDescription, DbType.String);
-                dbPara.Add("ResampleReason", model[0].ResampleReason, DbType.String);
-                dbPara.Add("MarkComplete", model[0].MarkComplete, DbType.String);
-                dbPara.Add("Rerun", string.IsNullOrEmpty( model[i].Rerun)?false: model[i].Rerun, DbType.Boolean);
+                dbPara.Add("Rerun", string.IsNullOrEmpty(model[i].Rerun) ? false : model[i].Rerun, DbType.Boolean);
                 data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDocDetTestValue]",
                               dbPara,
                               commandType: CommandType.StoredProcedure);
             }
+            if(model.Count> 0)
+            {
+                int dochdrid = 0;
+                for(int j=0;j<model.Count;j++)
+                {
+                   
+                    if(dochdrid != model[j].DOCDET_lHeaderId)
+                    {
+                        var dbPara = new DynamicParameters();
+                        dbPara.Add("DOCDET_lHeaderId", model[j].DOCDET_lHeaderId, DbType.Int32);
+                        dbPara.Add("DOCHDR_sDescription", model[j].DOCHDR_sDescription, DbType.String);
+                        dbPara.Add("ResampleReason", model[j].ResampleReason, DbType.String);
+                        dbPara.Add("MarkComplete", model[j].MarkComplete, DbType.String);
+                        dbPara.Add("User", model[j].MylabUserName, DbType.String);
+                        data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValue]",
+                                      dbPara,
+                                      commandType: CommandType.StoredProcedure);
+                        dochdrid = model[j].DOCDET_lHeaderId;
+                    }
+                }
+               
+            }
+
             return data;
         }
+
+        #endregion
 
         public List<PAIT_HDR_DET_TEST> GetPatientTestDetail(string ID)
         {

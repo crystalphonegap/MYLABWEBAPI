@@ -44,5 +44,11 @@ namespace myLabWebApi.Interface
         public List<NarrationModel> GetNarrationSearch(SearchFilters m);
         public long InsertUpdateNarration(NarrationModel model);
 
+
+        List<PAIT_HDR_DET_TEST_New> GetAllTestDetailsbyPatientID(long ID);
+
+        List<PatientMasterModel> GetPatientListforDataEntry(string Keyword, string FromDate, string ToDate);
+
+        List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID);
     }
 }
