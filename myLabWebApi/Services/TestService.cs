@@ -581,5 +581,83 @@ namespace myLabWebApi.Services
             #endregion using dapper
         }
 
+        #region "Added by suman"
+        public List<PAIT_HDR_DET_TEST_New> GetAllTestDetailsbyPatientID(long ID)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("Mode", "Details", DbType.String);
+            dbPara.Add("Keyword", "", DbType.String);
+            DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+            dbPara.Add("FromDate", FDate, DbType.DateTime);
+            dbPara.Add("ToDate", FDate, DbType.DateTime);
+            dbPara.Add("Id", ID, DbType.Int32);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[USP_AllTestorPatientEntry]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public List<PatientMasterModel> GetPatientListforDataEntry(string Keyword, string FromDate, string ToDate)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("Mode", "List", DbType.String);
+            dbPara.Add("Keyword", "", DbType.String);
+            //DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+            if (FromDate == null || ToDate == "null" || ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
+            dbPara.Add("Id", 0, DbType.Int32);
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[USP_AllTestorPatientEntry]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", ID, DbType.Int32);
+
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (Convert.ToInt32(data[i].TESTDET_FieldType) == 1)
+                {
+                    List<PREDEFVALModel> PREDEFVALModel = new List<PREDEFVALModel>();
+                    var PREDEFVALSTRING = GetPreDefineValue(data[i].DOCDET_lHeaderId, data[i].DOCDET_lFieldNo, "Patient Detail");
+                    if (PREDEFVALSTRING != null)
+                    {
+
+                        List<string> result = PREDEFVALSTRING.Split(',').ToList();
+                        for (int k = 0; k < result.Count; k++)
+                        {
+                            PREDEFVALModel PREDEFVALModel1 = new PREDEFVALModel();
+                            PREDEFVALModel1.PREDEFVAL_Value = result[k];
+                            PREDEFVALModel.Add(PREDEFVALModel1);
+                        }
+                        data[i].PREDEFVALModel = PREDEFVALModel;
+                    }
+                }
+
+            }
+            return data.ToList();
+        }
+
+        public string GetPreDefineValue(int HeaderId, int FieldNo, string type)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("HeaderId", HeaderId, DbType.Int32);
+            dbPara.Add("FieldNo", FieldNo, DbType.Int32);
+            dbPara.Add("type", type, DbType.String);
+            var data = _MyLabHelper.Get<string>("[dbo].[USP_GETPREDEFINEVALUE]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+        #endregion
     }
 }

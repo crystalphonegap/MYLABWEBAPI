@@ -82,7 +82,9 @@ namespace myLabWebApi.Models
         public string SavedFileName { get; set; }
         public IFormFile FileUpload { get; set; }
 
+        public int Status { get; set; }
 
+        public string TestStatus { get; set; }
     }
    
 
