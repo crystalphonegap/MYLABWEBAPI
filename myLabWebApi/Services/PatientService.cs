@@ -127,6 +127,7 @@ namespace myLabWebApi.Services
             dbPara.Add("Pincode", PATIENT.Pincode, DbType.String);
             dbPara.Add("TelephoneNo", PATIENT.TelephoneNo, DbType.String);
             dbPara.Add("FileName", PATIENT.FileName, DbType.String);
+            dbPara.Add("ProposalNumber", PATIENT.ProposalNumber, DbType.String);
             dbPara.Add("SavedFileName", PATIENT.SavedFileName, DbType.String);
 
 
@@ -217,7 +218,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("@P_MOBILE", mobile, DbType.String);
            
-            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[PRC_MS_GETPATIENT_NAMEBYMOBILE]", dbPara, commandType: CommandType.StoredProcedure);
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[PRC_MS_GETPATIENTLISTBY_MOBOILE]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
