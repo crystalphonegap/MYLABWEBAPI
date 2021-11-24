@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration; 
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
+using myLabWebApi.Utility;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace myLabWebApi.Controllers
 {
@@ -106,7 +108,7 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPut("UpdatePatient")]
-        public ActionResult UpdatePatient(PatientMasterModel model)
+        public async Task<ActionResult> UpdatePatientAsync([FromForm]  PatientMasterModel model)
         {
             try
             {
@@ -115,7 +117,10 @@ namespace myLabWebApi.Controllers
                 var PATIENT_Age = model.PATIENT_Age;
                 var gender = model.PATIENT_Gender;
                 var flag = model.PATIENT_AgeFlag;
-
+                if (model.FileUpload != null)
+                {
+                    model.SavedFileName =await FileUtilityService.UploadedSitePhotoFiles(model.FileUpload, model.PATIENT_Name, "PatientReg", null);
+                }
                 return Ok(_IPatientService.Create(model,"U"));
 
             }

@@ -79,7 +79,7 @@ namespace myLabWebApi.Models
         public string State { get; set; }
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
-
+        public string SavedFileName { get; set; }
         public IFormFile FileUpload { get; set; }
 
         public string ProposalNumber { get; set; }

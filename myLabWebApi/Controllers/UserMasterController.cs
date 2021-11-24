@@ -347,7 +347,10 @@ namespace myLabWebApi.Controllers
                 //UserAuthenticationObject obj = new UserAuthenticationObject();
                 //SecurityManager security = new SecurityManager(_userMasterService, _jwtSettings);
                 //obj = security.ValidateUser(userMaster.UserCodetxt, Encrypttxt(userMaster.Passwordvtxt));
-
+                if(usermodel==null)
+                {
+                    return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
+                }
                 //if (obj.IsAuthenticated)
                 //{
                 //    if (obj.IDbint != 0)
@@ -369,7 +372,7 @@ namespace myLabWebApi.Controllers
                 //    ret = StatusCode((int)HttpStatusCode.NotFound, "user not found");
                 //}
                 //ret = StatusCode((int)HttpStatusCode.OK);
-                if(usermodel.UserName != "")
+                if (usermodel.UserName != "")
                 {
                     return Ok(_userMasterService.Login(userMaster.UserName, userMaster.Password));
                 }
