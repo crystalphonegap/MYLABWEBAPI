@@ -37,5 +37,50 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet("GetTestList")]
+        public IActionResult GetTestList()
+        {
+            try
+            {
+                return Ok(_ILabelGroupService.GetTestList());
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet("GetLabelGroupDetailsById/{ID}")]
+        public IActionResult GetLabelGroupDetailsById(int ID)
+        {
+            try
+            {
+                return Ok(_ILabelGroupService.GetLabelGroupDetailsById(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("GetLabelGroupList")]
+        public IActionResult GetTestList(SearchByKeywordType m)
+        {
+            try
+            {
+                return Ok(_ILabelGroupService.GetLabelGroupList(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
     }
 }
