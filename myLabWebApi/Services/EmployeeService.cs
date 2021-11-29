@@ -156,6 +156,7 @@ namespace myLabWebApi.Services
             dbPara.Add("DOCTOR_Country", docmodel.DOCTOR_Country, DbType.String);
             dbPara.Add("OFFICE_Area", docmodel.OFFICE_Area, DbType.String);
             dbPara.Add("DOCTOR_Area", docmodel.DOCTOR_Area, DbType.String);
+            dbPara.Add("AddedBy", docmodel.Userid, DbType.String);
             #region using dapper
 
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateDoctor]",
@@ -226,6 +227,7 @@ namespace myLabWebApi.Services
             dbPara.Add("Country", centermodel.Country, DbType.String);
             dbPara.Add("TelephoneNo", centermodel.TelephoneNo, DbType.String);
             dbPara.Add("CENTER_OutSourceLab", centermodel.CENTER_OutSourceLab, DbType.Boolean);
+            dbPara.Add("UserId", centermodel.UserId, DbType.Int32);
 
             #region using dapper
 
@@ -426,6 +428,7 @@ namespace myLabWebApi.Services
             dbPara.Add("CollectionBoy_Flag", empmodel.CollectionBoy_Flag, DbType.Boolean);
             dbPara.Add("LabID", empmodel.LabID, DbType.Int32);
             dbPara.Add("Password", empmodel.Password, DbType.String);
+            dbPara.Add("UserId", empmodel.UserId, DbType.Int32);
 
             #region using dapper
 

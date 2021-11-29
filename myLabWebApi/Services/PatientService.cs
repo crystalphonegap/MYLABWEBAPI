@@ -116,7 +116,7 @@ namespace myLabWebApi.Services
             }
             catch (Exception)
             {
-                dbPara.Add("PATIENT_DOB", DateTime.Now, DbType.DateTime);
+                dbPara.Add("PATIENT_DOB", null, DbType.DateTime);
             }
 
            
@@ -153,21 +153,46 @@ namespace myLabWebApi.Services
             dbPara.Add("State", PATIENT.State, DbType.String);
             dbPara.Add("Pincode", PATIENT.Pincode, DbType.String);
             dbPara.Add("TelephoneNo", PATIENT.TelephoneNo, DbType.String);
-            dbPara.Add("FileName", PATIENT.FileName, DbType.String);
+            dbPara.Add("FileName", PATIENT.SavedFileName, DbType.String);
             dbPara.Add("ProposalNumber", PATIENT.ProposalNumber, DbType.String);
             dbPara.Add("SavedFileName", PATIENT.SavedFileName, DbType.String);
+            dbPara.Add("AddedBy", PATIENT.userid, DbType.String);
+            
 
 
             var data = _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
 
+            if(PATIENT.SavedFileName !=null)
+            {
+            var dbPara2 = new DynamicParameters();
+            dbPara2.Add("@P_DOCUMENTNAME", PATIENT.SavedFileName, DbType.String);
+            dbPara2.Add("@P_PATIENTID", PATIENT.Patient_Id, DbType.Int32);
+            dbPara2.Add("@P_ADDEDBY", PATIENT.userid, DbType.Int32);
+            dbPara2.Add("@P_DocFrom", "Register", DbType.String);
+
+                
+            if (strMode=="A")
+            {
+                dbPara2.Add("@P_ACTION", 'I', DbType.String);
+            }
+            else
+            {
+                dbPara2.Add("@P_ACTION", 'U', DbType.String);
+            }
+           
+           
+            var data2 = _MyLabHelper.Insert<int>("[dbo].[PRC_MS_PATIENTDOCUMENT_IUD]",
+                         dbPara2,
+                         commandType: CommandType.StoredProcedure);
+            }
             return data;
         }
 
 
 
-        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword, string FromDate, string ToDate)
+        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword, string FromDate, string ToDate,string UserId)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", PageNo, DbType.Int32);
@@ -193,11 +218,12 @@ namespace myLabWebApi.Services
                 dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
                 dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
             }
+            dbPara.Add("UserId", UserId, DbType.Int32);
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
+        public long GetPatientSearchCount(string Keyword, string FromDate, string ToDate,string UserId)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -222,6 +248,7 @@ namespace myLabWebApi.Services
                 dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
                 dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
             }
+            dbPara.Add("UserId", UserId, DbType.Int32);
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }

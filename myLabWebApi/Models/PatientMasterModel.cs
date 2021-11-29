@@ -87,6 +87,7 @@ namespace myLabWebApi.Models
 
 
         public string TestStatus { get; set; }
+        public string userid { get; set; }
     }
    
 
