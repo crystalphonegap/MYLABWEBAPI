@@ -51,5 +51,6 @@ namespace myLabWebApi.Models.New
        
         public string OFFICE_Area { get; set; }
         public string DOCTOR_Area { get; set; }
+        public string Userid { get; set; }
     }
 }

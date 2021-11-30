@@ -21,5 +21,6 @@
         public string Country { get; set; }
 
         public string TelephoneNo { get; set; }
+        public string UserId { get; set; }
     }
 }
