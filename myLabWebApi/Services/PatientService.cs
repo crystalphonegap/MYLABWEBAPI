@@ -32,8 +32,8 @@ namespace myLabWebApi.Services
         }
 
         public int Create(PatientMasterModel PATIENT, string strMode)
-        { 
-           
+        {
+
             var dbPara = new DynamicParameters();
             dbPara.Add("AddEditFlag", strMode, DbType.String);
             dbPara.Add("LabSeriesSetting", PATIENT.LabSeriesSetting, DbType.String);
@@ -51,26 +51,25 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_Age", PATIENT.PATIENT_Age, DbType.String);
             dbPara.Add("Patient_DocType", PATIENT.Patient_DocType, DbType.String);
             dbPara.Add("CollectionCenterId", PATIENT.CollectionCenterId, DbType.Int64);
-            if (string.IsNullOrEmpty(PATIENT.PATIENT_Date))
+            try
             {
-                dbPara.Add("PATIENT_Date", null, DbType.DateTime);
+                if (string.IsNullOrEmpty(PATIENT.PATIENT_Date))
+                {
+                    dbPara.Add("PATIENT_Date", null, DbType.DateTime);
 
+                }
+                else
+                {
+                    dbPara.Add("PATIENT_Date", Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
+
+                }
             }
-            else
+            catch (Exception)
             {
-                dbPara.Add("PATIENT_Date", Convert.ToDateTime(PATIENT.PATIENT_Date), DbType.DateTime);
-
+                dbPara.Add("PATIENT_Date", DateTime.Now, DbType.DateTime);
             }
-            if (string.IsNullOrEmpty(PATIENT.PATIENT_DOB))
-            {
-                dbPara.Add("PATIENT_DOB", null, DbType.DateTime);
 
-            }
-            else 
-            {
-                dbPara.Add("PATIENT_DOB", Convert.ToDateTime(PATIENT.PATIENT_DOB), DbType.DateTime);
 
-            }
             dbPara.Add("PATIENT_Doctorid", PATIENT.PATIENT_Doctorid, DbType.Int32);
             dbPara.Add("PATIENT_Companyid", PATIENT.PATIENT_Companyid, DbType.Int32);
             dbPara.Add("PATIENT_AmountPaid", string.IsNullOrEmpty(PATIENT.PATIENT_AmountPaid) ? null : Convert.ToDecimal(PATIENT.PATIENT_AmountPaid), DbType.Decimal);
@@ -84,36 +83,64 @@ namespace myLabWebApi.Services
             dbPara.Add("EmergencyCharges", string.IsNullOrEmpty(PATIENT.EmergencyCharges) ? null : Convert.ToDecimal(PATIENT.EmergencyCharges), DbType.Decimal);
             dbPara.Add("Discount", string.IsNullOrEmpty(PATIENT.Discount) ? null : Convert.ToDecimal(PATIENT.Discount), DbType.Decimal);
             dbPara.Add("EmergencyChargesPecent", string.IsNullOrEmpty(PATIENT.EmergencyChargesPecent) ? null : Convert.ToDecimal(PATIENT.EmergencyChargesPecent), DbType.Decimal);
-            if (string.IsNullOrEmpty(PATIENT.Sample_Date))
+            try
             {
-                dbPara.Add("Sample_Date", null, DbType.DateTime);
+                if (string.IsNullOrEmpty(PATIENT.Sample_Date))
+                {
+                    dbPara.Add("Sample_Date", null, DbType.DateTime);
 
+                }
+                else
+                {
+                    dbPara.Add("Sample_Date", Convert.ToDateTime(PATIENT.Sample_Date), DbType.DateTime);
+
+                }
             }
-            else 
+            catch (Exception)
             {
-                dbPara.Add("Sample_Date", Convert.ToDateTime(PATIENT.Sample_Date), DbType.DateTime);
+                dbPara.Add("Sample_Date", DateTime.Now, DbType.DateTime);
+            }
 
-            } 
-                dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
-                dbPara.Add("DiscountPercent", string.IsNullOrEmpty(PATIENT.DiscountPercent) ? null : Convert.ToDecimal(PATIENT.DiscountPercent), DbType.Decimal);
-                dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);
-                dbPara.Add("userid", PATIENT.username, DbType.String);
-                dbPara.Add("test_alias", PATIENT.TEST_ALIAS, DbType.String);
-                dbPara.Add("Bar_Copiese", PATIENT.Bar_Copiese, DbType.Int32);
-                dbPara.Add("Urgent", PATIENT.Urgent, DbType.Int32);
-                dbPara.Add("Issent", PATIENT.Issent, DbType.Boolean);
-                dbPara.Add("PrintUrgent", PATIENT.PrintUrgent, DbType.Boolean);
-                dbPara.Add("Patient_key", PATIENT.Patient_key, DbType.String);
-                dbPara.Add("AppointmentId", PATIENT.AppointmentId, DbType.String);
-                dbPara.Add("TEST", PATIENT.TEST, DbType.String);
-                dbPara.Add("Remark", PATIENT.Remark, DbType.String);
-                dbPara.Add("Paymode", PATIENT.Paymode, DbType.String);
+            try
+            {
+                if (string.IsNullOrEmpty(PATIENT.PATIENT_DOB))
+                {
+                    dbPara.Add("PATIENT_DOB", null, DbType.DateTime);
+
+                }
+                else
+                {
+                    dbPara.Add("PATIENT_DOB", Convert.ToDateTime(PATIENT.PATIENT_DOB), DbType.DateTime);
+
+                }
+            }
+            catch (Exception)
+            {
+                dbPara.Add("PATIENT_DOB", null, DbType.DateTime);
+            }
+
+           
+
+            dbPara.Add("Remarks", PATIENT.Remarks, DbType.String);
+            dbPara.Add("DiscountPercent", string.IsNullOrEmpty(PATIENT.DiscountPercent) ? null : Convert.ToDecimal(PATIENT.DiscountPercent), DbType.Decimal);
+            dbPara.Add("PATIENT_AgeFlag", PATIENT.PATIENT_AgeFlag, DbType.String);
+            dbPara.Add("userid", PATIENT.username, DbType.String);
+            dbPara.Add("test_alias", PATIENT.TEST_ALIAS, DbType.String);
+            dbPara.Add("Bar_Copiese", PATIENT.Bar_Copiese, DbType.Int32);
+            dbPara.Add("Urgent", PATIENT.Urgent, DbType.Int32);
+            dbPara.Add("Issent", PATIENT.Issent, DbType.Boolean);
+            dbPara.Add("PrintUrgent", PATIENT.PrintUrgent, DbType.Boolean);
+            dbPara.Add("Patient_key", PATIENT.Patient_key, DbType.String);
+            dbPara.Add("AppointmentId", PATIENT.AppointmentId, DbType.String);
+            dbPara.Add("TEST", PATIENT.TEST, DbType.String);
+            dbPara.Add("Remark", PATIENT.Remark, DbType.String);
+            dbPara.Add("Paymode", PATIENT.Paymode, DbType.String);
             dbPara.Add("UPI_WalletAmount", string.IsNullOrEmpty(PATIENT.UPI_WalletAmount) ? null : Convert.ToDecimal(PATIENT.UPI_WalletAmount), DbType.Decimal);
-                dbPara.Add("ChequeAmount", string.IsNullOrEmpty(PATIENT.ChequeAmount) ? null : Convert.ToDecimal(PATIENT.ChequeAmount), DbType.Decimal);
-                dbPara.Add("CreditCardAmount", string.IsNullOrEmpty(PATIENT.CreditCardAmount) ? null : Convert.ToDecimal(PATIENT.CreditCardAmount), DbType.Decimal);
+            dbPara.Add("ChequeAmount", string.IsNullOrEmpty(PATIENT.ChequeAmount) ? null : Convert.ToDecimal(PATIENT.ChequeAmount), DbType.Decimal);
+            dbPara.Add("CreditCardAmount", string.IsNullOrEmpty(PATIENT.CreditCardAmount) ? null : Convert.ToDecimal(PATIENT.CreditCardAmount), DbType.Decimal);
             dbPara.Add("NEFT_RTGSAmount", string.IsNullOrEmpty(PATIENT.NEFT_RTGSAmount) ? null : Convert.ToDecimal(PATIENT.NEFT_RTGSAmount), DbType.Decimal);
-                dbPara.Add("CashAmount", string.IsNullOrEmpty(PATIENT.CashAmount) ? null : Convert.ToDecimal(PATIENT.CashAmount), DbType.Decimal);
-                dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
+            dbPara.Add("CashAmount", string.IsNullOrEmpty(PATIENT.CashAmount) ? null : Convert.ToDecimal(PATIENT.CashAmount), DbType.Decimal);
+            dbPara.Add("OtherRemarks", PATIENT.OtherRemarks, DbType.String);
 
             dbPara.Add("TPAID", PATIENT.TPAId, DbType.Int32);
             dbPara.Add("HospitalizeRemark", PATIENT.HospitalizeRemark, DbType.String);
@@ -126,20 +153,46 @@ namespace myLabWebApi.Services
             dbPara.Add("State", PATIENT.State, DbType.String);
             dbPara.Add("Pincode", PATIENT.Pincode, DbType.String);
             dbPara.Add("TelephoneNo", PATIENT.TelephoneNo, DbType.String);
-            dbPara.Add("FileName", PATIENT.FileName, DbType.String);
+            dbPara.Add("FileName", PATIENT.SavedFileName, DbType.String);
+            dbPara.Add("ProposalNumber", PATIENT.ProposalNumber, DbType.String);
             dbPara.Add("SavedFileName", PATIENT.SavedFileName, DbType.String);
+            dbPara.Add("AddedBy", PATIENT.userid, DbType.String);
+            
 
 
-            var data =   _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
+            var data = _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
-            
+
+            if(PATIENT.SavedFileName !=null)
+            {
+            var dbPara2 = new DynamicParameters();
+            dbPara2.Add("@P_DOCUMENTNAME", PATIENT.SavedFileName, DbType.String);
+            dbPara2.Add("@P_PATIENTID", PATIENT.Patient_Id, DbType.Int32);
+            dbPara2.Add("@P_ADDEDBY", PATIENT.userid, DbType.Int32);
+            dbPara2.Add("@P_DocFrom", "Register", DbType.String);
+
+                
+            if (strMode=="A")
+            {
+                dbPara2.Add("@P_ACTION", 'I', DbType.String);
+            }
+            else
+            {
+                dbPara2.Add("@P_ACTION", 'U', DbType.String);
+            }
+           
+           
+            var data2 = _MyLabHelper.Insert<int>("[dbo].[PRC_MS_PATIENTDOCUMENT_IUD]",
+                         dbPara2,
+                         commandType: CommandType.StoredProcedure);
+            }
             return data;
         }
 
 
 
-        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate)
+        public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword, string FromDate, string ToDate,string UserId)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", PageNo, DbType.Int32);
@@ -165,11 +218,12 @@ namespace myLabWebApi.Services
                 dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
                 dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
             }
+            dbPara.Add("UserId", UserId, DbType.Int32);
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
-        public long GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
+        public long GetPatientSearchCount(string Keyword, string FromDate, string ToDate,string UserId)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -1, DbType.Int32);
@@ -194,6 +248,7 @@ namespace myLabWebApi.Services
                 dbPara.Add("FromDate", DateTime.ParseExact(FromDate, "MM-dd-yyyy", null), DbType.DateTime);
                 dbPara.Add("ToDate", DateTime.ParseExact(ToDate, "MM-dd-yyyy", null), DbType.DateTime);
             }
+            dbPara.Add("UserId", UserId, DbType.Int32);
             var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList().Count;
         }
@@ -211,12 +266,13 @@ namespace myLabWebApi.Services
         }
 
 
-        public List<PAIT_HDR_DET_TEST> GetPatientDetail2(string  mobile)
+
+        public List<PAIT_HDR_DET_TEST> GetPatientDetail2(string mobile)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("@P_MOBILE", mobile, DbType.String);
-           
-            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[PRC_MS_GETPATIENT_NAMEBYMOBILE]", dbPara, commandType: CommandType.StoredProcedure);
+
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[PRC_MS_GETPATIENTLISTBY_MOBOILE]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();
         }
 
@@ -239,37 +295,86 @@ namespace myLabWebApi.Services
         }
         //Use for Get Patient By Mobile No
 
-        public long  UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
+
+
+        //Commented by suman 23-11-2021
+        //public long  UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
+        //{
+        //    long data=0;
+        //    for (int i = 0; i < model.Count; i++)
+        //    {
+        //        var dbPara = new DynamicParameters();
+        //        dbPara.Add("DOCDET_lHeaderId", model[i].DOCDET_lHeaderId, DbType.Int32);
+        //        dbPara.Add("DOCDET_lFieldNo", model[i].DOCDET_lFieldNo, DbType.String);
+        //        dbPara.Add("DOCDET_tFieldValue", model[i].DOCDET_tFieldValue, DbType.String);
+        //        dbPara.Add("DOCHDR_sDescription", model[0].DOCHDR_sDescription, DbType.String);
+        //        dbPara.Add("ResampleReason", model[0].ResampleReason, DbType.String);
+        //        dbPara.Add("MarkComplete", model[0].MarkComplete, DbType.String);
+        //        dbPara.Add("Rerun", string.IsNullOrEmpty( model[i].Rerun)?false: model[i].Rerun, DbType.Boolean);
+        //        data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDocDetTestValue]",
+        //                      dbPara,
+        //                      commandType: CommandType.StoredProcedure);
+        //    }
+        //    return data;
+        //}
+
+        //Commented by suman 23-11-2021
+
+        #region "Added By Suman"
+
+        public long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
         {
-            long data=0;
+            long data = 0;
             for (int i = 0; i < model.Count; i++)
             {
                 var dbPara = new DynamicParameters();
                 dbPara.Add("DOCDET_lHeaderId", model[i].DOCDET_lHeaderId, DbType.Int32);
                 dbPara.Add("DOCDET_lFieldNo", model[i].DOCDET_lFieldNo, DbType.String);
                 dbPara.Add("DOCDET_tFieldValue", model[i].DOCDET_tFieldValue, DbType.String);
-                dbPara.Add("DOCHDR_sDescription", model[0].DOCHDR_sDescription, DbType.String);
-                dbPara.Add("ResampleReason", model[0].ResampleReason, DbType.String);
-                dbPara.Add("MarkComplete", model[0].MarkComplete, DbType.String);
-                dbPara.Add("Rerun", string.IsNullOrEmpty( model[i].Rerun)?false: model[i].Rerun, DbType.Boolean);
+                dbPara.Add("Rerun", string.IsNullOrEmpty(model[i].Rerun) ? false : model[i].Rerun, DbType.Boolean);
                 data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDocDetTestValue]",
                               dbPara,
                               commandType: CommandType.StoredProcedure);
             }
+            if (model.Count > 0)
+            {
+                int dochdrid = 0;
+                for (int j = 0; j < model.Count; j++)
+                {
+
+                    if (dochdrid != model[j].DOCDET_lHeaderId)
+                    {
+                        var dbPara = new DynamicParameters();
+                        dbPara.Add("DOCDET_lHeaderId", model[j].DOCDET_lHeaderId, DbType.Int32);
+                        dbPara.Add("DOCHDR_sDescription", model[j].DOCHDR_sDescription, DbType.String);
+                        dbPara.Add("ResampleReason", model[j].ResampleReason, DbType.String);
+                        dbPara.Add("MarkComplete", model[j].MarkComplete, DbType.String);
+                        dbPara.Add("User", model[j].MylabUserName, DbType.String);
+                        data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValue]",
+                                      dbPara,
+                                      commandType: CommandType.StoredProcedure);
+                        dochdrid = model[j].DOCDET_lHeaderId;
+                    }
+                }
+
+            }
+
             return data;
         }
+
+        #endregion
 
         public List<PAIT_HDR_DET_TEST> GetPatientTestDetail(string ID)
         {
             var dbPara = new DynamicParameters();
-            dbPara.Add("TestId",Convert.ToInt32( ID), DbType.Int32);
+            dbPara.Add("TestId", Convert.ToInt32(ID), DbType.Int32);
 
             var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[USP_GETTESTDETAIL]", dbPara, commandType: CommandType.StoredProcedure);
             for (int i = 0; i < data.Count; i++)
             {
                 if (Convert.ToInt32(data[i].TESTDET_FieldType) == 1)
                 {
-                    List < PREDEFVALModel> PREDEFVALModel = new List<PREDEFVALModel>();
+                    List<PREDEFVALModel> PREDEFVALModel = new List<PREDEFVALModel>();
                     var PREDEFVALSTRING = GetPreDefineValue(data[i].DOCDET_lHeaderId, data[i].DOCDET_lFieldNo, "Patient Detail");
                     if (PREDEFVALSTRING != null)
                     {
@@ -323,7 +428,7 @@ namespace myLabWebApi.Services
         }
 
 
-        public string GetPreDefineValue(int HeaderId, int FieldNo,string type)
+        public string GetPreDefineValue(int HeaderId, int FieldNo, string type)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("HeaderId", HeaderId, DbType.Int32);
@@ -342,7 +447,7 @@ namespace myLabWebApi.Services
         }
         public List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID)
         {
-            var dbPara = new DynamicParameters(); 
+            var dbPara = new DynamicParameters();
             dbPara.Add("ID", ID, DbType.Int32);
 
             var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST_New>("[dbo].[SP_GetAllTestDetailByPatientId]", dbPara, commandType: CommandType.StoredProcedure);
@@ -365,7 +470,7 @@ namespace myLabWebApi.Services
                         data[i].PREDEFVALModel = PREDEFVALModel;
                     }
                 }
-              
+
             }
             return data.ToList();
         }
@@ -464,7 +569,7 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("PageNo", -4, DbType.Int32);
-            dbPara.Add("PageSize", ID, DbType.Int32); 
+            dbPara.Add("PageSize", ID, DbType.Int32);
             dbPara.Add("Keyword", "", DbType.String);
             var data = _MyLabHelper.Get<long>("[dbo].[SP_BlackListMobilesList]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
@@ -472,15 +577,15 @@ namespace myLabWebApi.Services
 
         public long InsertBlackListMobiles(BlackListMobilesModel model)
         {
-            long data = 0; 
-                var dbPara = new DynamicParameters();
-                dbPara.Add("Mobile", model.Mobile, DbType.String);
-                dbPara.Add("sysUserName", model.sysUserName, DbType.String); 
-                data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertBlackListMobiles]",
-                              dbPara,
-                              commandType: CommandType.StoredProcedure);
+            long data = 0;
+            var dbPara = new DynamicParameters();
+            dbPara.Add("Mobile", model.Mobile, DbType.String);
+            dbPara.Add("sysUserName", model.sysUserName, DbType.String);
+            data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertBlackListMobiles]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
             return data;
         }
-         
+
     }
 }

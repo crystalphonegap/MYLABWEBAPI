@@ -452,5 +452,51 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        #region "Added by Suman"
+
+        [HttpGet("GetAllTestDetailsbyPatientID/{ID}")]
+        public IActionResult GetAllTestDetailsbyPatientID(int ID)
+        {
+            try
+            {
+
+                return Ok(_ITestService.GetAllTestDetailsbyPatientID(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("GetPatientListforDataEntry/{Keyword},{FromDate},{ToDate}")]
+        public IActionResult GetPatientListforDataEntry(string Keyword, string FromDate, string ToDate)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPatientListforDataEntry(Keyword, FromDate, ToDate));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("GetPatientAllTestDetail/{ID}")]
+        public IActionResult GetPatientAllTestDetail(int ID)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPatientAllTestDetail(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+        #endregion
     }
 }

@@ -44,5 +44,6 @@ namespace myLabWebApi.Models
         public int Bar_Copiese { get; set;}
         public int Urgent { get; set;}
         public DateTime History_Date { get; set;}
-}
+        public string ProposalNumber { get; set; }
+    }
 }

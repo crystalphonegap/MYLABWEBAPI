@@ -5,6 +5,11 @@ namespace myLabWebApi.Models
 {
     public class PAIT_HDR_DET_TEST
     {
+
+        public string MylabUserName { get; set; }
+        public string MylabUserType { get; set; }
+        public int MylabUserID { get; set; }
+
         public int Patient_Id { get; set; }
         public string LabSeriesSetting { get; set; }
         public int Patientno { get; set; }
@@ -153,7 +158,7 @@ namespace myLabWebApi.Models
         public string Comments { get; set; }
         public string TESTMST_Companyid { get; set; }
         public int TESTMST_TestTypeId { get; set; }
-        public int TESTMST_CatType { get; set; }
+        public string TESTMST_CatType { get; set; }
         public string TESTMST_sample { get; set; }
         public bool IsKitImageCompulsary { get; set; }
         public string TAT { get; set; }
@@ -204,6 +209,7 @@ namespace myLabWebApi.Models
         public string State { get; set; }
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
+        public string ProposalNumber { get; set; }
     }
 
     public class PAIT_HDR_DET_TEST_New
@@ -407,5 +413,6 @@ namespace myLabWebApi.Models
         public string State { get; set; }
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
+        public string ProposalNumber { get; set; }
     }
 }

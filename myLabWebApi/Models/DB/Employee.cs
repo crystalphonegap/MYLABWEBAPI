@@ -27,5 +27,7 @@ namespace myLabWebApi.Models.New
         public bool? CollectionBoy_Flag { get; set; }
         public int? LabID { get; set; }
         public string Password { get; set; }
+
+        public string UserId { get; set; }
     }
 }

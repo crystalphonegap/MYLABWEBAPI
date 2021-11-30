@@ -35,12 +35,15 @@ namespace myLabWebApi.Controllers
         }
 
         [HttpPost("CreatePatient")]
-        public ActionResult CreatePatient(PatientMasterModel model)
+        public async Task<ActionResult> CreatePatient([FromForm]  PatientMasterModel model)
         {
             try
             {
 
-               // var files = Request.Form.Files;
+                if (model.FileUpload != null)
+                {
+                    model.SavedFileName = await FileUtilityService.UploadedSitePhotoFiles(model.FileUpload, model.PATIENT_Name, "PatientReg", null);
+                }
                 return Ok(_IPatientService.Create(model,"A"));
             }
             catch (Exception ex)
@@ -148,13 +151,13 @@ namespace myLabWebApi.Controllers
         }
 
 
-        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword},{FromDate},{ToDate}")]
-        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate)
+        [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword},{FromDate},{ToDate},{UserId}")]
+        public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate,string UserId)
         {
             try
             {
                
-               return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword,FromDate,ToDate));
+               return Ok(_IPatientService.GetPatientSearch(PageNo, PageSize, Keyword,FromDate,ToDate, UserId));
               
                 
             }
@@ -180,12 +183,12 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        [HttpGet("GetPatientSearchCount/{Keyword},{FromDate},{ToDate}")]
-        public IActionResult GetPatientSearchCount(string Keyword, string FromDate, string ToDate)
+        [HttpGet("GetPatientSearchCount/{Keyword},{FromDate},{ToDate},{UserId}")]
+        public IActionResult GetPatientSearchCount(string Keyword, string FromDate, string ToDate,string UserId)
         {
             try
             {
-                return Ok(_IPatientService.GetPatientSearchCount(Keyword,FromDate,ToDate));
+                return Ok(_IPatientService.GetPatientSearchCount(Keyword,FromDate,ToDate, UserId));
             }
             catch (Exception ex)
             {
@@ -260,20 +263,22 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                int rst = _IPatientService.GetPatientByMobileNoCount(MobileNo);
-                if (rst == 1)
-                {
+                //int rst = _IPatientService.GetPatientByMobileNoCount(MobileNo);
+                //if (rst == 1)
+                //{
                     List<PatientMasterModel> model = _IPatientService.GetPatientByMobileNo(MobileNo);
-                    return Ok(_IPatientService.GetPatientDetail(model[0].Patient_Id));
-                }
-                else if (rst > 1)
-                {
-                    return Ok(_IPatientService.GetPatientByMobileNo(MobileNo));
-                }
-                else
-                {
-                    return Ok(null);
-                }
+                    return Ok(_IPatientService.GetPatientDetail2(MobileNo));
+
+                    //return Ok(_IPatientService.GetPatientDetail(model[0].Patient_Id));
+                //}
+                //else if (rst > 1)
+                //{
+                //    return Ok(_IPatientService.GetPatientByMobileNo(MobileNo));
+                //}
+                //else
+                //{
+                //    return Ok(null);
+                //}
             }
             catch (Exception ex)
             {
