@@ -374,7 +374,14 @@ namespace myLabWebApi.Controllers
                 //ret = StatusCode((int)HttpStatusCode.OK);
                 if (usermodel.UserName != "")
                 {
-                    return Ok(_userMasterService.Login(userMaster.UserName, userMaster.Password));
+                    UserMasterModel model = new UserMasterModel();
+                    model.Type = usermodel.Type;
+                    model.ID = usermodel.ID;
+                    model.LabID = usermodel.LabID;
+                    model.LabName = usermodel.LabName;
+                    model.LabCode = usermodel.LabCode;
+                    model.UserName = usermodel.UserName;
+                    return Ok(model);
                 }
                 else
                 {
