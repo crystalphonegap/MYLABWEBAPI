@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace myLabWebApi.Models
 {
-    public class PathalogyTestMaster
+    public class ProfileTestModel
     {
+
         public string TESTMST_CurrentId { get; set; }
         public string TESTMST_Name { get; set; }
         public string TESTMST_PrintFormat { get; set; }
@@ -27,6 +31,14 @@ namespace myLabWebApi.Models
         public bool Selected { get; set; }
         public string UserId { get; set; }
         public List<PathalogyTestDetails> PathalogyTestDetails { get; set; }
-        public List<TestFormatDetails> TestFormatDetails { get; set; }
+        public List<ProfileTestFormatDetails> TestFormatDetails { get; set; }
+    }
+
+    public class ProfileTestFormatDetails
+    {
+        public int TESTMST_CurrentId { get; set; }
+        public string TESTMST_Name { get; set; }
+        public int TEST_FormatSrNo { get; set; }
+        public string TEST_sDefault { get; set; }
     }
 }
