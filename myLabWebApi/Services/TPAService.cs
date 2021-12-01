@@ -65,6 +65,7 @@ namespace myLabWebApi.Services
             dbPara.Add("@P_Pincode", model.Pincode, DbType.String);
             dbPara.Add("@P_TelephoneNo", model.TelephoneNo, DbType.String);
             dbPara.Add("@P_Country", model.Country, DbType.String);
+            dbPara.Add("@P_UserId", model.UserId, DbType.Int32);
 
             #region using dapper
 

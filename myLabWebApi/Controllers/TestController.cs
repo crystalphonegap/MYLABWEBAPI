@@ -205,6 +205,39 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
+
+        //Use For Insert xRAY,HISTO,Sono Test
+        [HttpPost("InsertProfileTest")]
+        public IActionResult InsertProfileTest(ProfileTestModel model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateProfileTest(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        //Use For Update  PathaLogy Test
+        [HttpPut("UpdateProfileTest")]
+        public IActionResult UpdateProfileTest(ProfileTestModel model)
+        {
+            try
+            {
+                return Ok(_ITestService.InsertUpdateProfileTest(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
         //Use For Delete PathaLogyTest
         [HttpGet("DeletePathaLogyTest/{ID}")]
         public IActionResult DeletePathaLogyTest(int ID)

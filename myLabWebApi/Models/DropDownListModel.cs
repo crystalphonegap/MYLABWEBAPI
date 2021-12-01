@@ -27,5 +27,6 @@ namespace myLabWebApi.Models
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
         public string Country { get; set; }
+        public int UserId { get; set; }
     }
 }

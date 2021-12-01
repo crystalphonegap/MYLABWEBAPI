@@ -50,5 +50,7 @@ namespace myLabWebApi.Interface
         List<PatientMasterModel> GetPatientListforDataEntry(string Keyword, string FromDate, string ToDate);
 
         List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID);
+
+        long InsertUpdateProfileTest(ProfileTestModel model);
     }
 }

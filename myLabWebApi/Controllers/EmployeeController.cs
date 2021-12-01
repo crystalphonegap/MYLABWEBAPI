@@ -362,6 +362,21 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
+        //Use For  insertSaveAsRateList
+        [HttpPost("insertSaveAsRateList")]
+        public IActionResult insertSaveAsRateList(RATELISTHDRSAVEAS empmodel)
+        {
+            try
+            {
+                return Ok(_IEmployeeService.insertSaveAsRateList(empmodel));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
         //Use For Update Employee
         [HttpPut("UpdateEmployee")]
         public IActionResult UpdateEmployee(EMPLOYEE empmodel)
