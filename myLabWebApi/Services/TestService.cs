@@ -564,7 +564,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("NarrationId", model.NarrationId, DbType.Int32);
             dbPara.Add("NarrationText", model.NarrationText, DbType.String);
-
+            dbPara.Add("UserId", model.UserId, DbType.Int32);
             #region using dapper
 
             var data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertUpdateReSampleNARRATIONS]",
@@ -594,7 +594,7 @@ namespace myLabWebApi.Services
             return data[0].ListCount;
         }
 
-        public long InsertRemarkMaster(List< TestDetModel> model)
+        public long InsertRemarkMaster( List< TestDetModel> model,string ID)
         {
             long MSTID=0;
             var dbPara = new DynamicParameters();
@@ -625,6 +625,9 @@ namespace myLabWebApi.Services
                                         dbPara.Add("TESTDET_TestMasterID", model[0].TESTDET_TestMasterID, DbType.Int64);
                                         dbPara.Add("TESTDET_FieldNo", item.TESTDET_FieldNo, DbType.Int64);
                                         dbPara.Add("type", "sms", DbType.String);
+                                        dbPara.Add("UserId", ID, DbType.Int32);
+
+                                        
                                         MSTID = db.Query<long>("[dbo].[SP_InsertResultMaster]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
                                     }
                                     if (model[counter].work == true)
@@ -633,6 +636,7 @@ namespace myLabWebApi.Services
                                         dbPara.Add("TESTDET_TestMasterID", model[0].TESTDET_TestMasterID, DbType.Int64);
                                         dbPara.Add("TESTDET_FieldNo", item.TESTDET_FieldNo, DbType.Int64);
                                         dbPara.Add("type", "work", DbType.String);
+                                        dbPara.Add("UserId", ID, DbType.Int32);
                                         MSTID = db.Query<long>("[dbo].[SP_InsertResultMaster]", dbPara, commandType: CommandType.StoredProcedure, transaction: tran).FirstOrDefault();
                                     }
 

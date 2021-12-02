@@ -128,11 +128,11 @@ namespace myLabWebApi.Controllers
 
 
         [HttpPost("InsertRemarkMaster")]
-        public IActionResult InsertRemarkMaster(List<TestDetModel> model)
+        public IActionResult InsertRemarkMaster(List<TestDetModel> model,string ID)
         {
             try
             {
-                return Ok(_ITestService.InsertRemarkMaster(model));
+                return Ok(_ITestService.InsertRemarkMaster(model, ID));
             }
             catch (Exception ex)
             {
@@ -442,11 +442,11 @@ namespace myLabWebApi.Controllers
 
         //Use For Update Test Type List
         [HttpPut("UpdateReSampleReason")]
-        public IActionResult UpdateReSampleReason(TestTypeModel model)
+        public IActionResult UpdateReSampleReason(NarrationModel model)
         {
             try
             {
-                return Ok(_ITestService.InsertUpdateTestType(model));
+                return Ok(_ITestService.InsertUpdateReSampleReason(model));
             }
             catch (Exception ex)
             {

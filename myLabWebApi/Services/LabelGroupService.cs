@@ -44,14 +44,19 @@ namespace myLabWebApi.Services
                 var dbPara2 = new DynamicParameters();
                 dbPara2.Add("@P_GRPID", LabelGroupMaster.GRPID, DbType.Int32);
                 dbPara2.Add("@P_GRPNAME", LabelGroupMaster.GRPNAME, DbType.String);
-              
-
+               if(LabelGroupMaster.GRPID!=0)
+                {
+                    LabelGroupMaster.Action = "U";
+                }
+               
                 dbPara2.Add("@P_Active", LabelGroupMaster.Active, DbType.Boolean);
                 dbPara2.Add("@P_Companyid", LabelGroupMaster.Companyid, DbType.String);
                 dbPara2.Add("@P_Prefix", LabelGroupMaster.Prefix, DbType.String);
                 dbPara2.Add("@P_ACTION", LabelGroupMaster.Action, DbType.String);
                 dbPara2.Add("@P_INSERTTYPE", "MASTER", DbType.String);
                 dbPara2.Add("@P_TESTID", 0, DbType.Int32);
+                dbPara2.Add("@P_UserId", LabelGroupMaster.UserId, DbType.Int32);
+                
                 LabelGroupMaster.GRPID = _MyLabHelper.Insert<int>("[dbo].[PRC_MS_LABELGROUP_IUD]",
                               dbPara2,
                               commandType: CommandType.StoredProcedure);

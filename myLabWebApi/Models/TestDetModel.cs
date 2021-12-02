@@ -43,5 +43,6 @@ namespace myLabWebApi.Models
         public string TESTDET_sFormula { get; set; }
         public bool sms { get; set; }
         public bool work { get; set; }
+        public string UserId { get; set; }
     }
 }

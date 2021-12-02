@@ -9,5 +9,6 @@ namespace myLabWebApi.Models
     {
         public int NarrationId { get; set; }
         public string NarrationText { get; set; }
+        public string UserId { get; set; }
     }
 }

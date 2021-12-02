@@ -19,6 +19,7 @@ namespace myLabWebApi.Models
         public int Companyid { get; set; }
         public string Prefix { get; set; }
         public string Action { get; set; }
+        public string UserId { get; set; }
         public int TotalRows { get; set; }
     }
 
@@ -41,7 +42,6 @@ namespace myLabWebApi.Models
     public class LabelGroupDetailsClass
     {
       
-      
         public int TestId { get; set; }
         public string TestName { get; set; }
         public int GRPID { get; set; }
@@ -49,6 +49,7 @@ namespace myLabWebApi.Models
         public bool Active { get; set; }
         public int Companyid { get; set; }
         public string Prefix { get; set; }
+        public bool Selected { get; set; }
 
     }
     }

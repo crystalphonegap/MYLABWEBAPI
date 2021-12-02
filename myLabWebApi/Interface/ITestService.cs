@@ -17,7 +17,7 @@ namespace myLabWebApi.Interface
         long DeleteTestTypeById(int Id);
 
         long InsertUpdatePathalogyTest(PathalogyTestMaster model);
-        long InsertRemarkMaster(List<TestDetModel> model);
+        long InsertRemarkMaster(List<TestDetModel> model,string ID);
         long InsertUpdateTest(PathalogyTestMaster model);
 
         long InsertUpdatePathalogyTestDetails(PathalogyTestDetails model);

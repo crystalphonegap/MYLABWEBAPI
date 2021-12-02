@@ -581,6 +581,7 @@ namespace myLabWebApi.Services
             var dbPara = new DynamicParameters();
             dbPara.Add("Mobile", model.Mobile, DbType.String);
             dbPara.Add("sysUserName", model.sysUserName, DbType.String);
+            dbPara.Add("UserId", model.UserId, DbType.String);
             data = _MyLabHelper.Insert<long>("[dbo].[SP_InsertBlackListMobiles]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);

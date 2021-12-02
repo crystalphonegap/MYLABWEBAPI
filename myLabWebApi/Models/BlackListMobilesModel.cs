@@ -11,5 +11,6 @@ namespace myLabWebApi.Models
         public string Mobile { get; set; }
         public string sysDate { get; set; }
         public string sysUserName { get; set; }
+        public string UserId { get; set; }
     }
 }
