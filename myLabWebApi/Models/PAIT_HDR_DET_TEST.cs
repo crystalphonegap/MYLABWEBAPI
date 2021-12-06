@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 
 namespace myLabWebApi.Models
@@ -210,6 +211,7 @@ namespace myLabWebApi.Models
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
         public string ProposalNumber { get; set; }
+        public IFormFile FileUpload { get; set; }
     }
 
     public class PAIT_HDR_DET_TEST_New
@@ -414,5 +416,10 @@ namespace myLabWebApi.Models
         public string Pincode { get; set; }
         public string TelephoneNo { get; set; }
         public string ProposalNumber { get; set; }
+    }
+
+    public class PatientDocumentClass
+    {
+        public IFormFile FileUpload { get; set; }
     }
 }

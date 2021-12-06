@@ -342,36 +342,14 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                //IActionResult ret;
+               
                 UserMasterModel usermodel = _userMasterService.Login(userMaster.UserName,userMaster.Password);
-                //UserAuthenticationObject obj = new UserAuthenticationObject();
-                //SecurityManager security = new SecurityManager(_userMasterService, _jwtSettings);
-                //obj = security.ValidateUser(userMaster.UserCodetxt, Encrypttxt(userMaster.Passwordvtxt));
+              
                 if(usermodel==null)
                 {
                     return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
                 }
-                //if (obj.IsAuthenticated)
-                //{
-                //    if (obj.IDbint != 0)
-                //    {
-                //        RefreshToken refreshToken = GenerateRefreshToken1();
-                //        refreshToken.UserIDbint = obj.UserCodetxt;
-                //        //userMaster.RefreshTokens.Add(refreshToken);
-                //        _userMasterService.SaveRefreshToken(refreshToken.UserIDbint, refreshToken.Tokentxt);
-                //        obj.RefreshToken = refreshToken.Tokentxt;
-                //        ret = StatusCode((int)HttpStatusCode.OK, obj);
-                //    }
-                //    else
-                //    {
-                //        ret = StatusCode((int)HttpStatusCode.OK, obj);
-                //    }
-                //}
-                //else
-                //{
-                //    ret = StatusCode((int)HttpStatusCode.NotFound, "user not found");
-                //}
-                //ret = StatusCode((int)HttpStatusCode.OK);
+              
                 if (usermodel.UserName != "")
                 {
                     return Ok(_userMasterService.Login(userMaster.UserName, userMaster.Password));
@@ -388,19 +366,7 @@ namespace myLabWebApi.Controllers
             }
         }
 
-        //[HttpPost("LoginLogs")]
-        //public IActionResult LoginLogs(UserMasterModel userMaster)
-        //{
-        //    try
-        //    {
-        //        return Ok(_userMasterService.LoginLogs(userMaster.UserCodetxt, userMaster.UserNametxt, userMaster.UserTypetxt, userMaster.BrowserName, userMaster.IpAddress));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _ILogger.Log(ex);
-        //        return BadRequest(ex);
-        //    }
-        //}
+      
 
         [HttpGet("DeleteErrorLog/{DelDate}")]
         public IActionResult DeleteErrorLog(string DelDate)

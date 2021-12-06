@@ -144,20 +144,20 @@ namespace myLabWebApi
             //added for preventing Server Banner Discloser by suman on 20-11-2020
 
             /*security configuration*/
-            app.UseXContentTypeOptions();
-            app.UseReferrerPolicy(opts => opts.NoReferrer());
-            app.UseXXssProtection(opts => opts.EnabledWithBlockMode());
-            app.UseXfo(opts => opts.Deny());
-            app.UseCsp(opt => opt
-                .BlockAllMixedContent()
-                //.StyleSources(x => x.Self().CustomSources("http://fonts.googleapis.com"))
-                .StyleSources(x => x.Self().UnsafeInline())
-                .ScriptSources(x => x.Self().UnsafeInline())
-                .FontSources(x => x.Self())
-                .FormActions(x => x.Self())
-                .FrameAncestors(x => x.Self())
-                .ImageSources(x => x.Self().CustomSources("data:"))
-            );
+            //app.UseXContentTypeOptions();
+            //app.UseReferrerPolicy(opts => opts.NoReferrer());
+            //app.UseXXssProtection(opts => opts.EnabledWithBlockMode());
+            //app.UseXfo(opts => opts.Deny());
+            //app.UseCsp(opt => opt
+            //    .BlockAllMixedContent()
+            //    //.StyleSources(x => x.Self().CustomSources("http://fonts.googleapis.com"))
+            //    .StyleSources(x => x.Self().UnsafeInline())
+            //    .ScriptSources(x => x.Self().UnsafeInline())
+            //    .FontSources(x => x.Self())
+            //    .FormActions(x => x.Self())
+            //    .FrameAncestors(x => x.Self())
+            //    .ImageSources(x => x.Self().CustomSources("data:"))
+            //);
             /*security configuration*/
 
             app.UseHttpsRedirection();

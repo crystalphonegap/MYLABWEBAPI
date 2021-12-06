@@ -137,11 +137,11 @@ namespace myLabWebApi.Controllers
 
 
         [HttpPut("UpdateDocDetTestValue")]
-        public ActionResult UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model)
+        public async Task<ActionResult> UpdateDocDetTestValue([FromForm] PAIT_HDR_DET_TEST model, List<PAIT_HDR_DET_TEST> model2)
         {
             try
             {
-                return Ok(_IPatientService.UpdateDocDetTestValue(model));
+                return Ok(_IPatientService.UpdateDocDetTestValue(model2));
             }
             catch (Exception ex)
             {
@@ -150,6 +150,22 @@ namespace myLabWebApi.Controllers
             }
         }
 
+
+        [HttpPut("PatientDocument1")]
+        public async Task<ActionResult> PatientDocument1([FromForm] PatientDocumentClass model)
+        {
+            try
+            {
+               
+                return BadRequest();
+                //(_IPatientService.UpdateDocDetTestValue(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
 
         [HttpGet("GetPatientSearch/{PageNo},{PageSize},{Keyword},{FromDate},{ToDate},{UserId}")]
         public IActionResult GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate,string UserId)

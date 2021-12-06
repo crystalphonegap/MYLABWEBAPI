@@ -690,7 +690,15 @@ namespace myLabWebApi.Services
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("Mode", "List", DbType.String);
-            dbPara.Add("Keyword", "", DbType.String);
+            
+            if (Keyword == "" || Keyword == null | Keyword == "null")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", Keyword, DbType.String);
+            }
             //DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
             if (FromDate == null || ToDate == "null" || ToDate == "")
             {
