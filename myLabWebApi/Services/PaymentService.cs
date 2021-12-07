@@ -56,9 +56,7 @@ namespace myLabWebApi.Services
         {
             var dbPara3 = new DynamicParameters();
             
-            dbPara3.Add("@Patientid", model.Patientid, DbType.Int64);
-            dbPara3.Add("@PayDate", DateTime.UtcNow, DbType.DateTime);  
-            dbPara3.Add("@CurrentDate", DateTime.UtcNow, DbType.DateTime); 
+            dbPara3.Add("@Patientid", model.Patientid, DbType.Int64); 
             dbPara3.Add("@Paymode", model.Paymode, DbType.String); 
             dbPara3.Add("@Remark", model.Remark, DbType.String); 
             dbPara3.Add("@userid", model.userid, DbType.String); 
