@@ -19,6 +19,7 @@ namespace myLabWebApi.Models.New
         public double? other1 { get; set; }
 
         public string CollectionCenterName { get; set; }
+        public string UserId { get; set; }
 
         public List<TestMaster> TestMaster { get; set; }
     }

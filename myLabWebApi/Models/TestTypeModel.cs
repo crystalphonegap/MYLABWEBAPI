@@ -7,5 +7,6 @@
         public string TestTypeDescription { get; set; }
         public string TestTypeRemark { get; set; }
         public string TestTypeRemark1 { get; set; }
+        public string UserId { get; set; }
     }
 }

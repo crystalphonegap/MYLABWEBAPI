@@ -290,6 +290,7 @@ namespace myLabWebApi.Services
             dbPara.Add("other", RATELISTHDR.other, DbType.Double);
             dbPara.Add("other1", RATELISTHDR.other1, DbType.Double);
             dbPara.Add("EffectiveDate", RATELISTHDR.EffectiveDate, DbType.DateTime);
+            dbPara.Add("UserId", RATELISTHDR.UserId, DbType.Int32);
 
             #region using dapper
 
