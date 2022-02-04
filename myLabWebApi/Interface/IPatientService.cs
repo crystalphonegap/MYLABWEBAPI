@@ -8,7 +8,7 @@ namespace myLabWebApi.Interface
 {
     public interface IPatientService
     {
-        int Create(PatientMasterModel Patient, string strMode);
+        LabNoClassModel Create(PatientMasterModel Patient, string strMode);
 
         List<PatientMasterModel>  GetPatientSearch(int PageNo, int PageSize, string Keyword,string FromDate,string ToDate,string UserId);
 
@@ -34,7 +34,7 @@ namespace myLabWebApi.Interface
 
         List<PatientMasterModel> GetPatientByMobileNo(string MobileNo);
 
-        string GetLabNo(string LabSeriesSetting);
+        LabNoClassModel GetLabNo(string LabSeriesSetting);
 
         List<PatientMasterModel> GetPatientMobileNos(string MobileNo);
         string GlobalDelete(GlobalDeleteModal model);
@@ -48,5 +48,6 @@ namespace myLabWebApi.Interface
         long InsertBlackListMobiles(BlackListMobilesModel model);
 
         long SaveDocument(DocumentClassModel model,string filename);
+        long patientTesthistory(DocumentClassModel model);
     }
 }

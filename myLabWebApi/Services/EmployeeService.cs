@@ -513,16 +513,39 @@ namespace myLabWebApi.Services
 
         public List<TestMaster> GetTestMasterByCollectionCenterID(int CenterID, string Type, string Keyword)
         {
+
             var dbPara = new DynamicParameters();
-            dbPara.Add("Type", Type, DbType.String);
-            dbPara.Add("CollectionCenterID", CenterID, DbType.Int32);
-            if (Keyword == "NoSearch")
+
+            if (CenterID == null && Type=="All" && Keyword==null)
             {
-                dbPara.Add("Search", "", DbType.String);
+              
+                
+                dbPara.Add("CollectionCenterID", CenterID, DbType.Int32);
+                if (Keyword == "NoSearch")
+                {
+                    dbPara.Add("Search", "", DbType.String);
+                }
+                else
+                {
+                    dbPara.Add("Search", Keyword, DbType.String);
+                }
+
             }
             else
             {
-                dbPara.Add("Search", Keyword, DbType.String);
+             
+                dbPara.Add("Type", Type, DbType.String);
+                dbPara.Add("CollectionCenterID", CenterID, DbType.Int32);
+                if (Keyword == "NoSearch")
+                {
+                    dbPara.Add("Search", "", DbType.String);
+                }
+                else
+                {
+                    dbPara.Add("Search", Keyword, DbType.String);
+                }
+                
+
             }
             var data = _MyLabHelper.GetAll<TestMaster>("[dbo].[SP_GetTestMasterByCollectionCenterID]", dbPara, commandType: CommandType.StoredProcedure);
             return data.ToList();

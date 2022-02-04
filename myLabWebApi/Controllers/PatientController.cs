@@ -183,8 +183,12 @@ namespace myLabWebApi.Controllers
                     _IPatientService.SaveDocument(model, filename);
                 }
                 }
-                else
+                else 
                 {
+                  
+                        _IPatientService.patientTesthistory(model);
+                  
+                  
 
                 }
                 return Ok();

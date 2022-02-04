@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
 using myLabWebApi.Utility;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace myLabWebApi.Services
 {
@@ -33,7 +34,7 @@ namespace myLabWebApi.Services
             _MyLabHelper = MyLabHelper;
         }
 
-        public int Create(PatientMasterModel PATIENT, string strMode)
+        public LabNoClassModel Create(PatientMasterModel PATIENT, string strMode)
         {
 
             var dbPara = new DynamicParameters();
@@ -78,7 +79,7 @@ namespace myLabWebApi.Services
             dbPara.Add("PATIENT_SampleCollected", PATIENT.PATIENT_SampleCollected, DbType.Int32);
             dbPara.Add("Doctorid2", PATIENT.Doctorid2, DbType.Int32);
             dbPara.Add("blnCommission", PATIENT.blnCommission, DbType.Boolean);
-            dbPara.Add("labno", PATIENT.labno, DbType.Int32);
+            dbPara.Add("labno", PATIENT.labno, DbType.String);
             dbPara.Add("WardNo", PATIENT.WardNo, DbType.String);
             dbPara.Add("HOSPTYPE", PATIENT.HOSPTYPE, DbType.String);
             dbPara.Add("TotalAmount", string.IsNullOrEmpty(PATIENT.TotalAmount) ? null : Convert.ToDecimal(PATIENT.TotalAmount), DbType.Decimal);
@@ -162,7 +163,7 @@ namespace myLabWebApi.Services
             
 
 
-            var data = _MyLabHelper.Insert<int>("[dbo].[SP_PatientAdd]",
+            var data = _MyLabHelper.Insert<string>("[dbo].[SP_PatientAdd]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
 
@@ -189,9 +190,108 @@ namespace myLabWebApi.Services
                          dbPara2,
                          commandType: CommandType.StoredProcedure);
             }
-            return data;
+
+            if (PATIENT.SendSMS == true)
+            {
+                Send_Sms(PATIENT);
+            }
+            LabNoClassModel LabNoClassModel = new LabNoClassModel();
+            LabNoClassModel.LabNumber = data;
+             return LabNoClassModel;
+            
+
+            
+
+
+
+
+
         }
 
+       
+      
+
+        public string SendOTPToUserAsync(string MobileNo, string OTP)
+        {
+            try
+            {
+                string SMS = "";
+                if (OTP != "0")
+                {
+                    var Url = _config["SMS:URL"];
+                    var urlstring = string.Format(Url, MobileNo, "1207161728091657210", OTP);
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlstring);
+                    request.Method = "GET";
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                    ((HttpWebRequest)request).UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0";
+                    request.Accept = "/";
+                    request.UseDefaultCredentials = true;
+                    request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.Timeout = 10 * 60 * 10000;
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    SMS = sr.ReadToEnd();
+                    sr.Close();
+                    return SMS;
+                    //SMS = (urlstring+'@'+OTP).ToString();
+                }
+                else
+                {
+                    SMS = "Following Mobile No is already registered.";
+                }
+                return SMS;
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
+
+        public string Send_Sms(PatientMasterModel PATIENT)
+        {
+            try
+            {
+                string SMS = "";
+                if (PATIENT.PATIENT_Telno != "0")
+                {
+                    var BalanceAmount =   Convert.ToInt32( PATIENT.TotalAmount) + Convert.ToInt32(PATIENT.EmergencyCharges)- Convert.ToInt32(PATIENT.Discount)- Convert.ToInt32(PATIENT.PATIENT_AmountPaid);
+                    //var b    = Convert.ToInt32(PATIENT.PATIENT_AmountPaid);
+                    var Totalamount = Convert.ToInt32(PATIENT.TotalAmount) + Convert.ToInt32(PATIENT.EmergencyCharges) - Convert.ToInt32(PATIENT.Discount);
+
+
+                     //var BalanceAmount = a- b;
+                    var Url = _config["SMS:URL"];
+                    var Sms_Text = PATIENT.PATIENT_Name + " " + "," + PATIENT.CENTER_Name + "," + PATIENT.labno + "," + Totalamount + "," + BalanceAmount;
+                    var urlstring = string.Format(Url ,PATIENT.PATIENT_Telno, "1207161527000713707", Sms_Text );
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlstring);
+                    request.Method = "GET";
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                    ((HttpWebRequest)request).UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0";
+                    request.Accept = "/";
+                    request.UseDefaultCredentials = true;
+                    request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.Timeout = 10 * 60 * 10000;
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    SMS = sr.ReadToEnd();
+                    sr.Close();
+                    return SMS;
+                    //SMS = (urlstring+'@'+OTP).ToString();
+                }
+                else
+                {
+                    SMS = "Following Mobile No is already registered.";
+                }
+                return SMS;
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
 
 
         public List<PatientMasterModel> GetPatientSearch(int PageNo, int PageSize, string Keyword, string FromDate, string ToDate,string UserId)
@@ -483,12 +583,12 @@ namespace myLabWebApi.Services
 
 
 
-        public string GetLabNo(string LabSeriesSetting)
+        public LabNoClassModel GetLabNo(string LabSeriesSetting)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("LabSeriesSetting", LabSeriesSetting, DbType.String);
-            var data = _MyLabHelper.Get<string>("[dbo].[USP_getLabNoByDate]", dbPara, commandType: CommandType.StoredProcedure);
-            return data.ToString();
+            var data = _MyLabHelper.Get<LabNoClassModel>("[dbo].[USP_getLabNoByDate]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
         }
 
         public List<PatientMasterModel> GetPatientMobileNos(string MobileNo)
@@ -567,15 +667,101 @@ namespace myLabWebApi.Services
 
         public long SaveDocument(DocumentClassModel model,string filename)
         {
-            var dbPara2 = new DynamicParameters();
+
+            if(model.files!=null)
+            {
+                var dbPara2 = new DynamicParameters();
                 dbPara2.Add("@P_DOCUMENTNAME", filename, DbType.String);
                 dbPara2.Add("@P_PATIENTID", model.PatientId, DbType.Int32);
                 dbPara2.Add("@P_ADDEDBY", model.AddedBy, DbType.Int32);
                 dbPara2.Add("@P_DocFrom", "DocDetails", DbType.String);
                 dbPara2.Add("@P_ACTION", 'I', DbType.String);
-               var data2 = _MyLabHelper.Insert<int>("[dbo].[PRC_MS_PATIENTDOCUMENT_IUD]",
-                             dbPara2,
-                             commandType: CommandType.StoredProcedure);
+                var data2 = _MyLabHelper.Insert<int>("[dbo].[PRC_MS_PATIENTDOCUMENT_IUD]",
+                              dbPara2,
+                              commandType: CommandType.StoredProcedure);
+
+                if (model.MarkComplete != null)
+                {
+                    try
+                    {
+                        var dbPara3 = new DynamicParameters();
+                        if (model.MarkComplete == "Y")
+                        {
+                            dbPara3.Add("@P_ACTION", "Authenticate", DbType.String);
+                        }
+                        else if (model.MarkComplete == "R")
+                        {
+                            dbPara3.Add("@P_ACTION", "Re-Run", DbType.String);
+                        }
+                        else if (model.MarkComplete == "V")
+                        {
+                            dbPara3.Add("@P_ACTION", "Validate", DbType.String);
+
+                        }
+                        else
+                        {
+                            dbPara3.Add("@P_ACTION", "Re-sample", DbType.String);
+                        }
+
+
+
+                        dbPara3.Add("@P_PatientId", model.PatientId, DbType.String);
+                        dbPara3.Add("@P_TestId", model.TestId, DbType.String);
+                        dbPara3.Add("@P_ADDEDBY", model.AddedBy, DbType.String);
+
+
+                        var data3 = _MyLabHelper.Insert<int>("[dbo].[PRC_TBL_Patient_Test_History_IUD]",
+                                      dbPara3,
+                                      commandType: CommandType.StoredProcedure);
+                    }
+                    catch (Exception Ex)
+                    {
+                    }
+
+                }
+
+            }
+            
+            return 1;
+        }
+
+        public long patientTesthistory(DocumentClassModel model)
+        {
+            try
+            {
+                var dbPara2 = new DynamicParameters();
+                if (model.MarkComplete == "Y")
+                {
+                    dbPara2.Add("@P_ACTION", "Authenticate", DbType.String);
+                }
+                else if(model.MarkComplete == "R")
+                {
+                    dbPara2.Add("@P_ACTION", "Re-Run", DbType.String);
+                }
+                else if(model.MarkComplete == "V")
+                {
+                    dbPara2.Add("@P_ACTION", "Validate", DbType.String);
+
+                }
+                else
+                {
+                    dbPara2.Add("@P_ACTION", "Re-sample", DbType.String);
+                }
+
+
+
+                dbPara2.Add("@P_PatientId", model.PatientId, DbType.String);
+                dbPara2.Add("@P_TestId", model.TestId, DbType.String);
+                dbPara2.Add("@P_ADDEDBY", model.AddedBy, DbType.String);
+            
+            
+                var data2 = _MyLabHelper.Insert<int>("[dbo].[PRC_TBL_Patient_Test_History_IUD]",
+                              dbPara2,
+                              commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception Ex)
+            { 
+            }
             return 1;
         }
 

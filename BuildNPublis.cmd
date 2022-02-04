@@ -5,7 +5,7 @@
 TITLE *****CREATED BY AHMED SHAIKH*****
 
 ECHO Making Build please wait... 
-
+del Publish 2>null
 dotnet restore
 dotnet build 
 ECHO Publishing  please wait... 

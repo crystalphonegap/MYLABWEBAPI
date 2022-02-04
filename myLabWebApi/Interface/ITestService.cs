@@ -51,6 +51,11 @@ namespace myLabWebApi.Interface
 
         List<PAIT_HDR_DET_TEST_New> GetPatientAllTestDetail(long ID);
 
+
+         PAIT_HDR_DET_TEST_smsreport GetPatientAllTestDetailsmsreport(string SendSMS, int myvalue, string testname);
+       
+
         long InsertUpdateProfileTest(ProfileTestModel model);
+      
     }
 }

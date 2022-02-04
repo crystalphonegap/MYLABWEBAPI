@@ -530,6 +530,23 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+
+
+        [HttpGet("GetPatientAllTestDetailsmsreport/{SendSMS},{myvalue},{testname}")]
+        public IActionResult GetPatientAllTestDetailsmsreport(string SendSMS, int myvalue, string testname)
+        {
+            try
+            {
+                return Ok(_ITestService.GetPatientAllTestDetailsmsreport( SendSMS,  myvalue , testname));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
         #endregion
     }
 }

@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Net;
 
 namespace myLabWebApi.Services
 {
@@ -756,6 +758,134 @@ namespace myLabWebApi.Services
             var data = _MyLabHelper.Get<string>("[dbo].[USP_GETPREDEFINEVALUE]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
         }
+
+        //public string GetPatientAllTestDetailsmsreport(string ID)
+        //{
+
+        //    if (ID == true)
+        //    {
+        //        Send_Sms(ID);
+        //    }
+
+        //    return ID;
+        //}
+
+
+        //public string GetPatientAllTestDetailsmsreport(PAIT_HDR_DET_TEST_smsreport  ID)
+        //{
+        //    try
+        //    {
+        //        string SMS = "";
+        //        //if (ID == "0")
+        //        //{
+        //            //var a = Convert.ToInt32(PATIENT.TotalAmount);
+        //            //var b = Convert.ToInt32(PATIENT.PATIENT_AmountPaid);
+
+
+        //            //var BalanceAmount = a - b;
+        //            var Url = _config["SMS:URL"];
+        //            //var Sms_Text = PATIENT.PATIENT_Name + " " + "," + PATIENT.CENTER_Name + "," + PATIENT.labno + "," + PATIENT.TotalAmount + "," + BalanceAmount;
+        //            var urlstring = string.Format(Url, PATIENT.PATIENT_Telno, "1207161527000713707", Sms_Text);
+        //            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlstring);
+        //            request.Method = "GET";
+        //            request.Credentials = CredentialCache.DefaultCredentials;
+        //            ((HttpWebRequest)request).UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0";
+        //            request.Accept = "/";
+        //            request.UseDefaultCredentials = true;
+        //            request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+        //            request.ContentType = "application/x-www-form-urlencoded";
+        //            request.Timeout = 10 * 60 * 10000;
+        //            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        //            StreamReader sr = new StreamReader(response.GetResponseStream());
+        //            SMS = sr.ReadToEnd();
+        //            sr.Close();
+        //            return SMS;
+        //            //SMS = (urlstring+'@'+OTP).ToString();
+        //        //}
+        //        //else
+        //        //{
+        //        //    SMS = "Following Mobile No is already registered.";
+        //        //}
+        //        return SMS;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ex.ToString();
+        //    }
+        //}
+
+         public PAIT_HDR_DET_TEST_smsreport GetPatientAllTestDetailsmsreport(string SendSMS, int myvalue, string testname)
+        {
+
+           
+
+            try
+            {
+                var dbPara = new DynamicParameters();
+                dbPara.Add("Mode", "smsrepot", DbType.String);
+                dbPara.Add("Id", myvalue, DbType.Int32);
+                dbPara.Add("Keyword", testname, DbType.String);
+                dbPara.Add("FromDate", "");
+                dbPara.Add("ToDate", "");
+                var data = _MyLabHelper.Get<PAIT_HDR_DET_TEST_smsreport>("[dbo].[USP_AllTestorPatientEntry]", dbPara, commandType: CommandType.StoredProcedure);
+                if (data.Patient_Id == myvalue)
+                {
+                    Send_Sms(data);
+                }
+
+                return data;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+           
+           
+         }
+
+
+        public string Send_Sms(PAIT_HDR_DET_TEST_smsreport data)
+        {
+            try
+            {
+                string SMS = "";
+                if (data.PATIENT_Telno != "0")
+                {
+                  
+                    var Url = _config["SMS:URL"];
+                    
+                    var urlstring = string.Format(Url, data.PATIENT_Telno, "1207161527019506918", data.PATIENT_Name);
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlstring);
+                    request.Method = "GET";
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                    ((HttpWebRequest)request).UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0";
+                    request.Accept = "/";
+                    request.UseDefaultCredentials = true;
+                    request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.Timeout = 10 * 60 * 10000;
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    SMS = sr.ReadToEnd();
+                    sr.Close();
+                    return SMS;
+                    //SMS = (urlstring+'@'+OTP).ToString();
+                }
+                else
+                {
+                    SMS = "Following Mobile No is already registered.";
+                }
+                return SMS;
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
+
 
         #endregion
     }

@@ -14,12 +14,15 @@ namespace myLabWebApi.Models
         public int PATIENT_Doctorid { get; set; }
         public int PATIENT_SampleCollected { get; set; }
         public int Doctorid2 { get; set; }
-        public int labno { get; set; }
+        public string labno { get; set; }
         public int Bar_Copiese { get; set; }
         public int Urgent { get; set; }
         public bool Issent { get; set; }
         public bool PrintUrgent { get; set; }
         public bool blnCommission { get; set; }
+
+        public bool SendSMS { get; set; }
+
         public string LabSeriesSetting { get; set; }
         public string PATIENT_Name { get; set; }
         public string PATIENT_Address1 { get; set; }
@@ -96,5 +99,14 @@ namespace myLabWebApi.Models
         public List<IFormFile> files { get; set; }
         public string PatientId { get; set; }
         public string AddedBy { get; set; }
+        public string MarkComplete { get; set; }
+        public string TestId { get; set; }
     }
-}
+
+    public class LabNoClassModel
+    {
+        
+        public string LabNumber { get; set; }
+    }
+
+    }
