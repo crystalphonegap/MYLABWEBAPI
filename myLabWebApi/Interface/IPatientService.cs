@@ -22,7 +22,9 @@ namespace myLabWebApi.Interface
 
         List<PAIT_HDR_DET_TEST> GetPatientTestDetail(string ID);
 
-        long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model,string AddedBy);
+        long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model,string AddedBy,string Markcomplete2);
+
+        long UpdateDocDetTestValuemarkcomplete(string DOCHDR_lDocumentId, string Markcomplete2, string LoginByID);
 
         List<NarrationModel> GetNarration(string Keyword);
 

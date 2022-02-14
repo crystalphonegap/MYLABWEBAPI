@@ -158,7 +158,22 @@ namespace myLabWebApi.Controllers
         {
             try
             {
-                return Ok(_IPatientService.UpdateDocDetTestValue(model.value,model.AddedBy));
+                return Ok(_IPatientService.UpdateDocDetTestValue(model.value,model.AddedBy, model.Markcomplete2));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("UpdateDocDetTestValuemarkcomplete")]
+        public IActionResult UpdateDocDetTestValuemarkcomplete(PAIT_HDR_DET_TESTWITH_MARKCOMPLETE2 model)
+        {
+            try
+            {
+                return Ok(_IPatientService.UpdateDocDetTestValuemarkcomplete(model.value, model.AddedBy, model.Markcomplete2));
+              
             }
             catch (Exception ex)
             {
