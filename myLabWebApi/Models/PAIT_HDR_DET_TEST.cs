@@ -455,7 +455,7 @@ namespace myLabWebApi.Models
         public string DoctorName2 { get; set; }
         public string CENTER_Name { get; set; }
         public bool blnCommission { get; set; }
-        public int labno { get; set; }
+        public string labno { get; set; }
         public string WardNo { get; set; }
         public string HOSPTYPE { get; set; }
         public string TotalAmount { get; set; }
@@ -647,6 +647,14 @@ namespace myLabWebApi.Models
     public class PAIT_HDR_DET_TESTWITH_ID
     {
         public List<PAIT_HDR_DET_TEST> value { get; set; }
+        public string Markcomplete2 { get; set; }
+        public string AddedBy { get; set; }
+    }
+
+    public class PAIT_HDR_DET_TESTWITH_MARKCOMPLETE2
+    {
+        public string value { get; set; }
+        public string Markcomplete2 { get; set; }
         public string AddedBy { get; set; }
     }
 
