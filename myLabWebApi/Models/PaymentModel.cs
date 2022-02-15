@@ -17,4 +17,13 @@ namespace myLabWebApi.Models
         public string AmountPaid { get; set; }
         public string BalanceAmount { get; set; } 
     }
+    public class AmountPaidClass
+    {
+        public int PatientId { get; set; }
+        public decimal AmountPaid { get; set; }
+        public int UserId { get; set; }
+        public int PAYMENTMODE { get; set; }
+        public decimal CASHAMOUNT { get; set; }
+        public string PAYDATE { get; set; }
+    }
 }

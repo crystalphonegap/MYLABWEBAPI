@@ -12,5 +12,6 @@ namespace myLabWebApi.Interface
         List<PaymentModel> GetPaymentList(PaymentListModel model);
         List<AmountPaidModel> GetPaymentHistory(int Id);
         int AddPayment(AmountPaidModel model);
+     
     }
 }

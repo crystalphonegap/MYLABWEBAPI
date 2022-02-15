@@ -30,13 +30,13 @@ namespace myLabWebApi.Services
             var dbPara3 = new DynamicParameters();
             DateTime tempDate = DateTime.ParseExact(model.fromDate, "MM-dd-yyyy", null);
             dbPara3.Add("@P_fromDate", tempDate.ToString("yyyy-MM-dd"), DbType.String);
-             tempDate = DateTime.ParseExact(model.todate, "MM-dd-yyyy", null);
+            tempDate = DateTime.ParseExact(model.todate, "MM-dd-yyyy", null);
             dbPara3.Add("@P_todate", tempDate.ToString("yyyy-MM-dd"), DbType.String);
             dbPara3.Add("@P_DoctorName", model.DoctorName, DbType.String);
             dbPara3.Add("@P_PatientName", model.PatientName, DbType.String);
-            if (string.IsNullOrEmpty( model.PatientId))
+            if (string.IsNullOrEmpty(model.PatientId))
             {
-                dbPara3.Add("@P_PatientId",0, DbType.Int64);
+                dbPara3.Add("@P_PatientId", 0, DbType.Int64);
 
             }
             else
@@ -44,7 +44,7 @@ namespace myLabWebApi.Services
                 dbPara3.Add("@P_PatientId", model.PatientId, DbType.Int64);
 
             }
-            dbPara3.Add("@P_UserID",Convert.ToInt64( model.UserID), DbType.Int64);
+            dbPara3.Add("@P_UserID", Convert.ToInt64(model.UserID), DbType.Int64);
             var data = _MyLabHelper.GetAll<PaymentModel>("[dbo].[USP_GetAmountPaidList]",
                           dbPara3,
                           commandType: CommandType.StoredProcedure);
@@ -55,12 +55,12 @@ namespace myLabWebApi.Services
         public int AddPayment(AmountPaidModel model)
         {
             var dbPara3 = new DynamicParameters();
-            
-            dbPara3.Add("@Patientid", model.Patientid, DbType.Int64); 
-            dbPara3.Add("@Paymode", model.Paymode, DbType.String); 
-            dbPara3.Add("@Remark", model.Remark, DbType.String); 
-            dbPara3.Add("@userid", model.userid, DbType.String); 
-            dbPara3.Add("@AmountPaid", model.AmountPaid, DbType.String); 
+
+            dbPara3.Add("@Patientid", model.Patientid, DbType.Int64);
+            dbPara3.Add("@Paymode", model.Paymode, DbType.String);
+            dbPara3.Add("@Remark", model.Remark, DbType.String);
+            dbPara3.Add("@userid", model.userid, DbType.String);
+            dbPara3.Add("@AmountPaid", model.AmountPaid, DbType.String);
             var data = _MyLabHelper.Get<int>("[dbo].[USP_AddPayment]",
                           dbPara3,
                           commandType: CommandType.StoredProcedure);
@@ -77,6 +77,9 @@ namespace myLabWebApi.Services
                           commandType: CommandType.StoredProcedure);
             return data;
         }
+
+
+       
 
     }
 }
