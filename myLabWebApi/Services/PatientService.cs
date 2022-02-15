@@ -765,5 +765,56 @@ namespace myLabWebApi.Services
             return 1;
         }
 
+        public List<BalancePatientClass> GetPatientListBlanceAmount(PaymentSearchFilters model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_FROMDATE", model.FromDate, DbType.String);
+            dbPara.Add("@P_TODATE", model.ToDate, DbType.String);
+            dbPara.Add("@P_UserID", Convert.ToInt64(model.UserId), DbType.Int64);
+            if (model.Keyword == "" || model.Keyword == null)
+            {
+                dbPara.Add("@P_KEYWORD", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("@P_KEYWORD", model.Keyword, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<BalancePatientClass>("[dbo].[PRC_TR_GETBALANCE_PATIENTLIST]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+
+            return data;
+        }
+
+        public BalancePatientClass GetPatientListBlanceAmountByID(int PATIENT_ID)
+        {
+            var dbPara = new DynamicParameters();
+            
+                dbPara.Add("@P_PATIENT_ID", PATIENT_ID, DbType.Int32);
+            
+            var data = _MyLabHelper.Get<BalancePatientClass>("[dbo].[PRC_TR_GETBALANCE_PATIENTDETAILS_BYID]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+
+            return data;
+        }
+        public long PaidBalanceAmount(AmountPaidClass model)
+        {
+            var dbPara = new DynamicParameters();
+
+            dbPara.Add("@P_PATIENT_ID", model.PatientId, DbType.Int32);
+            dbPara.Add("@P_AMOUNTPAID", model.AmountPaid, DbType.Decimal);
+            dbPara.Add("@P_USERID", model.UserId, DbType.Int32);
+
+            dbPara.Add("@P_PAYMENTMODE", model.PAYMENTMODE, DbType.Int32);
+            dbPara.Add("@P_CASHAMOUNT", model.CASHAMOUNT, DbType.Decimal);
+            dbPara.Add("@P_PAYDATE", model.PAYDATE, DbType.DateTime);
+
+            var data = _MyLabHelper.Insert<int>("[dbo].[PRC_TR_AMOUNTPAID_IUD]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+
+            return data;
+        }
     }
 }

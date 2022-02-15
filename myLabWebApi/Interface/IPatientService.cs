@@ -49,5 +49,8 @@ namespace myLabWebApi.Interface
 
         long SaveDocument(DocumentClassModel model,string filename);
         long patientTesthistory(DocumentClassModel model);
+        List<BalancePatientClass> GetPatientListBlanceAmount(PaymentSearchFilters model);
+        BalancePatientClass GetPatientListBlanceAmountByID(int PATIENT_ID);
+        long PaidBalanceAmount(AmountPaidClass model);
     }
 }

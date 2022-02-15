@@ -436,5 +436,47 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+
+        [HttpPost("GetPatientListBlanceAmount")]
+        public IActionResult GetPatientListBlanceAmount(PaymentSearchFilters model)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientListBlanceAmount(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("GetPatientListBlanceAmountByID/{ID}")]
+        public ActionResult GetPatientListBlanceAmountByID(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientListBlanceAmountByID(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+        [HttpPost("PaidBalanceAmount")]
+        public IActionResult PaidBalanceAmount(AmountPaidClass model)
+        {
+            try
+            {
+                return Ok(_IPatientService.PaidBalanceAmount(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
 }
