@@ -399,84 +399,144 @@ namespace myLabWebApi.Services
 
         #region "Added By Suman"
 
-        public long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model,string AddedBy, string Markcomplete2) 
+        public long UpdateDocDetTestValue(List<PAIT_HDR_DET_TEST> model,string AddedBy, string Markcomplete2, string value1 ,string test) 
         {
             long data = 0;
-            for (int i = 0; i < model.Count; i++)
+            if (model == null)
             {
-                var dbPara = new DynamicParameters();
-                dbPara.Add("DOCDET_lHeaderId", model[i].DOCDET_lHeaderId, DbType.Int32);
-                dbPara.Add("DOCDET_lFieldNo", model[i].DOCDET_lFieldNo, DbType.String);
-                dbPara.Add("DOCDET_tFieldValue", model[i].DOCDET_tFieldValue, DbType.String);
-                dbPara.Add("Rerun", string.IsNullOrEmpty(model[i].Rerun) ? false : model[i].Rerun, DbType.Boolean);
-                data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDocDetTestValue]",
-                              dbPara,
-                              commandType: CommandType.StoredProcedure);
-            }
-            if (model.Count > 0)
-            {
-                int dochdrid = 0;
-                for (int j = 0; j < model.Count; j++)
+                if(test==null)
+                {
+                    try
+                    {
+                        long data1 = 0;
+                        var dbPara1 = new DynamicParameters();
+                        dbPara1.Add("DOCDET_lHeaderId", test, DbType.String);
+                        dbPara1.Add("DOCHDR_sDescription", "", DbType.String);
+                        dbPara1.Add("ResampleReason", "", DbType.String);
+
+                        dbPara1.Add("MarkComplete", Markcomplete2, DbType.String);
+                        dbPara1.Add("User", Convert.ToString(value1), DbType.String);
+                        data1 = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValuewithmarkcomplete]",
+                                           dbPara1,
+                                           commandType: CommandType.StoredProcedure);
+
+
+                    }
+                    catch (Exception Ex)
+                    {
+
+                    }
+
+
+                }
+                else
                 {
 
-                    if (dochdrid != model[j].DOCDET_lHeaderId)
+                    try
                     {
                         var dbPara = new DynamicParameters();
-                        dbPara.Add("DOCDET_lHeaderId", model[j].DOCDET_lHeaderId, DbType.Int32);
-                        dbPara.Add("DOCHDR_sDescription", model[j].DOCHDR_sDescription, DbType.String);
-                        dbPara.Add("ResampleReason", model[j].ResampleReason, DbType.String);
-                        if(Markcomplete2!=null && model[j].MarkComplete=="N")
-                        {
-                            dbPara.Add("MarkComplete", Markcomplete2, DbType.String);
-                        }
-                        else
-                        {
-                            dbPara.Add("MarkComplete", model[j].MarkComplete, DbType.String);
+                        dbPara.Add("DOCDET_lHeaderId", Convert.ToString(test.TrimEnd(',')), DbType.String);
+                        dbPara.Add("DOCHDR_sDescription", "", DbType.String);
+                        dbPara.Add("ResampleReason", "", DbType.String);
 
-                        }
-                        
-                        dbPara.Add("User", AddedBy, DbType.String);
-                        data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValue]",
-                                      dbPara,
-                                      commandType: CommandType.StoredProcedure);
-                        dochdrid = model[j].DOCDET_lHeaderId;
+                        dbPara.Add("MarkComplete", Markcomplete2, DbType.String);
+                        dbPara.Add("User", Convert.ToString(value1), DbType.String);
+                        data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValuewithmarkcomplete]",
+                                           dbPara,
+                                           commandType: CommandType.StoredProcedure);
+
+
                     }
-                }
+                    catch (Exception Ex)
+                    {
 
+                    }
+
+                }
+               
+
+
+            }
+            else
+            {
+
+               
+                for (int i = 0; i < model.Count; i++)
+                {
+                    var dbPara = new DynamicParameters();
+                    dbPara.Add("DOCDET_lHeaderId", model[i].DOCDET_lHeaderId, DbType.Int32);
+                    dbPara.Add("DOCDET_lFieldNo", model[i].DOCDET_lFieldNo, DbType.String);
+                    dbPara.Add("DOCDET_tFieldValue", model[i].DOCDET_tFieldValue, DbType.String);
+                    dbPara.Add("Rerun", string.IsNullOrEmpty(model[i].Rerun) ? false : model[i].Rerun, DbType.Boolean);
+                    data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDocDetTestValue]",
+                                  dbPara,
+                                  commandType: CommandType.StoredProcedure);
+                }
+                if (model.Count > 0)
+                {
+                    int dochdrid = 0;
+                    for (int j = 0; j < model.Count; j++)
+                    {
+
+                        if (dochdrid != model[j].DOCDET_lHeaderId)
+                        {
+                            var dbPara = new DynamicParameters();
+                            dbPara.Add("DOCDET_lHeaderId", model[j].DOCDET_lHeaderId, DbType.Int32);
+                            dbPara.Add("DOCHDR_sDescription", model[j].DOCHDR_sDescription, DbType.String);
+                            dbPara.Add("ResampleReason", model[j].ResampleReason, DbType.String);
+                            if (Markcomplete2 != null && model[j].MarkComplete == "N")
+                            {
+                                dbPara.Add("MarkComplete", Markcomplete2, DbType.String);
+                            }
+                            else
+                            {
+                                dbPara.Add("MarkComplete", model[j].MarkComplete, DbType.String);
+
+                            }
+
+                            dbPara.Add("User", AddedBy, DbType.String);
+                            data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValue]",
+                                          dbPara,
+                                          commandType: CommandType.StoredProcedure);
+                            dochdrid = model[j].DOCDET_lHeaderId;
+                        }
+                    }
+
+                }
             }
 
             return data;
         }
 
-        public long UpdateDocDetTestValuemarkcomplete( string DOCHDR_lDocumentId, string Markcomplete2, string LoginByID)
-        {
-            long data = 0;
+        //public long UpdateDocDetTestValuemarkcomplete( string DOCHDR_lDocumentId, string Markcomplete2, string LoginByID)
+        //{
+        //    long data = 0;
 
-            try
-            {
-                 var dbPara = new DynamicParameters();
-            dbPara.Add("DOCDET_lHeaderId", DOCHDR_lDocumentId, DbType.Int32);
-            dbPara.Add("DOCHDR_sDescription","", DbType.String);
-            dbPara.Add("ResampleReason","", DbType.String);
+        //    try
+        //    {
+        //         var dbPara = new DynamicParameters();
+        //    dbPara.Add("DOCDET_lHeaderId", DOCHDR_lDocumentId, DbType.Int32);
+        //    dbPara.Add("DOCHDR_sDescription","", DbType.String);
+        //    dbPara.Add("ResampleReason","", DbType.String);
           
-                dbPara.Add("MarkComplete", Markcomplete2, DbType.String);
-                dbPara.Add("User", LoginByID, DbType.String);
-           data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValue]",
-                              dbPara,
-                              commandType: CommandType.StoredProcedure);
+        //        dbPara.Add("MarkComplete", Markcomplete2, DbType.String);
+        //        dbPara.Add("User", LoginByID, DbType.String);
+        //   data = _MyLabHelper.Insert<long>("[dbo].[SP_UpdateDOCHDRTestValue]",
+        //                      dbPara,
+        //                      commandType: CommandType.StoredProcedure);
                
 
-            }
-            catch (Exception Ex)
-            {
+        //    }
+        //    catch (Exception Ex)
+        //    {
                 
-            }
+        //    }
 
            
 
 
-                return data;
-        }
+        //        return data;
+        //}
 
 
 
