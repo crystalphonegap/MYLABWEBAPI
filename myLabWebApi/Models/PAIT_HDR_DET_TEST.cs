@@ -649,13 +649,16 @@ namespace myLabWebApi.Models
         public List<PAIT_HDR_DET_TEST> value { get; set; }
         public string Markcomplete2 { get; set; }
         public string AddedBy { get; set; }
+        public string value1 { get; set; }
+        public string test { get; set; }
+
     }
 
-    public class PAIT_HDR_DET_TESTWITH_MARKCOMPLETE2
-    {
-        public string value { get; set; }
-        public string Markcomplete2 { get; set; }
-        public string AddedBy { get; set; }
-    }
+    //public class PAIT_HDR_DET_TESTWITH_MARKCOMPLETE2
+    //{
+    //    public string value { get; set; }
+    //    public string Markcomplete2 { get; set; }
+    //    public string AddedBy { get; set; }
+    //}
 
 }
