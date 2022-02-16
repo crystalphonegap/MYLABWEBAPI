@@ -493,5 +493,33 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet("GetPatientPaymentHistory/{ID}")]
+        public ActionResult GetPatientPaymentHistory(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientPaymentHistory(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("GetMakeBillMessage/{ID}")]
+        public ActionResult GetMakeBillMessage(int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetMakeBillMessage(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
 }
