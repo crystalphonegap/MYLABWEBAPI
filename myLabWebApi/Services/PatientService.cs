@@ -920,7 +920,7 @@ namespace myLabWebApi.Services
 
             dbPara.Add("@P_PAYMENTMODE", model.PAYMENTMODE, DbType.Int32);
             dbPara.Add("@P_CASHAMOUNT", model.CASHAMOUNT, DbType.Decimal);
-            dbPara.Add("@P_PAYDATE", model.PAYDATE, DbType.DateTime);
+            dbPara.Add("@P_PAYDATE", DateTime.Now, DbType.DateTime);
             dbPara.Add("@P_TYPE", model.Type, DbType.String);
             dbPara.Add("@P_REMARK", model.Remark, DbType.String);
 

@@ -62,7 +62,7 @@ namespace myLabWebApi.Services
                               commandType: CommandType.StoredProcedure);
 
             }
-            catch(Exception)
+            catch(Exception Ex)
             {
 
             }

@@ -20,10 +20,10 @@ namespace myLabWebApi.Models
     public class AmountPaidClass
     {
         public int PatientId { get; set; }
-        public decimal AmountPaid { get; set; }
-        public int UserId { get; set; }
+        public string AmountPaid { get; set; }
+        public string UserId { get; set; }
         public int PAYMENTMODE { get; set; }
-        public decimal CASHAMOUNT { get; set; }
+        public string CASHAMOUNT { get; set; }
         public string PAYDATE { get; set; }
         public string Type { get; set; }
         public string Remark { get; set; }
