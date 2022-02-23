@@ -32,6 +32,7 @@ namespace myLabWebApi.Models
         public string FromDate { get; set; }
         public string ToDate { get; set; }
         public string UserId { get; set; }
+        public string Type { get; set; }
     }
 
 }

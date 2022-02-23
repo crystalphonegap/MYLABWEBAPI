@@ -54,5 +54,7 @@ namespace myLabWebApi.Interface
         List<BalancePatientClass> GetPatientListBlanceAmount(PaymentSearchFilters model);
         BalancePatientClass GetPatientListBlanceAmountByID(int PATIENT_ID);
         long PaidBalanceAmount(AmountPaidClass model);
+        List<PaymentHistoryClass> GetPatientPaymentHistory(int PatientId);
+        MakeBillMessageClass GetMakeBillMessage(int PatientId);
     }
 }

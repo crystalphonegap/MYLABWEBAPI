@@ -881,6 +881,7 @@ namespace myLabWebApi.Services
             dbPara.Add("@P_FROMDATE", model.FromDate, DbType.String);
             dbPara.Add("@P_TODATE", model.ToDate, DbType.String);
             dbPara.Add("@P_UserID", Convert.ToInt64(model.UserId), DbType.Int64);
+
             if (model.Keyword == "" || model.Keyword == null)
             {
                 dbPara.Add("@P_KEYWORD", "", DbType.String);
@@ -889,6 +890,7 @@ namespace myLabWebApi.Services
             {
                 dbPara.Add("@P_KEYWORD", model.Keyword, DbType.String);
             }
+            dbPara.Add("@P_TYPE", model.Type, DbType.String);
             var data = _MyLabHelper.GetAll<BalancePatientClass>("[dbo].[PRC_TR_GETBALANCE_PATIENTLIST]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
@@ -918,9 +920,35 @@ namespace myLabWebApi.Services
 
             dbPara.Add("@P_PAYMENTMODE", model.PAYMENTMODE, DbType.Int32);
             dbPara.Add("@P_CASHAMOUNT", model.CASHAMOUNT, DbType.Decimal);
-            dbPara.Add("@P_PAYDATE", model.PAYDATE, DbType.DateTime);
+            dbPara.Add("@P_PAYDATE", DateTime.Now, DbType.DateTime);
+            dbPara.Add("@P_TYPE", model.Type, DbType.String);
+            dbPara.Add("@P_REMARK", model.Remark, DbType.String);
 
             var data = _MyLabHelper.Insert<int>("[dbo].[PRC_TR_AMOUNTPAID_IUD]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+
+            return data;
+        }
+
+        public List<PaymentHistoryClass> GetPatientPaymentHistory(int  PatientId)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_PATIENT_ID", PatientId, DbType.String);
+           
+            var data = _MyLabHelper.GetAll<PaymentHistoryClass>("[dbo].[PRC_TR_PATIENT_PAYMENTHISTORY]",
+                          dbPara,
+                          commandType: CommandType.StoredProcedure);
+
+            return data;
+        }
+
+        public MakeBillMessageClass GetMakeBillMessage(int PatientId)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_PATIENTID", PatientId, DbType.String);
+
+            var data = _MyLabHelper.Get<MakeBillMessageClass>("[dbo].[PRC_TR_GETBALANCE_STATUS]",
                           dbPara,
                           commandType: CommandType.StoredProcedure);
 
