@@ -92,6 +92,7 @@ namespace myLabWebApi.Models
         public string TestStatus { get; set; }
         public string userid { get; set; }
         public decimal BillAmount { get; set; }
+        public string BALANCE { get; set; }
     }
    
     public class DocumentClassModel

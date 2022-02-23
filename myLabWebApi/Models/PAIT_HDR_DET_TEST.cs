@@ -30,6 +30,9 @@ namespace myLabWebApi.Models
         public string PATIENT_Date { get; set; }
         public int PATIENT_Doctorid { get; set; }
         public string PATIENT_DoctorName { get; set; }
+        public string DOCTOR_MobileNo { get; set; }
+        public string FileName { get; set; }
+
         public int PATIENT_Companyid { get; set; }
         public string PATIENT_AmountPaid { get; set; }
         public int PATIENT_SampleCollected { get; set; }
