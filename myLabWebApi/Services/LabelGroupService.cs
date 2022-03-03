@@ -50,7 +50,7 @@ namespace myLabWebApi.Services
                 }
                
                 dbPara2.Add("@P_Active", LabelGroupMaster.Active, DbType.Boolean);
-                dbPara2.Add("@P_Companyid", LabelGroupMaster.Companyid, DbType.String);
+                dbPara2.Add("@P_Companyid", LabelGroupMaster.Companyid, DbType.Int32);
                 dbPara2.Add("@P_Prefix", LabelGroupMaster.Prefix, DbType.String);
                 dbPara2.Add("@P_ACTION", LabelGroupMaster.Action, DbType.String);
                 dbPara2.Add("@P_INSERTTYPE", "MASTER", DbType.String);
