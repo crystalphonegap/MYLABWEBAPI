@@ -5,6 +5,7 @@ using myLabWebApi.Entities;
 using myLabWebApi.Interface;
 using myLabWebApi.Models;
 using myLabWebApi.Security;
+using myLabWebApi.Utility;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -14,6 +15,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace myLabWebApi.Controllers
 {
@@ -336,20 +338,20 @@ namespace myLabWebApi.Controllers
         //    return principal;
         //}
 
-        
+
         [HttpPost("Login")]
         public IActionResult Login(UserMasterModel userMaster)
         {
             try
             {
-               
-                UserMasterModel usermodel = _userMasterService.Login(userMaster.UserName,userMaster.Password);
-              
-                if(usermodel==null)
+
+                UserMasterModel usermodel = _userMasterService.Login(userMaster.UserName, userMaster.Password);
+
+                if (usermodel == null)
                 {
                     return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
                 }
-              
+
                 if (usermodel.UserName != "")
                 {
                     UserMasterModel model = new UserMasterModel();
@@ -373,7 +375,7 @@ namespace myLabWebApi.Controllers
             }
         }
 
-      
+
 
         [HttpGet("DeleteErrorLog/{DelDate}")]
         public IActionResult DeleteErrorLog(string DelDate)
@@ -619,5 +621,89 @@ namespace myLabWebApi.Controllers
             // Return the encrypted bytes from the memory stream.
             return encrypted;
         }
+
+
+
+
+        [HttpPost("GetusermasterSearch")]
+        public IActionResult GetDoctorSearch(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetusermasterSearch(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpPost("GetusermasterSearchCount")]
+        public IActionResult GetDoctorSearchCount(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetusermasterSearchCount(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("Insertusermaster")]
+        public async Task<ActionResult> Insertusermaster([FromForm] UserMdsignusers Data)
+        {
+            try
+            {
+                if (Data.FileUpload != null)
+                {
+                    Data.SavedFileName = await FileUtilityService.UploadedSitePhotoFiles(Data.FileUpload, Data.UserName, "Userreg", null);
+                }
+
+                return Ok(_userMasterService.InsertUpdateUsermaster(Data));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPut("UpdateUsermaster")]
+        public async Task<ActionResult> UpdateUsermaster([FromForm] UserMdsignusers Data)
+        {
+            try
+            {
+                if (Data.FileUpload != null)
+                {
+                    Data.SavedFileName = await FileUtilityService.UploadedSitePhotoFiles(Data.FileUpload, Data.UserName, "Userreg", null);
+                }
+
+                return Ok(_userMasterService.InsertUpdateUsermaster(Data));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("GetUsermasterDetailsByID/{ID}")]
+        public IActionResult GetUsermasterDetailsByID(int ID)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetUsermasterUsingId(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
-}
+    }

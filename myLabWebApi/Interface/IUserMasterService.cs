@@ -52,5 +52,12 @@ namespace myLabWebApi.Interface
         List<UserMasterModel> ExportToExcelForParent(string ParentCode, string status, string Keyword);
 
         string ResetPassword(UserMasterModel UserMaster);
+        object GetusermasterSearch(SearchFilters m);
+
+        long GetusermasterSearchCount(SearchFilters m);
+        long InsertUpdateUsermaster(UserMdsignusers Data);
+
+        UserMdsignusers GetUsermasterUsingId(int Id);
+
     }
 }

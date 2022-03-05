@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -17,6 +19,8 @@ namespace myLabWebApi.Services
         private readonly IConfiguration _config;
         private readonly IMyLabHelper _MyLabHelper;
         private readonly ILogger _ILogger;
+
+        public Document Document { get; private set; }
 
         public UserMasterService(IMyLabHelper MyLabHelper, ILogger ILoggerservice, IConfiguration config)
         {
@@ -466,5 +470,180 @@ namespace myLabWebApi.Services
         {
             throw new NotImplementedException();
         }
+
+        public object GetusermasterSearch(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+
+            var data = _MyLabHelper.GetAll<UserMasterModel>("[dbo].[SP_Get_USERMASTER_ALL_DATA]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+
+
+        public long GetusermasterSearchCount(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -2, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+            var data = _MyLabHelper.GetAll<UserMasterModel>("[dbo].[SP_Get_USERMASTER_ALL_DATA]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+        }
+
+
+
+        //public static void databaseFilePut(string varFilePath)
+        //{
+        //    byte[] file;
+        //    using (var stream = new FileStream(varFilePath, FileMode.Open, FileAccess.Read))
+        //    {
+        //        using (var reader = new BinaryReader(stream))
+        //        {
+        //            file = reader.ReadBytes((int)stream.Length);
+        //        }
+        //    }
+        //    using (var varConnection = Locale.sqlConnectOneTime(Locale.sqlDataConnectionDetails))
+        //    using (var sqlWrite = new SqlCommand("INSERT INTO Raporty (RaportPlik) Values(@File)", varConnection))
+        //    {
+        //        sqlWrite.Parameters.Add("@File", SqlDbType.VarBinary, file.Length).Value = file;
+        //        sqlWrite.ExecuteNonQuery();
+        //    }
+        //}
+        public long InsertUpdateUsermaster(UserMdsignusers Data)
+        {
+        
+           
+
+
+
+            try { 
+
+                var dbPara = new DynamicParameters();
+                dbPara.Add("@P_ID", 0, DbType.Int32);
+                dbPara.Add("@P_UserName", Data.UserName, DbType.String);
+                dbPara.Add("@P_Contact_No", Data.Contact_No, DbType.String);
+                dbPara.Add("@P_Email", Data.Email, DbType.String);
+                dbPara.Add("@P_Password", Data.Password, DbType.String);
+                dbPara.Add("@P_Type", Data.Type, DbType.String);
+                //if (Data.Type == true)
+                //{
+                //    dbPara.Add("@P_Type", "A");
+                //}
+                //else
+                //{
+                //    dbPara.Add("@P_Type", "U");
+
+                //}
+                dbPara.Add("@P_DOB", Data.DOB, DbType.String);
+                dbPara.Add("@P_Gender", Data.Gender, DbType.String);
+                dbPara.Add("@P_Qualification", Data.Qualification, DbType.String);
+                dbPara.Add("@P_City", Data.City, DbType.String);
+                dbPara.Add("@P_Area", Data.Area, DbType.String);
+                dbPara.Add("@P_Pincode", Data.Pincode, DbType.String);
+                dbPara.Add("@P_State", Data.State, DbType.String);
+                dbPara.Add("@P_Address", Data.Address, DbType.String);
+                dbPara.Add("@P_Age", Data.Age, DbType.String);
+                dbPara.Add("@P_RegDate", DateTime.Now, DbType.DateTime);
+                dbPara.Add("@P_RowSent", Data.RowSent, DbType.String);
+                //dbPara.Add("Flag", Data.Flag, DbType.Boolean);
+                dbPara.Add("@P_LabID", Data.LabID, DbType.Int32);
+                dbPara.Add("@P_LabName", Data.LabName, DbType.String);
+                dbPara.Add("@P_CentrID", Data.CentrID, DbType.Int32);
+                dbPara.Add("@P_LabCode", Data.LabCode, DbType.String);
+                dbPara.Add("@P_Sys_Date", DateTime.Now, DbType.DateTime);
+                dbPara.Add("@P_Userid", Data.Userid, DbType.Int32);
+                if (Data.admin == true)
+                {
+                    dbPara.Add("@P_admin", "A");
+                }
+                else
+                {
+                    dbPara.Add("@P_admin", "U");
+
+                }
+
+                dbPara.Add("@P_Company_Id", Data.Company_Id, DbType.Int32);
+                if(Data.Flag == true)
+                {
+                    dbPara.Add("@P_Flag", 1);
+                }
+                else
+                {
+                    dbPara.Add("@P_Flag", 0);
+                }
+
+               
+                dbPara.Add("@P_Name", Data.Name, DbType.String);
+                dbPara.Add("@P_Degree", Data.Degree, DbType.String);
+                dbPara.Add("@P_Reg_No", Data.Reg_No, DbType.String);
+                dbPara.Add("@P_Consulting", Data.Consulting, DbType.String);
+
+                var fileName = "";
+                //var file = Data.FileUpload;
+                string folderName = "UploadedFiles";
+                if (!string.IsNullOrEmpty("Userreg"))
+                {
+                    folderName = Path.Combine(folderName, "Userreg");
+                }
+                folderName = Path.Combine(folderName);
+                string pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (Data.FileUpload == null)
+                {
+                    dbPara.Add("@P_Attachment", Convert.FromBase64String(""), DbType.Binary);
+                }
+                else
+                {
+                    var fileName1 = ContentDispositionHeaderValue.Parse(Data.FileUpload.ContentDisposition).FileName.Trim('"');
+                    fileName = Data.UserName + "_" + DateTime.Now.Ticks + fileName1;
+                    var fullPath = Path.Combine(pathToSave, Data.SavedFileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+
+                    byte[] file;
+
+
+                    using (var stream = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                    {
+                        using (var reader = new BinaryReader(stream))
+                        {
+
+                            file = reader.ReadBytes((int)stream.Length);
+                            dbPara.Add("@P_Attachment", file, DbType.Binary);
+
+                        }
+                    }
+                    
+                }
+                
+
+
+                var data = _MyLabHelper.Insert<long>("[dbo].[PRC_InsertUpdateUserMaster_NEW_IUD]", dbPara, commandType: CommandType.StoredProcedure);
+                return data;
+
+
+
+            }
+            catch (Exception Ex)
+            { 
+            }
+               return 1;
+            
+          
+        }
+
+
+        public UserMdsignusers GetUsermasterUsingId(int Id)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", Id, DbType.Int32);
+
+            var data = _MyLabHelper.GetAll<UserMdsignusers>("[dbo].[SP_GetUsermaster_NEW_DetailsByID]", dbPara, commandType: CommandType.StoredProcedure);
+            return data[0];
+        }
+
+
     }
 }
