@@ -55,6 +55,7 @@ namespace myLabWebApi.Models
         public string Remarks { get; set; }
         public bool LabelSampleReceived { get; set; }
         public bool ISDone { get; set; }
+        public string USER { get; set; }
 
     }
 }
