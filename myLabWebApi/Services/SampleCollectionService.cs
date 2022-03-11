@@ -78,6 +78,7 @@ namespace myLabWebApi.Services
             dbPara.Add("@P_Remarks", model.Remarks, DbType.String);
             dbPara.Add("@P_LabelSampleReceived",model.LabelSampleReceived, DbType.Boolean);
             dbPara.Add("@P_ISDone",model.ISDone, DbType.Boolean);
+            dbPara.Add("@P_User", model.USER, DbType.Boolean);
 
             var data = _MyLabHelper.Update<string>("[dbo].[PRC_TR_SAMPLECOLLECTION_IUD]", dbPara, commandType: CommandType.StoredProcedure);
             return data;
