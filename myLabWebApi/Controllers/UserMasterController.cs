@@ -705,5 +705,156 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+
+
+        [HttpPost("InsertBlackListMobiles")]
+        public ActionResult InsertBlackListMobiles(BlackListMobilesModel_new model)
+        {
+            try
+            {
+                return Ok(_userMasterService.InsertBlackListMobiles(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+
+        [HttpPost("GetBlackListMobilesSearch")]
+        public ActionResult GetBlackListMobilesSearch(SearchFilters_new model)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetBlackListMobilesSearch_new(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpPost("GetBlackListMobilesSearchCount")]
+        public ActionResult GetBlackListMobilesSearchCount(SearchFilters model)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetBlackListMobilesSearchCount(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+
+        [HttpGet("DeleteBlackListMobiles/{ID}")]
+        public ActionResult DeleteBlackListMobiles(int ID)
+        {
+            try
+            {
+                return Ok(_userMasterService.DeleteBlackListMobiles(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpPost("GetUserightsDetails")]
+        public IActionResult GetuserrightsSearch(SearchFilters_userid m)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetuserrightsSearch(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpPost("GetAlluserrightsDetailsCount")]
+        public IActionResult GetuserrightsCount(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetuserrightsCount(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpPost("GetUserightsDetails_FED")]
+        public IActionResult GetUserightsDetails_FED(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_userMasterService.GetUserightsDetails_FED(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        //[HttpPost("Insertuserrights")]
+        //public async Task<ActionResult> Insertuserrights([FromForm] GetUserightsDetails_FED2 model)
+        //{
+        //    try
+        //    {
+        //        return Ok(_userMasterService.Insertuserrights(model));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _ILogger.Log(ex);
+        //        return BadRequest(ex);
+        //    }
+        //}
+
+
+        [HttpPost("Insertuserrights")]
+        public IActionResult Insertuserrights( GetUserightsDetails_FED2 model)
+        {
+            try
+            {
+                return Ok(_userMasterService.Insertuserrights(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPut("Updateuserrights")]
+        public IActionResult Updateuserrights(GetUserightsDetails_FED2 model)
+        {
+            try
+            {
+                return Ok(_userMasterService.Updateuserrights(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
     }

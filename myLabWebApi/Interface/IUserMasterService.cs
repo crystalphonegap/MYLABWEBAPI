@@ -59,5 +59,25 @@ namespace myLabWebApi.Interface
 
         UserMdsignusers GetUsermasterUsingId(int Id);
 
+        long InsertBlackListMobiles(BlackListMobilesModel_new model);
+
+
+        List<BlackListMobilesModel_new1> GetBlackListMobilesSearch_new(SearchFilters_new model);
+
+        long GetBlackListMobilesSearchCount(SearchFilters model);
+
+        long DeleteBlackListMobiles(int ID);
+
+
+        object GetuserrightsSearch(SearchFilters_userid m);
+
+        long GetuserrightsCount(SearchFilters m);
+        object GetUserightsDetails_FED(SearchFilters m);
+
+        long Insertuserrights(GetUserightsDetails_FED2 model);
+        long Updateuserrights(GetUserightsDetails_FED2 model);
+
+
+
     }
 }

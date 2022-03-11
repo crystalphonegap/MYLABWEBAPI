@@ -136,4 +136,88 @@ namespace myLabWebApi.Models
         
     }
 
+
+    public class BlackListMobilesModel_new
+    {
+
+       
+        public int Addedby { get; set; }
+        public string MenuName { get; set; }
+        //public int Addedby { get; set; }
+       
+       
+    }
+
+
+    public class BlackListMobilesModel_new1
+    {
+        public int Id { get; set; }
+        public int Userid { get; set; }
+        public string MenuName { get; set; }
+        public bool Flag { get; set; }
+        public bool Edit { get; set; }
+        public bool Delete { get; set; }
+
+        public string AddedBy { get; set; }
+        public string AddedOn { get; set; }
+        
+    }
+    public class BlackListMobilesModel_new2
+    {
+        public int Id { get; set; }
+        public int Userid { get; set; }
+        public string MenuName { get; set; }
+        public bool Flag1 { get; set; }
+        public bool Edit1 { get; set; }
+        public bool Delete1 { get; set; }
+
+        public string AddedBy { get; set; }
+        public string AddedOn { get; set; }
+
+    }
+
+    public class GetUserightsDetails_FED
+    {
+        public int Id { get; set; }
+        public int Userid { get; set; }
+        public string MenuName { get; set; }
+        public bool Flag { get; set; }
+        public bool Edit { get; set; }
+        public bool Delete { get; set; }
+
+        public string AddedBy { get; set; }
+        public string AddedOn { get; set; }
+      
+
+    }
+    public class GetUserightsDetails_FED2
+    {
+
+        public List<GetUserightsDetails_FED> Value { get; set; }
+        public string AddedBy { get; set; }
+        public int Userid { get; set; }
+    }
+
+
+        public class SearchFilters_new
+    {
+        public int PageNo { get; set; }
+        public int PageSize { get; set; }
+        public string Keyword { get; set; }
+
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+    }
+
+
+    public class SearchFilters_userid
+    {
+        public int PageNo { get; set; }
+        public int PageSize { get; set; }
+        public int Userid { get; set; }
+        public string Keyword { get; set; }
+
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+    }
 }

@@ -515,12 +515,13 @@ namespace myLabWebApi.Services
         //}
         public long InsertUpdateUsermaster(UserMdsignusers Data)
         {
-        
-           
 
 
 
-            try { 
+
+
+            try
+            {
 
                 var dbPara = new DynamicParameters();
                 dbPara.Add("@P_ID", 0, DbType.Int32);
@@ -567,7 +568,7 @@ namespace myLabWebApi.Services
                 }
 
                 dbPara.Add("@P_Company_Id", Data.Company_Id, DbType.Int32);
-                if(Data.Flag == true)
+                if (Data.Flag == true)
                 {
                     dbPara.Add("@P_Flag", 1);
                 }
@@ -576,7 +577,7 @@ namespace myLabWebApi.Services
                     dbPara.Add("@P_Flag", 0);
                 }
 
-               
+
                 dbPara.Add("@P_Name", Data.Name, DbType.String);
                 dbPara.Add("@P_Degree", Data.Degree, DbType.String);
                 dbPara.Add("@P_Reg_No", Data.Reg_No, DbType.String);
@@ -615,9 +616,9 @@ namespace myLabWebApi.Services
 
                         }
                     }
-                    
+
                 }
-                
+
 
 
                 var data = _MyLabHelper.Insert<long>("[dbo].[PRC_InsertUpdateUserMaster_NEW_IUD]", dbPara, commandType: CommandType.StoredProcedure);
@@ -627,11 +628,11 @@ namespace myLabWebApi.Services
 
             }
             catch (Exception Ex)
-            { 
+            {
             }
-               return 1;
-            
-          
+            return 1;
+
+
         }
 
 
@@ -645,5 +646,274 @@ namespace myLabWebApi.Services
         }
 
 
+
+        public long InsertBlackListMobiles(BlackListMobilesModel_new model)
+        {
+            long data = 0;
+
+           
+
+                var dbPara = new DynamicParameters();
+                dbPara.Add("@P_Addedby", model.Addedby, DbType.Int32);
+                dbPara.Add("@P_MenuName", model.MenuName, DbType.String);
+                //dbPara.Add("UserId", model.Addedby, DbType.Int32);
+                data = _MyLabHelper.Insert<long>("[dbo].[PRC_MENULIST_IUD]",
+                             dbPara,
+                             commandType: CommandType.StoredProcedure);
+                return data;
+           
+           
+
+
+
+
+
+
+        }
+
+
+
+
+        public List<BlackListMobilesModel_new1> GetBlackListMobilesSearch_new(SearchFilters_new model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", model.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", model.PageSize, DbType.Int32);
+            if (model.Keyword == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", model.Keyword, DbType.String);
+            }
+            var data = _MyLabHelper.GetAll<BlackListMobilesModel_new1>("[dbo].[PRC_MenuName_SP]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+
+
+        public long GetBlackListMobilesSearchCount(SearchFilters model)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -1, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (model.Keyword == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", model.Keyword, DbType.String);
+            }
+            var data = _MyLabHelper.Get<CountModel>("[dbo].[PRC_MenuName_SP]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ListCount;
+        }
+
+
+        public long DeleteBlackListMobiles(int ID)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -4, DbType.Int32);
+            dbPara.Add("PageSize", ID, DbType.Int32);
+            dbPara.Add("Keyword", "", DbType.String);
+            var data = _MyLabHelper.Get<long>("[dbo].[PRC_MenuName_SP]", dbPara, commandType: CommandType.StoredProcedure);
+            return data;
+        }
+
+
+        public object GetuserrightsSearch(SearchFilters_userid m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            dbPara.Add("Userid", m.Userid, DbType.Int32);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+
+            var data = _MyLabHelper.GetAll<BlackListMobilesModel_new1>("[dbo].[SP_Get_USERRIGHTS_ALL_DATA]", dbPara, commandType: CommandType.StoredProcedure);
+           
+            if(data.Count==0)
+            {
+                var dbPara1 = new DynamicParameters();
+                dbPara1.Add("PageNo", -3, DbType.Int32);
+                dbPara1.Add("PageSize", m.PageSize, DbType.Int32);
+                dbPara1.Add("Userid", m.Userid, DbType.Int32);
+                dbPara1.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+
+                var data1 = _MyLabHelper.GetAll<BlackListMobilesModel_new2>("[dbo].[SP_Get_USERRIGHTS_ALL_DATA]", dbPara1, commandType: CommandType.StoredProcedure);
+                return data1.ToList();
+            }
+            else
+            {
+                return data.ToList();
+
+
+            }
+        }
+
+
+        public long GetuserrightsCount(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -2, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+            var data = _MyLabHelper.GetAll<BlackListMobilesModel_new1>("[dbo].[SP_Get_USERRIGHTS_ALL_DATA]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+        }
+
+        public object GetUserightsDetails_FED(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -3, DbType.Int32);
+            dbPara.Add("PageSize",0, DbType.Int32);
+            dbPara.Add("Keyword", m.Keyword == "NoSearch" ? "" : m.Keyword.Trim(), DbType.String);
+
+            var data = _MyLabHelper.GetAll<BlackListMobilesModel_new1>("[dbo].[SP_Get_USERRIGHTS_ALL_DATA]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+
+
+        public long Insertuserrights(GetUserightsDetails_FED2 model)
+        {
+            long data=0;
+            try
+            {
+
+                var dbPara = new DynamicParameters();
+                for (int i=0;i< model.Value.Count;i++)
+                {
+                   
+                    //string Userid = model.Value[i].Userid.ToString();
+                    string MenuName = model.Value[i].MenuName.ToString();
+                    string Flag = model.Value[i].Flag.ToString();
+                    string Edit = model.Value[i].Edit.ToString();
+                    string Delete = model.Value[i].Delete.ToString();
+                    //string s = model.Value[i].Delete.ToString();
+
+                    dbPara.Add("@P_ACTION", 'I', DbType.String);
+                    dbPara.Add("@P_Userid", model.Userid, DbType.Int32);
+                    dbPara.Add("@P_MenuName", Convert.ToString(MenuName), DbType.String);
+                    if (Flag == "True")
+                    {
+                        dbPara.Add("@P_Flag", 1, DbType.Int32);
+                    }
+                    else
+                    {
+                        dbPara.Add("P_Flag", 0, DbType.Int32);
+                    }
+                    if (Edit == "True")
+                    {
+                        dbPara.Add("@P_Edit", 1, DbType.Int32);
+                    }
+                    else
+                    {
+                        dbPara.Add("P_Edit", 0, DbType.Int32);
+                    }
+                    if (Delete == "True")
+                    {
+                        dbPara.Add("@P_Delete", 1, DbType.Int32);
+                    }
+                    else
+                    {
+                        dbPara.Add("@P_Delete", 0, DbType.Int32);
+                    }
+
+
+                    dbPara.Add("@P_AddedBy", model.AddedBy, DbType.Int32);
+
+                    data = _MyLabHelper.Insert<long>("[dbo].[PRC_InsertUpdateUserrights_IUD]", dbPara, commandType: CommandType.StoredProcedure);
+
+                }
+
+
+
+                
+
+
+
+
+
+            }
+            catch (Exception Ex)
+            {
+            }
+            return 1;
+
+
+        }
+
+
+
+
+        public long Updateuserrights(GetUserightsDetails_FED2 model)
+        {
+            long data = 0;
+            try
+            {
+
+                var dbPara = new DynamicParameters();
+                for (int i = 0; i < model.Value.Count; i++)
+                {
+
+                    //string Userid = model.Value[i].Userid.ToString();
+                    string MenuName = model.Value[i].MenuName.ToString();
+                    string Flag = model.Value[i].Flag.ToString();
+                    string Edit = model.Value[i].Edit.ToString();
+                    string Delete = model.Value[i].Delete.ToString();
+                    //string s = model.Value[i].Delete.ToString();
+
+                    dbPara.Add("@P_ACTION", 'U', DbType.String);
+                    dbPara.Add("@P_Userid", model.Userid, DbType.Int32);
+                    dbPara.Add("@P_MenuName", Convert.ToString(MenuName), DbType.String);
+                    if (Flag == "True")
+                    {
+                        dbPara.Add("@P_Flag", 1, DbType.Int32);
+                    }
+                    else
+                    {
+                        dbPara.Add("P_Flag", 0, DbType.Int32);
+                    }
+                    if (Edit == "True")
+                    {
+                        dbPara.Add("@P_Edit", 1, DbType.Int32);
+                    }
+                    else
+                    {
+                        dbPara.Add("P_Edit", 0, DbType.Int32);
+                    }
+                    if (Delete == "True")
+                    {
+                        dbPara.Add("@P_Delete", 1, DbType.Int32);
+                    }
+                    else
+                    {
+                        dbPara.Add("@P_Delete", 0, DbType.Int32);
+                    }
+
+
+                    dbPara.Add("@P_AddedBy", model.AddedBy, DbType.Int32);
+
+                    data = _MyLabHelper.Insert<long>("[dbo].[PRC_InsertUpdateUserrights_IUD]", dbPara, commandType: CommandType.StoredProcedure);
+
+                }
+
+
+
+
+
+
+
+
+
+            }
+            catch (Exception Ex)
+            {
+            }
+            return 1;
+
+
+        }
     }
 }
