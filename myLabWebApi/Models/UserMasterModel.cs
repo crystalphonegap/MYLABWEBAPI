@@ -41,6 +41,15 @@ namespace myLabWebApi.Models
         public string Branch { get; set; }
         public string Territory { get; set; }
         public string ResetTokenvtxt { get; set; }
+        public int Userid { get; set; }
+        public string MenuName { get; set; }
+        public bool Flag1 { get; set; }
+        public bool Edit { get; set; }
+        public bool Delete { get; set; }
+        //public string LabName { get; set; }
+
+
+
     }
     public class LoginModel
     { 
@@ -167,9 +176,9 @@ namespace myLabWebApi.Models
         public int Id { get; set; }
         public int Userid { get; set; }
         public string MenuName { get; set; }
-        public bool Flag1 { get; set; }
-        public bool Edit1 { get; set; }
-        public bool Delete1 { get; set; }
+        public bool Flag { get; set; }
+        public bool Edit { get; set; }
+        public bool Delete { get; set; }
 
         public string AddedBy { get; set; }
         public string AddedOn { get; set; }

@@ -345,28 +345,30 @@ namespace myLabWebApi.Controllers
             try
             {
 
-                UserMasterModel usermodel = _userMasterService.Login(userMaster.UserName, userMaster.Password);
+                //UserMasterModel usermodel = _userMasterService.Login(userMaster.UserName, userMaster.Password);
 
-                if (usermodel == null)
-                {
-                    return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
-                }
+                //if (usermodel == null)
+                //{
+                //    return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
+                //}
 
-                if (usermodel.UserName != "")
-                {
-                    UserMasterModel model = new UserMasterModel();
-                    model.Type = usermodel.Type;
-                    model.ID = usermodel.ID;
-                    model.LabID = usermodel.LabID;
-                    model.LabName = usermodel.LabName;
-                    model.LabCode = usermodel.LabCode;
-                    model.UserName = usermodel.UserName;
-                    return Ok(model);
-                }
-                else
-                {
-                    return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
-                }
+                //if (usermodel.UserName != "")
+                //{
+                //    UserMasterModel model = new UserMasterModel();
+                //    model.Type = usermodel.Type;
+                //    model.ID = usermodel.ID;
+                //    model.LabID = usermodel.LabID;
+                //    model.LabName = usermodel.LabName;
+                //    model.LabCode = usermodel.LabCode;
+                //    model.UserName = usermodel.UserName;
+                //    return Ok(model);
+                //}
+                //else
+                //{
+                //    return Ok(StatusCode((int)HttpStatusCode.NotFound, "user not found"));
+                //}
+
+                return Ok(_userMasterService.Login(userMaster.UserName, userMaster.Password));
             }
             catch (Exception ex)
             {

@@ -29,7 +29,8 @@ namespace myLabWebApi.Interface
 
         List<UserMasterModel> UserPaging(int pageNo, int pageSize);
 
-        UserMasterModel Login(string usercode, string password);
+        //UserMasterModel Login(string usercode, string password);
+        List<UserMasterModel> Login(string usercode, string password);
 
         UserMasterModel LoginLogs(string UserCode, string UserName, string UserType, string BrowserName, string IpAddress);
 

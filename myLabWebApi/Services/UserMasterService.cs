@@ -167,13 +167,22 @@ namespace myLabWebApi.Services
             return data;
         }
 
-        public UserMasterModel Login(string usercode, string password)
+        //public UserMasterModel Login(string usercode, string password)
+        //{
+        //    var dbPara = new DynamicParameters();
+        //    dbPara.Add("usercode", usercode, DbType.String);
+        //    dbPara.Add("password", password, DbType.String);
+        //    var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
+        //    return data;
+        //}
+
+        public List<UserMasterModel> Login(string usercode, string password)
         {
             var dbPara = new DynamicParameters();
             dbPara.Add("usercode", usercode, DbType.String);
             dbPara.Add("password", password, DbType.String);
-            var data = _MyLabHelper.Get<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
-            return data;
+            var data = _MyLabHelper.GetAll<UserMasterModel>("[dbo].[uspviewCheckUser]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
         }
 
         public UserMasterModel LoginLogs(string UserCode, string UserName, string UserType, string BrowserName, string IpAddress)
