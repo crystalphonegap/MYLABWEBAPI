@@ -56,5 +56,7 @@ namespace myLabWebApi.Interface
         long PaidBalanceAmount(AmountPaidClass model);
         List<PaymentHistoryClass> GetPatientPaymentHistory(int PatientId);
         MakeBillMessageClass GetMakeBillMessage(int PatientId);
+
+        List<PAIT_HDR_DET_TEST> GetPatientTestDetail_ShowPrescription(string ID);
     }
 }

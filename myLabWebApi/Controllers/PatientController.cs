@@ -521,5 +521,19 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet("GetPatientTestDetail_ShowPrescription/{ID}")]
+        public IActionResult GetPatientTestDetail_ShowPrescription(string ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetPatientTestDetail_ShowPrescription(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
 }

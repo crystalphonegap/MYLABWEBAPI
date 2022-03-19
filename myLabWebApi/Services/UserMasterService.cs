@@ -585,8 +585,6 @@ namespace myLabWebApi.Services
                 {
                     dbPara.Add("@P_Flag", 0);
                 }
-
-
                 dbPara.Add("@P_Name", Data.Name, DbType.String);
                 dbPara.Add("@P_Degree", Data.Degree, DbType.String);
                 dbPara.Add("@P_Reg_No", Data.Reg_No, DbType.String);

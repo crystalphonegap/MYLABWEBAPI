@@ -954,5 +954,41 @@ namespace myLabWebApi.Services
 
             return data;
         }
+
+        public List<PAIT_HDR_DET_TEST> GetPatientTestDetail_ShowPrescription(string ID)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("TestId", Convert.ToInt32(ID), DbType.Int32);
+
+            var data = _MyLabHelper.GetAll<PAIT_HDR_DET_TEST>("[dbo].[USP_GETTESTDETAIL]", dbPara, commandType: CommandType.StoredProcedure);
+            var fileName = "";
+            //var file = Data.FileUpload;
+            string folderName = "UploadedFiles";
+            if (!string.IsNullOrEmpty("PatientReg"))
+            {
+                folderName = Path.Combine(folderName, "PatientReg");
+            }
+            folderName = Path.Combine(folderName);
+            string pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            if (data[0].FileName == null)
+            {
+              
+            }
+            else
+            {
+                for (int i = 0; i < data.Count; i++)
+                {
+                    string filename = data[0].FileName.ToString();
+                    //string Userid = model.Value[i].Userid.ToString();
+                    //string filename = data.Count[0].filename.ToString();
+                }
+            }
+
+            var fullPath = Path.Combine(pathToSave, data[0].FileName);
+            data[0].FileName= fullPath.Trim();
+           
+
+            return data.ToList();
+        }
     }
 }
