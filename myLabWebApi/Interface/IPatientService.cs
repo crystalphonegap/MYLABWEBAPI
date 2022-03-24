@@ -58,5 +58,15 @@ namespace myLabWebApi.Interface
         MakeBillMessageClass GetMakeBillMessage(int PatientId);
 
         List<PAIT_HDR_DET_TEST> GetPatientTestDetail_ShowPrescription(string ID);
+
+
+        List<PatientMasterModel> GetpatientSearch_report(SearchFilters_Patient_REPORT m);
+        long GetpatientSearch_report_count(SearchFilters_Patient_REPORT m);
+        List<RATELISTHDR_NEW> categorywiseRateList(SearchFilters m);
+
+        List<RATELISTHDR_NEW> collectionwiseratelistupdate(long ID);
+        long collectionwiseratelistupdate_new(RATELISTHDR_NEW model);
+
+
     }
 }

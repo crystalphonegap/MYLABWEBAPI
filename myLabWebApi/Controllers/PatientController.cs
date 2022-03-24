@@ -535,5 +535,78 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+
+        [HttpPost("GetpatientSearch_report")]
+        public IActionResult GetpatientSearch_report(SearchFilters_Patient_REPORT m)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetpatientSearch_report(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        //Use For Employee Search  Count
+        [HttpPost("GetpatientSearch_report_count")]
+        public IActionResult GetpatientSearch_report_count(SearchFilters_Patient_REPORT m)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetpatientSearch_report_count(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("categorywiseRateList")]
+        public IActionResult categorywiseRateList(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_IPatientService.categorywiseRateList(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet("collectionwiseratelistupdate/{ID}")]
+        public IActionResult collectionwiseratelistupdate (int ID)
+        {
+            try
+            {
+                return Ok(_IPatientService.collectionwiseratelistupdate(ID));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("collectionwiseratelistupdate_new")]
+        public IActionResult collectionwiseratelistupdate_new(RATELISTHDR_NEW model)
+        {
+            try
+            {
+                return Ok(_IPatientService.collectionwiseratelistupdate_new(model));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
 }

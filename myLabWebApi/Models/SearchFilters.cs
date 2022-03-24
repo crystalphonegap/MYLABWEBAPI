@@ -34,5 +34,16 @@ namespace myLabWebApi.Models
         public int ID { get; set; }
         public string Name { get; set; }
     }
-        
+
+    public class SearchFilters_Patient_REPORT
+    {
+        public int PageNo { get; set; }
+        public int PageSize { get; set; }
+        public string Keyword { get; set; }
+
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+        public string UserId { get; set; }
+    }
+
 }

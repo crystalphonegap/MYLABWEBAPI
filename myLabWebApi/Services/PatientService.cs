@@ -990,5 +990,118 @@ namespace myLabWebApi.Services
 
             return data.ToList();
         }
+
+        public List<PatientMasterModel> GetpatientSearch_report(SearchFilters_Patient_REPORT m)
+        {
+
+
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", m.PageNo, DbType.Int32);
+            dbPara.Add("PageSize", m.PageSize, DbType.Int32);
+            if (m.Keyword == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", m.Keyword, DbType.String);
+            }
+
+            if (m.FromDate == null || m.ToDate == "null" || m.ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(m.FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(m.ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
+            dbPara.Add("UserId", m.UserId, DbType.Int32);
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public long GetpatientSearch_report_count(SearchFilters_Patient_REPORT m)
+        {
+
+            var dbPara = new DynamicParameters();
+            dbPara.Add("PageNo", -7, DbType.Int32);
+            dbPara.Add("PageSize", 0, DbType.Int32);
+            if (m.Keyword == "NoSearch")
+            {
+                dbPara.Add("Keyword", "", DbType.String);
+            }
+            else
+            {
+                dbPara.Add("Keyword", m.Keyword, DbType.String);
+            }
+
+            if (m.FromDate == null || m.ToDate == "null" || m.ToDate == "")
+            {
+
+                DateTime FDate = DateTime.ParseExact(DateTime.Now.Date.ToString("MM-dd-yyyy"), "MM-dd-yyyy", null);
+                dbPara.Add("FromDate", FDate, DbType.DateTime);
+                dbPara.Add("ToDate", FDate, DbType.DateTime);
+            }
+            else
+            {
+                dbPara.Add("FromDate", DateTime.ParseExact(m.FromDate, "MM-dd-yyyy", null), DbType.DateTime);
+                dbPara.Add("ToDate", DateTime.ParseExact(m.ToDate, "MM-dd-yyyy", null), DbType.DateTime);
+            }
+            dbPara.Add("UserId", m.UserId, DbType.Int32);
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList().Count;
+            //var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_PatientList]", dbPara, commandType: CommandType.StoredProcedure);
+            //return data.ToList().Count;
+        }
+
+        public List<RATELISTHDR_NEW> categorywiseRateList(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", 0, DbType.Int32);
+            dbPara.Add("@P_ACTION", "R", DbType.String);
+
+            var data = _MyLabHelper.GetAll<RATELISTHDR_NEW>("[dbo].[SP_Getcollectionwiseratelistupdate]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+
+        public List<RATELISTHDR_NEW> collectionwiseratelistupdate(long ID)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", ID, DbType.Int32);
+            dbPara.Add("@P_ACTION", "H", DbType.String);
+
+            var data = _MyLabHelper.GetAll<RATELISTHDR_NEW>("[dbo].[SP_Getcollectionwiseratelistupdate]", dbPara, commandType: CommandType.StoredProcedure);
+           
+            return data.ToList();
+        }
+
+        public long collectionwiseratelistupdate_new(RATELISTHDR_NEW model)
+        {
+            long data = 1;
+            try
+            {
+                var dbPara = new DynamicParameters();
+                dbPara.Add("@P_RateListId", model.RateListId, DbType.Int32);
+                dbPara.Add("@P_Routine", model.Routine, DbType.Int32);
+                dbPara.Add("@P_Special", model.Special, DbType.Int32);
+                dbPara.Add("@P_Microbiology", model.Microbiology, DbType.Int32);
+                dbPara.Add("@P_Outside", model.Outside, DbType.Int32);
+                dbPara.Add("@P_Histo", model.Histo, DbType.Int32);
+                dbPara.Add("@P_other", model.other, DbType.Int32);
+                dbPara.Add("@P_other1", model.other1, DbType.Int32);
+                data = _MyLabHelper.Insert<long>("[dbo].[SP_collectionwiseratelistupdate_new]", dbPara, commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception Ex)
+            {
+            }
+            return data;
+
+
+        }
     }
 }
