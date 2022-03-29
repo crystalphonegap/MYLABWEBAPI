@@ -1103,5 +1103,51 @@ namespace myLabWebApi.Services
 
 
         }
+
+        public List<RATELISTHDR_NEW> Accountbook_CenterName(AccountBook m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", m.ID, DbType.Int32);
+            dbPara.Add("@P_ACTION", "R", DbType.String);
+            dbPara.Add("@P_FromDate", "", DbType.String);
+            dbPara.Add("@P_ToDate", "", DbType.String);
+
+            var data = _MyLabHelper.GetAll<RATELISTHDR_NEW>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+        public List<AccountbookUserMasterModel> Daily_Accountbook_Username(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", 0, DbType.Int32);
+            dbPara.Add("@P_ACTION", "U", DbType.String);
+            dbPara.Add("@P_FromDate", m.FromDate, DbType.String);
+            dbPara.Add("@P_ToDate", m.ToDate, DbType.String);
+
+            var data = _MyLabHelper.GetAll<AccountbookUserMasterModel>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+        public List<AccountbookUserMasterModel> Accountbook_Username(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", 0, DbType.Int32);
+            dbPara.Add("@P_ACTION", "U1", DbType.String);
+            dbPara.Add("@P_FromDate", m.FromDate, DbType.String);
+            dbPara.Add("@P_ToDate", m.ToDate, DbType.String);
+
+            var data = _MyLabHelper.GetAll<AccountbookUserMasterModel>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+        public List<AccountbookUserMasterModel> GetAllLabNoDetails(AccountBook m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", 0, DbType.Int32);
+            dbPara.Add("@P_ACTION", "L", DbType.String);
+            dbPara.Add("@P_FromDate", m.Labname, DbType.String);
+            dbPara.Add("@P_ToDate", "", DbType.String);
+
+            var data = _MyLabHelper.GetAll<AccountbookUserMasterModel>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
     }
 }

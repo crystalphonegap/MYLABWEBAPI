@@ -67,6 +67,11 @@ namespace myLabWebApi.Interface
         List<RATELISTHDR_NEW> collectionwiseratelistupdate(long ID);
         long collectionwiseratelistupdate_new(RATELISTHDR_NEW model);
 
+        List<RATELISTHDR_NEW> Accountbook_CenterName(AccountBook m);
+        List<AccountbookUserMasterModel> Accountbook_Username(SearchFilters m);
+        List<AccountbookUserMasterModel> Daily_Accountbook_Username(SearchFilters m);
+        List<AccountbookUserMasterModel> GetAllLabNoDetails(AccountBook m);
+
 
     }
 }

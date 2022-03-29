@@ -608,5 +608,59 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+        [HttpPost("Accountbook_CenterName")]
+        public IActionResult Accountbook_CenterName(AccountBook m)
+        {
+            try
+            {
+                return Ok(_IPatientService.Accountbook_CenterName(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+        [HttpPost("Daily_Accountbook_Username")]
+        public IActionResult Daily_Accountbook_Username(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_IPatientService.Daily_Accountbook_Username(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+        [HttpPost("Accountbook_Username")]
+        public IActionResult Accountbook_Username(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_IPatientService.Accountbook_Username(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("GetAllLabNoDetails")]
+        public IActionResult GetAllLabNoDetails(AccountBook m)
+        {
+            try
+            {
+                return Ok(_IPatientService.GetAllLabNoDetails(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
     }
 }

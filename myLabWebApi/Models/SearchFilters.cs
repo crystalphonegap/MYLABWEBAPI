@@ -46,4 +46,12 @@ namespace myLabWebApi.Models
         public string UserId { get; set; }
     }
 
+    public class AccountBook
+    {
+       
+        public string ID { get; set; }
+        public string Labname { get; set; }
+
+    }
+
 }
