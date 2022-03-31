@@ -78,6 +78,8 @@ namespace myLabWebApi.Interface
         long Insertuserrights(GetUserightsDetails_FED2 model);
         long Updateuserrights(GetUserightsDetails_FED2 model);
 
+        List<UserMasterModel> Daily_Username(SearchFilters m);
+
 
 
     }

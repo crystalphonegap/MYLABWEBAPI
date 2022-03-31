@@ -71,6 +71,9 @@ namespace myLabWebApi.Interface
         List<AccountbookUserMasterModel> Accountbook_Username(SearchFilters m);
         List<AccountbookUserMasterModel> Daily_Accountbook_Username(SearchFilters m);
         List<AccountbookUserMasterModel> GetAllLabNoDetails(AccountBook m);
+        List<Testtypelist> Testtypelist(SearchFilters m);
+        List<AccountbookUserMasterModel> lablist(SearchFilters m);
+        List<PatientMasterModel> getAllpatientlist(AccountBook m);
 
 
     }

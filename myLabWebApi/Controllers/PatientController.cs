@@ -662,5 +662,48 @@ namespace myLabWebApi.Controllers
             }
         }
 
+        [HttpPost("Testtypelist")]
+        public IActionResult Testtypelist(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_IPatientService.Testtypelist(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("lablist")]
+        public IActionResult lablist(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_IPatientService.lablist(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpPost("getAllpatientlist")]
+        public IActionResult getAllpatientlist(AccountBook m)
+        {
+            try
+            {
+                return Ok(_IPatientService.getAllpatientlist(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
+
     }
 }

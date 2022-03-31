@@ -1149,5 +1149,41 @@ namespace myLabWebApi.Services
             return data.ToList();
         }
 
+
+        public List<Testtypelist> Testtypelist(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", m.Keyword, DbType.Int32);
+            dbPara.Add("@P_ACTION", "T", DbType.String);
+            dbPara.Add("@P_FromDate", m.FromDate, DbType.String);
+            dbPara.Add("@P_ToDate", m.ToDate, DbType.String);
+
+            var data = _MyLabHelper.GetAll<Testtypelist>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public List<AccountbookUserMasterModel> lablist(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", 0, DbType.Int32);
+            dbPara.Add("@P_ACTION", "U2", DbType.String);
+            dbPara.Add("@P_FromDate", "", DbType.String);
+            dbPara.Add("@P_ToDate", "", DbType.String);
+            var data = _MyLabHelper.GetAll<AccountbookUserMasterModel>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
+        public List<PatientMasterModel> getAllpatientlist(AccountBook m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", 0, DbType.Int32);
+            dbPara.Add("@P_ACTION", "P", DbType.String);
+            dbPara.Add("@P_FromDate", m.ID.TrimEnd(','), DbType.String);
+            dbPara.Add("@P_ToDate", "", DbType.String);
+
+            var data = _MyLabHelper.GetAll<PatientMasterModel>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
+
     }
 }

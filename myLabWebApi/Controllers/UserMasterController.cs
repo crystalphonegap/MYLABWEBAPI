@@ -858,5 +858,19 @@ namespace myLabWebApi.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpPost("Daily_Username")]
+        public IActionResult Daily_Username(SearchFilters m)
+        {
+            try
+            {
+                return Ok(_userMasterService.Daily_Username(m));
+            }
+            catch (Exception ex)
+            {
+                _ILogger.Log(ex);
+                return BadRequest(ex);
+            }
+        }
     }
     }

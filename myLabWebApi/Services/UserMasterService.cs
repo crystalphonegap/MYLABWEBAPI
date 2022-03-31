@@ -922,5 +922,16 @@ namespace myLabWebApi.Services
 
 
         }
+        public List<UserMasterModel> Daily_Username(SearchFilters m)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("@P_ID", m.PageNo, DbType.Int32);
+            dbPara.Add("@P_ACTION", "U3", DbType.String);
+            dbPara.Add("@P_FromDate", m.FromDate, DbType.String);
+            dbPara.Add("@P_ToDate", m.ToDate, DbType.String);
+
+            var data = _MyLabHelper.GetAll<UserMasterModel>("[dbo].[SP_GetAccountbook]", dbPara, commandType: CommandType.StoredProcedure);
+            return data.ToList();
+        }
     }
 }
